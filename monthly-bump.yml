@@ -1,0 +1,99 @@
+name: Monthly Auto-Bump
+
+# 每月 1 號 UTC 01:00（台灣時間早上 9 點）自動跑
+# 也可從 Actions 頁面手動觸發測試
+on:
+  schedule:
+    - cron: '0 1 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version stamp and sitemap lastmod
+        id: bump
+        run: |
+          set -e
+          # 取得日期（用 Asia/Taipei 時區，符合「X 月版」語意）
+          export TZ='Asia/Taipei'
+          TODAY=$(date '+%Y-%m-%d')
+          YEAR=$(date '+%Y')
+          MONTH=$(date '+%-m')   # 不補零
+          YEAR_MONTH_LABEL="${YEAR} 年 ${MONTH} 月版"
+          echo "目標版本標籤：${YEAR_MONTH_LABEL}"
+
+          python3 <<PYEOF
+          import re, pathlib, sys
+
+          html_path = pathlib.Path('index.html')
+          sm_path   = pathlib.Path('sitemap.xml')
+          today     = "${TODAY}"
+          label     = "${YEAR_MONTH_LABEL}"
+
+          html = html_path.read_text(encoding='utf-8')
+
+          # 1) 解析現行版本號（v1.0 / v1.10 / v2.3 等）
+          m = re.search(r'class="version">\s*([^<]+?)\s*</span>', html)
+          if not m:
+              print("ERROR: 找不到 .version 標籤")
+              sys.exit(1)
+          current = m.group(1)
+          print(f"目前標籤：{current}")
+
+          mv = re.search(r'v(\d+)\.(\d+)', current)
+          if not mv:
+              new_version = 'v1.1'
+          else:
+              major, minor = int(mv.group(1)), int(mv.group(2))
+              new_version = f'v{major}.{minor + 1}'
+          print(f"新版本號：{new_version}")
+
+          new_label = f"{label} · {new_version}"
+
+          # 2) 替換 version span
+          new_html = re.sub(
+              r'(class="version">)\s*[^<]+?\s*(</span>)',
+              lambda m_: m_.group(1) + new_label + m_.group(2),
+              html, count=1
+          )
+
+          if new_html == html:
+              print("無變動")
+              sys.exit(0)
+
+          html_path.write_text(new_html, encoding='utf-8')
+          print(f"index.html 已更新：{new_label}")
+
+          # 3) 更新 sitemap.xml 中 入口頁的 lastmod
+          sm = sm_path.read_text(encoding='utf-8')
+          sm_new = re.sub(
+              r'(<loc>https://weiwen0925\.github\.io/dazhidulun-0/</loc>\s*<lastmod>)[^<]+(</lastmod>)',
+              r'\g<1>' + today + r'\g<2>',
+              sm, count=1
+          )
+          if sm_new != sm:
+              sm_path.write_text(sm_new, encoding='utf-8')
+              print(f"sitemap.xml 入口頁 lastmod 更新為 {today}")
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html sitemap.xml
+          if git diff --staged --quiet; then
+            echo "無變動，跳過 commit"
+          else
+            git commit -m "Monthly auto-bump: version stamp + sitemap lastmod"
+            git push
+            echo "✓ 已 push，IndexNow workflow 會自動接著跑"
+          fi

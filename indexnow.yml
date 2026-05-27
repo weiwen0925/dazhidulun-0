@@ -1,0 +1,56 @@
+name: IndexNow Ping
+
+# 任何 push 到 main，若有改動 HTML 或 sitemap 就通知 Bing/Yandex/Naver
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build URL list from changed files
+        id: urls
+        run: |
+          # 預設 ping 入口頁；之後若加多個 HTML 可在這裡擴充
+          urls='"https://weiwen0925.github.io/dazhidulun-0/"'
+          echo "urls=[$urls]" >> "$GITHUB_OUTPUT"
+
+      - name: Notify IndexNow (Bing, Yandex, Naver)
+        run: |
+          PAYLOAD=$(cat <<JSON
+          {
+            "host": "weiwen0925.github.io",
+            "key": "7448822262f89b9f921860cb370dd8fd",
+            "keyLocation": "https://weiwen0925.github.io/7448822262f89b9f921860cb370dd8fd.txt",
+            "urlList": ${{ steps.urls.outputs.urls }}
+          }
+          JSON
+          )
+          echo "Payload:"
+          echo "$PAYLOAD"
+          echo ""
+          echo "Posting to IndexNow..."
+          HTTP_CODE=$(curl -s -o /tmp/indexnow.out -w "%{http_code}" \
+            -X POST 'https://api.indexnow.org/IndexNow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            -d "$PAYLOAD")
+          echo "HTTP $HTTP_CODE"
+          cat /tmp/indexnow.out || true
+          # 200 / 202 都算成功
+          if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "202" ]; then
+            echo "✓ IndexNow accepted"
+          else
+            echo "✗ IndexNow returned $HTTP_CODE"
+            exit 1
+          fi
