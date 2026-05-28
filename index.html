@@ -868,6 +868,76 @@
             margin-top: 22px;
         }
 
+        /* 本頻道影音課程卡 — YouTube 課程入口 */
+        .resource-card--video {
+            position: relative;
+            border-color: var(--gold-amber);
+            background: linear-gradient(180deg, rgba(217, 184, 124, 0.10) 0%, rgba(70, 56, 43, 0.65) 100%);
+            box-shadow: 0 0 0 1px rgba(217, 184, 124, 0.18), 0 6px 22px -8px rgba(0, 0, 0, 0.4);
+            transition: all 0.22s ease;
+            overflow: hidden;
+        }
+        .resource-card--video::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 120px; height: 120px;
+            background: radial-gradient(circle at top right, rgba(225, 90, 70, 0.18) 0%, transparent 60%);
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .resource-card--video:hover {
+            border-color: var(--gold-bright);
+            background: linear-gradient(180deg, rgba(225, 90, 70, 0.12) 0%, rgba(217, 184, 124, 0.18) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 0 0 1px var(--gold-amber), 0 10px 28px -8px rgba(225, 90, 70, 0.35);
+        }
+        .resource-card--video:hover::before { opacity: 0.6; }
+
+        .rc-video-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            letter-spacing: 2px;
+            color: var(--bg-deep);
+            font-weight: 700;
+            padding: 5px 12px 5px 10px;
+            background: linear-gradient(90deg, #e15a46 0%, #d94528 100%);
+            border-radius: 3px;
+            margin-bottom: 14px;
+            box-shadow: 0 2px 6px -2px rgba(225, 90, 70, 0.5);
+        }
+        .rc-play-icon {
+            width: 13px;
+            height: 13px;
+            fill: #ffffff;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.25));
+        }
+        .resource-card--video h4 {
+            color: var(--gold-bright);
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+        .resource-card--video p {
+            color: var(--text-light);
+        }
+        .rc-cta {
+            display: inline-block;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--line);
+            font-size: 14px;
+            color: var(--gold-amber);
+            letter-spacing: 1px;
+            font-weight: 500;
+            width: 100%;
+            transition: color 0.2s;
+        }
+        .resource-card--video:hover .rc-cta {
+            color: var(--gold-bright);
+        }
+
         /* ===== 作者聲明 & 迴向 ===== */
         .author-statement {
             margin: 60px 0 30px;
@@ -1180,6 +1250,15 @@
 <span class="ss-line"></span>
 </div>
 <div class="resources-grid">
+<a class="resource-card resource-card--video" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2mrXWH8hJwf5WI3b2cbd-k-" rel="noopener" target="_blank">
+<span class="rc-video-badge">
+<svg class="rc-play-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>
+本頻道影音課程
+</span>
+<h4>《大智度論》逐卷講記</h4>
+<p>本頻道親自講授的《大智度論》系列課程播放清單──影音搭配本站文字彙整、逐卷導讀，從題署、譯經背景，到六波羅蜜、十八空、菩薩階位等核心義理，循序深入。</p>
+<span class="rc-cta">▶ 前往 YouTube 播放清單</span>
+</a>
 <a class="resource-card" href="https://cbetaonline.dila.edu.tw/T1509" rel="noopener" target="_blank">
 <h4>CBETA 線上閱讀 · T1509</h4>
 <p>中華電子佛典協會所建《大智度論》全文線上閱讀，含校勘、辭典、引文檢索與全文檢索。</p>
