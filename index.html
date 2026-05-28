@@ -816,6 +816,58 @@
             padding-right: 72px;
         }
 
+        /* 並讀之論卡 — 中論 / 大智度論 互相導流的強化視覺 */
+        .resource-card--companion {
+            border-color: var(--gold-amber);
+            background: linear-gradient(180deg, rgba(217, 184, 124, 0.12) 0%, rgba(217, 184, 124, 0.04) 100%);
+            box-shadow: 0 0 0 1px rgba(217, 184, 124, 0.18), 0 4px 18px -8px rgba(217, 184, 124, 0.25);
+        }
+        .resource-card--companion:hover {
+            border-color: var(--gold-bright);
+            background: linear-gradient(180deg, rgba(217, 184, 124, 0.20) 0%, rgba(217, 184, 124, 0.08) 100%);
+            box-shadow: 0 0 0 1px var(--gold-amber), 0 6px 22px -8px rgba(227, 192, 133, 0.4);
+        }
+        .resource-card--companion h4 {
+            color: var(--gold-bright);
+            padding-top: 6px;
+        }
+        .resource-card--companion p strong {
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+        .resource-card--companion .rc-badge {
+            background: rgba(44, 36, 28, 0.85);
+            border-color: var(--gold-amber);
+            color: var(--gold-bright);
+        }
+        /* 左上角金色緞帶 */
+        .rc-ribbon {
+            position: absolute;
+            top: 10px;
+            left: -4px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            color: var(--bg-deep);
+            font-weight: 600;
+            padding: 4px 10px 4px 12px;
+            background: linear-gradient(90deg, var(--gold-bright) 0%, var(--gold-amber) 100%);
+            border-radius: 0 3px 3px 0;
+            box-shadow: 0 2px 6px -2px rgba(217, 184, 124, 0.5);
+        }
+        .rc-ribbon::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 4px;
+            height: 4px;
+            background: var(--gold-soft);
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+        }
+        .resource-card--companion h4 {
+            margin-top: 22px;
+        }
+
         /* ===== 作者聲明 & 迴向 ===== */
         .author-statement {
             margin: 60px 0 30px;
@@ -1085,10 +1137,11 @@
 <div class="series-group">
 <h4 class="series-label">中觀論藏 · Madhyamaka Treatises</h4>
 <div class="resources-grid resources-grid--compact">
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" rel="noopener" target="_blank">
+<a class="resource-card resource-card--personal resource-card--companion" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" rel="noopener" target="_blank">
+<span class="rc-ribbon">↹ 並讀之論</span>
 <span class="rc-badge">龍樹造</span>
 <h4>中論</h4>
-<p>Mūlamadhyamakakārikā · 龍樹中觀學派的根本論。本《智論》與《中論》互為表裡，前者明菩薩行，後者破諸戲論。</p>
+<p>Mūlamadhyamakakārikā · 龍樹自造、中觀派根本論。<strong>《中論》是「綱」、本《智論》是「目」</strong>——中論用「八不」破諸戲論，大智度論用「十八空」展開實踐。兩部互為表裡，並讀始見龍樹全貌。</p>
 </a>
 <a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/twelve-gates/" rel="noopener" target="_blank">
 <span class="rc-badge">龍樹造</span>
