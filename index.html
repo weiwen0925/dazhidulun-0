@@ -938,6 +938,66 @@
             color: var(--gold-bright);
         }
 
+        /* 個人卡內的雙連結結構（主連結 + 影音連結） */
+        .rc-main {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .rc-main h4, .rc-main p {
+            /* 繼承既有樣式即可 */
+        }
+        .resource-card--personal .rc-main h4 {
+            color: var(--gold-bright);
+            margin-top: 0;
+        }
+        .resource-card--companion .rc-main h4 {
+            color: var(--gold-bright);
+        }
+        .rc-video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin-top: 14px;
+            padding: 7px 13px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: #ffffff;
+            background: linear-gradient(90deg, #e15a46 0%, #d94528 100%);
+            border-radius: 3px;
+            text-decoration: none;
+            font-weight: 500;
+            box-shadow: 0 2px 6px -2px rgba(225, 90, 70, 0.45);
+            transition: all 0.2s ease;
+            position: relative;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        .rc-video-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px -2px rgba(225, 90, 70, 0.6);
+            background: linear-gradient(90deg, #e8694e 0%, #e15a46 100%);
+            color: #ffffff;
+        }
+        .rc-video-link svg {
+            width: 11px;
+            height: 11px;
+            fill: #ffffff;
+            flex-shrink: 0;
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+        }
+        .rc-video-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .rc-video-row .rc-video-link {
+            margin-top: 0;
+            font-size: 12.5px;
+            padding: 6px 11px;
+        }
+
         /* ===== 作者聲明 & 迴向 ===== */
         .author-statement {
             margin: 60px 0 30px;
@@ -1207,40 +1267,61 @@
 <div class="series-group">
 <h4 class="series-label">中觀論藏 · Madhyamaka Treatises</h4>
 <div class="resources-grid resources-grid--compact">
-<a class="resource-card resource-card--personal resource-card--companion" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" rel="noopener" target="_blank">
+<div class="resource-card resource-card--personal resource-card--companion">
 <span class="rc-ribbon">↹ 並讀之論</span>
 <span class="rc-badge">龍樹造</span>
+<a class="rc-main" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" rel="noopener" target="_blank">
 <h4>中論</h4>
 <p>Mūlamadhyamakakārikā · 龍樹自造、中觀派根本論。<strong>《中論》是「綱」、本《智論》是「目」</strong>——中論用「八不」破諸戲論，大智度論用「十八空」展開實踐。兩部互為表裡，並讀始見龍樹全貌。</p>
 </a>
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/twelve-gates/" rel="noopener" target="_blank">
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2mABjkF6viNG1US3EgLMsV4" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>本頻道影音課程</a>
+</div>
+<div class="resource-card resource-card--personal">
 <span class="rc-badge">龍樹造</span>
+<a class="rc-main" href="https://weiwen0925.github.io/twelve-gates/" rel="noopener" target="_blank">
 <h4>十二門論</h4>
 <p>Dvādaśadvāra-śāstra · 三論宗所依四論之一，以十二門明緣起空義，是《中論》之精要綱目。</p>
 </a>
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/vigrahavyavartani/" rel="noopener" target="_blank">
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2lAgiO4mwR_Y3DoeFHmXc_E" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>本頻道影音課程</a>
+</div>
+<div class="resource-card resource-card--personal">
 <span class="rc-badge">龍樹造</span>
+<a class="rc-main" href="https://weiwen0925.github.io/vigrahavyavartani/" rel="noopener" target="_blank">
 <h4>迴諍論</h4>
 <p>Vigrahavyāvartanī · 龍樹回應對手「空義不能成立」的論難，是中觀方法論最重要的辯證文本。</p>
 </a>
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/bailun/" rel="noopener" target="_blank">
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2mb3TuvDHkSPVzKb2AcyFQF" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>本頻道影音課程</a>
+</div>
+<div class="resource-card resource-card--personal">
 <span class="rc-badge">提婆造</span>
+<a class="rc-main" href="https://weiwen0925.github.io/bailun/" rel="noopener" target="_blank">
 <h4>百論</h4>
 <p>Śata-śāstra · 龍樹弟子提婆造、婆藪開士釋，鳩摩羅什譯，三論宗四論之一，破外道二十種異執。</p>
 </a>
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2lDsTanVTKVU-FJua1SyzFT" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>本頻道影音課程</a>
+</div>
 </div>
 <h4 class="series-label">般若禪修經典 · Prajñā &amp; Samādhi Sūtras</h4>
 <div class="resources-grid resources-grid--compact">
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" rel="noopener" target="_blank">
+<div class="resource-card resource-card--personal">
 <span class="rc-badge">支婁迦讖譯</span>
+<a class="rc-main" href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" rel="noopener" target="_blank">
 <h4>般舟三昧經</h4>
 <p>Pratyutpanna-samādhi-sūtra · 早期大乘禪觀經典，明「諸佛現前三昧」，為念佛三昧與淨土法門源頭之一。</p>
 </a>
-<a class="resource-card resource-card--personal" href="https://weiwen0925.github.io/zuochan-sanmei-jing/" rel="noopener" target="_blank">
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2lQGFe1CDf7ZAY7iB16yPf6" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>本頻道影音課程</a>
+</div>
+<div class="resource-card resource-card--personal">
 <span class="rc-badge">鳩摩羅什譯</span>
+<a class="rc-main" href="https://weiwen0925.github.io/zuochan-sanmei-jing/" rel="noopener" target="_blank">
 <h4>坐禪三昧經</h4>
 <p>《禪經》之一，鳩摩羅什集印度多位禪師所傳禪法譯出，是漢傳禪法早期最重要的修證指南。</p>
 </a>
+<div class="rc-video-row">
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2n2vMinbGagIuHsOlx32F-z" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>影音課程・上卷</a>
+<a class="rc-video-link" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2m3xoOrAWV7NQyitslw9Z1y" rel="noopener" target="_blank"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>影音課程・下卷</a>
+</div>
+</div>
 </div>
 </div>
 <!-- ============ 延伸研究資源 ============ -->
