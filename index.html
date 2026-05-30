@@ -431,9 +431,28 @@
             background: var(--bg-card-hover);
         }
         .path-icon {
-            font-size: 32px;
+            display: inline-flex;
+            width: 54px;
+            height: 54px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(217, 184, 124, 0.08);
+            border: 1px solid var(--line-strong);
+            border-radius: 50%;
+            color: var(--gold-bright);
+            font-family: 'Noto Serif TC', "STKaiti", "KaiTi", serif;
+            font-size: 28px;
+            font-weight: 600;
             line-height: 1;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
+            letter-spacing: 0;
+            transition: all 0.25s ease;
+        }
+        .path-card:hover .path-icon {
+            background: rgba(217, 184, 124, 0.18);
+            border-color: var(--gold-amber);
+            color: #ffffff;
+            transform: scale(1.05);
         }
         .path-role {
             color: var(--gold-bright);
@@ -1292,7 +1311,7 @@
 
 <div class="path-grid">
     <div class="path-card">
-        <div class="path-icon">📖</div>
+        <div class="path-icon">入</div>
         <h4 class="path-role">初學者</h4>
         <p class="path-sub">For Newcomers · 建立般若空義的基礎理解</p>
         <ol class="path-steps">
@@ -1328,7 +1347,7 @@
     </div>
 
     <div class="path-card">
-        <div class="path-icon">📚</div>
+        <div class="path-icon">究</div>
         <h4 class="path-role">學者研究者</h4>
         <p class="path-sub">For Scholars · 學術引用與譯本研究</p>
         <ol class="path-steps">
@@ -1364,7 +1383,7 @@
     </div>
 
     <div class="path-card">
-        <div class="path-icon">🙏</div>
+        <div class="path-icon">行</div>
         <h4 class="path-role">實修者・出家居士</h4>
         <p class="path-sub">For Practitioners · 菩薩道與禪修實踐</p>
         <ol class="path-steps">
