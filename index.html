@@ -407,6 +407,105 @@
         @media (max-width: 720px) {
             .topic-grid { grid-template-columns: 1fr; }
         }
+
+        /* ===== 閱讀路徑建議 ===== */
+        .path-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 960px) {
+            .path-grid { grid-template-columns: 1fr; }
+        }
+        .path-card {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 26px 24px 24px;
+            position: relative;
+            transition: all 0.22s ease;
+        }
+        .path-card:hover {
+            border-color: var(--line-strong);
+            background: var(--bg-card-hover);
+        }
+        .path-icon {
+            font-size: 32px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .path-role {
+            color: var(--gold-bright);
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin: 0 0 4px;
+        }
+        .path-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 14px;
+            color: var(--gold-soft);
+            margin: 0 0 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+            letter-spacing: 1px;
+        }
+        .path-steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            counter-reset: step;
+        }
+        .path-steps li {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--line);
+        }
+        .path-steps li:last-child { border-bottom: none; padding-bottom: 0; }
+        .step-num {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(217, 184, 124, 0.12);
+            border: 1px solid var(--line-strong);
+            color: var(--gold-amber);
+            border-radius: 50%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+        .path-steps li > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .step-link {
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
+        .step-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: var(--gold-amber);
+            text-underline-offset: 3px;
+        }
+        .step-why {
+            font-size: 13px;
+            color: var(--text-mute);
+            line-height: 1.6;
+        }
         .topic-group {
             background: var(--bg-card);
             border: 1px solid var(--line);
@@ -1183,6 +1282,124 @@
 <span class="tag">羅什譯場</span>
 </div>
 </article>
+<!-- ============ 閱讀路徑建議 ============ -->
+<div class="section-title">
+<h2>閱讀路徑建議</h2>
+<span class="en">Recommended Reading Paths</span>
+</div>
+
+<p class="sub-section-desc">百卷望而生畏？依你的身份與目的，選一條切入路徑開始：</p>
+
+<div class="path-grid">
+    <div class="path-card">
+        <div class="path-icon">📖</div>
+        <h4 class="path-role">初學者</h4>
+        <p class="path-sub">For Newcomers · 建立般若空義的基礎理解</p>
+        <ol class="path-steps">
+            <li>
+                <span class="step-num">1</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1 〈緣起義〉</a>
+                    <span class="step-why">了解龍樹為何造論、般若學的總綱</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">2</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">卷 18 〈般若波羅蜜〉</a>
+                    <span class="step-why">「般若」到底是什麼？最直接的入門</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">3</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">卷 31 〈十八空〉</a>
+                    <span class="step-why">中觀核心，從這裡建立空義基礎</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">4</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-49/" target="_blank" rel="noopener">卷 49 〈發趣品〉</a>
+                    <span class="step-why">菩薩階位的全貌，知道修行路徑</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <div class="path-card">
+        <div class="path-icon">📚</div>
+        <h4 class="path-role">學者研究者</h4>
+        <p class="path-sub">For Scholars · 學術引用與譯本研究</p>
+        <ol class="path-steps">
+            <li>
+                <span class="step-num">1</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1–34 〈序品〉全譯</a>
+                    <span class="step-why">完整逐句注釋《大品般若》〈序品〉，學術引用首選</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">2</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-35/" target="_blank" rel="noopener">卷 35 〈報應品〉</a>
+                    <span class="step-why">「略譯」之始，比對全譯與略譯的關鍵節點</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">3</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-46/" target="_blank" rel="noopener">卷 46 〈摩訶衍品〉</a>
+                    <span class="step-why">「大乘」（摩訶衍）定義的關鍵章節</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">4</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-100/" target="_blank" rel="noopener">卷 100 〈囑累品〉</a>
+                    <span class="step-why">全論結語，掌握整體架構與付囑流通的意義</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+    <div class="path-card">
+        <div class="path-icon">🙏</div>
+        <h4 class="path-role">實修者・出家居士</h4>
+        <p class="path-sub">For Practitioners · 菩薩道與禪修實踐</p>
+        <ol class="path-steps">
+            <li>
+                <span class="step-num">1</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-11/" target="_blank" rel="noopener">卷 11–18 〈六波羅蜜〉</a>
+                    <span class="step-why">布施、持戒、忍辱、精進、禪定、智慧的廣論</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">2</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-19/" target="_blank" rel="noopener">卷 19 〈三十七道品〉</a>
+                    <span class="step-why">三十七種修證綱目的完整闡釋</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">3</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-48/" target="_blank" rel="noopener">卷 48 〈四念處〉</a>
+                    <span class="step-why">四念處實修法門最詳細的廣論</span>
+                </div>
+            </li>
+            <li>
+                <span class="step-num">4</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">卷 96–98 〈薩陀波崙求般若〉</a>
+                    <span class="step-why">求般若的典範公案，發大心的最佳激勵</span>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
+
 <!-- ============ 主題索引 ============ -->
 <div class="section-title">
 <h2>主題卷次速查</h2>
