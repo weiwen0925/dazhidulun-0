@@ -408,6 +408,119 @@
             .topic-grid { grid-template-columns: 1fr; }
         }
 
+        /* ===== 前置必讀橫條 ===== */
+        .prereq-strip {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 26px;
+            align-items: center;
+            padding: 24px 30px;
+            margin: 0 0 50px;
+            background: linear-gradient(135deg, rgba(217, 184, 124, 0.12) 0%, rgba(70, 56, 43, 0.55) 100%);
+            border: 1px solid var(--gold-amber);
+            border-left: 4px solid var(--gold-bright);
+            border-radius: 6px;
+            box-shadow: 0 4px 18px -8px rgba(217, 184, 124, 0.3);
+            transition: all 0.22s ease;
+        }
+        .prereq-strip:hover {
+            box-shadow: 0 6px 24px -8px rgba(217, 184, 124, 0.45);
+        }
+        @media (max-width: 760px) {
+            .prereq-strip {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 22px 22px;
+            }
+        }
+        .prereq-tag {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .prereq-num {
+            display: inline-flex;
+            width: 44px;
+            height: 44px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(217, 184, 124, 0.18);
+            border: 1px solid var(--gold-amber);
+            border-radius: 50%;
+            color: var(--gold-bright);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1;
+        }
+        .prereq-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--gold-amber);
+            text-align: center;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .prereq-label-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 10.5px;
+            color: var(--gold-soft);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .prereq-body h3 {
+            color: var(--gold-bright);
+            font-size: 19px;
+            font-weight: 600;
+            margin: 0 0 8px;
+            letter-spacing: 1.5px;
+        }
+        .prereq-body p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0;
+        }
+        .prereq-body strong {
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+        .prereq-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            background: var(--gold-amber);
+            color: var(--bg-deep);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            transition: all 0.22s ease;
+            justify-self: end;
+        }
+        @media (max-width: 760px) {
+            .prereq-cta { justify-self: center; }
+        }
+        .prereq-cta:hover {
+            background: var(--gold-bright);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px -4px rgba(217, 184, 124, 0.6);
+        }
+        .prereq-arrow {
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+        .prereq-cta:hover .prereq-arrow {
+            transform: translateX(4px);
+        }
+
         /* ===== 閱讀路徑建議 ===== */
         .path-grid {
             display: grid;
@@ -524,6 +637,30 @@
             font-size: 13px;
             color: var(--text-mute);
             line-height: 1.6;
+        }
+        /* Step 0 前置必讀（在初學者路徑卡內） */
+        .step-num-zero {
+            background: rgba(217, 184, 124, 0.22) !important;
+            border-color: var(--gold-amber) !important;
+            color: var(--gold-bright) !important;
+        }
+        .step-prereq {
+            position: relative;
+            padding-left: 8px;
+            margin-left: -8px;
+        }
+        .step-prereq::before {
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: 14px;
+            bottom: 14px;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold-bright), transparent);
+            border-radius: 1px;
+        }
+        .step-prereq .step-link {
+            color: var(--gold-bright);
         }
 
         /* ===== 中觀學派譜系圖 ===== */
@@ -1331,6 +1468,22 @@
 <span class="tag">羅什譯場</span>
 </div>
 </article>
+
+<!-- ============ 前置必讀 · 中論 ============ -->
+<section class="prereq-strip">
+    <div class="prereq-tag">
+        <span class="prereq-num">①</span>
+        <span class="prereq-label">前置必讀<span class="prereq-label-en">Prerequisite Reading</span></span>
+    </div>
+    <div class="prereq-body">
+        <h3>讀本論之前，建議先熟讀龍樹《中論》</h3>
+        <p>《大智度論》是龍樹的<strong>「廣論實踐」</strong>、《中論》則是其<strong>「思想綱目」</strong>──中論用「八不」破諸戲論，本論用「十八空」展開實踐。先讀中論建立空義基礎，再讀本論的百卷展開，事半功倍。</p>
+    </div>
+    <a class="prereq-cta" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener">
+        前往《中論》閱讀<span class="prereq-arrow">→</span>
+    </a>
+</section>
+
 <!-- ============ 閱讀路徑建議 ============ -->
 <div class="section-title">
 <h2>閱讀路徑建議</h2>
@@ -1345,6 +1498,13 @@
         <h4 class="path-role">初學者</h4>
         <p class="path-sub">For Newcomers · 建立般若空義的基礎理解</p>
         <ol class="path-steps">
+            <li class="step-prereq">
+                <span class="step-num step-num-zero">0</span>
+                <div>
+                    <a class="step-link" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener">前置：龍樹《中論》27 品</a>
+                    <span class="step-why">先建立八不空義基礎，再讀本論的百卷展開</span>
+                </div>
+            </li>
             <li>
                 <span class="step-num">1</span>
                 <div>
