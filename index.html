@@ -958,6 +958,86 @@
             .zh-flow-step { min-width: 0; flex-basis: 100%; max-width: 100%; }
         }
 
+        /* ===== 十八空 18 格速覽 ===== */
+        .shunyata-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 1000px) {
+            .shunyata-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .shunyata-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .shunyata-item {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 16px 10px 13px;
+            text-align: center;
+            transition: all 0.22s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-height: 86px;
+        }
+        .shunyata-item:hover {
+            border-color: var(--gold-amber);
+            background: var(--bg-card-hover);
+        }
+        .ss-num {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            color: var(--gold-soft);
+            opacity: 0.55;
+            letter-spacing: 1.5px;
+            font-style: italic;
+        }
+        .ss-name {
+            color: var(--gold-bright);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+        .ss-desc {
+            color: var(--text-mute);
+            font-size: 11.5px;
+            line-height: 1.6;
+        }
+        .shunyata-item.is-axis {
+            border-color: var(--gold-amber);
+            background: rgba(217, 184, 124, 0.08);
+        }
+        .shunyata-item.is-axis .ss-name {
+            color: #ffffff;
+        }
+        .shunyata-legend {
+            font-size: 12px;
+            color: var(--gold-soft);
+            font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+        .shunyata-legend .legend-dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: rgba(217, 184, 124, 0.4);
+            border: 1px solid var(--gold-amber);
+            border-radius: 2px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
         /* ===== 中觀學派譜系圖 ===== */
         .lineage-figure {
             margin: 0 auto 50px;
@@ -2067,6 +2147,167 @@
 </div>
 <!-- end zhonglun-block -->
 
+<!-- ============ 十八空 × 大智度論 ============ -->
+<div class="section-title">
+<h2>十八空 × 大智度論 — 必讀卷次與研讀順序</h2>
+<span class="en">Eighteen Forms of Śūnyatā × DZDL — Essential Volumes &amp; Reading Order</span>
+</div>
+<p class="sub-section-desc"><strong>十八空為破自性之系統化清單</strong>。《大品般若經》〈問乘品〉列出 18 種空，《大智度論》以<strong>卷 31</strong>集中釋論，逐一定義、舉例、辨破外道見。要讀通十八空，須前後合讀 9 卷，以卷 31 為「空義字典」之軸心。</p>
+
+<div class="zhonglun-block">
+
+<!-- 18 種空一覽 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">十八空一覽</span>名相速覽（出處皆在卷 31）</h3>
+<div class="shunyata-grid">
+<div class="shunyata-item"><span class="ss-num">01</span><div class="ss-name">內空</div><div class="ss-desc">六根皆無自性</div></div>
+<div class="shunyata-item"><span class="ss-num">02</span><div class="ss-name">外空</div><div class="ss-desc">六塵皆無自性</div></div>
+<div class="shunyata-item"><span class="ss-num">03</span><div class="ss-name">內外空</div><div class="ss-desc">根塵合處亦空</div></div>
+<div class="shunyata-item"><span class="ss-num">04</span><div class="ss-name">空空</div><div class="ss-desc">空亦空，不執空為實</div></div>
+<div class="shunyata-item"><span class="ss-num">05</span><div class="ss-name">大空</div><div class="ss-desc">十方無邊際相空</div></div>
+<div class="shunyata-item is-axis"><span class="ss-num">06</span><div class="ss-name">第一義空</div><div class="ss-desc">涅槃空</div></div>
+<div class="shunyata-item"><span class="ss-num">07</span><div class="ss-name">有為空</div><div class="ss-desc">一切因緣造作法空</div></div>
+<div class="shunyata-item"><span class="ss-num">08</span><div class="ss-name">無為空</div><div class="ss-desc">涅槃虛空非擇滅亦空</div></div>
+<div class="shunyata-item is-axis"><span class="ss-num">09</span><div class="ss-name">畢竟空</div><div class="ss-desc">一切法究竟無餘空</div></div>
+<div class="shunyata-item"><span class="ss-num">10</span><div class="ss-name">無始空</div><div class="ss-desc">無有「始」相可得</div></div>
+<div class="shunyata-item"><span class="ss-num">11</span><div class="ss-name">散空</div><div class="ss-desc">諸法散離後無實體</div></div>
+<div class="shunyata-item is-axis"><span class="ss-num">12</span><div class="ss-name">性空</div><div class="ss-desc">諸法自性本空</div></div>
+<div class="shunyata-item"><span class="ss-num">13</span><div class="ss-name">自相空</div><div class="ss-desc">諸法自相非實</div></div>
+<div class="shunyata-item is-axis"><span class="ss-num">14</span><div class="ss-name">一切法空</div><div class="ss-desc">五蘊處界皆空</div></div>
+<div class="shunyata-item"><span class="ss-num">15</span><div class="ss-name">不可得空</div><div class="ss-desc">求一切法不可得</div></div>
+<div class="shunyata-item"><span class="ss-num">16</span><div class="ss-name">無法空</div><div class="ss-desc">已滅法亦空</div></div>
+<div class="shunyata-item"><span class="ss-num">17</span><div class="ss-name">有法空</div><div class="ss-desc">現存法亦空</div></div>
+<div class="shunyata-item"><span class="ss-num">18</span><div class="ss-name">無法有法空</div><div class="ss-desc">三世皆空</div></div>
+</div>
+<p class="shunyata-legend"><span class="legend-dot"></span>金邊標示 = 義理樞紐（第一義、畢竟、性、一切法）— 此四空為十八空中最常被引用之主軸。</p>
+</div>
+
+<!-- 核心 5 卷 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">絕對必讀</span>核心 5 卷</h3>
+<div class="zhonglun-table">
+<div class="zhonglun-row zhonglun-head">
+<div>卷次</div><div>主題</div><div>與十八空的關係</div>
+</div>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 1</span>
+<span class="zh-topic"><strong>緣起義</strong><span class="zh-note">「八不偈」是十八空的根本綱領——「不生不滅、不斷不常」即每一種空的母題</span></span>
+<span class="zh-mp">八不 → 十八空</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 18</span>
+<span class="zh-topic"><strong>般若波羅蜜、般若相義</strong><span class="zh-note">建立「諸法無自性」的基本框架，是進入十八空前的入門總說</span></span>
+<span class="zh-mp">空義入門</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 31</span>
+<span class="zh-topic"><strong>十八空義（主卷）</strong><span class="zh-note">逐一定義 18 種空，是全論的「空義字典」——若只能讀一卷，就讀這一卷</span></span>
+<span class="zh-mp"><span class="zh-mp-primary">空義總綱</span><span class="zh-mp-tag">本論核心</span></span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 32</span>
+<span class="zh-topic"><strong>四緣義</strong><span class="zh-note">緊接十八空之後，用「不自生、不他生、不共、不無因」四不生來證明前文</span></span>
+<span class="zh-mp">十八空之論證</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 96</span>
+<span class="zh-topic"><strong>涅槃如化品</strong><span class="zh-note">「涅槃亦如幻化」——十八空之第一義空、畢竟空之究竟結論</span></span>
+<span class="zh-mp">空義之究竟</span>
+</a>
+</div>
+</div>
+
+<!-- 深化 4 卷 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">強烈推薦</span>深化 4 卷</h3>
+<div class="zhonglun-recommend-grid">
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-6/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 6</span>
+<span class="zh-r-title">十喻、意無礙</span>
+</div>
+<div class="zh-r-why">夢、幻、響、影、焰、化、鏡像、水月、虛空華、犍闥婆城——十喻是「空」的最佳譬喻體系，讀通十八空名相之後，可借十喻獲得實感。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 53</span>
+<span class="zh-r-title">無生品</span>
+</div>
+<div class="zh-r-why">從十八空推導「生住滅相皆不可得」——特別呼應散空、自相空、有為空，是空義落到時間範疇的展開。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-76/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 76</span>
+<span class="zh-r-title">學空不證品</span>
+</div>
+<div class="zh-r-why">菩薩學十八空但不取證涅槃——解答「一切皆空，何須修行度眾」的根本問題，是空義在菩薩道上的轉折點。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 90</span>
+<span class="zh-r-title">實際品</span>
+</div>
+<div class="zh-r-why">「實際」即第一義空的另一表述——把抽象的空義落到「諸法真實邊際」，是十八空走向具體實證的關鍵。</div>
+</a>
+</div>
+</div>
+
+<!-- 研讀次第 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">研讀次第</span>五步驟閱讀順序</h3>
+<div class="zhonglun-flow">
+<div class="zh-flow-step">
+<span class="zh-flow-num">1</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1</a>
+<span class="zh-flow-sep">·</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-6/" target="_blank" rel="noopener">卷 6</a>
+</div>
+<span class="zh-flow-desc">建立八不、十喻譬喻</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">2</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">卷 18</a>
+</div>
+<span class="zh-flow-desc">般若空義入門總說</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">3</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">卷 31</a>
+<span class="zh-flow-sep">→</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">卷 32</a>
+</div>
+<span class="zh-flow-desc">十八空主軸＋四緣證明</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">4</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">卷 53</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-76/" target="_blank" rel="noopener">卷 76</a>
+</div>
+<span class="zh-flow-desc">無生 → 學空不證的菩薩慧用</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">5</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">卷 90</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">卷 96</a>
+</div>
+<span class="zh-flow-desc">實際 → 涅槃如化之究竟</span>
+</div>
+</div>
+<p class="zhonglun-summary">讀完這 9 卷，<strong>十八空</strong>就不再是名相清單，而能在每一個語境中辨識它的運作。<strong>卷 31</strong> 是核心中的核心；<strong>卷 76</strong> 是進階關鍵——它解答了「既然一切皆空，菩薩為何還要修行度眾」這個根本問題，是十八空與菩薩道結合的轉折點。</p>
+</div>
+
+</div>
+<!-- end shunyata-block -->
+
 <!-- ============ 主題索引 ============ -->
 <div class="section-title">
 <h2>主題卷次速查</h2>
@@ -2373,7 +2614,7 @@
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
         <span class="version">2026 年 6 月版 · v1.1</span>
-<span class="version-notes"><span class="note-label">Release Notes</span>校正卷 4–34 品名（以 CBETA 卷端題為準）<span class="note-sep">·</span>新增「《中論》× 大智度論 必讀卷次對照」區塊<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
+<span class="version-notes"><span class="note-label">Release Notes</span>校正卷 4–34 品名（以 CBETA 卷端題為準）<span class="note-sep">·</span>新增「《中論》× 大智度論」與「十八空 × 大智度論」必讀卷次對照區塊<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
 <span class="small">© Mahāprajñāpāramitāśāstra Reading Compilation · Curated by Chengweiwen</span>
 </footer>
 </div>
