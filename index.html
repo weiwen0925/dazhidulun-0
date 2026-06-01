@@ -803,15 +803,27 @@
             .zhonglun-recommend-grid { grid-template-columns: 1fr; }
         }
         .zh-recommend {
+            display: block;
             background: var(--bg-card);
             border: 1px solid var(--line);
             border-radius: 6px;
             padding: 16px 18px;
             transition: all 0.22s ease;
+            text-decoration: none;
+            color: inherit;
         }
-        .zh-recommend:hover {
+        a.zh-recommend:hover {
             border-color: var(--line-strong);
             background: var(--bg-card-hover);
+        }
+        a.zh-recommend:hover .zh-r-vol {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: var(--gold-amber);
+            text-underline-offset: 3px;
+        }
+        a.zh-recommend:hover .zh-r-title {
+            color: #ffffff;
         }
         .zh-r-head {
             display: flex;
@@ -821,15 +833,13 @@
             padding-bottom: 10px;
             border-bottom: 1px dashed var(--line);
         }
-        .zh-r-vol a {
+        .zh-r-vol {
             color: var(--gold-bright);
-            text-decoration: none;
             font-size: 16px;
             font-weight: 600;
             letter-spacing: 1px;
             transition: color 0.2s;
         }
-        .zh-r-vol a:hover { color: #ffffff; }
         .zh-r-title {
             color: var(--gold-soft);
             font-size: 14.5px;
@@ -1947,34 +1957,34 @@
 <div class="zhonglun-section">
 <h3 class="zhonglun-h"><span class="zhonglun-badge">強烈推薦</span>深化 4 卷</h3>
 <div class="zhonglun-recommend-grid">
-<div class="zh-recommend">
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-6/" target="_blank" rel="noopener">
 <div class="zh-r-head">
-<span class="zh-r-vol"><a href="https://weiwen0925.github.io/dazhidulun-6/" target="_blank" rel="noopener">卷 6</a></span>
+<span class="zh-r-vol">卷 6</span>
 <span class="zh-r-title">十喻、意無礙</span>
 </div>
 <div class="zh-r-why">夢、幻、響、影、焰、化、鏡像、水月、虛空華、犍闥婆城——龍樹獨有的十喻體系，是《中論》多品的譬喻來源。</div>
-</div>
-<div class="zh-recommend">
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">
 <div class="zh-r-head">
-<span class="zh-r-vol"><a href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">卷 18</a></span>
+<span class="zh-r-vol">卷 18</span>
 <span class="zh-r-title">般若波羅蜜、般若相義</span>
 </div>
 <div class="zh-r-why">般若空義的入門總說，是讀《中論》前的「軟著陸」。</div>
-</div>
-<div class="zh-recommend">
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-72/" target="_blank" rel="noopener">
 <div class="zh-r-head">
-<span class="zh-r-vol"><a href="https://weiwen0925.github.io/dazhidulun-72/" target="_blank" rel="noopener">卷 72</a></span>
+<span class="zh-r-vol">卷 72</span>
 <span class="zh-r-title">大如品（諸法如義）</span>
 </div>
 <div class="zh-r-why">「如」即諸法實相，與《中論》〈觀如來 22〉相應。</div>
-</div>
-<div class="zh-recommend">
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">
 <div class="zh-r-head">
-<span class="zh-r-vol"><a href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">卷 90</a></span>
+<span class="zh-r-vol">卷 90</span>
 <span class="zh-r-title">實際品</span>
 </div>
 <div class="zh-r-why">「實際」即涅槃真實邊際，與《中論》〈觀本際 11〉〈觀涅槃 25〉互釋。</div>
-</div>
+</a>
 </div>
 </div>
 
