@@ -715,9 +715,24 @@
             padding: 14px 22px;
             border-bottom: 1px solid var(--line);
             align-items: start;
+            text-decoration: none;
+            color: inherit;
+            transition: background 0.22s ease;
         }
         .zhonglun-row:last-child {
             border-bottom: none;
+        }
+        a.zhonglun-row:hover {
+            background: var(--bg-card-hover);
+        }
+        a.zhonglun-row:hover .zh-vol {
+            color: #ffffff;
+            text-decoration: underline;
+            text-decoration-color: var(--gold-amber);
+            text-underline-offset: 3px;
+        }
+        a.zhonglun-row:hover .zh-topic strong {
+            color: #ffffff;
         }
         .zhonglun-row.zhonglun-head {
             background: rgba(217, 184, 124, 0.05);
@@ -729,19 +744,12 @@
             text-transform: uppercase;
             padding: 10px 22px;
         }
-        .zh-vol a {
+        .zh-vol {
             color: var(--gold-bright);
-            text-decoration: none;
             font-size: 17px;
             font-weight: 600;
             letter-spacing: 1px;
             transition: color 0.2s;
-        }
-        .zh-vol a:hover {
-            color: #ffffff;
-            text-decoration: underline;
-            text-decoration-color: var(--gold-amber);
-            text-underline-offset: 3px;
         }
         .zh-topic strong {
             color: var(--gold-bright);
@@ -858,6 +866,11 @@
             border: 1px solid var(--line);
             border-radius: 4px;
             text-align: center;
+            transition: all 0.22s ease;
+        }
+        .zh-flow-step:hover {
+            border-color: var(--line-strong);
+            background: rgba(217, 184, 124, 0.10);
         }
         .zh-flow-num {
             width: 24px;
@@ -873,11 +886,34 @@
             font-size: 13px;
             font-weight: 600;
         }
-        .zh-flow-vol {
+        .zh-flow-chips {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .zh-flow-chip {
             color: var(--gold-bright);
             font-size: 14.5px;
             font-weight: 600;
             letter-spacing: 1px;
+            text-decoration: none;
+            padding: 3px 9px;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.18s ease;
+        }
+        .zh-flow-chip:hover {
+            color: #ffffff;
+            background: rgba(217, 184, 124, 0.18);
+            border-color: var(--gold-amber);
+        }
+        .zh-flow-sep {
+            color: var(--gold-soft);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            opacity: 0.6;
         }
         .zh-flow-desc {
             color: var(--text-mute);
@@ -1874,36 +1910,36 @@
 <div class="zhonglun-row zhonglun-head">
 <div>卷次</div><div>主題</div><div>對應《中論》品</div>
 </div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1</a></div>
-<div class="zh-topic"><strong>緣起義</strong><span class="zh-note">開卷即有「諸法不生不滅、不斷不常、不一不異、不來不出」八不偈，與《中論》歸敬偈八不同源</span></div>
-<div class="zh-mp">〈觀因緣 1〉<br>〈觀去來 2〉<br>〈觀本住 9〉</div>
-</div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">卷 31</a></div>
-<div class="zh-topic"><strong>十八空義</strong><span class="zh-note">十八種空的完整詳論，是中觀「破有無見」的方法論大全</span></div>
-<div class="zh-mp">〈觀有無 15〉<br>〈觀顛倒 23〉</div>
-</div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">卷 32</a></div>
-<div class="zh-topic"><strong>四緣義</strong><span class="zh-note">「不自生、不他生、不共、不無因」逐一遮破——即《中論》〈觀因緣品〉的論述本身</span></div>
-<div class="zh-mp"><span class="zh-mp-primary">〈觀因緣 1〉</span><span class="zh-mp-tag">最直接對應</span></div>
-</div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">卷 53</a></div>
-<div class="zh-topic"><strong>無生品</strong><span class="zh-note">「無生」即《中論》最核心命題，本卷專論生住滅相皆不可得</span></div>
-<div class="zh-mp">〈觀生住滅 7〉<br>〈觀成壞 21〉</div>
-</div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-64/" target="_blank" rel="noopener">卷 64</a></div>
-<div class="zh-topic"><strong>無作實相品</strong><span class="zh-note">「無作」即無自性、無造者，破除「有作者」之執</span></div>
-<div class="zh-mp">〈觀作作者 8〉<br>〈觀業 17〉</div>
-</div>
-<div class="zhonglun-row">
-<div class="zh-vol"><a href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">卷 96</a></div>
-<div class="zh-topic"><strong>涅槃如化品</strong><span class="zh-note">涅槃如幻化、生死即涅槃，是中觀「不二」最究竟的表述</span></div>
-<div class="zh-mp"><span class="zh-mp-primary">〈觀涅槃 25〉</span><span class="zh-mp-tag">最直接對應</span></div>
-</div>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 1</span>
+<span class="zh-topic"><strong>緣起義</strong><span class="zh-note">開卷即有「諸法不生不滅、不斷不常、不一不異、不來不出」八不偈，與《中論》歸敬偈八不同源</span></span>
+<span class="zh-mp">〈觀因緣 1〉<br>〈觀去來 2〉<br>〈觀本住 9〉</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 31</span>
+<span class="zh-topic"><strong>十八空義</strong><span class="zh-note">十八種空的完整詳論，是中觀「破有無見」的方法論大全</span></span>
+<span class="zh-mp">〈觀有無 15〉<br>〈觀顛倒 23〉</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 32</span>
+<span class="zh-topic"><strong>四緣義</strong><span class="zh-note">「不自生、不他生、不共、不無因」逐一遮破——即《中論》〈觀因緣品〉的論述本身</span></span>
+<span class="zh-mp"><span class="zh-mp-primary">〈觀因緣 1〉</span><span class="zh-mp-tag">最直接對應</span></span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 53</span>
+<span class="zh-topic"><strong>無生品</strong><span class="zh-note">「無生」即《中論》最核心命題，本卷專論生住滅相皆不可得</span></span>
+<span class="zh-mp">〈觀生住滅 7〉<br>〈觀成壞 21〉</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-64/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 64</span>
+<span class="zh-topic"><strong>無作實相品</strong><span class="zh-note">「無作」即無自性、無造者，破除「有作者」之執</span></span>
+<span class="zh-mp">〈觀作作者 8〉<br>〈觀業 17〉</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 96</span>
+<span class="zh-topic"><strong>涅槃如化品</strong><span class="zh-note">涅槃如幻化、生死即涅槃，是中觀「不二」最究竟的表述</span></span>
+<span class="zh-mp"><span class="zh-mp-primary">〈觀涅槃 25〉</span><span class="zh-mp-tag">最直接對應</span></span>
+</a>
 </div>
 </div>
 
@@ -1948,25 +1984,41 @@
 <div class="zhonglun-flow">
 <div class="zh-flow-step">
 <span class="zh-flow-num">1</span>
-<span class="zh-flow-vol">卷 1</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1</a>
+</div>
 <span class="zh-flow-desc">建立八不、緣起綱領</span>
 </div>
 <div class="zh-flow-arrow">→</div>
 <div class="zh-flow-step">
 <span class="zh-flow-num">2</span>
-<span class="zh-flow-vol">卷 6</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-6/" target="_blank" rel="noopener">卷 6</a>
+</div>
 <span class="zh-flow-desc">十喻——培養「諸法如幻」的直覺</span>
 </div>
 <div class="zh-flow-arrow">→</div>
 <div class="zh-flow-step">
 <span class="zh-flow-num">3</span>
-<span class="zh-flow-vol">卷 18 → 31 → 32</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">卷 18</a>
+<span class="zh-flow-sep">→</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">卷 31</a>
+<span class="zh-flow-sep">→</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">卷 32</a>
+</div>
 <span class="zh-flow-desc">般若 → 十八空 → 四緣，建立完整空義體系</span>
 </div>
 <div class="zh-flow-arrow">→</div>
 <div class="zh-flow-step">
 <span class="zh-flow-num">4</span>
-<span class="zh-flow-vol">卷 53、64、72、90、96</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">卷 53</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-64/" target="_blank" rel="noopener">卷 64</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-72/" target="_blank" rel="noopener">卷 72</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">卷 90</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">卷 96</a>
+</div>
 <span class="zh-flow-desc">《中論》各觀品的散釋</span>
 </div>
 </div>
