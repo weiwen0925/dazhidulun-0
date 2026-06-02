@@ -1038,6 +1038,130 @@
             vertical-align: middle;
         }
 
+        /* ===== 念佛法門 × 大智度論（含淨土三經對照） ===== */
+        .jingtu-mapping {
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .jm-head {
+            display: grid;
+            grid-template-columns: 200px 36px 1fr 36px 150px;
+            gap: 18px;
+            padding: 11px 24px;
+            background: rgba(217, 184, 124, 0.05);
+            border-bottom: 1px solid var(--line);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 12px;
+            color: var(--gold-soft);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .jm-row {
+            display: grid;
+            grid-template-columns: 200px 36px 1fr 36px 150px;
+            gap: 18px;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--line);
+            align-items: center;
+        }
+        .jm-row:last-child {
+            border-bottom: none;
+        }
+        .jm-zhilun {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            text-decoration: none;
+            padding: 10px 14px;
+            background: rgba(217, 184, 124, 0.06);
+            border: 1px solid var(--line-strong);
+            border-radius: 4px;
+            transition: all 0.22s ease;
+            text-align: center;
+        }
+        .jm-zhilun:hover {
+            background: rgba(217, 184, 124, 0.18);
+            border-color: var(--gold-amber);
+        }
+        .jm-vol {
+            color: var(--gold-bright);
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            transition: color 0.2s;
+        }
+        .jm-zhilun:hover .jm-vol { color: #ffffff; }
+        .jm-title {
+            color: var(--gold-soft);
+            font-size: 13px;
+            letter-spacing: 1.5px;
+        }
+        .jm-arrow, .jm-eq {
+            color: var(--gold-amber);
+            font-size: 22px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            opacity: 0.55;
+            font-weight: 300;
+        }
+        .jm-jing {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px 4px;
+        }
+        .jm-sutra {
+            color: var(--gold-bright);
+            font-size: 15.5px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        .jm-detail {
+            color: var(--text-mute);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .jm-mode {
+            text-align: center;
+            padding: 10px 12px;
+            background: rgba(217, 184, 124, 0.08);
+            border: 1px dashed var(--line-strong);
+            border-radius: 4px;
+        }
+        .jm-mode-name {
+            color: var(--gold-amber);
+            font-size: 14.5px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .jm-mode-en {
+            color: var(--gold-soft);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 11px;
+            letter-spacing: 1px;
+            opacity: 0.75;
+        }
+        @media (max-width: 880px) {
+            .jm-head { display: none; }
+            .jm-row {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 18px;
+            }
+            .jm-arrow, .jm-eq {
+                font-size: 18px;
+                transform: rotate(90deg);
+                justify-self: center;
+            }
+        }
+
         /* ===== 中觀學派譜系圖 ===== */
         .lineage-figure {
             margin: 0 auto 50px;
@@ -2308,6 +2432,244 @@
 </div>
 <!-- end shunyata-block -->
 
+<!-- ============ 念佛法門 × 大智度論 ============ -->
+<div class="section-title">
+<h2>念佛法門 × 大智度論 — 淨土行人必讀卷次</h2>
+<span class="en">Buddha-Recollection × DZDL — Essential Volumes for Pure Land Practitioners</span>
+</div>
+<p class="sub-section-desc"><strong>智論為淨土宗論藏前身</strong>。《大智度論》雖非淨土宗本宗論典，但對「念佛三昧、見佛方法、佛名功德」做了系統化論述。後代漢傳淨土三祖（曇鸞、道綽、善導）多有引用，<strong>淨土三經之三大法門——本願信受、觀想念佛、稱名念佛——在智論中皆能找到清晰的理論前身</strong>。</p>
+
+<div class="zhonglun-block">
+
+<!-- 淨土三經對照表 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">淨土三經對照</span>智論 × 淨土經典 × 念佛形態</h3>
+<div class="jingtu-mapping">
+<div class="jm-head">
+<div>大智度論</div>
+<div></div>
+<div>對應淨土經教義</div>
+<div></div>
+<div>念佛形態</div>
+</div>
+<div class="jm-row">
+<a class="jm-zhilun" href="https://weiwen0925.github.io/dazhidulun-7/" target="_blank" rel="noopener">
+<span class="jm-vol">卷 7</span>
+<span class="jm-title">佛土願釋論</span>
+</a>
+<span class="jm-arrow">→</span>
+<div class="jm-jing">
+<span class="jm-sutra">《無量壽經》</span>
+<span class="jm-detail">阿彌陀佛四十八願 · 諸佛本願與淨土莊嚴的根源</span>
+</div>
+<span class="jm-eq">＝</span>
+<div class="jm-mode">
+<span class="jm-mode-name">本願信受</span>
+<span class="jm-mode-en">Faith in Original Vow</span>
+</div>
+</div>
+<div class="jm-row">
+<a class="jm-zhilun" href="https://weiwen0925.github.io/dazhidulun-33/" target="_blank" rel="noopener">
+<span class="jm-vol">卷 33</span>
+<span class="jm-title">見一切佛世界義</span>
+</a>
+<span class="jm-arrow">→</span>
+<div class="jm-jing">
+<span class="jm-sutra">《觀無量壽經》</span>
+<span class="jm-detail">十六觀法 · 觀想佛身相好、淨土依正莊嚴</span>
+</div>
+<span class="jm-eq">＝</span>
+<div class="jm-mode">
+<span class="jm-mode-name">觀想念佛</span>
+<span class="jm-mode-en">Visualization Recollection</span>
+</div>
+</div>
+<div class="jm-row">
+<a class="jm-zhilun" href="https://weiwen0925.github.io/dazhidulun-34/" target="_blank" rel="noopener">
+<span class="jm-vol">卷 34</span>
+<span class="jm-title">聞佛名得度段</span>
+</a>
+<span class="jm-arrow">→</span>
+<div class="jm-jing">
+<span class="jm-sutra">《阿彌陀經》</span>
+<span class="jm-detail">執持名號 · 一心不亂 · 即得往生</span>
+</div>
+<span class="jm-eq">＝</span>
+<div class="jm-mode">
+<span class="jm-mode-name">稱名念佛</span>
+<span class="jm-mode-en">Nāma-smṛti / 持名</span>
+</div>
+</div>
+</div>
+<p class="shunyata-legend" style="text-align:center;margin-top:8px;">淨土三經三大法門皆於智論中可見其論證前身——這就是「智論是淨土宗論藏前身」的明證</p>
+</div>
+
+<!-- 核心 6 卷 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">絕對必讀</span>核心 6 卷</h3>
+<div class="zhonglun-table">
+<div class="zhonglun-row zhonglun-head">
+<div>卷次</div><div>主題</div><div>與念佛法門的關係</div>
+</div>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-7/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 7</span>
+<span class="zh-topic"><strong>佛土願、放光義</strong><span class="zh-note">「佛土願」即諸佛本願的論述——是阿彌陀佛 48 願的理論根源；放光義論「見佛光明得益」</span></span>
+<span class="zh-mp">本願信受之源</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-21/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 21</span>
+<span class="zh-topic"><strong>八念義（之首即念佛）</strong><span class="zh-note">八念以「念佛」為第一，是念佛三昧最早的系統論述</span></span>
+<span class="zh-mp">念佛三昧之源</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-22/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 22</span>
+<span class="zh-topic"><strong>八念義之餘</strong><span class="zh-note">念佛 → 念法 → 念僧 → 念戒 → 念施 → 念天 → 念安那般那 → 念死，含菩薩八念差異</span></span>
+<span class="zh-mp">念佛之完整修法</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-26/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 26</span>
+<span class="zh-topic"><strong>十八不共法</strong><span class="zh-note">念佛時所念的「佛德內容」核心——這 18 種功德即是念佛三昧的「所念對象」清單</span></span>
+<span class="zh-mp">念佛之所念</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-33/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 33</span>
+<span class="zh-topic"><strong>到彼岸、見一切佛世界義</strong><span class="zh-note">詳論「以何方法見十方諸佛」——觀想念佛、般舟三昧的論證根據</span></span>
+<span class="zh-mp">觀想念佛之依據</span>
+</a>
+<a class="zhonglun-row" href="https://weiwen0925.github.io/dazhidulun-34/" target="_blank" rel="noopener">
+<span class="zh-vol">卷 34</span>
+<span class="zh-topic"><strong>見一切佛世界之餘、信持無三毒</strong><span class="zh-note">「聞佛名即得度」——稱名念佛的最強理論依據，淨土宗引用最頻繁；論「法性生身佛」與「現化佛」之別</span></span>
+<span class="zh-mp"><span class="zh-mp-primary">稱名念佛之依據</span><span class="zh-mp-tag">淨土核心</span></span>
+</a>
+</div>
+</div>
+
+<!-- 深化 4 卷 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">強烈推薦</span>深化 4 卷</h3>
+<div class="zhonglun-recommend-grid">
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-9/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 9</span>
+<span class="zh-r-title">十方諸菩薩來釋論</span>
+</div>
+<div class="zh-r-why">十方諸佛世界、寶積佛遣普明菩薩持金色蓮華供養——阿彌陀佛淨土「七寶莊嚴」的原型描述。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-27/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 27</span>
+<span class="zh-r-title">大慈大悲義</span>
+</div>
+<div class="zh-r-why">念佛之核心情感：佛之慈悲——是淨土行人「他力信心」的對象與依止。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-28/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 28</span>
+<span class="zh-r-title">欲住六神通義</span>
+</div>
+<div class="zh-r-why">佛之神通德——念佛時所念的「佛能救度」之能力證明，補十八不共法之外的佛德。</div>
+</a>
+<a class="zh-recommend" href="https://weiwen0925.github.io/dazhidulun-48/" target="_blank" rel="noopener">
+<div class="zh-r-head">
+<span class="zh-r-vol">卷 48</span>
+<span class="zh-r-title">四念處品（摩訶衍法）</span>
+</div>
+<div class="zh-r-why">大乘四念處中含「念佛身」——是進階「實相念佛」（理一心）的方法依據。</div>
+</a>
+</div>
+</div>
+
+<!-- 研讀次第 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">研讀次第</span>五步驟閱讀順序</h3>
+<div class="zhonglun-flow">
+<div class="zh-flow-step">
+<span class="zh-flow-num">1</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-7/" target="_blank" rel="noopener">卷 7</a>
+</div>
+<span class="zh-flow-desc">建立佛土願 — 為何有十方淨土</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">2</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-26/" target="_blank" rel="noopener">卷 26</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-27/" target="_blank" rel="noopener">卷 27</a>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-28/" target="_blank" rel="noopener">卷 28</a>
+</div>
+<span class="zh-flow-desc">所念之佛德 — 不共法 · 慈悲 · 神通</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">3</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-21/" target="_blank" rel="noopener">卷 21</a>
+<span class="zh-flow-sep">→</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-22/" target="_blank" rel="noopener">卷 22</a>
+</div>
+<span class="zh-flow-desc">八念三昧 — 念佛之基本修法</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">4</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-9/" target="_blank" rel="noopener">卷 9</a>
+<span class="zh-flow-sep">→</span>
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-33/" target="_blank" rel="noopener">卷 33</a>
+</div>
+<span class="zh-flow-desc">見十方佛 · 般舟三昧 · 觀想念佛</span>
+</div>
+<div class="zh-flow-arrow">→</div>
+<div class="zh-flow-step">
+<span class="zh-flow-num">5</span>
+<div class="zh-flow-chips">
+<a class="zh-flow-chip" href="https://weiwen0925.github.io/dazhidulun-34/" target="_blank" rel="noopener">卷 34</a>
+</div>
+<span class="zh-flow-desc">聞佛名得度 — 稱名念佛之究竟</span>
+</div>
+</div>
+<p class="zhonglun-summary">讀完這 10 卷，<strong>念佛</strong>不再只是「口稱聖號」，而能在「所念佛德 → 念佛三昧 → 見佛方法 → 稱名得度」四個層次之間自如轉換。<strong>卷 34</strong> 是淨土行人的核心——它論證「法性生身佛」聞名即得度的本願力，是漢傳淨土宗信受彌陀本願的論藏依據。<strong>卷 21–22</strong> 是進階關鍵——把「散心稱名」提升到「定心念佛」的橋樑。</p>
+</div>
+
+<!-- 祖師引用 -->
+<div class="zhonglun-section">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">祖師引用</span>淨土宗祖師對《大智度論》的徵引</h3>
+<div class="zhonglun-recommend-grid" style="grid-template-columns: repeat(2, 1fr);">
+<div class="zh-recommend" style="cursor:default;">
+<div class="zh-r-head">
+<span class="zh-r-vol">曇鸞</span>
+<span class="zh-r-title">《往生論註》</span>
+</div>
+<div class="zh-r-why">引<strong>卷 7</strong>佛土願論證彌陀本願；引<strong>卷 33</strong>見十方佛論證觀想往生。</div>
+</div>
+<div class="zh-recommend" style="cursor:default;">
+<div class="zh-r-head">
+<span class="zh-r-vol">道綽</span>
+<span class="zh-r-title">《安樂集》</span>
+</div>
+<div class="zh-r-why">引<strong>卷 34</strong>聞佛名得度段，建立末法時代「稱名」為主要法門之理論基礎。</div>
+</div>
+<div class="zh-recommend" style="cursor:default;">
+<div class="zh-r-head">
+<span class="zh-r-vol">善導</span>
+<span class="zh-r-title">《觀經疏》</span>
+</div>
+<div class="zh-r-why">引<strong>卷 33</strong>般舟三昧 · 見佛三昧段，建立「觀想念佛」的方法學依據。</div>
+</div>
+<div class="zh-recommend" style="cursor:default;">
+<div class="zh-r-head">
+<span class="zh-r-vol">印順</span>
+<span class="zh-r-title">《淨土新論》</span>
+</div>
+<div class="zh-r-why">詳述大智度論念佛理論之分布（卷 7、9、21-22、26-28、33-34），為近代學術整理之集大成。</div>
+</div>
+</div>
+</div>
+
+</div>
+<!-- end jingtu-block -->
+
 <!-- ============ 主題索引 ============ -->
 <div class="section-title">
 <h2>主題卷次速查</h2>
@@ -2614,7 +2976,7 @@
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
         <span class="version">2026 年 6 月版 · v1.1</span>
-<span class="version-notes"><span class="note-label">Release Notes</span>校正卷 4–34 品名（以 CBETA 卷端題為準）<span class="note-sep">·</span>新增「《中論》× 大智度論」與「十八空 × 大智度論」必讀卷次對照區塊<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
+<span class="version-notes"><span class="note-label">Release Notes</span>校正卷 4–34 品名（以 CBETA 卷端題為準）<span class="note-sep">·</span>新增三組必讀卷次對照區塊：「《中論》× 大智度論」「十八空 × 大智度論」「念佛法門 × 大智度論（含淨土三經對照）」<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
 <span class="small">© Mahāprajñāpāramitāśāstra Reading Compilation · Curated by Chengweiwen</span>
 </footer>
 </div>
