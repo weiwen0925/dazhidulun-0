@@ -1913,6 +1913,211 @@
             .verse { letter-spacing: 2px; }
         }
 
+        /* ===== Sticky 章節目錄導航 ===== */
+        .toc-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(28, 22, 18, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+        }
+        .toc-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 4px;
+            overflow-x: auto;
+            padding: 10px 24px;
+            scrollbar-width: thin;
+        }
+        .toc-inner::-webkit-scrollbar { height: 4px; }
+        .toc-inner::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+        .toc-item {
+            flex-shrink: 0;
+            color: var(--gold-soft);
+            text-decoration: none;
+            font-family: 'Noto Serif TC', serif;
+            font-size: 13.5px;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .toc-item:hover {
+            color: var(--gold-bright);
+            background: rgba(217, 184, 124, 0.08);
+            border-color: var(--line-strong);
+        }
+        .toc-item.is-active {
+            color: var(--gold-amber);
+            background: rgba(217, 184, 124, 0.12);
+            border-color: var(--gold-amber);
+        }
+        .toc-num {
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 12px;
+            margin-right: 6px;
+            opacity: 0.75;
+        }
+        @media (max-width: 640px) {
+            .toc-item { font-size: 12px; padding: 4px 9px; letter-spacing: 1.5px; }
+            .toc-inner { padding: 8px 14px; }
+            .toc-num { font-size: 11px; margin-right: 4px; }
+        }
+
+        /* ===== 章節編號（主要 section-title） ===== */
+        .chapter-num {
+            display: inline-block;
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            font-size: 30px;
+            margin-right: 16px;
+            letter-spacing: 2px;
+            opacity: 0.68;
+            vertical-align: baseline;
+            position: relative;
+            top: -3px;
+        }
+        @media (max-width: 640px) {
+            .chapter-num { font-size: 22px; margin-right: 12px; }
+        }
+
+        /* ===== 裝飾性 section divider ===== */
+        .section-divider {
+            margin: 56px auto 28px;
+            text-align: center;
+            line-height: 1;
+            color: var(--gold-soft);
+            opacity: 0.45;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            max-width: 480px;
+        }
+        .section-divider::before, .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+        }
+        .section-divider .ornament {
+            font-size: 16px;
+            letter-spacing: 8px;
+            color: var(--gold-amber);
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 640px) {
+            .section-divider { margin: 36px auto 20px; gap: 12px; }
+            .section-divider::before, .section-divider::after { max-width: 60px; }
+        }
+
+        /* ===== 合讀對照 wrapper ===== */
+        .compendium-wrapper {
+            background: rgba(35, 28, 22, 0.45);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 8px 32px 32px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 640px) {
+            .compendium-wrapper { padding: 8px 18px 22px; }
+        }
+        .compendium-wrapper > .section-title {
+            border-bottom: none;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        .compendium-overview-figure {
+            margin: 18px auto 32px;
+            max-width: 760px;
+            text-align: center;
+        }
+        .compendium-overview-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: rgba(44, 36, 28, 0.45);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        .compendium-overview-svg:hover {
+            border-color: var(--line-strong);
+        }
+        .compendium-caption {
+            margin-top: 14px;
+            font-size: 12.5px;
+            color: var(--text-mute);
+            font-style: italic;
+            text-align: center;
+            font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+
+        /* 合讀對照內部子章節 H3 */
+        .compendium-sub {
+            margin-top: 36px;
+            padding-top: 8px;
+        }
+        .compendium-sub-title {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            margin: 0 0 4px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--line-strong);
+            flex-wrap: wrap;
+        }
+        .compendium-sub-num {
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 24px;
+            letter-spacing: 2px;
+            opacity: 0.75;
+            flex-shrink: 0;
+        }
+        .compendium-sub-title h3 {
+            color: var(--gold-bright);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin: 0;
+            flex: 1;
+            min-width: 0;
+        }
+        .compendium-sub-title .sub-en {
+            color: var(--gold-soft);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 12.5px;
+            letter-spacing: 1.5px;
+            opacity: 0.75;
+            white-space: nowrap;
+        }
+        @media (max-width: 720px) {
+            .compendium-sub-title h3 { font-size: 18px; }
+            .compendium-sub-num { font-size: 20px; }
+            .compendium-sub-title .sub-en { width: 100%; }
+        }
+
         /* 搜尋過濾隱藏狀態 */
         a.volume-link.is-hidden { display: none; }
         .volume-section.is-empty { display: none; }
@@ -1929,6 +2134,18 @@
 
 </head>
 <body>
+<nav class="toc-bar" aria-label="章節目錄">
+<div class="toc-inner">
+<a class="toc-item" href="#sec-intro"><span class="toc-num">II</span>導論</a>
+<a class="toc-item" href="#sec-path"><span class="toc-num">III</span>閱讀路徑</a>
+<a class="toc-item" href="#sec-compendium"><span class="toc-num">IV</span>合讀對照</a>
+<a class="toc-item" href="#sec-topic"><span class="toc-num">V</span>主題索引</a>
+<a class="toc-item" href="#sec-catalog"><span class="toc-num">VI</span>卷品目錄</a>
+<a class="toc-item" href="#sec-lineage"><span class="toc-num">VII</span>中觀譜系</a>
+<a class="toc-item" href="#sec-personal"><span class="toc-num">VIII</span>個人系列</a>
+<a class="toc-item" href="#sec-extended"><span class="toc-num">IX</span>延伸資源</a>
+</div>
+</nav>
 <div class="container">
 <!-- ============ HERO ============ -->
 <header class="hero">
@@ -1979,8 +2196,9 @@
 </div>
 </section>
 <!-- ============ 導論 ============ -->
-<div class="section-title">
-<h2>導　論</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-intro">
+<h2><span class="chapter-num">II</span>導　論</h2>
 <span class="en">Introduction</span>
 </div>
 <article class="intro-card">
@@ -2013,8 +2231,9 @@
 </section>
 
 <!-- ============ 閱讀路徑建議 ============ -->
-<div class="section-title">
-<h2>閱讀路徑建議</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-path">
+<h2><span class="chapter-num">III</span>閱讀路徑建議</h2>
 <span class="en">Recommended Reading Paths</span>
 </div>
 
@@ -2137,10 +2356,56 @@
     </div>
 </div>
 
-<!-- ============ 中論×大智度論 必讀卷次對照 ============ -->
-<div class="section-title">
-<h2>《中論》× 大智度論 — 必讀卷次對照</h2>
-<span class="en">Madhyamaka × DZDL — Essential Volumes for Co-reading</span>
+<!-- ============ IV. 合讀對照（三條進路） ============ -->
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-compendium">
+<h2><span class="chapter-num">IV</span>合讀對照 — 三條進路的必讀卷次</h2>
+<span class="en">Pairing Studies — Three Paths into the Treatise</span>
+</div>
+<p class="sub-section-desc"><strong>智論作為大乘論藏核心</strong>，可從三條進路切入：以《中論》為主軸的「破見之路」、以十八空為主軸的「破自性之路」、以念佛法門為主軸的「修證之路」。沿任一進路深入，皆可貫通本論。</p>
+
+<!-- 合讀總圖 -->
+<figure class="compendium-overview-figure">
+<svg class="compendium-overview-svg" viewBox="0 0 700 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="overviewTitle overviewDesc">
+<title id="overviewTitle">合讀對照總圖</title>
+<desc id="overviewDesc">大智度論為中心，三條合讀進路：《中論》（破見）、十八空（破自性）、念佛（修證）</desc>
+<!-- 連線（先畫，後被圓蓋住） -->
+<line x1="350" y1="220" x2="350" y2="80" stroke="#d9b87c" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="350" y1="220" x2="540" y2="345" stroke="#d9b87c" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+<line x1="350" y1="220" x2="160" y2="345" stroke="#d9b87c" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="5 5"/>
+<!-- 連線中央 keyword -->
+<text x="378" y="150" fill="#c9a96e" font-size="13" text-anchor="start" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">破見 · prajñā</text>
+<text x="470" y="290" fill="#c9a96e" font-size="13" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1" transform="rotate(33, 470, 290)">破自性 · śūnyatā</text>
+<text x="230" y="290" fill="#c9a96e" font-size="13" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1" text-anchor="end" transform="rotate(-33, 230, 290)">修證 · smṛti</text>
+<!-- 中心圓：大智度論 -->
+<circle cx="350" cy="220" r="86" fill="#2c241c" stroke="#e3c085" stroke-width="2"/>
+<circle cx="350" cy="220" r="78" fill="none" stroke="#d9b87c" stroke-width="0.6" stroke-opacity="0.5"/>
+<text x="350" y="212" fill="#ffffff" font-size="22" text-anchor="middle" font-weight="600" letter-spacing="4" font-family="Noto Serif TC, serif">大智度論</text>
+<text x="350" y="236" fill="#c9a96e" font-size="11" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="2">100 vols · core</text>
+<!-- 中論圓（上） -->
+<circle cx="350" cy="55" r="52" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text x="350" y="52" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">中　論</text>
+<text x="350" y="72" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Madhyamaka</text>
+<!-- 十八空圓（右下） -->
+<circle cx="540" cy="355" r="52" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text x="540" y="352" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">十八空</text>
+<text x="540" y="372" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Eighteen Śūnyatās</text>
+<!-- 念佛圓（左下） -->
+<circle cx="160" cy="355" r="52" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text x="160" y="352" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">念　佛</text>
+<text x="160" y="372" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Buddha-smṛti</text>
+</svg>
+<figcaption class="compendium-caption">三條合讀進路從《大智度論》中心輻射出去 · 沿任一箭頭深入皆可貫通論藏</figcaption>
+</figure>
+
+<div class="compendium-wrapper">
+
+<!-- ===== i. 中論為主軸 ===== -->
+<div class="compendium-sub">
+<div class="compendium-sub-title">
+<span class="compendium-sub-num">i</span>
+<h3>以《中論》為主軸 — 破見之路</h3>
+<span class="sub-en">Madhyamaka Track</span>
 </div>
 <p class="sub-section-desc"><strong>中論為綱、智論為目</strong>。龍樹《中論》二十七品以遮詮立中道；同一龍樹再造《大智度論》一百卷，以《大品般若》為文本，把《中論》的方法論在更廣闊的事相中重新展開。下列卷次與《中論》二十七品有直接呼應，最適合與《中論》合讀。</p>
 
@@ -2270,11 +2535,15 @@
 
 </div>
 <!-- end zhonglun-block -->
+</div>
+<!-- end i. -->
 
-<!-- ============ 十八空 × 大智度論 ============ -->
-<div class="section-title">
-<h2>十八空 × 大智度論 — 必讀卷次與研讀順序</h2>
-<span class="en">Eighteen Forms of Śūnyatā × DZDL — Essential Volumes &amp; Reading Order</span>
+<!-- ===== ii. 十八空為主軸 ===== -->
+<div class="compendium-sub">
+<div class="compendium-sub-title">
+<span class="compendium-sub-num">ii</span>
+<h3>以十八空為主軸 — 破自性之路</h3>
+<span class="sub-en">Eighteen Forms of Śūnyatā Track</span>
 </div>
 <p class="sub-section-desc"><strong>十八空為破自性之系統化清單</strong>。《大品般若經》〈問乘品〉列出 18 種空，《大智度論》以<strong>卷 31</strong>集中釋論，逐一定義、舉例、辨破外道見。要讀通十八空，須前後合讀 9 卷，以卷 31 為「空義字典」之軸心。</p>
 
@@ -2431,11 +2700,15 @@
 
 </div>
 <!-- end shunyata-block -->
+</div>
+<!-- end ii. -->
 
-<!-- ============ 念佛法門 × 大智度論 ============ -->
-<div class="section-title">
-<h2>念佛法門 × 大智度論 — 淨土行人必讀卷次</h2>
-<span class="en">Buddha-Recollection × DZDL — Essential Volumes for Pure Land Practitioners</span>
+<!-- ===== iii. 念佛為主軸 ===== -->
+<div class="compendium-sub">
+<div class="compendium-sub-title">
+<span class="compendium-sub-num">iii</span>
+<h3>以念佛法門為主軸 — 修證之路</h3>
+<span class="sub-en">Buddha-Recollection Track</span>
 </div>
 <p class="sub-section-desc"><strong>智論為淨土宗論藏前身</strong>。《大智度論》雖非淨土宗本宗論典，但對「念佛三昧、見佛方法、佛名功德」做了系統化論述。後代漢傳淨土三祖（曇鸞、道綽、善導）多有引用，<strong>淨土三經之三大法門——本願信受、觀想念佛、稱名念佛——在智論中皆能找到清晰的理論前身</strong>。</p>
 
@@ -2669,10 +2942,16 @@
 
 </div>
 <!-- end jingtu-block -->
+</div>
+<!-- end iii. -->
+
+</div>
+<!-- end compendium-wrapper -->
 
 <!-- ============ 主題索引 ============ -->
-<div class="section-title">
-<h2>主題卷次速查</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-topic">
+<h2><span class="chapter-num">V</span>主題卷次速查</h2>
 <span class="en">Thematic Index · Topics → Volumes</span>
 </div>
 <p class="sub-section-desc">依大乘行法、實相空義、菩薩階位、公案要文四大類，列出本論最常被研究、引用的主題卷次，供撰寫論文與專題研讀者快速定位。</p>
@@ -2731,8 +3010,9 @@
 </div>
 </div>
 <!-- ============ 卷品目錄 ============ -->
-<div class="section-title" id="catalog">
-<h2>卷品對照目錄</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-catalog">
+<h2><span class="chapter-num">VI</span>卷品對照目錄</h2>
 <span class="en">Volume × Chapter Concordance</span>
 </div>
 <div class="search-row">
@@ -2756,8 +3036,9 @@
 <div id="catalogRoot"></div>
 
 <!-- ============ 中觀學派譜系圖 ============ -->
-<div class="section-title">
-<h2>中觀學派譜系</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-lineage">
+<h2><span class="chapter-num">VII</span>中觀學派譜系</h2>
 <span class="en">Madhyamaka Lineage</span>
 </div>
 
@@ -2877,8 +3158,9 @@
 </figure>
 
 <!-- ============ 個人研讀彙整系列 ============ -->
-<div class="section-title">
-<h2>個人研讀彙整系列</h2>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-personal">
+<h2><span class="chapter-num">VIII</span>個人研讀彙整系列</h2>
 <span class="en">Personal Reading Series</span>
 </div>
 <p class="sub-section-desc">下列為本頻道彙整之中觀論藏與般若禪修相關經論，可與《大智度論》並讀，互證龍樹學派的思想脈絡與漢傳早期禪法傳承。</p>
@@ -2944,10 +3226,10 @@
 </div>
 </div>
 <!-- ============ 延伸研究資源 ============ -->
-<div class="sub-section-title">
-<span class="ss-line"></span>
-<span class="ss-text">延伸研究資源<span class="ss-en">Further Reading &amp; References</span></span>
-<span class="ss-line"></span>
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-extended">
+<h2><span class="chapter-num">IX</span>延伸研究資源</h2>
+<span class="en">Further Reading &amp; References</span>
 </div>
 <div class="resources-grid">
 <a class="resource-card resource-card--video" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2mrXWH8hJwf5WI3b2cbd-k-" rel="noopener" target="_blank">
@@ -2975,8 +3257,8 @@
 <!-- ============ 頁尾 ============ -->
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
-        <span class="version">2026 年 6 月版 · v1.1</span>
-<span class="version-notes"><span class="note-label">Release Notes</span>校正卷 4–34 品名（以 CBETA 卷端題為準）<span class="note-sep">·</span>新增三組必讀卷次對照區塊：「《中論》× 大智度論」「十八空 × 大智度論」「念佛法門 × 大智度論（含淨土三經對照）」<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
+        <span class="version">2026 年 6 月版 · v1.2</span>
+<span class="version-notes"><span class="note-label">Release Notes</span>整版調整：加入羅馬數字章節編號 I–IX<span class="note-sep">·</span>三組合讀對照（中論／十八空／念佛）封裝為「合讀對照 — 三條進路」並加合讀總圖<span class="note-sep">·</span>新增 Sticky 章節目錄導航與裝飾性分隔線<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
 <span class="small">© Mahāprajñāpāramitāśāstra Reading Compilation · Curated by Chengweiwen</span>
 </footer>
 </div>
@@ -3256,6 +3538,57 @@ resetBtn.addEventListener('click', () => {
     paintRead(readSet);
     refreshProgress(readSet);
 });
+
+// ===== Sticky TOC：當前章節高亮 + 平滑滾動避開 nav 高度 =====
+(function() {
+    const tocItems = document.querySelectorAll('.toc-item');
+    if (!tocItems.length) return;
+    const targets = [...tocItems]
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean);
+
+    const setActive = (id) => {
+        tocItems.forEach(a => {
+            a.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+        });
+    };
+
+    // 進入可視範圍時更新 active
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            const visible = entries.filter(e => e.isIntersecting);
+            if (visible.length) {
+                visible.sort((a, b) =>
+                    Math.abs(a.boundingClientRect.top - 80) - Math.abs(b.boundingClientRect.top - 80)
+                );
+                setActive(visible[0].target.id);
+                // 把 active item 滾到 toc-bar 可見區域中央
+                const activeItem = document.querySelector('.toc-item.is-active');
+                if (activeItem) {
+                    activeItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+            }
+        }, {
+            rootMargin: '-80px 0px -55% 0px',
+            threshold: 0
+        });
+        targets.forEach(t => observer.observe(t));
+    }
+
+    // 點擊錨點：平滑滾動並偏移 sticky nav 高度
+    tocItems.forEach(a => {
+        a.addEventListener('click', (e) => {
+            const targetId = a.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if (!target) return;
+            e.preventDefault();
+            const navHeight = document.querySelector('.toc-bar')?.offsetHeight || 60;
+            const top = target.getBoundingClientRect().top + window.scrollY - navHeight - 24;
+            window.scrollTo({ top, behavior: 'smooth' });
+            history.pushState(null, '', targetId);
+        });
+    });
+})();
 </script>
 
 </body>
