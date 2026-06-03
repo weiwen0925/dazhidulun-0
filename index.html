@@ -2120,6 +2120,281 @@
             .compendium-sub-title .sub-en { width: 100%; }
         }
 
+        /* ===== V. 全卷研讀法 ===== */
+        /* 廣略結構視覺化（比例條） */
+        .fullreading-structure {
+            display: grid;
+            grid-template-columns: 34fr 66fr;
+            gap: 6px;
+            margin: 22px 0 30px;
+        }
+        .fr-segment {
+            padding: 18px 22px;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            background: rgba(217, 184, 124, 0.04);
+            transition: all 0.22s ease;
+        }
+        .fr-segment.fr-wide {
+            background: rgba(217, 184, 124, 0.09);
+            border-color: var(--line-strong);
+        }
+        .fr-seg-vols {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 13px;
+            color: var(--gold-amber);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .fr-seg-name {
+            color: var(--gold-bright);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .fr-seg-desc {
+            color: var(--text-mute);
+            font-size: 12.5px;
+            line-height: 1.7;
+        }
+        @media (max-width: 760px) {
+            .fullreading-structure { grid-template-columns: 1fr; }
+        }
+
+        /* 五階段次第卡片 */
+        .fr-stages {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .fr-stage {
+            display: grid;
+            grid-template-columns: 64px 1fr;
+            gap: 22px;
+            padding: 22px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            align-items: start;
+            transition: all 0.22s ease;
+        }
+        .fr-stage:hover {
+            border-color: var(--line-strong);
+            background: var(--bg-card-hover);
+        }
+        .fr-stage-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: rgba(217, 184, 124, 0.10);
+            border: 1px solid var(--gold-amber);
+            border-radius: 50%;
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        .fr-stage-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 0;
+        }
+        .fr-stage-title {
+            color: var(--gold-bright);
+            font-family: 'Noto Serif TC', serif;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            margin: 0;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--line);
+        }
+        .fr-stage-vols {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            align-items: center;
+        }
+        .fr-stage-chip {
+            color: var(--gold-bright);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 4px 10px;
+            background: rgba(217, 184, 124, 0.05);
+            border: 1px solid var(--line);
+            border-radius: 3px;
+            transition: all 0.18s ease;
+        }
+        .fr-stage-chip:hover {
+            color: #fff;
+            background: rgba(217, 184, 124, 0.20);
+            border-color: var(--gold-amber);
+        }
+        .fr-stage-sep {
+            color: var(--gold-soft);
+            font-family: 'Cormorant Garamond', serif;
+            opacity: 0.55;
+            font-size: 14px;
+            padding: 0 2px;
+        }
+        .fr-stage-why {
+            color: var(--text-mute);
+            font-size: 13.5px;
+            line-height: 1.75;
+            margin: 0;
+        }
+        @media (max-width: 640px) {
+            .fr-stage {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 18px;
+            }
+            .fr-stage-num { margin: 0 auto; }
+        }
+
+        /* 五家讀法對照 */
+        .fr-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        @media (max-width: 760px) {
+            .fr-methods-grid { grid-template-columns: 1fr; }
+        }
+        .fr-method {
+            padding: 16px 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            transition: all 0.22s ease;
+        }
+        .fr-method:hover {
+            border-color: var(--line-strong);
+            background: var(--bg-card-hover);
+        }
+        .fr-method.is-recommended {
+            border-color: var(--gold-amber);
+            background: rgba(217, 184, 124, 0.06);
+        }
+        .fr-method-head {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--line);
+            flex-wrap: wrap;
+        }
+        .fr-method-author {
+            color: var(--gold-bright);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+        .fr-method-star {
+            color: var(--gold-amber);
+            font-size: 12px;
+            margin-left: 2px;
+        }
+        .fr-method-source {
+            color: var(--gold-soft);
+            font-size: 12.5px;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+        .fr-method-desc {
+            color: var(--text-mute);
+            font-size: 13.5px;
+            line-height: 1.75;
+        }
+
+        /* 理論依據（引言式） */
+        .fr-reasons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .fr-reason {
+            padding: 16px 22px;
+            background: rgba(217, 184, 124, 0.04);
+            border-left: 3px solid var(--gold-amber);
+            border-radius: 0 4px 4px 0;
+            transition: background 0.22s ease;
+        }
+        .fr-reason:hover {
+            background: rgba(217, 184, 124, 0.08);
+        }
+        .fr-reason-num {
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 12px;
+            letter-spacing: 2.5px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            opacity: 0.85;
+        }
+        .fr-reason-title {
+            color: var(--gold-bright);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+        }
+        .fr-reason-body {
+            color: var(--text-mute);
+            font-size: 13.5px;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .fr-reason-body strong {
+            color: var(--gold-soft);
+            font-weight: 500;
+        }
+
+        /* 結語 callout */
+        .fr-conclusion {
+            margin-top: 28px;
+            padding: 18px 22px;
+            background: rgba(217, 184, 124, 0.06);
+            border: 1px solid var(--line-strong);
+            border-left: 3px solid var(--gold-amber);
+            border-radius: 0 6px 6px 0;
+            color: var(--text-mute);
+            font-size: 14px;
+            line-height: 1.85;
+            letter-spacing: 0.5px;
+        }
+        .fr-conclusion strong {
+            color: var(--gold-bright);
+        }
+        .fr-conclusion-label {
+            display: inline-block;
+            color: var(--gold-amber);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-right: 8px;
+            opacity: 0.85;
+        }
+
         /* 搜尋過濾隱藏狀態 */
         a.volume-link.is-hidden { display: none; }
         .volume-section.is-empty { display: none; }
@@ -2141,11 +2416,12 @@
 <a class="toc-item" href="#sec-intro"><span class="toc-num">II</span>導論</a>
 <a class="toc-item" href="#sec-path"><span class="toc-num">III</span>閱讀路徑</a>
 <a class="toc-item" href="#sec-compendium"><span class="toc-num">IV</span>合讀對照</a>
-<a class="toc-item" href="#sec-topic"><span class="toc-num">V</span>主題索引</a>
-<a class="toc-item" href="#sec-catalog"><span class="toc-num">VI</span>卷品目錄</a>
-<a class="toc-item" href="#sec-lineage"><span class="toc-num">VII</span>中觀譜系</a>
-<a class="toc-item" href="#sec-personal"><span class="toc-num">VIII</span>個人系列</a>
-<a class="toc-item" href="#sec-extended"><span class="toc-num">IX</span>延伸資源</a>
+<a class="toc-item" href="#sec-fullreading"><span class="toc-num">V</span>全卷研讀</a>
+<a class="toc-item" href="#sec-topic"><span class="toc-num">VI</span>主題索引</a>
+<a class="toc-item" href="#sec-catalog"><span class="toc-num">VII</span>卷品目錄</a>
+<a class="toc-item" href="#sec-lineage"><span class="toc-num">VIII</span>中觀譜系</a>
+<a class="toc-item" href="#sec-personal"><span class="toc-num">IX</span>個人系列</a>
+<a class="toc-item" href="#sec-extended"><span class="toc-num">X</span>延伸資源</a>
 </div>
 </nav>
 <div class="container">
@@ -2950,10 +3226,193 @@
 </div>
 <!-- end compendium-wrapper -->
 
+<!-- ============ V. 全卷研讀法 ============ -->
+<div class="section-divider"><span class="ornament">❀</span></div>
+<div class="section-title" id="sec-fullreading">
+<h2><span class="chapter-num">V</span>全卷研讀法 — 五階段次第讀法</h2>
+<span class="en">Full-Treatise Reading Order — Five-Stage Method</span>
+</div>
+<p class="sub-section-desc">想完整讀完一百卷？<strong>智論不是線性論藏，而是「廣略結構 + 層次性閱讀」的論藏</strong>。羅什譯場已將前 34 卷廣譯、後 66 卷略譯，本身暗示了非線性的閱讀進路。下列是漢傳與西方學界共同推薦的五階段次第讀法。</p>
+
+<!-- 廣略結構視覺化 -->
+<div class="fullreading-structure">
+<div class="fr-segment fr-wide">
+<div class="fr-seg-vols">Vols 1–34 · 34 卷</div>
+<div class="fr-seg-name">初品全譯（廣本）</div>
+<div class="fr-seg-desc">釋《大品般若》〈序品〉一品 · 逐句廣譯 · 含大量阿毗達磨議論與外道破斥 · 文體密集</div>
+</div>
+<div class="fr-segment">
+<div class="fr-seg-vols">Vols 35–100 · 66 卷</div>
+<div class="fr-seg-name">略本（其餘 89 品）</div>
+<div class="fr-seg-desc">釋〈報應品〉以下 89 品 · 略譯 · 卷 34 末羅什自註「論之略集，疏其要義」 · 義理較清朗</div>
+</div>
+</div>
+
+<!-- 五階段研讀次第 -->
+<div class="fr-stages">
+
+<div class="fr-stage">
+<div class="fr-stage-num">i</div>
+<div class="fr-stage-content">
+<h4 class="fr-stage-title">階段 1：建立全論綱領（4 卷）</h4>
+<div class="fr-stage-vols">
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-1/" target="_blank" rel="noopener">卷 1</a>
+<span class="fr-stage-sep">→</span>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-100/" target="_blank" rel="noopener">卷 100</a>
+<span class="fr-stage-sep">·</span>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">卷 18</a>
+<span class="fr-stage-sep">→</span>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener">卷 31</a>
+</div>
+<p class="fr-stage-why">先讀「頭尾」（緣起八不 + 囑累結語）建立綱領，再讀義理核心（般若 + 十八空）。讀完這 4 卷，後續所有卷次都是這四卷的開展。</p>
+</div>
+</div>
+
+<div class="fr-stage">
+<div class="fr-stage-num">ii</div>
+<div class="fr-stage-content">
+<h4 class="fr-stage-title">階段 2：六波羅蜜系統（8 卷）</h4>
+<div class="fr-stage-vols">
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-11/" target="_blank" rel="noopener">卷 11</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-12/" target="_blank" rel="noopener">12</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-13/" target="_blank" rel="noopener">13</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-14/" target="_blank" rel="noopener">14</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-15/" target="_blank" rel="noopener">15</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-16/" target="_blank" rel="noopener">16</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-17/" target="_blank" rel="noopener">17</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-18/" target="_blank" rel="noopener">18</a>
+</div>
+<p class="fr-stage-why">檀 → 尸羅 → 羼提 → 毗梨耶 → 禪 → 般若。六波羅蜜的廣論在此完整呈現，是「行門廣論」之核心。</p>
+</div>
+</div>
+
+<div class="fr-stage">
+<div class="fr-stage-num">iii</div>
+<div class="fr-stage-content">
+<h4 class="fr-stage-title">階段 3：道品與佛德（9 卷）</h4>
+<div class="fr-stage-vols">
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-19/" target="_blank" rel="noopener">卷 19</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-20/" target="_blank" rel="noopener">20</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-21/" target="_blank" rel="noopener">21</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-22/" target="_blank" rel="noopener">22</a>
+<span class="fr-stage-sep">·</span>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-24/" target="_blank" rel="noopener">24</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-25/" target="_blank" rel="noopener">25</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-26/" target="_blank" rel="noopener">26</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-27/" target="_blank" rel="noopener">27</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-28/" target="_blank" rel="noopener">28</a>
+</div>
+<p class="fr-stage-why">道品（卷 19–22：三十七道品、三三昧、八念）+ 佛德五卷（卷 24–28：十力、四無所畏、十八不共法、大慈大悲、六神通）。「修行內容」與「所修對象」之雙廣論。</p>
+</div>
+</div>
+
+<div class="fr-stage">
+<div class="fr-stage-num">iv</div>
+<div class="fr-stage-content">
+<h4 class="fr-stage-title">階段 4：略本核心節點（8 卷）</h4>
+<div class="fr-stage-vols">
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-32/" target="_blank" rel="noopener">卷 32</a>
+<span class="fr-stage-sep">→</span>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-35/" target="_blank" rel="noopener">35</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-46/" target="_blank" rel="noopener">46</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-47/" target="_blank" rel="noopener">47</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-49/" target="_blank" rel="noopener">49</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-53/" target="_blank" rel="noopener">53</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-73/" target="_blank" rel="noopener">73</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-90/" target="_blank" rel="noopener">90</a>
+</div>
+<p class="fr-stage-why">四緣 → 略本起點 → 摩訶衍 → 發趣 → 無生 → 不退 → 實際。略本中最重要的「義理節點卷」，串聯起菩薩道的階位脈絡。</p>
+</div>
+</div>
+
+<div class="fr-stage">
+<div class="fr-stage-num">v</div>
+<div class="fr-stage-content">
+<h4 class="fr-stage-title">階段 5：公案與全論結尾（5 卷）</h4>
+<div class="fr-stage-vols">
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-96/" target="_blank" rel="noopener">卷 96</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-97/" target="_blank" rel="noopener">97</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-98/" target="_blank" rel="noopener">98</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-99/" target="_blank" rel="noopener">99</a>
+<a class="fr-stage-chip" href="https://weiwen0925.github.io/dazhidulun-100/" target="_blank" rel="noopener">100</a>
+</div>
+<p class="fr-stage-why">薩陀波崙求般若（96–98）→ 曇無竭（99）→ 囑累品（100）。求道公案是全論最動人的章節，囑累品是龍樹付囑後世的結語。</p>
+</div>
+</div>
+
+</div>
+
+<p class="zhonglun-summary">完成這 <strong>34 卷</strong>後，全論「骨、肉、行、果」皆已掌握。剩下 66 卷可：依興趣選讀 · 依主題串讀 · 或從卷 35 起平鋪讀完略本（因核心已熟，較易理解）。</p>
+
+<!-- 五家讀法對照 -->
+<div class="zhonglun-section" style="margin-top: 32px;">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">五家讀法</span>學界與教界對照</h3>
+<div class="fr-methods-grid">
+<div class="fr-method is-recommended">
+<div class="fr-method-head">
+<span class="fr-method-author">印順導師<span class="fr-method-star">★</span></span>
+<span class="fr-method-source">《妙雲集》《初期大乘佛教之起源與開展》</span>
+</div>
+<div class="fr-method-desc">漢傳最廣為接受的「分層次閱讀法」。先抓骨架（卷 1+100），再讀核心義理（卷 18, 31, 32），後讀行門與略本核心節點。本頁主推之法。</div>
+</div>
+<div class="fr-method">
+<div class="fr-method-head">
+<span class="fr-method-author">楊白衣</span>
+<span class="fr-method-source">《大智度論之研究》</span>
+</div>
+<div class="fr-method-desc">「主題串讀法」— 按主題群讀，例如念佛串讀卷 7、21–22、26–28、33–34；空義串讀卷 18、31–32、53。適合學術研究與專題寫作。</div>
+</div>
+<div class="fr-method">
+<div class="fr-method-head">
+<span class="fr-method-author">Étienne Lamotte</span>
+<span class="fr-method-source">Le Traité de la Grande Vertu de Sagesse</span>
+</div>
+<div class="fr-method-desc">「卷組閱讀法」— 把 100 卷分為 5 大組（1–15 / 16–34 / 35–49 / 50–79 / 80–100），分段研讀、各組做總結。適合西方學術讀法。</div>
+</div>
+<div class="fr-method">
+<div class="fr-method-head">
+<span class="fr-method-author">厚觀法師</span>
+<span class="fr-method-source">福嚴佛學院《大智度論講義》</span>
+</div>
+<div class="fr-method-desc">「義理階層讀法」— 序分 → 緣起八不 → 六波羅蜜 → 三十七道品 → 佛德 → 空義 → 略本。佛學院系統教學使用。</div>
+</div>
+</div>
+</div>
+
+<!-- 理論依據 -->
+<div class="zhonglun-section" style="margin-top: 32px;">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">理論依據</span>為何非線性讀法可行</h3>
+<div class="fr-reasons">
+<div class="fr-reason">
+<div class="fr-reason-num">Reason I</div>
+<div class="fr-reason-title">「廣略」結構是羅什的編輯選擇</div>
+<div class="fr-reason-body">羅什明示卷 35 起為略本（卷 34 末自註「論之略集，疏其要義」）。卷 1–34 廣論是「印度毗婆沙議論的延伸」，文體與卷 35 以後不同。<strong>智論本身就是「廣 + 略」混合體</strong>，閱讀時應該識別這個結構。</div>
+</div>
+<div class="fr-reason">
+<div class="fr-reason-num">Reason II</div>
+<div class="fr-reason-title">「綱要本」與「細釋本」之雙層架構</div>
+<div class="fr-reason-body">全論結構是：<strong>綱要</strong>（卷 1 緣起、卷 100 囑累）→ <strong>核心</strong>（卷 18、31、32 般若空緣起）→ <strong>行門</strong>（卷 11–18 六波羅蜜、卷 19–22 道品、卷 24–28 佛德）→ <strong>階位</strong>（卷 46–47、49、73）→ <strong>公案結尾</strong>（卷 96–100）。可從任一層次切入。</div>
+</div>
+<div class="fr-reason">
+<div class="fr-reason-num">Reason III</div>
+<div class="fr-reason-title">印順「以中觀為宗」的方法論</div>
+<div class="fr-reason-body">印順把智論定位為「龍樹中觀學的展開」。<strong>中觀核心在卷 1、18、31、32</strong>—— 先把這四卷讀通，再讀其他卷時會發現「全論皆是這四卷的開展」。這是漢傳學界最廣為接受的方法論。</div>
+</div>
+<div class="fr-reason">
+<div class="fr-reason-num">Reason IV</div>
+<div class="fr-reason-title">論藏類書傳統的「層次性閱讀」</div>
+<div class="fr-reason-body">智論承襲印度「論藏類書」風格 —— 龍樹引述大量經律論、譬喻、本生、公案、外道見、毗婆沙議論，<strong>是百科全書式的結構</strong>。羅什再以「廣略」編輯。因此智論是「層次性閱讀」的論藏，不是「線性閱讀」的小說。</div>
+</div>
+</div>
+</div>
+
+<!-- 結語 callout -->
+<p class="fr-conclusion"><span class="fr-conclusion-label">結語</span>智論是「層次性閱讀」的論藏。掌握「<strong>綱要 → 核心 → 行門 → 階位 → 公案</strong>」五層次，比按 1→100 順序更能讀通本論。<strong>印順導師的分層次閱讀法</strong>＋<strong>Lamotte 卷組讀法</strong>，是現代學界與教界最常被推薦的兩種讀法。</p>
+
 <!-- ============ 主題索引 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-topic">
-<h2><span class="chapter-num">V</span>主題卷次速查</h2>
+<h2><span class="chapter-num">VI</span>主題卷次速查</h2>
 <span class="en">Thematic Index · Topics → Volumes</span>
 </div>
 <p class="sub-section-desc">依大乘行法、實相空義、菩薩階位、公案要文四大類，列出本論最常被研究、引用的主題卷次，供撰寫論文與專題研讀者快速定位。</p>
@@ -3014,7 +3473,7 @@
 <!-- ============ 卷品目錄 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-catalog">
-<h2><span class="chapter-num">VI</span>卷品對照目錄</h2>
+<h2><span class="chapter-num">VII</span>卷品對照目錄</h2>
 <span class="en">Volume × Chapter Concordance</span>
 </div>
 <div class="search-row">
@@ -3040,7 +3499,7 @@
 <!-- ============ 中觀學派譜系圖 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-lineage">
-<h2><span class="chapter-num">VII</span>中觀學派譜系</h2>
+<h2><span class="chapter-num">VIII</span>中觀學派譜系</h2>
 <span class="en">Madhyamaka Lineage</span>
 </div>
 
@@ -3162,7 +3621,7 @@
 <!-- ============ 個人研讀彙整系列 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-personal">
-<h2><span class="chapter-num">VIII</span>個人研讀彙整系列</h2>
+<h2><span class="chapter-num">IX</span>個人研讀彙整系列</h2>
 <span class="en">Personal Reading Series</span>
 </div>
 <p class="sub-section-desc">下列為本頻道彙整之中觀論藏與般若禪修相關經論，可與《大智度論》並讀，互證龍樹學派的思想脈絡與漢傳早期禪法傳承。</p>
@@ -3230,7 +3689,7 @@
 <!-- ============ 延伸研究資源 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-extended">
-<h2><span class="chapter-num">IX</span>延伸研究資源</h2>
+<h2><span class="chapter-num">X</span>延伸研究資源</h2>
 <span class="en">Further Reading &amp; References</span>
 </div>
 <div class="resources-grid">
@@ -3260,7 +3719,7 @@
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
         <span class="version">2026 年 6 月版 · v1.2</span>
-<span class="version-notes"><span class="note-label">Release Notes</span>整版調整：加入羅馬數字章節編號 I–IX<span class="note-sep">·</span>三組合讀對照（中論／十八空／念佛）封裝為「合讀對照 — 三條進路」並加合讀總圖<span class="note-sep">·</span>新增 Sticky 章節目錄導航與裝飾性分隔線<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
+<span class="version-notes"><span class="note-label">Release Notes</span>章節編號 I–X、Sticky 目錄與裝飾分隔<span class="note-sep">·</span>合讀對照 IV 三進路封裝（中論／十八空／念佛）並加合讀總圖<span class="note-sep">·</span>新增 V 全卷研讀法：廣略結構、5 階段次第、五家讀法、4 條理論依據<span class="note-sep">·</span>核心卷與深化卷全卡可點選</span>
 <span class="small">© Mahāprajñāpāramitāśāstra Reading Compilation · Curated by Chengweiwen</span>
 </footer>
 </div>
