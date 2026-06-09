@@ -983,10 +983,32 @@
             flex-direction: column;
             gap: 5px;
             min-height: 86px;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
         }
-        .shunyata-item:hover {
+        a.shunyata-item:hover {
             border-color: var(--gold-amber);
             background: var(--bg-card-hover);
+        }
+        a.shunyata-item:hover .ss-name {
+            color: #ffffff;
+        }
+        a.shunyata-item::after {
+            content: '→ 卷 31';
+            position: absolute;
+            bottom: 5px;
+            right: 8px;
+            font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            font-style: italic;
+            font-size: 10px;
+            color: var(--gold-amber);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            letter-spacing: 1px;
+        }
+        a.shunyata-item:hover::after {
+            opacity: 0.8;
         }
         .ss-num {
             position: absolute;
@@ -2831,24 +2853,24 @@
 <div class="zhonglun-section">
 <h3 class="zhonglun-h"><span class="zhonglun-badge">十八空一覽</span>名相速覽（出處皆在卷 31）</h3>
 <div class="shunyata-grid">
-<div class="shunyata-item"><span class="ss-num">01</span><div class="ss-name">內空</div><div class="ss-desc">六根皆無自性</div></div>
-<div class="shunyata-item"><span class="ss-num">02</span><div class="ss-name">外空</div><div class="ss-desc">六塵皆無自性</div></div>
-<div class="shunyata-item"><span class="ss-num">03</span><div class="ss-name">內外空</div><div class="ss-desc">根塵合處亦空</div></div>
-<div class="shunyata-item"><span class="ss-num">04</span><div class="ss-name">空空</div><div class="ss-desc">空亦空，不執空為實</div></div>
-<div class="shunyata-item"><span class="ss-num">05</span><div class="ss-name">大空</div><div class="ss-desc">十方無邊際相空</div></div>
-<div class="shunyata-item is-axis"><span class="ss-num">06</span><div class="ss-name">第一義空</div><div class="ss-desc">涅槃空</div></div>
-<div class="shunyata-item"><span class="ss-num">07</span><div class="ss-name">有為空</div><div class="ss-desc">一切因緣造作法空</div></div>
-<div class="shunyata-item"><span class="ss-num">08</span><div class="ss-name">無為空</div><div class="ss-desc">涅槃虛空非擇滅亦空</div></div>
-<div class="shunyata-item is-axis"><span class="ss-num">09</span><div class="ss-name">畢竟空</div><div class="ss-desc">一切法究竟無餘空</div></div>
-<div class="shunyata-item"><span class="ss-num">10</span><div class="ss-name">無始空</div><div class="ss-desc">無有「始」相可得</div></div>
-<div class="shunyata-item"><span class="ss-num">11</span><div class="ss-name">散空</div><div class="ss-desc">諸法散離後無實體</div></div>
-<div class="shunyata-item is-axis"><span class="ss-num">12</span><div class="ss-name">性空</div><div class="ss-desc">諸法自性本空</div></div>
-<div class="shunyata-item"><span class="ss-num">13</span><div class="ss-name">自相空</div><div class="ss-desc">諸法自相非實</div></div>
-<div class="shunyata-item is-axis"><span class="ss-num">14</span><div class="ss-name">一切法空</div><div class="ss-desc">五蘊處界皆空</div></div>
-<div class="shunyata-item"><span class="ss-num">15</span><div class="ss-name">不可得空</div><div class="ss-desc">求一切法不可得</div></div>
-<div class="shunyata-item"><span class="ss-num">16</span><div class="ss-name">無法空</div><div class="ss-desc">已滅法亦空</div></div>
-<div class="shunyata-item"><span class="ss-num">17</span><div class="ss-name">有法空</div><div class="ss-desc">現存法亦空</div></div>
-<div class="shunyata-item"><span class="ss-num">18</span><div class="ss-name">無法有法空</div><div class="ss-desc">三世皆空</div></div>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">01</span><div class="ss-name">內空</div><div class="ss-desc">六根皆無自性</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">02</span><div class="ss-name">外空</div><div class="ss-desc">六塵皆無自性</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">03</span><div class="ss-name">內外空</div><div class="ss-desc">根塵合處亦空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">04</span><div class="ss-name">空空</div><div class="ss-desc">空亦空，不執空為實</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">05</span><div class="ss-name">大空</div><div class="ss-desc">十方無邊際相空</div></a>
+<a class="shunyata-item is-axis" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">06</span><div class="ss-name">第一義空</div><div class="ss-desc">涅槃空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">07</span><div class="ss-name">有為空</div><div class="ss-desc">一切因緣造作法空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">08</span><div class="ss-name">無為空</div><div class="ss-desc">涅槃虛空非擇滅亦空</div></a>
+<a class="shunyata-item is-axis" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">09</span><div class="ss-name">畢竟空</div><div class="ss-desc">一切法究竟無餘空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">10</span><div class="ss-name">無始空</div><div class="ss-desc">無有「始」相可得</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">11</span><div class="ss-name">散空</div><div class="ss-desc">諸法散離後無實體</div></a>
+<a class="shunyata-item is-axis" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">12</span><div class="ss-name">性空</div><div class="ss-desc">諸法自性本空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">13</span><div class="ss-name">自相空</div><div class="ss-desc">諸法自相非實</div></a>
+<a class="shunyata-item is-axis" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">14</span><div class="ss-name">一切法空</div><div class="ss-desc">五蘊處界皆空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">15</span><div class="ss-name">不可得空</div><div class="ss-desc">求一切法不可得</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">16</span><div class="ss-name">無法空</div><div class="ss-desc">已滅法亦空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">17</span><div class="ss-name">有法空</div><div class="ss-desc">現存法亦空</div></a>
+<a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener"><span class="ss-num">18</span><div class="ss-name">無法有法空</div><div class="ss-desc">三世皆空</div></a>
 </div>
 <p class="shunyata-legend"><span class="legend-dot"></span>金邊標示 = 義理樞紐（第一義、畢竟、性、一切法）— 此四空為十八空中最常被引用之主軸。</p>
 </div>
