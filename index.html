@@ -3555,6 +3555,9 @@
 <marker id="arrowEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
 <path d="M 0 0 L 10 5 L 0 10 z" fill="#d9b87c"/>
 </marker>
+<marker id="arrowTrans" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#f3d488"/>
+</marker>
 <filter id="linShadow" x="-20%" y="-20%" width="140%" height="140%">
 <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.35"/>
 </filter>
@@ -3570,7 +3573,7 @@
 .lin-num { font-family: 'Cormorant Garamond', serif; fill: #2c241c; font-weight: 700; }
 .lin-divider { stroke: rgba(217, 184, 124, 0.22); stroke-dasharray: 3 4; }
 .lin-arrow { stroke: #d9b87c; stroke-width: 1.5; fill: none; }
-.lin-trans { stroke: #d9b87c; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+.lin-trans { stroke: #f0cd82; stroke-width: 2; stroke-dasharray: 5 3; fill: none; }
 .lin-dot { fill: #e3c085; }
 .lin-link .lin-work { fill: #f5e4cd; transition: fill .18s ease; }
 .lin-link { cursor: pointer; }
@@ -3645,9 +3648,9 @@
 <text class="lin-mute" x="468" y="344" font-size="11">與龍樹合稱中觀法脈</text>
 </g>
 
-<!-- 師徒傳承箭頭 -->
-<path class="lin-trans" d="M 428 268 L 448 268" marker-end="url(#arrowEnd)"/>
-<text class="lin-mute" x="438" y="260" text-anchor="middle" font-size="10">傳承</text>
+<!-- 師徒傳承箭頭（加粗、調亮、放大箭頭） -->
+<path class="lin-trans" d="M 424 268 L 450 268" marker-end="url(#arrowTrans)"/>
+<text x="437" y="258" text-anchor="middle" font-size="11" font-family="'Noto Serif TC','STKaiti',serif" fill="#ead08c" letter-spacing="1">傳承</text>
 
 <!-- Stage ② → ③ 箭頭 -->
 <line class="lin-arrow" x1="360" y1="430" x2="360" y2="460" marker-end="url(#arrowEnd)"/>
@@ -3663,17 +3666,12 @@
 <text class="lin-latin" x="360" y="564" text-anchor="middle" font-size="14">Kumārajīva · 402–413 CE · 長安逍遙園</text>
 <line class="lin-divider" x1="120" y1="582" x2="600" y2="582"/>
 <text class="lin-body" x="360" y="606" text-anchor="middle" font-size="14">中觀四論：中論 ‧ 十二門論 ‧ 百論 ‧ 大智度論</text>
-<text class="lin-body" x="222" y="634" text-anchor="start" font-size="14">禪修典籍：</text>
+<text class="lin-body" x="264" y="634" text-anchor="start" font-size="14">禪修典籍：</text>
 <a class="lin-link" href="https://weiwen0925.github.io/zuochan-sanmei-jing/" target="_blank" rel="noopener" aria-label="前往《坐禪三昧經》">
-<rect x="290" y="622" width="74" height="20" fill="transparent"/>
-<text class="lin-body lin-work" x="292" y="634" text-anchor="start" font-size="14">坐禪三昧經</text>
+<rect x="332" y="622" width="74" height="20" fill="transparent"/>
+<text class="lin-body lin-work" x="334" y="634" text-anchor="start" font-size="14">坐禪三昧經</text>
 </a>
-<text class="lin-mute" x="366" y="634" text-anchor="start" font-size="14">·</text>
-<a class="lin-link" href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" target="_blank" rel="noopener" aria-label="前往《般舟三昧經》">
-<rect x="378" y="622" width="74" height="20" fill="transparent"/>
-<text class="lin-body lin-work" x="380" y="634" text-anchor="start" font-size="14">般舟三昧經</text>
-</a>
-<text class="lin-mute" x="452" y="634" text-anchor="start" font-size="14">（亦譯）</text>
+<text class="lin-mute" x="408" y="634" text-anchor="start" font-size="14">（亦譯）</text>
 <text class="lin-mute" x="360" y="662" text-anchor="middle" font-size="11.5">後秦姚興敕譯 · 僧叡、僧肇等五百餘人筆受</text>
 </g>
 
