@@ -145,8 +145,10 @@
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
         :root {
             --bg-deep: #2c241c;
@@ -2083,6 +2085,17 @@
         .compendium-overview-svg:hover {
             border-color: var(--line-strong);
         }
+        /* RWD-SVG-PATCH: 手機版圖可左右滑動 + 滑動提示 */
+        .svg-scroll-hint { display: none; margin: 6px 0 0; font-size: 12px; color: var(--text-mute); letter-spacing: 1px; text-align: center; opacity: .85; }
+        @media (max-width: 600px) {
+            .lineage-figure, .compendium-overview-figure { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .lineage-svg { min-width: 540px; }
+            .compendium-overview-svg { min-width: 470px; }
+            .svg-scroll-hint { display: block; }
+        }
+        /* HERO-CTA-PATCH */
+        .hero-cta { display: inline-block; margin-top: 26px; padding: 12px 32px; border: 1px solid var(--line-strong); border-radius: 30px; color: #e8c886; font-size: 15px; letter-spacing: 2px; text-decoration: none; background: rgba(217,184,124,0.06); transition: all .25s ease; }
+        .hero-cta:hover { background: rgba(217,184,124,0.16); border-color: #e8c886; color: #ffe7b3; box-shadow: 0 0 16px rgba(227,192,133,0.25); }
         .compendium-caption {
             margin-top: 14px;
             font-size: 12.5px;
@@ -2453,6 +2466,7 @@
 <p class="sanskrit-title">Mahāprajñāpāramitāśāstra · Mahāprajñāpāramitopadeśa</p>
 <h1>大智度論</h1>
 <p class="subtitle">一百卷全本網路彙編</p>
+<a class="hero-cta" href="#sec-path">選擇閱讀路徑 ›</a>
 <div class="divider"></div>
 </header>
 <!-- ============ 題署卡 ============ -->
@@ -2716,6 +2730,7 @@
 </a>
 </svg>
 <figcaption class="compendium-caption">三條合讀進路從《大智度論》中心輻射出去 · 沿任一箭頭深入皆可貫通論藏（點圓圈可直達該頁）</figcaption>
+<p class="svg-scroll-hint">← 左右滑動看全圖 →</p>
 </figure>
 
 <div class="compendium-wrapper">
@@ -3704,6 +3719,7 @@
 </g>
 </svg>
 <figcaption class="lineage-caption">中觀學派譜系：從般若經 → 龍樹／提婆 → 鳩摩羅什漢譯 → 漢傳吸收 → 近代研究的完整思想流脈（點各論名可直達該頁）。</figcaption>
+<p class="svg-scroll-hint">← 左右滑動看全圖 →</p>
 </figure>
 
 <!-- ============ 個人研讀彙整系列 ============ -->
