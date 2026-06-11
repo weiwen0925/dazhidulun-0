@@ -2669,11 +2669,25 @@
 <svg class="compendium-overview-svg" viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="overviewTitle overviewDesc">
 <title id="overviewTitle">合讀對照總圖</title>
 <desc id="overviewDesc">大智度論為中心，三條合讀進路：《中論》（破見）、十八空（破自性）、念佛（修證）</desc>
+<defs>
+<style>
+.cmp-link { cursor: pointer; }
+.cmp-ring { transition: stroke .2s ease; }
+.cmp-zh { transition: fill .2s ease; }
+.cmp-link:hover .cmp-ring { stroke: #ffe9b8; animation: cmpShimmer 1.15s ease-in-out infinite; }
+.cmp-link:hover .cmp-zh { fill: #ffe7b3; }
+.cmp-link:focus-visible .cmp-ring { stroke: #ffe9b8; animation: cmpShimmer 1.15s ease-in-out infinite; }
+@keyframes cmpShimmer {
+  0%, 100% { filter: drop-shadow(0 0 2px rgba(227, 192, 133, 0.45)); }
+  50%      { filter: drop-shadow(0 0 11px rgba(255, 226, 150, 0.95)); }
+}
+</style>
+</defs>
 <!-- 連線（從圓外緣到圓外緣，避免被圓遮蓋） -->
 <line x1="360" y1="163" x2="360" y2="103" stroke="#d9b87c" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="5 5"/>
 <line x1="420" y1="275" x2="535" y2="353" stroke="#d9b87c" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="5 5"/>
 <line x1="300" y1="275" x2="185" y2="353" stroke="#d9b87c" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="5 5"/>
-<!-- 連線旁 keyword（位置已確認在中心圓與外圍圓之外） -->
+<!-- 連線旁 keyword -->
 <text x="370" y="138" fill="#c9a96e" font-size="13" text-anchor="start" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1.5">破見 · prajñā</text>
 <text x="478" y="314" fill="#c9a96e" font-size="13" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1.5" transform="rotate(34, 478, 314)">破自性 · śūnyatā</text>
 <text x="242" y="314" fill="#c9a96e" font-size="13" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1.5" transform="rotate(-34, 242, 314)">修證 · smṛti</text>
@@ -2683,25 +2697,25 @@
 <text x="360" y="228" fill="#e8c886" font-size="22" text-anchor="middle" font-weight="600" letter-spacing="4" font-family="Noto Serif TC, serif">大智度論</text>
 <text x="360" y="252" fill="#c9a96e" font-size="11" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="2">100 vols · core</text>
 <!-- 中論圓（上）→ 龍樹《中論》 -->
-<a href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener" aria-label="前往龍樹《中論》" style="cursor:pointer">
-<circle cx="360" cy="55" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
-<text x="360" y="52" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">中　論</text>
+<a class="cmp-link" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener" aria-label="前往龍樹《中論》">
+<circle class="cmp-ring" cx="360" cy="55" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text class="cmp-zh" x="360" y="52" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">中　論</text>
 <text x="360" y="72" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Madhyamaka</text>
 </a>
 <!-- 十八空圓（右下）→ 卷 31〈十八空〉 -->
-<a href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener" aria-label="前往卷 31〈十八空〉" style="cursor:pointer">
-<circle cx="575" cy="380" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
-<text x="575" y="377" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">十八空</text>
+<a class="cmp-link" href="https://weiwen0925.github.io/dazhidulun-31/" target="_blank" rel="noopener" aria-label="前往卷 31〈十八空〉">
+<circle class="cmp-ring" cx="575" cy="380" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text class="cmp-zh" x="575" y="377" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">十八空</text>
 <text x="575" y="397" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Eighteen Śūnyatās</text>
 </a>
 <!-- 念佛圓（左下）→ 卷 34 -->
-<a href="https://weiwen0925.github.io/dazhidulun-34/" target="_blank" rel="noopener" aria-label="前往卷 34 念佛法門" style="cursor:pointer">
-<circle cx="145" cy="380" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
-<text x="145" y="377" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">念　佛</text>
+<a class="cmp-link" href="https://weiwen0925.github.io/dazhidulun-34/" target="_blank" rel="noopener" aria-label="前往卷 34 念佛法門">
+<circle class="cmp-ring" cx="145" cy="380" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
+<text class="cmp-zh" x="145" y="377" fill="#e3c085" font-size="18" text-anchor="middle" font-weight="600" letter-spacing="3" font-family="Noto Serif TC, serif">念　佛</text>
 <text x="145" y="397" fill="#c3b39a" font-size="10" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1">Buddha-smṛti</text>
 </a>
 </svg>
-<figcaption class="compendium-caption">三條合讀進路從《大智度論》中心輻射出去 · 沿任一箭頭深入皆可貫通論藏</figcaption>
+<figcaption class="compendium-caption">三條合讀進路從《大智度論》中心輻射出去 · 沿任一箭頭深入皆可貫通論藏（點圓圈可直達該頁）</figcaption>
 </figure>
 
 <div class="compendium-wrapper">
@@ -3534,13 +3548,16 @@
 <p class="sub-section-desc">從般若經典源頭到漢傳吸收──看清《大智度論》在思想史上的位置，以及與其他中觀論藏的傳承關係。</p>
 
 <figure class="lineage-figure">
-<svg class="lineage-svg" viewBox="0 0 720 880" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lineageTitle lineageDesc">
+<svg class="lineage-svg" viewBox="0 0 720 1050" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="lineageTitle lineageDesc">
 <title id="lineageTitle">中觀學派思想譜系 ｜ Madhyamaka Lineage</title>
 <desc id="lineageDesc">從《摩訶般若波羅蜜經》、龍樹菩薩、提婆、鳩摩羅什漢譯到漢傳三論宗與近代研究（印順、Lamotte、梶山雄一）的中觀學派完整思想譜系。Nāgārjuna, Āryadeva, Kumārajīva, Kajiyama Yūichi, San-lun, Madhyamaka.</desc>
 <defs>
 <marker id="arrowEnd" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
 <path d="M 0 0 L 10 5 L 0 10 z" fill="#d9b87c"/>
 </marker>
+<filter id="linShadow" x="-20%" y="-20%" width="140%" height="140%">
+<feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.35"/>
+</filter>
 <style>
 .lin-stage { fill: rgba(70, 56, 43, 0.55); stroke: rgba(217, 184, 124, 0.5); stroke-width: 1; }
 .lin-stage-key { fill: rgba(217, 184, 124, 0.10); stroke: #d9b87c; stroke-width: 1.5; }
@@ -3550,100 +3567,147 @@
 .lin-mute { font-family: 'Noto Serif TC', 'STKaiti', serif; fill: #c3b39a; }
 .lin-latin { font-family: 'Cormorant Garamond', serif; font-style: italic; fill: #c9a96e; }
 .lin-meta { font-family: 'Cormorant Garamond', serif; fill: #c9a96e; }
+.lin-num { font-family: 'Cormorant Garamond', serif; fill: #2c241c; font-weight: 700; }
 .lin-divider { stroke: rgba(217, 184, 124, 0.22); stroke-dasharray: 3 4; }
 .lin-arrow { stroke: #d9b87c; stroke-width: 1.5; fill: none; }
 .lin-trans { stroke: #d9b87c; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+.lin-dot { fill: #e3c085; }
+.lin-link .lin-work { fill: #f5e4cd; transition: fill .18s ease; }
+.lin-link { cursor: pointer; }
+.lin-link:hover .lin-work { fill: #ffe7b3; }
+.lin-link:hover .lin-arrowwork { fill: #ffe7b3; }
+.lin-arrowwork { fill: #e3c085; transition: fill .18s ease; }
 </style>
 </defs>
 
 <!-- ① 般若經典源頭 -->
 <g>
-<rect class="lin-stage-source" x="120" y="20" width="480" height="68" rx="6"/>
-<text class="lin-title" x="360" y="46" text-anchor="middle" font-size="18">《摩訶般若波羅蜜經》（大品般若）</text>
+<rect class="lin-stage-source" filter="url(#linShadow)" x="110" y="18" width="500" height="80" rx="7"/>
+<text class="lin-title" x="360" y="48" text-anchor="middle" font-size="18">《摩訶般若波羅蜜經》（大品般若）</text>
 <text class="lin-latin" x="360" y="70" text-anchor="middle" font-size="13">Mahāprajñāpāramitā Sūtra · T08, No. 223</text>
+<text class="lin-mute" x="360" y="89" text-anchor="middle" font-size="11">二萬五千頌般若 · 本論所釋之根本經</text>
 </g>
-<line class="lin-arrow" x1="360" y1="92" x2="360" y2="120" marker-end="url(#arrowEnd)"/>
+<line class="lin-arrow" x1="360" y1="100" x2="360" y2="130" marker-end="url(#arrowEnd)"/>
 
 <!-- ② 印度造論：龍樹 + 提婆 -->
-<g>
-<text class="lin-meta" x="40" y="142" font-size="12" letter-spacing="3">INDIAN MADHYAMAKA · 印度造論期</text>
-<line class="lin-divider" x1="40" y1="152" x2="680" y2="152"/>
-</g>
+<circle class="lin-dot" cx="50" cy="150" r="9"/>
+<text class="lin-num" x="50" y="154" text-anchor="middle" font-size="11">1</text>
+<text class="lin-meta" x="68" y="154" font-size="12" letter-spacing="3">INDIAN MADHYAMAKA · 印度造論期</text>
+<line class="lin-divider" x1="68" y1="164" x2="680" y2="164"/>
 
 <!-- 龍樹 box -->
 <g>
-<rect class="lin-stage-key" x="40" y="170" width="380" height="178" rx="6"/>
-<text class="lin-title" x="60" y="195" font-size="17">龍樹菩薩</text>
-<text class="lin-latin" x="138" y="195" font-size="14">Nāgārjuna</text>
-<text class="lin-mute" x="60" y="217" font-size="12">c. 150–250 CE｜中觀學派創立者</text>
-<line class="lin-divider" x1="60" y1="232" x2="400" y2="232"/>
-<text class="lin-body" x="70" y="256" font-size="14">▸ 中　　論 — 八不破諸戲論</text>
-<text class="lin-body" x="70" y="280" font-size="14">▸ 十二門論 — 中論精要綱目</text>
-<text class="lin-body" x="70" y="304" font-size="14">▸ 迴 諍 論 — 中觀方法論辯證</text>
-<text class="lin-body" x="70" y="328" font-size="14">▸ 大智度論 — 釋《大品般若》廣論</text>
+<rect class="lin-stage-key" filter="url(#linShadow)" x="40" y="178" width="388" height="250" rx="7"/>
+<text class="lin-title" x="62" y="204" font-size="17">龍樹菩薩</text>
+<text class="lin-latin" x="150" y="204" font-size="14">Nāgārjuna</text>
+<text class="lin-mute" x="62" y="226" font-size="12">c. 150–250 CE｜中觀學派創立者</text>
+<line class="lin-divider" x1="62" y1="240" x2="406" y2="240"/>
+<a class="lin-link" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener" aria-label="前往龍樹《中論》">
+<rect x="62" y="250" width="356" height="32" fill="transparent"/>
+<text class="lin-body lin-work" x="74" y="266" font-size="14.5">▸ 中　　論</text>
+<text class="lin-latin" x="176" y="266" font-size="11">Mūlamadhyamakakārikā</text>
+<text class="lin-mute" x="86" y="281" font-size="11.5">八不破諸戲論 · 中觀根本論典</text>
+</a>
+<a class="lin-link" href="https://weiwen0925.github.io/twelve-gates/" target="_blank" rel="noopener" aria-label="前往《十二門論》">
+<rect x="62" y="284" width="356" height="32" fill="transparent"/>
+<text class="lin-body lin-work" x="74" y="300" font-size="14.5">▸ 十二門論</text>
+<text class="lin-latin" x="176" y="300" font-size="11">Dvādaśadvāra-śāstra</text>
+<text class="lin-mute" x="86" y="315" font-size="11.5">中論精要綱目 · 十二門入空義</text>
+</a>
+<a class="lin-link" href="https://weiwen0925.github.io/vigrahavyavartani/" target="_blank" rel="noopener" aria-label="前往《迴諍論》">
+<rect x="62" y="318" width="356" height="32" fill="transparent"/>
+<text class="lin-body lin-work" x="74" y="334" font-size="14.5">▸ 迴 諍 論</text>
+<text class="lin-latin" x="176" y="334" font-size="11">Vigrahavyāvartanī</text>
+<text class="lin-mute" x="86" y="349" font-size="11.5">中觀方法論辯證 · 答正理外難</text>
+</a>
+<a class="lin-link" href="https://weiwen0925.github.io/dazhidulun-0/" target="_blank" rel="noopener" aria-label="前往《大智度論》全本彙編">
+<rect x="62" y="352" width="356" height="32" fill="transparent"/>
+<text class="lin-body lin-work" x="74" y="368" font-size="14.5">▸ 大智度論</text>
+<text class="lin-latin" x="176" y="368" font-size="11">Mahāprajñāpāramitopadeśa</text>
+<text class="lin-mute" x="86" y="383" font-size="11.5">釋《大品般若》廣論 · 本站主體</text>
+</a>
 </g>
 
 <!-- 提婆 box -->
 <g>
-<rect class="lin-stage-key" x="450" y="170" width="230" height="178" rx="6"/>
-<text class="lin-title" x="470" y="195" font-size="17">提　　婆</text>
-<text class="lin-latin" x="546" y="195" font-size="14">Āryadeva</text>
-<text class="lin-mute" x="470" y="217" font-size="12">c. 170–270 CE｜龍樹弟子</text>
-<line class="lin-divider" x1="470" y1="232" x2="660" y2="232"/>
-<text class="lin-body" x="480" y="256" font-size="14">▸ 百　　論</text>
-<text class="lin-body" x="480" y="280" font-size="13">　　破外道二十種異執</text>
+<rect class="lin-stage-key" filter="url(#linShadow)" x="448" y="178" width="232" height="250" rx="7"/>
+<text class="lin-title" x="468" y="204" font-size="17">提　　婆</text>
+<text class="lin-latin" x="546" y="204" font-size="14">Āryadeva</text>
+<text class="lin-mute" x="468" y="226" font-size="12">c. 170–270 CE｜龍樹弟子</text>
+<line class="lin-divider" x1="468" y1="240" x2="660" y2="240"/>
+<a class="lin-link" href="https://weiwen0925.github.io/bailun/" target="_blank" rel="noopener" aria-label="前往《百論》">
+<rect x="460" y="250" width="210" height="60" fill="transparent"/>
+<text class="lin-body lin-work" x="478" y="268" font-size="14.5">▸ 百　　論</text>
+<text class="lin-latin" x="560" y="268" font-size="11">Śata-śāstra</text>
+<text class="lin-mute" x="490" y="288" font-size="11.5">破外道二十種異執</text>
+<text class="lin-mute" x="490" y="305" font-size="11.5">三論宗所依之一</text>
+</a>
+<text class="lin-mute" x="468" y="344" font-size="11">與龍樹合稱中觀法脈</text>
 </g>
 
 <!-- 師徒傳承箭頭 -->
-<path class="lin-trans" d="M 420 260 L 450 260" marker-end="url(#arrowEnd)"/>
-<text class="lin-mute" x="435" y="252" text-anchor="middle" font-size="10">傳承</text>
+<path class="lin-trans" d="M 428 268 L 448 268" marker-end="url(#arrowEnd)"/>
+<text class="lin-mute" x="438" y="260" text-anchor="middle" font-size="10">傳承</text>
 
 <!-- Stage ② → ③ 箭頭 -->
-<line class="lin-arrow" x1="360" y1="354" x2="360" y2="386" marker-end="url(#arrowEnd)"/>
+<line class="lin-arrow" x1="360" y1="430" x2="360" y2="460" marker-end="url(#arrowEnd)"/>
 
 <!-- ③ 鳩摩羅什漢譯 -->
+<circle class="lin-dot" cx="50" cy="484" r="9"/>
+<text class="lin-num" x="50" y="488" text-anchor="middle" font-size="11">2</text>
+<text class="lin-meta" x="68" y="488" font-size="12" letter-spacing="3">CHINESE TRANSLATION · 羅什漢譯期</text>
+<line class="lin-divider" x1="68" y1="498" x2="680" y2="498"/>
 <g>
-<text class="lin-meta" x="40" y="408" font-size="12" letter-spacing="3">CHINESE TRANSLATION · 羅什漢譯期</text>
-<line class="lin-divider" x1="40" y1="418" x2="680" y2="418"/>
-</g>
-<g>
-<rect class="lin-stage-source" x="80" y="436" width="560" height="138" rx="6"/>
-<text class="lin-title" x="360" y="464" text-anchor="middle" font-size="18">鳩摩羅什 譯場</text>
-<text class="lin-latin" x="360" y="486" text-anchor="middle" font-size="14">Kumārajīva · 402–413 CE · 長安逍遙園</text>
-<line class="lin-divider" x1="120" y1="504" x2="600" y2="504"/>
-<text class="lin-body" x="360" y="526" text-anchor="middle" font-size="14">中觀四論：中論 ‧ 十二門論 ‧ 百論 ‧ 大智度論</text>
-<text class="lin-body" x="360" y="550" text-anchor="middle" font-size="14">禪修典籍：坐禪三昧經（亦譯）</text>
+<rect class="lin-stage-source" filter="url(#linShadow)" x="80" y="512" width="560" height="182" rx="7"/>
+<text class="lin-title" x="360" y="542" text-anchor="middle" font-size="18">鳩摩羅什 譯場</text>
+<text class="lin-latin" x="360" y="564" text-anchor="middle" font-size="14">Kumārajīva · 402–413 CE · 長安逍遙園</text>
+<line class="lin-divider" x1="120" y1="582" x2="600" y2="582"/>
+<text class="lin-body" x="360" y="606" text-anchor="middle" font-size="14">中觀四論：中論 ‧ 十二門論 ‧ 百論 ‧ 大智度論</text>
+<text class="lin-body" x="222" y="634" text-anchor="start" font-size="14">禪修典籍：</text>
+<a class="lin-link" href="https://weiwen0925.github.io/zuochan-sanmei-jing/" target="_blank" rel="noopener" aria-label="前往《坐禪三昧經》">
+<rect x="290" y="622" width="74" height="20" fill="transparent"/>
+<text class="lin-body lin-work" x="292" y="634" text-anchor="start" font-size="14">坐禪三昧經</text>
+</a>
+<text class="lin-mute" x="366" y="634" text-anchor="start" font-size="14">·</text>
+<a class="lin-link" href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" target="_blank" rel="noopener" aria-label="前往《般舟三昧經》">
+<rect x="378" y="622" width="74" height="20" fill="transparent"/>
+<text class="lin-body lin-work" x="380" y="634" text-anchor="start" font-size="14">般舟三昧經</text>
+</a>
+<text class="lin-mute" x="452" y="634" text-anchor="start" font-size="14">（亦譯）</text>
+<text class="lin-mute" x="360" y="662" text-anchor="middle" font-size="11.5">後秦姚興敕譯 · 僧叡、僧肇等五百餘人筆受</text>
 </g>
 
 <!-- Stage ③ → ④ 箭頭 -->
-<line class="lin-arrow" x1="360" y1="580" x2="360" y2="612" marker-end="url(#arrowEnd)"/>
+<line class="lin-arrow" x1="360" y1="696" x2="360" y2="726" marker-end="url(#arrowEnd)"/>
 
 <!-- ④ 漢傳吸收 -->
+<circle class="lin-dot" cx="50" cy="750" r="9"/>
+<text class="lin-num" x="50" y="754" text-anchor="middle" font-size="11">3</text>
+<text class="lin-meta" x="68" y="754" font-size="12" letter-spacing="3">CHINESE RECEPTION · 漢傳吸收期</text>
+<line class="lin-divider" x1="68" y1="764" x2="680" y2="764"/>
 <g>
-<text class="lin-meta" x="40" y="634" font-size="12" letter-spacing="3">CHINESE RECEPTION · 漢傳吸收期</text>
-<line class="lin-divider" x1="40" y1="644" x2="680" y2="644"/>
-</g>
-<g>
-<rect class="lin-stage" x="120" y="662" width="480" height="74" rx="6"/>
-<text class="lin-title" x="360" y="690" text-anchor="middle" font-size="16">漢傳判教：三論宗 ‧ 天台 ‧ 華嚴</text>
-<text class="lin-latin" x="360" y="712" text-anchor="middle" font-size="13">San-lun School · Tiantai · Huayan</text>
-<text class="lin-mute" x="360" y="730" text-anchor="middle" font-size="12">隋唐 6–9 世紀</text>
+<rect class="lin-stage" filter="url(#linShadow)" x="110" y="778" width="500" height="92" rx="7"/>
+<text class="lin-title" x="360" y="806" text-anchor="middle" font-size="16">漢傳判教：三論宗 ‧ 天台 ‧ 華嚴</text>
+<text class="lin-latin" x="360" y="828" text-anchor="middle" font-size="13">San-lun School · Tiantai · Huayan</text>
+<text class="lin-mute" x="360" y="848" text-anchor="middle" font-size="11.5">隋唐 6–9 世紀 · 吉藏立三論宗、智顗判天台</text>
 </g>
 
 <!-- Stage ④ → ⑤ 箭頭 -->
-<line class="lin-arrow" x1="360" y1="742" x2="360" y2="774" marker-end="url(#arrowEnd)"/>
+<line class="lin-arrow" x1="360" y1="874" x2="360" y2="904" marker-end="url(#arrowEnd)"/>
 
 <!-- ⑤ 近代研究 -->
+<circle class="lin-dot" cx="50" cy="928" r="9"/>
+<text class="lin-num" x="50" y="932" text-anchor="middle" font-size="11">4</text>
+<text class="lin-meta" x="68" y="932" font-size="12" letter-spacing="3">MODERN SCHOLARSHIP · 近代研究期</text>
+<line class="lin-divider" x1="68" y1="942" x2="680" y2="942"/>
 <g>
-<text class="lin-meta" x="40" y="796" font-size="12" letter-spacing="3">MODERN SCHOLARSHIP · 近代研究期</text>
-<line class="lin-divider" x1="40" y1="806" x2="680" y2="806"/>
-</g>
-<g>
-<rect class="lin-stage" x="120" y="824" width="480" height="48" rx="6"/>
-<text class="lin-body" x="360" y="853" text-anchor="middle" font-size="14">印順導師 · É. Lamotte · 梶山雄一</text>
+<rect class="lin-stage" filter="url(#linShadow)" x="110" y="956" width="500" height="78" rx="7"/>
+<text class="lin-body" x="360" y="982" text-anchor="middle" font-size="14">印順導師 · É. Lamotte · 梶山雄一</text>
+<text class="lin-latin" x="360" y="1002" text-anchor="middle" font-size="11.5">Yin Shun · Étienne Lamotte · Kajiyama Yūichi</text>
+<text class="lin-mute" x="360" y="1020" text-anchor="middle" font-size="11">Lamotte 法譯《Le Traité de la Grande Vertu de Sagesse》</text>
 </g>
 </svg>
-<figcaption class="lineage-caption">中觀學派譜系：從般若經 → 龍樹／提婆 → 鳩摩羅什漢譯 → 漢傳吸收 → 近代研究的完整思想流脈。</figcaption>
+<figcaption class="lineage-caption">中觀學派譜系：從般若經 → 龍樹／提婆 → 鳩摩羅什漢譯 → 漢傳吸收 → 近代研究的完整思想流脈（點各論名可直達該頁）。</figcaption>
 </figure>
 
 <!-- ============ 個人研讀彙整系列 ============ -->
