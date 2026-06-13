@@ -576,6 +576,9 @@
             letter-spacing: 3px;
             margin: 0 0 4px;
         }
+        /* PATH-TAGS-PATCH */
+        .path-tags { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 12px; }
+        .path-tag { display: inline-block; padding: 3px 13px; border: 1px solid var(--line-strong); border-radius: 20px; font-size: 12.5px; letter-spacing: 1px; color: var(--gold-soft); background: rgba(217, 184, 124, 0.06); }
         .path-sub {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
@@ -2635,7 +2638,8 @@
 
     <div class="path-card">
         <div class="path-icon">行</div>
-        <h4 class="path-role">實修者・出家居士</h4>
+        <h4 class="path-role">實修者</h4>
+        <div class="path-tags"><span class="path-tag">出家眾</span><span class="path-tag">在家居士</span></div>
         <p class="path-sub">For Practitioners · 菩薩道與禪修實踐</p>
         <ol class="path-steps">
             <li>
