@@ -165,6 +165,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap">
+<script>/* CITE-COPY-DELEGATE */
+document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e.target.closest(".cite-copy"):null;if(!b)return;var el=document.getElementById(b.getAttribute("data-target"));if(!el)return;var t=el.innerText;var d=function(){if(!b.getAttribute("data-orig"))b.setAttribute("data-orig",b.textContent);b.textContent="已複製 ✓";b.classList.add("copied");setTimeout(function(){b.textContent=b.getAttribute("data-orig")||"複製";b.classList.remove("copied");},1600);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(d,d);}else{try{var r=document.createRange();r.selectNode(el);var sel=getSelection();sel.removeAllRanges();sel.addRange(r);document.execCommand("copy");sel.removeAllRanges();}catch(x){}d();}},true);</script>
 <style>
 
         :root {
@@ -3925,20 +3927,6 @@
 <p class="cite-doi-note">📌 上列 DOI 由 Zenodo 發行、為永久識別碼，即使網站網址日後變動仍可追溯；正式學術引用請優先使用 DOI。</p>
 </div>
 </section>
-<script>
-(function(){
-  document.querySelectorAll('.cite-copy').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var el = document.getElementById(btn.getAttribute('data-target'));
-      if(!el) return;
-      var txt = el.innerText;
-      var done = function(){ var o = btn.textContent; btn.textContent = '已複製 ✓'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent = o; btn.classList.remove('copied'); }, 1600); };
-      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done, done); }
-      else { var r=document.createRange(); r.selectNode(el); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); try{document.execCommand('copy');}catch(e){} s.removeAllRanges(); done(); }
-    });
-  });
-})();
-</script>
 <!-- ============ 頁尾 ============ -->
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
