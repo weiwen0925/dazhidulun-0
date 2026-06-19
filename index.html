@@ -3948,14 +3948,14 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 .sg-eyebrow{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:var(--gold-amber,#c8a05a);letter-spacing:3px;opacity:.85;margin-bottom:4px;}
 .sg-title{text-align:center;color:var(--gold-bright,#e8c886);font-family:'Noto Serif TC',serif;font-size:22px;font-weight:600;letter-spacing:6px;margin:0 0 6px;}
 .sg-sub{text-align:center;color:var(--text-mute,#a89878);font-size:13px;letter-spacing:1px;margin:0 0 30px;}
-.sg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;}
+.sg-grid{display:flex;flex-wrap:nowrap;gap:18px;overflow-x:auto;padding:4px 2px 14px;cursor:grab;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;}.sg-grid:active{cursor:grabbing;}.sg-grid::-webkit-scrollbar{height:7px;}.sg-grid::-webkit-scrollbar-thumb{background:rgba(217,184,124,0.35);border-radius:4px;}.sg-grid::-webkit-scrollbar-track{background:rgba(217,184,124,0.06);}.sg-card{flex:0 0 300px;scroll-snap-align:start;}.sg-hint{text-align:center;color:var(--text-mute,#9c8c70);font-size:12px;letter-spacing:2px;margin:12px 0 0;opacity:.85;}
 .sg-card{display:block;text-decoration:none;border:1px solid var(--line-strong,#7a6a44);border-radius:8px;padding:24px 22px;background:rgba(217,184,124,0.035);transition:border-color .25s ease,background .25s ease,box-shadow .25s ease,transform .25s ease;}
 .sg-card:hover{border-color:#e8c886;background:rgba(217,184,124,0.10);box-shadow:0 0 18px rgba(227,192,133,0.18);transform:translateY(-2px);}
 .sg-num{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-amber,#c8a05a);font-size:13px;letter-spacing:2px;margin-bottom:10px;}
 .sg-h{color:var(--gold-bright,#e8c886);font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;letter-spacing:.5px;line-height:1.5;margin-bottom:11px;}
 .sg-desc{color:var(--text-mute,#a89878);font-size:13px;line-height:1.75;}
 .sg-more{display:inline-block;margin-top:14px;color:var(--gold-soft,#d9b87c);font-size:12.5px;letter-spacing:1px;}
-@media(max-width:760px){.sg-grid{grid-template-columns:1fr;}.sg-section{margin-top:44px;}}
+@media(max-width:760px){.sg-card{flex:0 0 80%;}.sg-section{margin-top:44px;}}
 </style>
 <section class="sg-section" aria-label="系列導讀">
   <div class="sg-eyebrow">Reading Guide</div>
@@ -3987,6 +3987,7 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
       <span class="sg-more">閱讀 ›</span>
     </a>
   </div>
+  <p class="sg-hint">← 左右拖曳瀏覽 →</p>
 </section>
 <div class="section-title" id="sec-cite">
 <h2><span class="chapter-num">XI</span>學術引用</h2>
@@ -4407,5 +4408,7 @@ resetBtn.addEventListener('click', () => {
 })();
 </script>
 
+<script>/* SG-DRAG-SCROLL */
+(function(){var d=false,sx=0,sl=0,moved=false,g=null;document.addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(".sg-grid");if(!t)return;g=t;d=true;moved=false;sx=e.clientX;sl=t.scrollLeft;});document.addEventListener("pointermove",function(e){if(!d||!g)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;g.scrollLeft=sl-dx;});document.addEventListener("pointerup",function(){d=false;});document.addEventListener("click",function(e){if(moved&&e.target.closest&&e.target.closest(".sg-grid")){e.preventDefault();e.stopPropagation();moved=false;}},true);})();</script>
 </body>
 </html>
