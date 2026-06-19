@@ -2466,6 +2466,16 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 <meta content="noai" name="Claude-Web"/>
 <meta content="noai" name="cohere-ai"/>
 
+<style>/* HSCROLL-CARDS */
+.hscroll-cards{display:flex !important;flex-wrap:nowrap;gap:16px;overflow-x:auto;padding:4px 2px 14px;cursor:grab;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;}
+.hscroll-cards:active{cursor:grabbing;}
+.hscroll-cards::-webkit-scrollbar{height:7px;}
+.hscroll-cards::-webkit-scrollbar-thumb{background:rgba(217,184,124,0.35);border-radius:4px;}
+.hscroll-cards::-webkit-scrollbar-track{background:rgba(217,184,124,0.06);}
+.hscroll-cards>.resource-card{flex:0 0 340px;scroll-snap-align:start;}
+.hscroll-hint{text-align:center;color:var(--text-mute,#9c8c70);font-size:12px;letter-spacing:2px;margin:12px 0 0;opacity:.85;}
+@media(max-width:760px){.hscroll-cards>.resource-card{flex:0 0 82%;}}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
@@ -3918,7 +3928,7 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 <h2><span class="chapter-num">X</span>延伸研究資源</h2>
 <span class="en">Further Reading &amp; References</span>
 </div>
-<div class="resources-grid">
+<div class="resources-grid hscroll-cards">
 <a class="resource-card resource-card--video" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2mrXWH8hJwf5WI3b2cbd-k-" rel="noopener" target="_blank">
 <span class="rc-video-badge">
 <svg class="rc-play-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3.5v9l8-4.5z"/></svg>
@@ -4410,5 +4420,7 @@ resetBtn.addEventListener('click', () => {
 
 <script>/* SG-DRAG-SCROLL */
 (function(){var d=false,sx=0,sl=0,moved=false,g=null;document.addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(".sg-grid");if(!t)return;g=t;d=true;moved=false;sx=e.clientX;sl=t.scrollLeft;});document.addEventListener("pointermove",function(e){if(!d||!g)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;g.scrollLeft=sl-dx;});document.addEventListener("pointerup",function(){d=false;});document.addEventListener("click",function(e){if(moved&&e.target.closest&&e.target.closest(".sg-grid")){e.preventDefault();e.stopPropagation();moved=false;}},true);})();</script>
+<script>/* HSCROLL-DRAG */
+(function(){function init(){document.querySelectorAll(".hscroll-cards").forEach(function(g){if(g.nextElementSibling&&g.nextElementSibling.className==="hscroll-hint")return;var h=document.createElement("p");h.className="hscroll-hint";h.textContent="\u2190 \u5de6\u53f3\u62d6\u66f3\u700f\u89bd \u2192";g.parentNode.insertBefore(h,g.nextSibling);});}if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);var d=false,sx=0,sl=0,moved=false,cur=null;document.addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(".hscroll-cards");if(!t)return;cur=t;d=true;moved=false;sx=e.clientX;sl=t.scrollLeft;});document.addEventListener("pointermove",function(e){if(!d||!cur)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;cur.scrollLeft=sl-dx;});document.addEventListener("pointerup",function(){d=false;});document.addEventListener("click",function(e){if(moved&&e.target.closest&&e.target.closest(".hscroll-cards")){e.preventDefault();e.stopPropagation();moved=false;}},true);})();</script>
 </body>
 </html>
