@@ -4136,6 +4136,20 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
   <div class="dl-ex"><span class="dl-ex-k">章層級</span><span>…/dazhidulun-31/<b>#chapter-1-2</b> → 第 1 品 · 第 2 章（例：卷 31 共 30 個章錨點）</span></div>
   <div class="dl-ex"><span class="dl-ex-k">節層級</span><span>…/dazhidulun-31/<b>#chapter-1-2-3</b> → 第 1 品 · 第 2 章 · 第 3 節（例：卷 31 共 119 個節錨點）</span></div>
   <p class="dl-note">＊ 卷頁內容採加密揭幕載入；深連結已做跨層處理，會自動「等內容揭幕後再捲動」，因此你貼出去的網址，別人一點就能準確落位。</p>
+<style>/* DL-COPY-CSS */
+.dl-demo{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;max-width:620px;margin:24px auto 0;padding:15px 20px;border:1px solid var(--line-strong,#7a6a44);border-radius:11px;background:rgba(217,184,124,0.045);}
+.dl-demo-url{font-family:'Monaco','Menlo',monospace;font-size:13px;color:#cdbf9d;letter-spacing:.3px;}
+.dl-copy{display:inline-flex;align-items:center;gap:8px;padding:7px 17px;border-radius:20px;border:1px solid rgba(217,184,124,0.50);background:rgba(217,184,124,0.10);color:#e8c886;font-size:13px;letter-spacing:1.5px;font-family:'Noto Serif TC',serif;cursor:pointer;transition:background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease;}
+.dl-copy:hover{background:rgba(217,184,124,0.18);border-color:#e8c886;box-shadow:0 0 14px rgba(227,192,133,0.28);}
+.dl-copy.copied{color:#ffe7b3;border-color:#e8c886;background:rgba(217,184,124,0.22);}
+.dl-copy-ico{width:13px;height:13px;flex-shrink:0;}
+.dl-tip{text-align:center;color:var(--text-mute,#9c8c70);font-size:12px;font-style:italic;margin:13px 0 0;}
+</style>
+<div class="dl-demo">
+  <span class="dl-demo-url">…/dazhidulun-31/#chapter-1-2-3</span>
+  <button class="dl-copy" type="button" data-copy="https://weiwen0925.github.io/dazhidulun-31/#chapter-1-2-3" data-label="複製本節連結"><svg class="dl-copy-ico" viewBox="0 0 14 14" aria-hidden="true"><rect x="2.5" y="3.5" width="8" height="9" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/><rect x="4.8" y="1.3" width="8" height="9" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg>複製本節連結</button>
+</div>
+<p class="dl-tip">＊ 此為示意；日後每一卷的每節標題旁，都會有這樣一顆複製鈕，一點即把該節連結放進剪貼簿。</p>
 </section>
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
@@ -4478,5 +4492,7 @@ resetBtn.addEventListener('click', () => {
 (function(){function init(){document.querySelectorAll(".hscroll-cards").forEach(function(g){if(g.nextElementSibling&&g.nextElementSibling.className==="hscroll-hint")return;var h=document.createElement("p");h.className="hscroll-hint";h.textContent="\u2190 \u5de6\u53f3\u62d6\u66f3\u700f\u89bd \u2192";g.parentNode.insertBefore(h,g.nextSibling);});}if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);var d=false,sx=0,sl=0,moved=false,cur=null;document.addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(".hscroll-cards");if(!t)return;cur=t;d=true;moved=false;sx=e.clientX;sl=t.scrollLeft;});document.addEventListener("pointermove",function(e){if(!d||!cur)return;var dx=e.clientX-sx;if(Math.abs(dx)>5)moved=true;cur.scrollLeft=sl-dx;});document.addEventListener("pointerup",function(){d=false;});document.addEventListener("click",function(e){if(moved&&e.target.closest&&e.target.closest(".hscroll-cards")){e.preventDefault();e.stopPropagation();moved=false;}},true);})();</script>
 <script>/* SS-VIDEO-JS */
 document.addEventListener("click",function(e){var v=e.target.closest&&e.target.closest(".ss-video");if(!v)return;e.preventDefault();e.stopPropagation();var u=v.getAttribute("data-v");if(u)window.open(u,"_blank","noopener");},true);</script>
+<script>/* DL-COPY-JS */
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".dl-copy");if(!b)return;e.preventDefault();var u=b.getAttribute("data-copy");if(!u)return;var done=function(){b.classList.add("copied");if(b.lastChild)b.lastChild.textContent="已複製 \u2713";setTimeout(function(){b.classList.remove("copied");if(b.lastChild)b.lastChild.textContent=b.getAttribute("data-label")||"複製";},1600);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}else{var t=document.createElement("textarea");t.value=u;document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(x){}document.body.removeChild(t);done();}},true);</script>
 </body>
 </html>
