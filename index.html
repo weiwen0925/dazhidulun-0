@@ -4089,6 +4089,54 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 </div>
 </section>
 <!-- ============ 頁尾 ============ -->
+<!-- ============ 深連結引用說明 ============ -->
+<style>
+.dl-section{max-width:880px;margin:54px auto 0;padding:0 24px;}
+.dl-eyebrow{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--gold-amber,#c8a05a);letter-spacing:3px;opacity:.85;margin-bottom:4px;}
+.dl-title{text-align:center;color:var(--gold-bright,#e8c886);font-family:'Noto Serif TC',serif;font-size:23px;font-weight:600;letter-spacing:1.5px;margin:0 0 22px;}
+.dl-p{color:var(--text-soft,#cdbf9d);font-size:15.5px;line-height:2.0;margin:0 0 16px;}
+.dl-code{background:rgba(217,184,124,0.12);border:1px solid rgba(217,184,124,0.30);border-radius:5px;padding:2px 8px;color:#ffe7b3;font-family:'Monaco','Menlo',monospace;font-size:0.9em;letter-spacing:.5px;}
+.dl-fig{margin:30px auto 24px;max-width:760px;}
+.dl-fig svg{width:100%;height:auto;display:block;}
+.dl-fig svg text{font-family:'Noto Serif TC',serif;}
+.dlz-box{fill:#322a20;stroke:#9c7e4e;stroke-width:1.3;}
+.dlz-key{fill:#3f3322;stroke:#d9b87c;stroke-width:1.8;}
+.dlz-zh{fill:#e7d6b0;}.dlz-gold{fill:#e0b772;}.dlz-soft{fill:#c9a96e;}.dlz-mute{fill:#9c8c70;}
+.dl-ex{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:11px 16px;margin:8px 0;border:1px solid var(--line,#5a4a30);border-radius:8px;background:rgba(217,184,124,0.03);font-size:14px;color:var(--text-soft,#cdbf9d);}
+.dl-ex b{color:#e8c886;font-family:'Monaco','Menlo',monospace;font-weight:600;letter-spacing:.3px;}
+.dl-ex-k{flex-shrink:0;font-size:12px;letter-spacing:2px;color:#241a0c;background:linear-gradient(180deg,#e8c886,#d9b87c);border-radius:11px;padding:2px 12px;font-weight:600;}
+.dl-note{color:var(--text-mute,#9c8c70);font-size:12.5px;line-height:1.85;font-style:italic;margin:18px 0 0;}
+</style>
+<section class="dl-section" aria-label="深連結引用說明">
+  <div class="dl-eyebrow">Citable Deep Links · 深連結引用</div>
+  <h3 class="dl-title">引用到「節」——像門牌號碼一樣精準</h3>
+  <p class="dl-p">想和同修討論某一句、某一節，不必再說「在卷 31 中間偏下那一段」。本站逐卷為每一節設定專屬的網址錨點——貼上連結，對方一點就<b style="color:#e8c886">直接落在那一節</b>。</p>
+  <p class="dl-p">用法很簡單：在卷頁網址後面加上 <code class="dl-code">#chapter-品-章-節</code>。三個數字就像門牌號碼，定位到「第幾品 · 第幾章 · 第幾節」。</p>
+  <figure class="dl-fig">
+<svg style="width:100%;height:auto;display:block;" viewBox="0 0 760 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="節層級錨點 chapter 品章節 圖例">
+  <text class="dlz-gold" x="380" y="34" text-anchor="middle" font-size="19" font-weight="700">網址錨點 = 門牌號碼，精準到一節</text>
+  <text class="dlz-mute" x="380" y="72" text-anchor="middle" font-size="14">…/dazhidulun-31/<tspan class="dlz-soft" font-weight="700">#chapter-</tspan>1-2-3</text>
+  <rect class="dlz-key" x="172" y="98" width="116" height="98" rx="11"/>
+  <text class="dlz-mute" x="230" y="125" text-anchor="middle" font-size="13.5">品</text>
+  <text class="dlz-gold" x="230" y="172" text-anchor="middle" font-size="42" font-weight="700">1</text>
+  <text class="dlz-soft" x="306" y="158" text-anchor="middle" font-size="30">-</text>
+  <rect class="dlz-key" x="324" y="98" width="116" height="98" rx="11"/>
+  <text class="dlz-mute" x="382" y="125" text-anchor="middle" font-size="13.5">章</text>
+  <text class="dlz-gold" x="382" y="172" text-anchor="middle" font-size="42" font-weight="700">2</text>
+  <text class="dlz-soft" x="460" y="158" text-anchor="middle" font-size="30">-</text>
+  <rect class="dlz-key" x="478" y="98" width="116" height="98" rx="11"/>
+  <text class="dlz-mute" x="536" y="125" text-anchor="middle" font-size="13.5">節</text>
+  <text class="dlz-gold" x="536" y="172" text-anchor="middle" font-size="42" font-weight="700">3</text>
+  <text class="dlz-soft" x="380" y="234" text-anchor="middle" font-size="24">↓</text>
+  <rect class="dlz-box" x="150" y="252" width="460" height="56" rx="11"/>
+  <text class="dlz-zh" x="380" y="287" text-anchor="middle" font-size="18" font-weight="700">直達：第 1 品 · 第 2 章 · 第 3 節</text>
+  <text class="dlz-mute" x="380" y="344" text-anchor="middle" font-size="12.5">章層級 #chapter-品-章（例：卷31 共 30 個）　·　節層級 #chapter-品-章-節（例：卷31 共 119 個）</text>
+</svg>
+  </figure>
+  <div class="dl-ex"><span class="dl-ex-k">章層級</span><span>…/dazhidulun-31/<b>#chapter-1-2</b> → 第 1 品 · 第 2 章（例：卷 31 共 30 個章錨點）</span></div>
+  <div class="dl-ex"><span class="dl-ex-k">節層級</span><span>…/dazhidulun-31/<b>#chapter-1-2-3</b> → 第 1 品 · 第 2 章 · 第 3 節（例：卷 31 共 119 個節錨點）</span></div>
+  <p class="dl-note">＊ 卷頁內容採加密揭幕載入；深連結已做跨層處理，會自動「等內容揭幕後再捲動」，因此你貼出去的網址，別人一點就能準確落位。</p>
+</section>
 <footer>
         願以此功德　普及於一切　我等與眾生　皆共成佛道
         <span class="version">2026 年 6 月版 · v1.2</span>
