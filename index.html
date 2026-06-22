@@ -4130,12 +4130,11 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
   <text class="dlz-soft" x="380" y="234" text-anchor="middle" font-size="24">↓</text>
   <rect class="dlz-box" x="150" y="252" width="460" height="56" rx="11"/>
   <text class="dlz-zh" x="380" y="287" text-anchor="middle" font-size="18" font-weight="700">直達：第 1 品 · 第 2 章 · 第 3 節</text>
-  <text class="dlz-mute" x="380" y="344" text-anchor="middle" font-size="12.5">章層級 #chapter-品-章（例：卷31 共 30 個）　·　節層級 #chapter-品-章-節（例：卷31 共 119 個）</text>
+  <text class="dlz-mute" x="380" y="344" text-anchor="middle" font-size="12.5">節層級錨點 #chapter-品-章-節　·　以卷 31 為例，共 119 個節錨點，逐節皆可深連結</text>
 </svg>
   </figure>
-  <div class="dl-ex"><span class="dl-ex-k">章層級</span><span>…/dazhidulun-31/<b>#chapter-1-2</b> → 第 1 品 · 第 2 章（例：卷 31 共 30 個章錨點）</span></div>
   <div class="dl-ex"><span class="dl-ex-k">節層級</span><span>…/dazhidulun-31/<b>#chapter-1-2-3</b> → 第 1 品 · 第 2 章 · 第 3 節（例：卷 31 共 119 個節錨點）</span></div>
-  <p class="dl-note">＊ 卷頁內容採加密揭幕載入；深連結已做跨層處理，會自動「等內容揭幕後再捲動」，因此你貼出去的網址，別人一點就能準確落位。</p>
+  <p class="dl-note">＊ 卷頁內容採加密揭幕載入；深連結已做跨層處理，會自動「等內容揭幕後再捲動」，因此你貼出去的網址，別人一點就能準確落位。<br>＊ 每章開頭另保留 <code class="dl-code" style="font-size:0.82em;padding:1px 6px;">#chapter-品-章</code> 錨點，少打一個數字即落在整章起點，作為備援。</p>
 <style>/* DL-COPY-CSS */
 .dl-demo{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;max-width:620px;margin:24px auto 0;padding:15px 20px;border:1px solid var(--line-strong,#7a6a44);border-radius:11px;background:rgba(217,184,124,0.045);}
 .dl-demo-url{font-family:'Monaco','Menlo',monospace;font-size:13px;color:#cdbf9d;letter-spacing:.3px;}
