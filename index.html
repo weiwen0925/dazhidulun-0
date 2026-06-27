@@ -2489,6 +2489,12 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 .sg-video:hover{background:rgba(217,184,124,0.18);border-color:#e8c886;color:#f0d398;box-shadow:0 0 12px rgba(227,192,133,0.28);}
 .sg-video svg{width:9px;height:11px;fill:currentColor;display:block;}
 </style>
+<style>/* SG-SUTRA-CSS */
+.sg-foot-r{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.sg-sutra{display:inline-flex;align-items:center;gap:6px;padding:5px 13px;border-radius:16px;border:1px solid rgba(217,184,124,0.45);background:rgba(217,184,124,0.08);color:#e3c489;font-size:12px;letter-spacing:1.5px;font-weight:500;cursor:pointer;flex-shrink:0;transition:background .28s ease,border-color .28s ease,color .28s ease,box-shadow .28s ease;}
+.sg-sutra:hover{background:rgba(217,184,124,0.18);border-color:#e8c886;color:#f0d398;box-shadow:0 0 12px rgba(227,192,133,0.28);}
+.sg-sutra svg{width:11px;height:11px;fill:none;display:block;}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
@@ -4037,7 +4043,7 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
       <div class="sg-num">ESSAY · 09</div>
       <div class="sg-h">四禪不是越爬越樂的階梯——「觀過知捨」把禪定寫成減法公式</div>
       <div class="sg-desc">禪定不是「樂」的加法，而是「執」的減法。每一級先觀過知捨，淨值收斂到「捨念清淨」（苦樂雙亡）。定中見空，空中安住。</div>
-      <div class="sg-foot"><span class="sg-more">閱讀 ›</span><span class="sg-video" data-v="https://youtu.be/q7H0y9axe2g" role="button" tabindex="0" aria-label="觀看影片"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+      <div class="sg-foot"><span class="sg-more">閱讀 ›</span><span class="sg-foot-r"><span class="sg-sutra" data-href="https://weiwen0925.github.io/zuochan-sanmei-jing/" role="button" tabindex="0" aria-label="坐禪三昧經"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M6 2 C4 1 1.6 1 1 2 V10 C1.6 9 4 9 6 10 C8 9 10.4 9 11 10 V2 C10.4 1 8 1 6 2 Z M6 2 V10" fill="none" stroke="currentColor" stroke-width="0.9"/></svg>坐禪三昧經</span><span class="sg-video" data-v="https://youtu.be/q7H0y9axe2g" role="button" tabindex="0" aria-label="觀看影片"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></span></div>
     </a>
   </div>
   <p class="sg-hint">← 左右拖曳瀏覽 →</p>
@@ -4532,5 +4538,7 @@ document.addEventListener("click",function(e){var v=e.target.closest&&e.target.c
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".dl-copy");if(!b)return;e.preventDefault();var u=b.getAttribute("data-copy");if(!u)return;var done=function(){b.classList.add("copied");if(b.lastChild)b.lastChild.textContent="已複製 \u2713";setTimeout(function(){b.classList.remove("copied");if(b.lastChild)b.lastChild.textContent=b.getAttribute("data-label")||"複製";},1600);};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(done,done);}else{var t=document.createElement("textarea");t.value=u;document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(x){}document.body.removeChild(t);done();}},true);</script>
 <script>/* SG-VIDEO-JS */
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".sg-video");if(!b)return;e.preventDefault();e.stopPropagation();var u=b.getAttribute("data-v");if(u)window.open(u,"_blank","noopener");},true);</script>
+<script>/* SG-SUTRA-JS */
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".sg-sutra");if(!b)return;e.preventDefault();e.stopPropagation();var u=b.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");},true);</script>
 </body>
 </html>
