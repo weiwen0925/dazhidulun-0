@@ -2507,6 +2507,15 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 .prereq-cta{animation:prereqGlow 3s ease-in-out infinite;}
 @keyframes prereqGlow{0%,100%{filter:drop-shadow(0 0 8px rgba(232,200,134,0.45));}50%{filter:drop-shadow(0 0 18px rgba(232,200,134,0.78));}}
 </style>
+<style>/* CORE-VOL-HILITE */
+/* 靜止：核心卷柔和金色光暈（box-shadow 不被 overflow:hidden 裁切）＋星標亮金 */
+a.volume-link.is-core{box-shadow:0 0 12px -2px rgba(232,200,134,0.30);transition:box-shadow .25s ease,border-color .18s ease,transform .18s ease;}
+a.volume-link.is-core .vol-star{color:var(--gold-bright);filter:drop-shadow(0 0 4px rgba(232,200,134,0.70));}
+/* hover：該張卡才加亮並輕脈動（只動 box-shadow，保留既有 translateY 上浮與金邊加亮）*/
+a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
+@keyframes coreVolPulse{0%,100%{box-shadow:0 0 12px -2px rgba(232,200,134,0.35);}50%{box-shadow:0 0 22px 0 rgba(255,231,160,0.62);}}
+@media (prefers-reduced-motion:reduce){a.volume-link.is-core:hover{animation:none;box-shadow:0 0 20px 0 rgba(255,231,160,0.55);}}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
