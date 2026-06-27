@@ -2495,6 +2495,14 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 .sg-sutra:hover{background:rgba(217,184,124,0.18);border-color:#e8c886;color:#f0d398;box-shadow:0 0 12px rgba(227,192,133,0.28);}
 .sg-sutra svg{width:11px;height:11px;fill:none;display:block;}
 </style>
+<style>/* CMP-CORE-CSS */
+.cmp-core{cursor:pointer;}
+.cmp-core>circle:first-of-type{filter:drop-shadow(0 0 12px rgba(232,200,134,0.55));animation:cmpCoreGlow 3s ease-in-out infinite;transition:filter .3s ease;}
+.cmp-core:hover>circle:first-of-type{filter:drop-shadow(0 0 26px rgba(255,231,160,0.92));}
+.cmp-core text{transition:fill .3s ease;}
+.cmp-core:hover text{fill:#ffe9b8;}
+@keyframes cmpCoreGlow{0%,100%{filter:drop-shadow(0 0 10px rgba(232,200,134,0.42));}50%{filter:drop-shadow(0 0 22px rgba(232,200,134,0.74));}}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
@@ -2779,10 +2787,10 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
 <text x="478" y="314" fill="#c9a96e" font-size="13" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1.5" transform="rotate(34, 478, 314)">破自性 · śūnyatā</text>
 <text x="242" y="314" fill="#c9a96e" font-size="13" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="1.5" transform="rotate(-34, 242, 314)">修證 · smṛti</text>
 <!-- 中心圓：大智度論 -->
-<circle cx="360" cy="235" r="72" fill="#2c241c" stroke="#e3c085" stroke-width="2"/>
+<a class="cmp-core" href="https://weiwen0925.github.io/dazhidulun-1/" role="link" aria-label="大智度論 · 從卷一開始讀"><circle cx="360" cy="235" r="72" fill="#2c241c" stroke="#e3c085" stroke-width="2"/>
 <circle cx="360" cy="235" r="64" fill="none" stroke="#d9b87c" stroke-width="0.6" stroke-opacity="0.5"/>
 <text x="360" y="228" fill="#e8c886" font-size="22" text-anchor="middle" font-weight="600" letter-spacing="4" font-family="Noto Serif TC, serif">大智度論</text>
-<text x="360" y="252" fill="#c9a96e" font-size="11" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="2">100 vols · core</text>
+<text x="360" y="252" fill="#c9a96e" font-size="11" text-anchor="middle" font-style="italic" font-family="Cormorant Garamond, serif" letter-spacing="2">100 vols · core</text></a>
 <!-- 中論圓（上）→ 龍樹《中論》 -->
 <a class="cmp-link" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener" aria-label="前往龍樹《中論》">
 <circle class="cmp-ring" cx="360" cy="55" r="48" fill="#3c3428" stroke="#d9b87c" stroke-width="1.5"/>
