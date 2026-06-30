@@ -2516,6 +2516,64 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 @keyframes coreVolPulse{0%,100%{box-shadow:0 0 12px -2px rgba(232,200,134,0.35);}50%{box-shadow:0 0 22px 0 rgba(255,231,160,0.62);}}
 @media (prefers-reduced-motion:reduce){a.volume-link.is-core:hover{animation:none;box-shadow:0 0 20px 0 rgba(255,231,160,0.55);}}
 </style>
+<style id="sdbd-axis-style">
+/* 四禪八定・減法軸元件（全部 scope 在 #sdbd-axis，class 皆 sdbd- 前綴，與門頁零衝突）*/
+#sdbd-axis{
+  --bg:#2c241c; --bg-card:rgba(70,56,43,.55); --bg-card-hover:rgba(90,72,55,.7);
+  --line:rgba(217,184,124,.25); --line-strong:rgba(217,184,124,.5);
+  --gold-bright:#e3c085; --gold-amber:#d9b87c; --gold-soft:#c9a96e; --text-mute:#bcab8f;
+  font-family:"Noto Serif TC","Songti TC",serif;
+}
+#sdbd-axis .sdbd-intro{color:#d8c8ab; font-size:17px; line-height:2.05; letter-spacing:.5px; margin:4px 0 30px; padding:18px 22px; background:rgba(217,184,124,.05); border:1px solid var(--line); border-left:3px solid var(--gold-amber); border-radius:4px;}
+#sdbd-axis .sdbd-intro b{color:var(--gold-bright); font-weight:700;}
+#sdbd-axis .sdbd-intro .key{color:#f6e2b4; font-weight:700; border-bottom:1.5px solid var(--gold-amber); padding-bottom:1px;}
+#sdbd-axis .sdbd-hint{display:none; font-size:11px; color:var(--gold-soft); opacity:.5; letter-spacing:1px; margin:0 0 6px; text-align:right;}
+@media(max-width:1180px){ #sdbd-axis .sdbd-hint{display:block;} }
+#sdbd-axis .sdbd-wrap{overflow-x:auto; padding:4px 0 12px; scrollbar-width:thin; scrollbar-color:rgba(217,184,124,.55) rgba(217,184,124,.1);}
+#sdbd-axis .sdbd-wrap::-webkit-scrollbar{height:8px;}
+#sdbd-axis .sdbd-wrap::-webkit-scrollbar-track{background:rgba(217,184,124,.08); border-radius:8px;}
+#sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-soft),var(--gold-amber)); border-radius:8px;}
+#sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb:hover{background:var(--gold-bright);}
+#sdbd-axis .sdbd-row{display:flex; min-width:1040px;}
+#sdbd-axis .sdbd-zone{position:relative; display:flex; flex-direction:column; padding:0 16px;}
+#sdbd-axis .sdbd-zone + .sdbd-zone{border-left:1px dashed var(--line-strong);}
+#sdbd-axis .sdbd-zhead{text-align:center; font-size:14px; font-weight:600; letter-spacing:3px; color:var(--gold-amber); padding-bottom:14px;}
+#sdbd-axis .sdbd-zone.formless .sdbd-zhead{color:var(--gold-soft);}
+#sdbd-axis .sdbd-zone.ext .sdbd-zhead{color:var(--gold-soft); opacity:.85;}
+#sdbd-axis .sdbd-stations{position:relative; display:flex; gap:6px;}
+#sdbd-axis .sdbd-stations::before{content:""; position:absolute; left:14px; right:14px; top:67px; height:2px; background:rgba(217,184,124,.5); z-index:0;}
+#sdbd-axis .sdbd-zone.formless .sdbd-stations::before{background:rgba(217,184,124,.24);}
+#sdbd-axis .sdbd-zone.ext .sdbd-stations::before{display:none;}
+#sdbd-axis .sdbd-st{position:relative; z-index:1; flex:0 0 108px; width:108px; display:grid; grid-template-rows:52px 30px auto; justify-items:center; text-align:center; text-decoration:none; color:inherit; padding:2px 2px 8px; border-radius:6px; transition:.2s;}
+#sdbd-axis .sdbd-st:hover{background:var(--bg-card-hover);}
+#sdbd-axis .sdbd-top{display:flex; flex-direction:column; align-items:center;}
+#sdbd-axis .sdbd-name{font-size:19px; font-weight:700; letter-spacing:1.5px; color:var(--gold-bright); line-height:1.2;}
+#sdbd-axis .sdbd-zone.formless .sdbd-name{color:var(--gold-soft); opacity:.92;}
+#sdbd-axis .sdbd-pin{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; color:var(--gold-soft); letter-spacing:.5px; opacity:.8; margin-top:3px;}
+#sdbd-axis .sdbd-dot{align-self:center; width:15px; height:15px; border-radius:50%; background:var(--bg); border:2px solid var(--gold-amber); box-shadow:0 0 0 5px var(--bg);}
+#sdbd-axis .sdbd-zone.formless .sdbd-dot{width:11px; height:11px; border-color:var(--gold-soft); opacity:.4;}
+#sdbd-axis .sdbd-st.key .sdbd-dot{width:15px; height:15px; background:var(--gold-amber); border-color:var(--gold-amber); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 11px -1px rgba(217,184,124,.8);}
+#sdbd-axis .sdbd-st.ext .sdbd-dot{border-style:dashed;}
+#sdbd-axis .sdbd-st.king{background:rgba(217,184,124,.08); border-radius:9px; box-shadow:inset 0 0 0 1px rgba(217,184,124,.22);}
+#sdbd-axis .sdbd-st.king .sdbd-name{color:#f4e0b2; font-size:21.5px; position:relative;}
+#sdbd-axis .sdbd-st.king .sdbd-name::after{content:"\2654\FE0E"; font-size:23px; color:var(--gold-bright); position:absolute; top:-26px; left:50%; transform:translateX(-50%) scaleX(1.35); text-shadow:0 0 11px rgba(227,192,133,.8);}
+#sdbd-axis .sdbd-st.king .sdbd-pin{color:var(--gold-amber); opacity:1;}
+#sdbd-axis .sdbd-st.king .sdbd-dot{width:21px; height:21px; background:var(--gold-bright); border-color:var(--gold-bright); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 0 8px rgba(217,184,124,.22),0 0 16px 1px rgba(227,192,133,.6);}
+#sdbd-axis .sdbd-st.key .sdbd-name{position:relative; color:var(--gold-bright); opacity:1;}
+#sdbd-axis .sdbd-st.key .sdbd-name::after{content:"★"; font-size:10px; color:var(--gold-amber); position:absolute; top:-3px; margin-left:3px;}
+#sdbd-axis .sdbd-cut{margin-top:12px; font-size:16px; font-weight:700; letter-spacing:.5px; color:var(--gold-bright); line-height:1.3;}
+#sdbd-axis .sdbd-st.king .sdbd-cut{color:#f4e0b2;}
+#sdbd-axis .sdbd-cut .m{display:inline-block; font-size:11px; font-weight:600; letter-spacing:1px; color:var(--gold-amber); border:1px solid var(--line-strong); border-radius:9px; padding:0 6px; margin-right:5px; vertical-align:2px;}
+#sdbd-axis .sdbd-st.king .sdbd-cut .m{color:var(--bg); background:var(--gold-amber); border-color:var(--gold-amber);}
+#sdbd-axis .sdbd-video{margin-top:11px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:4px 13px; border-radius:15px; background:rgba(217,184,124,.08); border:1px solid rgba(217,184,124,.42); color:var(--gold-bright); font-size:12px; letter-spacing:2px; font-weight:500; transition:.25s;}
+#sdbd-axis .sdbd-video:hover{background:rgba(217,184,124,.22); border-color:var(--gold-bright); color:#fff;}
+#sdbd-axis .sdbd-video svg{width:8px; height:10px; fill:currentColor;}
+#sdbd-axis .sdbd-foot{margin-top:18px; color:var(--text-mute); font-size:13px; line-height:1.9; letter-spacing:.4px;}
+#sdbd-axis .sdbd-foot b{color:var(--gold-amber); font-weight:600;}
+#sdbd-axis .sdbd-foot .dotg{color:var(--gold-amber);} #sdbd-axis .sdbd-foot .dott{color:var(--gold-soft); opacity:.7;}
+#sdbd-axis .sdbd-foot a{color:var(--gold-bright); text-decoration:none; border-bottom:1px dotted var(--line-strong);}
+#sdbd-axis .sdbd-foot a:hover{border-bottom-color:var(--gold-bright);}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
@@ -3002,6 +3060,97 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 <a class="shunyata-item" href="https://weiwen0925.github.io/dazhidulun-31/#chapter-19-3-4" target="_blank" rel="noopener"><span class="ss-num">18</span><div class="ss-name">無法有法空</div><div class="ss-desc">三世皆空</div><span class="ss-video" data-v="https://youtu.be/_LI16MExdP8"><svg class="ssv-ico" viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></a>
 </div>
 <p class="shunyata-legend"><span class="legend-dot"></span>金邊標示 = 義理樞紐（第一義、畢竟、性、一切法）— 此四空為十八空中最常被引用之主軸。</p>
+</div>
+
+<!-- 四禪八定・減法軸（慧→定雙軌，接於十八空一覽之後）-->
+<div class="zhonglun-section" id="sdbd-axis">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">四禪八定</span>減法軸・每上一階就放下一樣（出處皆在卷 17）</h3>
+
+<p class="sdbd-intro">禪定，不是<b>加上</b>什麼，而是一路<span class="key">減去</span>——<b>每上一階，就放下前一階還抓著的東西</b>。從<b>離五欲</b>，到離覺觀、離喜、離苦樂；再<b>捨色、捨空、捨識、捨想</b>，直到<b>受想俱滅</b>。這條<span class="key">減法軸</span>，正是〈四禪減法〉的主軸。</p>
+
+<p class="sdbd-hint">← 可左右捲動 →</p>
+<div class="sdbd-wrap">
+  <div class="sdbd-row">
+
+    <div class="sdbd-zone form">
+      <div class="sdbd-zhead">色界 · 四禪</div>
+      <div class="sdbd-stations">
+        <a class="sdbd-st key" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-11" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">初禪</div><div class="sdbd-pin">品 11</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離五欲</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/G8954w7_AEo','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-12" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">二禪</div><div class="sdbd-pin">品 12</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離覺觀</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/4JPXmwmgiIw','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-13" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">三禪</div><div class="sdbd-pin">品 13</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離喜</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/ImJNUrOPiCc','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st king" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-14" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">四禪</div><div class="sdbd-pin">品 14 · 根本定</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離苦樂</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/cVZusXr0qdA','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sdbd-zone formless">
+      <div class="sdbd-zhead">無色界 · 四定</div>
+      <div class="sdbd-stations">
+        <a class="sdbd-st" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-15" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">空無邊處</div><div class="sdbd-pin">品 15</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離色相</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/gmchzf8CcPg','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-16" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">識無邊處</div><div class="sdbd-pin">品 16</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離空</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/AStzotbwiTA','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-17" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">無所有處</div><div class="sdbd-pin">品 17</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離識</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/dpsoP5_0obs','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+        <a class="sdbd-st key" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-18" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">非想非非想</div><div class="sdbd-pin">品 18 · 三界頂</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">減</span>離無所有</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/BGHHUwNa2SM','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sdbd-zone ext">
+      <div class="sdbd-zhead">延伸</div>
+      <div class="sdbd-stations">
+        <a class="sdbd-st ext" href="https://weiwen0925.github.io/dazhidulun-17/#chapter-18" target="_blank" rel="noopener">
+          <div class="sdbd-top"><div class="sdbd-name">滅盡定</div><div class="sdbd-pin">品 18 內 · 九次第頂</div></div>
+          <div class="sdbd-dot"></div>
+          <div><div class="sdbd-cut"><span class="m">滅</span>受想</div>
+            <span class="sdbd-video" role="button" tabindex="0" onclick="event.preventDefault();event.stopPropagation();window.open('https://youtu.be/BGHHUwNa2SM','_blank','noopener');"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="sdbd-foot">
+  <span class="dotg">●</span> <b>色界四禪</b>：亮金　<span class="dott">○</span> <b>無色界四定</b>：淡金（越上越「空」）　·　<b>♔ 四禪＝色界根本定</b>（八定樞紐·神通與無漏所依）；★＝關鍵階（初禪入門・非想非非想三界頂）。<br>
+  每站的<b>「減」</b>＝該階所捨。延伸閱讀：<a href="https://weiwen0925.github.io/medium-import-9.html" target="_blank" rel="noopener">〈四禪不是越爬越樂——觀過知捨〉</a>。
+</p>
 </div>
 
 <!-- 核心 5 卷 -->
