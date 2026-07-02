@@ -2524,9 +2524,9 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
   --gold-bright:#e3c085; --gold-amber:#d9b87c; --gold-soft:#c9a96e; --text-mute:#bcab8f;
   font-family:"Noto Serif TC","Songti TC",serif;
 }
-#sdbd-axis .sdbd-intro{color:#d8c8ab; font-size:17px; line-height:2.05; letter-spacing:.5px; margin:4px 0 30px; padding:18px 22px; background:rgba(217,184,124,.05); border:1px solid var(--line); border-left:3px solid var(--gold-amber); border-radius:4px;}
-#sdbd-axis .sdbd-intro b{color:var(--gold-bright); font-weight:700;}
-#sdbd-axis .sdbd-intro .key{color:#f6e2b4; font-weight:700; border-bottom:1.5px solid var(--gold-amber); padding-bottom:1px;}
+#sdbd-axis .sdbd-intro{color:#d8c8ab; font-size:16px; line-height:2; letter-spacing:.5px; margin:4px 0 28px; padding:2px 0 2px 18px; border-left:2px solid var(--gold-amber);}
+#sdbd-axis .sdbd-intro b{color:var(--gold-bright); font-weight:600;}
+#sdbd-axis .sdbd-intro .key{color:#f6e2b4; font-weight:600; border-bottom:1px solid var(--gold-amber); padding-bottom:1px;}
 /* 說明段一律左對齊（較長論述句，左對齊一致好讀）。全域覆蓋門頁 .sub-section-desc 的置中——
    排在門頁主樣式之後，相同特異度由來源順序勝出，三條進路（中論／十八空／念佛）與本段同步左對齊。*/
 .sub-section-desc{text-align:left;}
@@ -2537,11 +2537,11 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 #sdbd-axis .sdbd-wrap::-webkit-scrollbar-track{background:rgba(217,184,124,.08); border-radius:8px;}
 #sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-soft),var(--gold-amber)); border-radius:8px;}
 #sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb:hover{background:var(--gold-bright);}
-#sdbd-axis .sdbd-board{border:1px solid var(--line); background:rgba(217,184,124,.035); border-radius:8px; padding:14px 16px 10px; margin-bottom:4px;}
+#sdbd-axis .sdbd-board{border:1px solid rgba(217,184,124,.16); border-radius:8px; padding:18px 16px 12px; margin-bottom:4px;}
 #sdbd-axis .sdbd-row{display:flex; min-width:1040px;}
 #sdbd-axis .sdbd-zone{position:relative; display:flex; flex-direction:column; padding:0 16px;}
 #sdbd-axis .sdbd-zone + .sdbd-zone{border-left:1px dashed var(--line-strong);}
-#sdbd-axis .sdbd-zhead{text-align:center; font-size:14px; font-weight:600; letter-spacing:3px; color:var(--gold-amber); padding-bottom:14px;}
+#sdbd-axis .sdbd-zhead{text-align:center; font-size:12.5px; font-weight:400; letter-spacing:4px; color:var(--gold-amber); opacity:.85; padding-bottom:16px;}
 #sdbd-axis .sdbd-zone.formless .sdbd-zhead{color:var(--gold-soft);}
 #sdbd-axis .sdbd-zone.ext .sdbd-zhead{color:var(--gold-soft); opacity:.85;}
 #sdbd-axis .sdbd-stations{position:relative; display:flex; gap:6px;}
@@ -2558,21 +2558,17 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 #sdbd-axis .sdbd-zone.formless .sdbd-dot{width:11px; height:11px; border-color:var(--gold-soft); opacity:.4;}
 #sdbd-axis .sdbd-st.key .sdbd-dot{width:15px; height:15px; background:var(--gold-amber); border-color:var(--gold-amber); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 11px -1px rgba(217,184,124,.8);}
 #sdbd-axis .sdbd-st.ext .sdbd-dot{border-style:dashed;}
-#sdbd-axis .sdbd-st.king{background:rgba(217,184,124,.08); border-radius:9px; box-shadow:inset 0 0 0 1px rgba(217,184,124,.22);}
-#sdbd-axis .sdbd-st.king .sdbd-name{color:#f4e0b2; font-size:21.5px; position:relative;}
-#sdbd-axis .sdbd-st.king .sdbd-name::after{content:"\2654\FE0E"; font-size:23px; color:var(--gold-bright); position:absolute; top:-26px; left:50%; transform:translateX(-50%) scaleX(1.35); text-shadow:0 0 11px rgba(227,192,133,.8);}
+#sdbd-axis .sdbd-st.king .sdbd-name{color:#f4e0b2;}
 #sdbd-axis .sdbd-st.king .sdbd-pin{color:var(--gold-amber); opacity:1;}
-#sdbd-axis .sdbd-st.king .sdbd-dot{width:21px; height:21px; background:var(--gold-bright); border-color:var(--gold-bright); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 0 8px rgba(217,184,124,.22),0 0 16px 1px rgba(227,192,133,.6);}
-#sdbd-axis .sdbd-st.key .sdbd-name{position:relative; color:var(--gold-bright); opacity:1;}
-#sdbd-axis .sdbd-st.key .sdbd-name::after{content:"★"; font-size:10px; color:var(--gold-amber); position:absolute; top:-3px; margin-left:3px;}
-#sdbd-axis .sdbd-cut{margin-top:12px; font-size:16px; font-weight:700; letter-spacing:.5px; color:var(--gold-bright); line-height:1.3;}
+#sdbd-axis .sdbd-st.king .sdbd-dot{width:19px; height:19px; background:var(--gold-bright); border-color:var(--gold-bright); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 14px 0 rgba(227,192,133,.55);}
+#sdbd-axis .sdbd-st.key .sdbd-name{color:var(--gold-bright); opacity:1;}
+#sdbd-axis .sdbd-cut{margin-top:12px; font-size:15px; font-weight:600; letter-spacing:.5px; color:var(--gold-bright); line-height:1.3;}
 #sdbd-axis .sdbd-st.king .sdbd-cut{color:#f4e0b2;}
-#sdbd-axis .sdbd-cut .m{display:inline-block; font-size:11px; font-weight:600; letter-spacing:1px; color:var(--gold-amber); border:1px solid var(--line-strong); border-radius:9px; padding:0 6px; margin-right:5px; vertical-align:2px;}
-#sdbd-axis .sdbd-st.king .sdbd-cut .m{color:var(--bg); background:var(--gold-amber); border-color:var(--gold-amber);}
-#sdbd-axis .sdbd-video{margin-top:11px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:4px 13px; border-radius:15px; background:rgba(217,184,124,.08); border:1px solid rgba(217,184,124,.42); color:var(--gold-bright); font-size:12px; letter-spacing:2px; font-weight:500; transition:.25s;}
-#sdbd-axis .sdbd-video:hover{background:rgba(217,184,124,.22); border-color:var(--gold-bright); color:#fff;}
+#sdbd-axis .sdbd-cut .m{font-size:12px; font-weight:400; color:var(--gold-amber); margin-right:4px;}
+#sdbd-axis .sdbd-video{margin-top:10px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; padding:3px 12px; border-radius:14px; border:1px solid rgba(217,184,124,.28); color:var(--gold-soft); font-size:11px; letter-spacing:2px; font-weight:400; transition:.25s;}
+#sdbd-axis .sdbd-video:hover{background:rgba(217,184,124,.15); border-color:var(--gold-bright); color:#fff;}
 #sdbd-axis .sdbd-video svg{width:8px; height:10px; fill:currentColor;}
-#sdbd-axis .sdbd-foot{margin-top:18px; color:var(--text-mute); font-size:13px; line-height:1.9; letter-spacing:.4px;}
+#sdbd-axis .sdbd-foot{margin-top:16px; color:var(--text-mute); font-size:12.5px; line-height:1.9; letter-spacing:.4px;}
 #sdbd-axis .sdbd-foot b{color:var(--gold-amber); font-weight:600;}
 #sdbd-axis .sdbd-foot .dotg{color:var(--gold-amber);} #sdbd-axis .sdbd-foot .dott{color:var(--gold-soft); opacity:.7;}
 #sdbd-axis .sdbd-foot a{color:var(--gold-bright); text-decoration:none; border-bottom:1px dotted var(--line-strong);}
@@ -3080,7 +3076,7 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 <div class="zhonglun-section" id="sdbd-axis">
 <h3 class="zhonglun-h"><span class="zhonglun-badge">四禪八定</span>減法軸・每上一階就放下一樣（出處皆在卷 17）</h3>
 
-<p class="sdbd-intro">禪定，不是<b>加上</b>什麼，而是一路<span class="key">減去</span>——<b>每上一階，就放下前一階還抓著的東西</b>。從<b>離五欲</b>，到離覺觀、離喜、離苦樂；再<b>捨色、捨空、捨識、捨想</b>，直到<b>受想俱滅</b>。這條<span class="key">減法軸</span>，正是〈四禪減法〉的主軸。</p>
+<p class="sdbd-intro">禪定不是加上什麼，而是一路<span class="key">減去</span>——<b>每上一階，就放下前一階還抓著的東西</b>：從離五欲，一路減到受想俱滅。</p>
 
 <div class="sdbd-board">
 <p class="sdbd-hint">← 可左右捲動 →</p>
@@ -3164,8 +3160,7 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 </div>
 
 <p class="sdbd-foot">
-  <span class="dotg">●</span> <b>色界四禪</b>：亮金　<span class="dott">○</span> <b>無色界四定</b>：淡金（越上越「空」）　·　<b>♔ 四禪＝色界根本定</b>（八定樞紐·神通與無漏所依）；★＝關鍵階（初禪入門・非想非非想三界頂）。<br>
-  每站的<b>「減」</b>＝該階所捨。延伸閱讀：<a href="https://weiwen0925.github.io/medium-import-9.html" target="_blank" rel="noopener">〈四禪不是越爬越樂——觀過知捨〉</a>。
+  <span class="dotg">●</span> <b>色界四禪</b>　<span class="dott">○</span> <b>無色界四定</b>（越上越「空」）　·　<b>「減」</b>＝該階所捨　·　延伸閱讀：<a href="https://weiwen0925.github.io/medium-import-9.html" target="_blank" rel="noopener">〈四禪不是越爬越樂——觀過知捨〉</a>
 </p>
 </div>
 <!--SDBD-AXIS:END-->
