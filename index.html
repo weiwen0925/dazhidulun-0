@@ -2539,22 +2539,22 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 #sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb{background:linear-gradient(90deg,var(--gold-soft),var(--gold-amber)); border-radius:8px;}
 #sdbd-axis .sdbd-wrap::-webkit-scrollbar-thumb:hover{background:var(--gold-bright);}
 #sdbd-axis .sdbd-board{border:1px solid rgba(217,184,124,.16); border-radius:8px; padding:18px 16px 12px; margin-bottom:4px;}
-#sdbd-axis .sdbd-row{display:flex; min-width:1040px;}
-#sdbd-axis .sdbd-zone{position:relative; display:flex; flex-direction:column; padding:0 16px;}
+#sdbd-axis .sdbd-row{display:flex; min-width:1000px;}
+#sdbd-axis .sdbd-zone{position:relative; display:flex; flex-direction:column; padding:0 6px;}
 #sdbd-axis .sdbd-zone + .sdbd-zone{border-left:1px dashed var(--line-strong);}
 #sdbd-axis .sdbd-zhead{text-align:center; font-size:13px; font-weight:400; letter-spacing:4px; color:var(--gold-amber); opacity:.85; padding-bottom:16px;}
 #sdbd-axis .sdbd-zone.formless .sdbd-zhead{color:var(--gold-soft);}
 #sdbd-axis .sdbd-zone.ext .sdbd-zhead{color:var(--gold-soft); opacity:.85;}
-#sdbd-axis .sdbd-stations{position:relative; display:flex; gap:6px;}
+#sdbd-axis .sdbd-stations{position:relative; display:flex; gap:4px;}
 #sdbd-axis .sdbd-stations::before{content:""; position:absolute; left:14px; right:14px; top:67px; height:2px; background:rgba(217,184,124,.5); z-index:0;}
 #sdbd-axis .sdbd-zone.formless .sdbd-stations::before{background:rgba(217,184,124,.24);}
 #sdbd-axis .sdbd-zone.ext .sdbd-stations::before{display:none;}
-#sdbd-axis .sdbd-st{position:relative; z-index:1; flex:0 0 108px; width:108px; display:grid; grid-template-rows:52px 30px auto; justify-items:center; text-align:center; text-decoration:none; color:inherit; padding:2px 2px 8px; border-radius:6px; transition:.2s;}
+#sdbd-axis .sdbd-st{position:relative; z-index:1; flex:0 0 106px; width:106px; display:grid; grid-template-rows:52px 30px auto; justify-items:center; text-align:center; text-decoration:none; color:inherit; padding:2px 2px 8px; border-radius:6px; transition:.2s;}
 #sdbd-axis .sdbd-st:hover{background:var(--bg-card-hover);}
 #sdbd-axis .sdbd-top{display:flex; flex-direction:column; align-items:center;}
-#sdbd-axis .sdbd-name{font-size:19px; font-weight:700; letter-spacing:1.5px; color:var(--gold-bright); line-height:1.2;}
+#sdbd-axis .sdbd-name{font-size:19px; font-weight:700; letter-spacing:1px; color:var(--gold-bright); line-height:1.2; white-space:nowrap;}
 #sdbd-axis .sdbd-zone.formless .sdbd-name{color:var(--gold-soft); opacity:.92;}
-#sdbd-axis .sdbd-pin{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; color:var(--gold-soft); letter-spacing:.5px; opacity:.8; margin-top:3px;}
+#sdbd-axis .sdbd-pin{font-family:"Cormorant Garamond",serif; font-style:italic; font-size:12px; color:var(--gold-soft); letter-spacing:.5px; opacity:.8; margin-top:3px; white-space:nowrap;}
 #sdbd-axis .sdbd-dot{align-self:center; width:15px; height:15px; border-radius:50%; background:var(--bg); border:2px solid var(--gold-amber); box-shadow:0 0 0 5px var(--bg);}
 #sdbd-axis .sdbd-zone.formless .sdbd-dot{width:11px; height:11px; border-color:var(--gold-soft); opacity:.4;}
 #sdbd-axis .sdbd-st.key .sdbd-dot{width:15px; height:15px; background:var(--gold-amber); border-color:var(--gold-amber); opacity:1; box-shadow:0 0 0 5px var(--bg),0 0 11px -1px rgba(217,184,124,.8);}
