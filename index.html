@@ -2578,6 +2578,34 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 <style id="desc-center-css">p.sub-section-desc--center{text-align:center;}</style>
 <style id="sg-new-css">.sg-new{display:inline-block;margin-right:8px;padding:1px 8px 2px;border-radius:4px;font-family:'Noto Serif TC',serif;font-style:normal;font-size:12px;font-weight:700;letter-spacing:1px;color:#2c241c;background:linear-gradient(135deg,#ffe9b8,#d9b87c);vertical-align:1px;animation:sgNewGlow 2.6s ease-in-out infinite;}@keyframes sgNewGlow{0%,100%{box-shadow:0 0 3px rgba(227,192,133,.35);}50%{box-shadow:0 0 13px rgba(255,226,150,.9);}}@media (prefers-reduced-motion: reduce){.sg-new{animation:none;}}</style>
 <style id="sg-key-css">.sg-key{display:inline-block;margin-right:8px;padding:1px 8px 2px;border-radius:4px;font-family:'Noto Serif TC',serif;font-style:normal;font-size:12px;font-weight:700;letter-spacing:1px;color:#ffe7b3;border:1px solid #e3c085;background:rgba(217,184,124,.12);vertical-align:1px;animation:sgKeyGlow 2.6s ease-in-out infinite;}@keyframes sgKeyGlow{0%,100%{box-shadow:0 0 3px rgba(227,192,133,.3);}50%{box-shadow:0 0 12px rgba(255,226,150,.85);}}@media (prefers-reduced-motion: reduce){.sg-key{animation:none;}}</style>
+<style id="simen-gates-style">
+/* 四門映射元件（全部 scope 在 #simen-gates，class 皆 smn- 前綴，與門頁零衝突）*/
+#simen-gates{
+  --gold-bright:#e3c085; --gold-amber:#d9b87c; --gold-soft:#c9a96e;
+  --line:rgba(217,184,124,.25); --line-strong:rgba(217,184,124,.5); --text-mute:#bcab8f;
+  font-family:"Noto Serif TC","Songti TC",serif;
+}
+#simen-gates .smn-intro{color:#d8c8ab; font-size:16px; line-height:2; letter-spacing:.5px; margin:4px 0 26px; padding:2px 0 2px 18px; border-left:2px solid var(--gold-amber);}
+#simen-gates .smn-intro b{color:var(--gold-bright); font-weight:600;}
+#simen-gates .smn-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+@media(max-width:900px){ #simen-gates .smn-grid{grid-template-columns:repeat(2,1fr);} }
+#simen-gates .smn-card{display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid var(--line); border-radius:8px; padding:18px 16px 16px; background:rgba(217,184,124,.035); transition:border-color .22s,background .22s,box-shadow .22s,transform .22s;}
+#simen-gates .smn-card:hover{border-color:var(--gold-bright); background:rgba(217,184,124,.09); box-shadow:0 0 14px rgba(227,192,133,.18); transform:translateY(-2px);}
+#simen-gates .smn-card.key{border-color:var(--gold-amber); background:rgba(217,184,124,.06);}
+#simen-gates .smn-step{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:12px; color:var(--gold-soft); letter-spacing:2px; margin-bottom:8px;}
+#simen-gates .smn-step .m{font-family:"Noto Serif TC",serif; font-style:normal; color:var(--gold-amber); font-size:11px; border:1px solid var(--line-strong); border-radius:9px; padding:0 6px; margin-right:6px; letter-spacing:1px;}
+#simen-gates .smn-card.key .smn-step .m{color:#2c241c; background:var(--gold-amber); border-color:var(--gold-amber);}
+#simen-gates .smn-name{font-size:18px; font-weight:700; color:var(--gold-bright); letter-spacing:1px; line-height:1.4; margin-bottom:6px;}
+#simen-gates .smn-q{font-size:14px; color:#d8c8ab; letter-spacing:.5px; margin-bottom:10px;}
+#simen-gates .smn-quote{font-size:12.5px; color:var(--text-mute); line-height:1.85; margin-bottom:12px;}
+#simen-gates .smn-ml{font-size:11.5px; color:var(--gold-soft); opacity:.85; margin-top:auto; padding-top:10px; border-top:1px dashed var(--line);}
+#simen-gates .smn-essay{display:inline-flex; align-items:center; gap:6px; align-self:flex-start; margin-top:10px; font-size:12px; letter-spacing:1.5px; color:var(--gold-bright); border:1px solid rgba(217,184,124,.42); border-radius:14px; padding:3px 12px; transition:.22s;}
+#simen-gates .smn-card:hover .smn-essay{background:rgba(217,184,124,.15); border-color:var(--gold-bright);}
+#simen-gates .smn-foot{margin-top:16px; color:var(--text-mute); font-size:13px; line-height:1.9; letter-spacing:.4px;}
+#simen-gates .smn-foot b{color:var(--gold-amber); font-weight:600;}
+#simen-gates .smn-foot a{color:var(--gold-bright); text-decoration:none; border-bottom:1px dotted var(--line-strong);}
+#simen-gates .smn-foot a:hover{border-bottom-color:var(--gold-bright);}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
@@ -3194,6 +3222,59 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 </p>
 </div>
 <!--SDBD-AXIS:END-->
+
+<!--SIMEN:START-->
+<!-- 四門映射（慧→定→辨:接於四禪八定之後,補「怎麼破」的方法論）-->
+<div class="compendium-sub-title" id="simen-subtitle">
+<span class="compendium-sub-num">辨</span>
+<h3>以四門映射為方法 — 般若的「辨」門</h3>
+<span class="sub-en">Four Gates · The Dialectic Track</span>
+</div>
+<p class="sub-section-desc simen-rationale"><strong>十八空</strong>（慧）開出「破什麼」的清單，<strong>四禪八定</strong>（定）安住能觀之心；<strong>四門映射</strong>則是「<strong>怎麼破</strong>」——卷十八將四組辯證與《中論》四個專品一一對應，是龍樹破自性的方法論引擎。觀、止之後補上這條「辨」的進路，慧門始告完備（出自《大智度論》卷十八〈釋般若相義〉）。</p>
+
+<div class="zhonglun-section" id="simen-gates">
+<h3 class="zhonglun-h"><span class="zhonglun-badge">四門映射</span>四個基本問題・三破一收（出處皆在卷 18）</h3>
+
+<p class="smn-intro">對任何一法，你只能問四類問題：<b>自身、關係、來歷、說法</b>。前三門逐一顯示「預設自性則推不通」，第四門以二諦收刀——<b>破的是自性，不是世界</b>。四門各有一篇導讀，點卡即達。</p>
+
+<div class="smn-grid">
+  <a class="smn-card" href="https://weiwen0925.github.io/medium-import-24.html" target="_blank" rel="noopener">
+    <div class="smn-step"><span class="m">破</span>GATE I</div>
+    <div class="smn-name">自身 · 有無門</div>
+    <div class="smn-q">它自己存在嗎？</div>
+    <div class="smn-quote">「若言無，是事即是有法。」——說「無」即立「有」，防惡取空。</div>
+    <div class="smn-ml">映《中論 · 觀有無品》</div>
+    <span class="smn-essay">導讀 ESSAY·24 ›</span>
+  </a>
+  <a class="smn-card" href="https://weiwen0925.github.io/medium-import-23.html" target="_blank" rel="noopener">
+    <div class="smn-step"><span class="m">破</span>GATE II</div>
+    <div class="smn-name">關係 · 一異門</div>
+    <div class="smn-q">同還是異？</div>
+    <div class="smn-quote">「牛中無羊相……離一無多。」——身份由排除襯出，一異俱不成。</div>
+    <div class="smn-ml">映《中論 · 觀一異品》</div>
+    <span class="smn-essay">導讀 ESSAY·23 ›</span>
+  </a>
+  <a class="smn-card" href="https://weiwen0925.github.io/medium-import-25.html" target="_blank" rel="noopener">
+    <div class="smn-step"><span class="m">破</span>GATE III</div>
+    <div class="smn-name">來歷 · 本際門</div>
+    <div class="smn-q">它從哪裡來？</div>
+    <div class="smn-quote">「因復有因，如是則無窮。」——無窮則空，不墮宿命與無因。</div>
+    <div class="smn-ml">映《中論 · 觀本際品》</div>
+    <span class="smn-essay">導讀 ESSAY·25 ›</span>
+  </a>
+  <a class="smn-card key" href="https://weiwen0925.github.io/medium-import-26.html" target="_blank" rel="noopener">
+    <div class="smn-step"><span class="m">收</span>GATE IV</div>
+    <div class="smn-name">說法 · 二諦門</div>
+    <div class="smn-q">破完之後，還能怎麼說話？</div>
+    <div class="smn-quote">「若不依俗諦，不得第一義。」——破而不壞，世界原封奉還。</div>
+    <div class="smn-ml">映《中論 · 觀四諦品》</div>
+    <span class="smn-essay">導讀 ESSAY·26 ›</span>
+  </a>
+</div>
+
+<p class="smn-foot"><b>三破一收</b>——前三門拆「自性」，第四門以二諦把緣起世界原封奉還。四組辯證俱出《大智度論》卷十八「與《中論》四品之高階映射矩陣」一節：<a href="https://weiwen0925.github.io/dazhidulun-18/#chapter-8-6-2" target="_blank" rel="noopener">原節直達（#chapter-8-6-2）</a>。</p>
+</div>
+<!--SIMEN:END-->
 
 <!-- 核心 5 卷 -->
 <div class="zhonglun-section">
