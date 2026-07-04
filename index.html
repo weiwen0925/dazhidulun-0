@@ -2623,6 +2623,11 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
   box-shadow:0 0 10px rgba(227,192,133,.25);}
 @media (max-width:640px){ .sg-vol{top:12px; right:12px; font-size:10px; letter-spacing:1px; padding:2px 8px 2px 9px;} }
 </style>
+<style id="sg-clamp-css">
+/* 系列導讀卡截字 2026-07-04：描述最多 6 行,其餘收為…,點「閱讀」看全文 */
+.sg-desc{display:-webkit-box;-webkit-line-clamp:6;line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;}
+@media (max-width:640px){ .sg-desc{-webkit-line-clamp:5;line-clamp:5;} }
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
