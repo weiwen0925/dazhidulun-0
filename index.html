@@ -2628,6 +2628,23 @@ a.volume-link.is-core:hover{animation:coreVolPulse 2.6s ease-in-out infinite;}
 .sg-desc{display:-webkit-box;-webkit-line-clamp:6;line-clamp:6;-webkit-box-orient:vertical;overflow:hidden;}
 @media (max-width:640px){ .sg-desc{-webkit-line-clamp:5;line-clamp:5;} }
 </style>
+<style id="wy-fnz-glow">
+/* WY-FNZ-GLOW：法念處(品25)卡呼吸閃爍金光 */
+@keyframes wyFnzBreath{
+  0%,100%{ box-shadow:0 0 6px 0 rgba(212,168,75,.14); }
+  50%    { box-shadow:0 0 24px 6px rgba(212,168,75,.62); }
+}
+a.shunyata-item[href*="dazhidulun-19/#chapter-25-1"]{
+  animation:wyFnzBreath 2.6s ease-in-out infinite;
+  border-color:rgba(212,168,75,.55)!important;
+  will-change:box-shadow;
+}
+@media (prefers-reduced-motion:reduce){
+  a.shunyata-item[href*="dazhidulun-19/#chapter-25-1"]{
+    animation:none; box-shadow:0 0 16px 3px rgba(212,168,75,.45);
+  }
+}
+</style>
 </head>
 <body>
 <nav class="toc-bar" aria-label="章節目錄">
