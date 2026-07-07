@@ -2778,7 +2778,7 @@ a.shunyata-item[href*="dazhidulun-19/#chapter-25-1"]{
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="zl27-wrap" style="margin:0 0 8px;">
 <style>.zl27-grid a.shunyata-item::after{content:'→ 讀本品';}</style>
-<h3 class="zhonglun-h" style="text-align:center;"><span class="zhonglun-badge">中論二十七品</span>龍樹《中論》全品速覽 — 點卡讀原文 · 點 ▶ 看影音導讀</h3>
+<h3 class="zhonglun-h" style="text-align:center;"><span class="zhonglun-badge">中論二十七品</span>龍樹《中論》全品速覽 — 點卡讀原文 · 卡內可看「總表」與「▶ 影音」</h3>
 <div class="shunyata-grid zl27-grid">
 <a class="shunyata-item is-axis" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-1" target="_blank" rel="noopener"><span class="ss-num">01</span><div class="ss-name">觀因緣</div><div class="ss-desc">八不總綱・四緣破生</div><span class="ss-video" data-v="https://youtu.be/GHVTX2NMj4g"><svg class="ssv-ico" viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></a>
 <a class="shunyata-item" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-2" target="_blank" rel="noopener"><span class="ss-num">02</span><div class="ss-name">觀去來</div><div class="ss-desc">去來動相不可得</div><span class="ss-video" data-v="https://youtu.be/ZmWHJhgeIqU"><svg class="ssv-ico" viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg>影音</span></a>
@@ -5139,5 +5139,55 @@ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.c
 document.addEventListener("click",function(e){var v=e.target.closest&&e.target.closest(".sg-vol");if(!v)return;e.preventDefault();e.stopPropagation();var u=v.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");},true);
 document.addEventListener("keydown",function(e){if(e.key!=="Enter")return;var v=e.target.closest&&e.target.closest(".sg-vol");if(!v)return;e.preventDefault();e.stopPropagation();var u=v.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");},true);
 </script>
+<!--WY-ZL27TBL:BEGIN-->
+<style id="wy-zl27tbl-css">
+/* 中論速覽卡：影音還原為有字膠囊，與「總表」成對置中（僅 .zl27-grid）*/
+.zl27-grid .ss-actions{display:flex;justify-content:center;align-items:center;gap:8px;margin:12px auto 2px;flex-wrap:wrap;}
+.zl27-grid .ss-video,.zl27-grid .ss-tbl{gap:6px;width:auto;max-width:none;height:auto;margin:0;padding:5px 14px;border-radius:16px;font-size:12px;letter-spacing:2px;font-weight:500;line-height:1.4;}
+.zl27-grid .ss-video{color:#e3c489;background:rgba(217,184,124,0.08);border:1px solid rgba(217,184,124,0.42);}
+.zl27-grid .ss-video .ssv-ico{margin-left:1px;width:9px;height:11px;}
+.zl27-grid .ss-video:hover{background:rgba(217,184,124,0.17);border-color:#e8c886;color:#ffe7b3;box-shadow:0 0 14px rgba(227,192,133,0.30);}
+.zl27-grid .ss-tbl{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#d9b87c;background:rgba(217,184,124,0.05);border:1px solid rgba(217,184,124,0.34);transition:background .28s ease,border-color .28s ease,color .28s ease,box-shadow .28s ease;}
+.zl27-grid .ss-tbl:hover{background:rgba(217,184,124,0.16);border-color:#e8c886;color:#ffe7b3;box-shadow:0 0 14px rgba(227,192,133,0.28);}
+.zl27-grid .ss-tbl:focus-visible{outline:1px solid #e8c886;outline-offset:2px;}
+.sst-ico{width:11px;height:11px;flex-shrink:0;opacity:.9;}
+@media(max-width:600px){.zl27-grid .ss-video,.zl27-grid .ss-tbl{padding:5px 11px;letter-spacing:1px;}}
+</style>
+<script id="wy-zl27tbl-js">(function(){
+var LINK='https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/';
+var SST='<svg class="sst-ico" viewBox="0 0 12 12" aria-hidden="true"><rect x="0.8" y="0.8" width="10.4" height="10.4" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.1"/><line x1="0.8" y1="4.7" x2="11.2" y2="4.7" stroke="currentColor" stroke-width="1.1"/><line x1="4.9" y1="4.7" x2="4.9" y2="11.2" stroke="currentColor" stroke-width="1.1"/></svg>總表';
+function nOf(a){var m=(a.getAttribute('href')||'').match(/#chapter-(\d+)/);return m?m[1]:null;}
+function build(){
+  var cards=document.querySelectorAll('.zl27-grid .shunyata-item');
+  for(var i=0;i<cards.length;i++){
+    var card=cards[i];
+    if(card.querySelector('.ss-actions'))continue;
+    var n=nOf(card);if(!n)continue;
+    var vid=card.querySelector('.ss-video');
+    var wrap=document.createElement('span');wrap.className='ss-actions';
+    var tbl=document.createElement('span');tbl.className='ss-tbl';tbl.setAttribute('data-tbl',n);
+    tbl.setAttribute('role','button');tbl.setAttribute('tabindex','0');
+    tbl.setAttribute('aria-label','第'+n+'品 概念總表');tbl.title='本品概念綜合總表';
+    tbl.innerHTML=SST;
+    card.insertBefore(wrap,vid);
+    wrap.appendChild(tbl);
+    if(vid){wrap.appendChild(vid);}
+  }
+}
+function openTbl(n){if(n)window.open(LINK+'?tbl='+n+'#chapter-'+n,'_blank','noopener');}
+document.addEventListener('click',function(e){
+  var b=(e.target&&e.target.closest)?e.target.closest('.ss-tbl'):null;if(!b)return;
+  e.preventDefault();e.stopPropagation();openTbl(b.getAttribute('data-tbl'));
+},true);
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  var b=(e.target&&e.target.closest)?e.target.closest('.ss-tbl'):null;if(!b)return;
+  e.preventDefault();openTbl(b.getAttribute('data-tbl'));
+});
+build();
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build);
+var c=0,iv=setInterval(function(){build();if(++c>20)clearInterval(iv);},250);
+})();</script>
+<!--WY-ZL27TBL:END-->
 </body>
 </html>
