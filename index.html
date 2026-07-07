@@ -5154,6 +5154,17 @@ document.addEventListener("keydown",function(e){if(e.key!=="Enter")return;var v=
 /* 嵌入門頁後，鎖定總表內文為書端深色，避免繼承門頁淺色而變淡（首欄棕/粗體紅/表頭維持不變）*/
 [id^="zl"][id$="Modal"]{color:#2c2416;}
 [id^="zl"][id$="Modal"] td{color:#2c2416;}
+/* 手機（2 欄）：總表與影音強制同一行、壓縮尺寸不換行 */
+@media(max-width:560px){
+  .zl27-grid .ss-actions{flex-wrap:nowrap;gap:5px;margin:10px auto 2px;}
+  .zl27-grid .ss-video,.zl27-grid .ss-tbl{padding:4px 9px;letter-spacing:0;gap:4px;font-size:11px;}
+  .zl27-grid .ss-video .ssv-ico{width:8px;height:10px;margin-left:1px;}
+  .zl27-grid .ss-tbl .sst-ico{width:10px;height:10px;}
+}
+@media(max-width:380px){
+  .zl27-grid .ss-actions{gap:4px;}
+  .zl27-grid .ss-video,.zl27-grid .ss-tbl{padding:4px 7px;font-size:10.5px;gap:3px;}
+}
 </style>
 <style id="wy-zl1-css">
 .zl1-fabbox{position:fixed;right:22px;bottom:78px;z-index:121;display:none;}
