@@ -6182,6 +6182,21 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 #vtModal.vt-light table.vt-tbl td b,#vtModal.vt-light .vt-concl b{color:#8b2500;font-weight:700;} /* 原總表的紅粗體重點 */
 #vtModal .vt-detail b{color:#e8a06a;font-weight:700;}
 #vtModal.vt-light .vt-title{font-family:'Noto Serif TC',serif;font-size:18px;letter-spacing:2px;}
+/* 系列導讀浮框閱讀器（iframe 內嵌整篇文章） */
+#vtEssay{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:min(940px,95vw);height:min(88vh,1100px);
+  background:#f7f3ec;border:1px solid #b8862f;border-radius:14px;z-index:9001;display:none;flex-direction:column;
+  box-shadow:0 18px 60px rgba(0,0,0,.55);overflow:hidden;}
+#vtEssay.show{display:flex;}
+.vte-head{display:flex;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid rgba(139,94,60,.28);background:#fbf7ee;}
+.vte-title{flex:1;font-family:'Noto Serif TC',serif;color:#5a3e22;font-size:15px;font-weight:700;letter-spacing:1px;line-height:1.5;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.vte-open{flex-shrink:0;font-family:'Noto Serif TC',serif;font-size:12px;color:#2c241c;background:linear-gradient(135deg,#ffe9b8,#d9b87c);
+  padding:5px 14px;border-radius:14px;text-decoration:none;letter-spacing:1.5px;font-weight:700;}
+.vte-close{flex-shrink:0;width:30px;height:30px;border:1px solid rgba(139,94,60,.45);border-radius:50%;background:none;color:#8b5e3c;
+  font-size:15px;cursor:pointer;line-height:1;}
+.vte-close:hover{color:#5a3e22;border-color:#8b5e3c;}
+#vtEssay iframe{flex:1;width:100%;border:none;background:#f7f3ec;}
+@media (prefers-reduced-motion: no-preference){#vtEssay.show{animation:vtIn .22s ease;}}
 @media (max-width:700px){#vtModal.vt-light table.vt-tbl td:first-child{min-width:4.5em;font-size:14px;} #vtModal.vt-light table.vt-tbl td{font-size:14.5px;} #vtModal.vt-light .vt-detail{padding:4px 14px 18px;}}
 .vt-back{background:none;border:none;color:#c9a96e;font-family:'Noto Serif TC',serif;font-size:13px;cursor:pointer;letter-spacing:1px;padding:4px 8px;}
 .vt-back:hover{color:#ffe7b3;}
@@ -6202,7 +6217,22 @@ var DATA={"1":{"a":"chapter","pins":[{"p":1,"t":"第一品 · 僧叡釋論序 �
 var ov=document.createElement('div');ov.id='vtOverlay';
 var md=document.createElement('div');md.id='vtModal';md.setAttribute('role','dialog');md.setAttribute('aria-modal','true');
 document.body.appendChild(ov);document.body.appendChild(md);
-function close(){ov.classList.remove('show');md.classList.remove('show');md.classList.remove('vt-light');document.body.style.overflow='';}
+var es=document.createElement('div');es.id='vtEssay';document.body.appendChild(es);
+function close(){ov.classList.remove('show');md.classList.remove('show');md.classList.remove('vt-light');
+  es.classList.remove('show');es.innerHTML='';document.body.style.overflow='';}
+function openEssay(url){
+  es.innerHTML='<div class="vte-head"><div class="vte-title">系列導讀・載入中…</div>'
+    +'<a class="vte-open" href="'+url+'" target="_blank" rel="noopener">開新頁 ↗</a>'
+    +'<button class="vte-close" aria-label="關閉">✕</button></div>'
+    +'<iframe src="'+url+'" title="系列導讀文章"></iframe>';
+  es.querySelector('.vte-close').addEventListener('click',close);
+  var fr=es.querySelector('iframe');
+  fr.addEventListener('load',function(){
+    try{var t=fr.contentDocument&&fr.contentDocument.title;
+        if(t)es.querySelector('.vte-title').textContent=t.split('——')[0].split('｜')[0];}catch(e){}
+  });
+  ov.classList.add('show');es.classList.add('show');document.body.style.overflow='hidden';
+}
 ov.addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
@@ -6280,10 +6310,13 @@ md.addEventListener('click',function(e){
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href]');
   if(!a)return;
-  if(a.closest&&(a.closest('#vtModal')||a.closest('.sg-vol')))return; /* 浮層內連結、導讀卡卷品章金框：直達 */
+  if(a.closest&&(a.closest('#vtModal')||a.closest('#vtEssay')||a.closest('.sg-vol')))return; /* 浮層內連結、導讀卡卷品章金框：直達 */
   /* 卡片內的專屬「總表/影音」子控件（各有自己的彈窗或外開），讓路不搶 */
   if(e.target.closest&&e.target.closest('.ss-tbl,.ss-video,.ss-sutra,.sdbd-tbl,.sdbd-video,.sk18-tbl,.sq-tbl,[data-tbl],[data-video],[data-yt],[data-v]'))return;
   var h=a.getAttribute('href')||'';
+  if(/medium-import-\d+\.html(?:$|[#?])/.test(h)){                 /* 系列導讀：浮框 iframe 閱讀 */
+    e.preventDefault();e.stopPropagation();openEssay(h);return;
+  }
   /* 卷首頁連結，或帶「品/節錨點」的深連結（中論頁亦收） */
   var m=h.match(/(?:dazhidulun-(\d+)|nagarjuna-mulamadhyamakakarika)\/?(?:index\.html)?(?:#(?:chapter|ch|pin)-(\d+)(?:-[\d-]+)?)?$/);
   if(!m)return;
