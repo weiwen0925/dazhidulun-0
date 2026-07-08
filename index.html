@@ -6272,6 +6272,8 @@ document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href]');
   if(!a)return;
   if(a.closest&&(a.closest('#vtModal')||a.closest('.sg-vol')))return; /* 浮層內連結、導讀卡卷品章金框：直達 */
+  /* 卡片內的專屬「總表/影音」子控件（各有自己的彈窗或外開），讓路不搶 */
+  if(e.target.closest&&e.target.closest('.ss-tbl,.ss-video,.ss-sutra,.sdbd-tbl,.sdbd-video,.sk18-tbl,.sq-tbl,[data-tbl],[data-video],[data-yt],[data-v]'))return;
   var h=a.getAttribute('href')||'';
   /* 卷首頁連結，或帶「品/節錨點」的深連結（中論頁亦收） */
   var m=h.match(/(?:dazhidulun-(\d+)|nagarjuna-mulamadhyamakakarika)\/?(?:index\.html)?(?:#(?:chapter|ch|pin)-(\d+)(?:-[\d-]+)?)?$/);
