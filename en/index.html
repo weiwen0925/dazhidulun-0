@@ -5150,5 +5150,28 @@ document.addEventListener("click",function(e){var b=e.target.closest&&e.target.c
 document.addEventListener("click",function(e){var v=e.target.closest&&e.target.closest(".sg-vol");if(!v)return;e.preventDefault();e.stopPropagation();var u=v.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");},true);
 document.addEventListener("keydown",function(e){if(e.key!=="Enter")return;var v=e.target.closest&&e.target.closest(".sg-vol");if(!v)return;e.preventDefault();e.stopPropagation();var u=v.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");},true);
 </script>
+<!--WY-LANGFIX:BEGIN-->
+<style id="wy-langfix-css">
+.lang-switch{transition:opacity .35s ease,transform .35s ease;}
+.lang-switch.wy-hide{opacity:0;transform:translateY(-16px);pointer-events:none;}
+@media (max-width:700px){
+  .lang-switch{top:6px!important;right:8px!important;padding:3px 9px!important;font-size:11px!important;letter-spacing:.5px!important;}
+}
+@media (prefers-reduced-motion:reduce){.lang-switch{transition:none;}}
+</style>
+<script id="wy-langfix-js">
+(function(){
+var el=document.querySelector('.lang-switch');
+if(!el)return;
+var tk=false;
+function upd(){el.classList.toggle('wy-hide',window.scrollY>240);}
+window.addEventListener('scroll',function(){
+  if(tk)return;tk=true;
+  requestAnimationFrame(function(){tk=false;upd();});
+},{passive:true});
+upd();
+})();
+</script>
+<!--WY-LANGFIX:END-->
 </body>
 </html>
