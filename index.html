@@ -6490,7 +6490,7 @@ document.addEventListener('click',function(e){
         h+='<div class="vts-head">原典節點 · '+nh.length+' 筆 <span class="vts-hint">直達該節</span></div>';
         for(var r2=0;r2<Math.min(nh.length,M2);r2++){var kk=nh[r2][0],nd=nh[r2][1];
           h+='<div class="vts-row vts-nrow" data-k="'+kk+'" data-a="'+esc(nd.a)+'">'
-            +'<span class="vts-tag vts-tag3">卷 '+kk+'</span>'
+            +'<span class="vts-tag vts-tag3">'+esc(label(kk))+'</span>'
             +'<span class="vts-t">'+hlAll(nd.t,ts)+'</span></div>';}
         if(nh.length>M2)h+='<div class="vts-more">…節點另有 '+(nh.length-M2)+' 筆</div>';
       }
