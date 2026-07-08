@@ -6249,7 +6249,7 @@ md.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a.vt-sdt');
   if(!a)return;
   e.preventDefault();e.stopPropagation();
-  showSdt(parseInt(a.dataset.v,10),parseInt(a.dataset.p,10),a.getAttribute('href'));
+  showSdt(a.dataset.v,parseInt(a.dataset.p,10),a.getAttribute('href'));  /* key 可能是數字或 'zl'，保持字串 */
 });
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href]');
