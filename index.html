@@ -6175,6 +6175,8 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 #vtModal.vt-light table.vt-tbl td{color:#3a2e20;background:#fffdf7;border-color:rgba(139,94,60,.3);}
 #vtModal.vt-light table.vt-tbl td:first-child{color:#7a4a26;font-weight:700;white-space:normal;}
 #vtModal.vt-light .vt-concl{background:#f4ecdb;border-left-color:#b8862f;color:#4a3a26;}
+#vtModal.vt-light table.vt-tbl td b,#vtModal.vt-light .vt-concl b{color:#8b2500;font-weight:700;} /* 原總表的紅粗體重點 */
+#vtModal .vt-detail b{color:#e8a06a;font-weight:700;}
 .vt-back{background:none;border:none;color:#c9a96e;font-family:'Noto Serif TC',serif;font-size:13px;cursor:pointer;letter-spacing:1px;padding:4px 8px;}
 .vt-back:hover{color:#ffe7b3;}
 .vt-detail{overflow-y:auto;padding:6px 18px 18px;}
@@ -6198,6 +6200,7 @@ function close(){ov.classList.remove('show');md.classList.remove('show');md.clas
 ov.addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+function rt(t){return esc(t).replace(/&lt;b&gt;/g,'<b>').replace(/&lt;\/b&gt;/g,'</b>');} /* 只還原粗體重點標示 */
 function open(n,title,focus,orig){
   var v=DATA[String(n)];if(!v)return false;
   var base=v.base||('https://weiwen0925.github.io/dazhidulun-'+n+'/');
@@ -6248,9 +6251,9 @@ function showSdt(n,p,fallbackUrl){
       h+='<table class="vt-tbl">'+(t.caption?'<caption>'+esc(t.caption)+'</caption>':'');
       if(t.cols){h+='<tr>';for(var c=0;c<t.cols.length;c++)h+='<th>'+esc(t.cols[c])+'</th>';h+='</tr>';}
       for(var r=0;r<(t.rows||[]).length;r++){h+='<tr>';var row=t.rows[r];
-        for(var c2=0;c2<row.length;c2++)h+='<td>'+esc(String(row[c2]))+'</td>';h+='</tr>';}
+        for(var c2=0;c2<row.length;c2++)h+='<td>'+rt(String(row[c2]))+'</td>';h+='</tr>';}
       h+='</table>';}
-    if(d.note)h+='<div class="vt-concl">'+esc(d.note)+'</div>';
+    if(d.note)h+='<div class="vt-concl">'+rt(d.note)+'</div>';
     h+='</div>';
     md.innerHTML=h;
     md.classList.add('vt-light');          /* 總表閱讀模式：亮面米色 */
