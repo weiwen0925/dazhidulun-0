@@ -6159,6 +6159,16 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
   background:rgba(217,184,124,.08);padding:3px 10px;border-radius:12px;text-decoration:none;white-space:nowrap;}
 .vt-pill:hover{color:#ffe7b3;border-color:#e8c886;background:rgba(217,184,124,.17);}
 .vt-note{padding:8px 20px 14px;color:#8a7a62;font-size:11px;font-family:'Noto Serif TC',serif;letter-spacing:1px;}
+.vt-back{background:none;border:none;color:#c9a96e;font-family:'Noto Serif TC',serif;font-size:13px;cursor:pointer;letter-spacing:1px;padding:4px 8px;}
+.vt-back:hover{color:#ffe7b3;}
+.vt-detail{overflow-y:auto;padding:6px 18px 18px;}
+.vt-sub{color:#9a8a72;font-size:12px;font-family:'Noto Serif TC',serif;letter-spacing:1px;margin:4px 0 10px;line-height:1.7;}
+table.vt-tbl{width:100%;border-collapse:collapse;margin:10px 0 16px;font-family:'Noto Serif TC',serif;}
+table.vt-tbl caption{color:#e3c085;font-size:13px;font-weight:700;letter-spacing:1.5px;text-align:left;padding:6px 2px;}
+table.vt-tbl th{background:rgba(217,184,124,.14);color:#e3c085;font-size:12px;padding:7px 9px;border:1px solid rgba(217,184,124,.25);letter-spacing:1px;white-space:nowrap;}
+table.vt-tbl td{color:#d8c8ab;font-size:12.5px;line-height:1.8;padding:7px 9px;border:1px solid rgba(217,184,124,.18);vertical-align:top;}
+table.vt-tbl td:first-child{white-space:nowrap;color:#c9a96e;}
+.vt-concl{color:#d8c8ab;font-size:12.5px;line-height:1.9;border-left:3px solid #b8862f;padding:6px 12px;background:rgba(217,184,124,.06);margin:6px 0 12px;}
 @media (max-width:640px){#vtModal{width:94vw;max-height:86vh;} .vt-acts{flex-direction:column;gap:4px;} .vt-t{font-size:12.5px;}}
 @media (prefers-reduced-motion: no-preference){#vtModal.show{animation:vtIn .22s ease;}@keyframes vtIn{from{opacity:0;transform:translate(-50%,-48%);}to{opacity:1;transform:translate(-50%,-50%);}}}
 </style>
@@ -6183,13 +6193,54 @@ function open(n,title){
       +'<span class="vt-t"><a href="'+url+'">'+esc(pin.t)+'</a></span>'
       +'<span class="vt-acts"><a class="vt-pill" href="'+url+'">閱讀 ›</a>'
       +(pin.y?'<a class="vt-pill" href="'+pin.y+'" target="_blank" rel="noopener">影音</a>':'')
-      +'<a class="vt-pill" href="'+url+'" title="進入該品後，右下浮動「總表」鈕即本品總表">總表</a></span></div>';}
-  h+='</div><div class="vt-note">點品名或「閱讀」直達該品・「總表」為該品頁內右下浮動鈕・「開啟全卷」回到傳統整卷閱讀</div>';
+      +'<a class="vt-pill vt-sdt" href="'+url+'" data-v="'+n+'" data-p="'+pin.p+'" title="開啟本品總表">總表</a></span></div>';}
+  h+='</div><div class="vt-note">點品名或「閱讀」直達該品・「總表」直接在本頁開啟（無資料的卷則連往該品）・「開啟全卷」回到傳統整卷閱讀</div>';
   md.innerHTML=h;
   md.querySelector('.vt-close').addEventListener('click',close);
+  md.dataset.vol=n;md.dataset.title=title||('第 '+n+' 卷');md.dataset.listHtml='';
   ov.classList.add('show');md.classList.add('show');document.body.style.overflow='hidden';
   return true;
 }
+var ZB={};
+function fetchZb(n){
+  if(ZB[n])return Promise.resolve(ZB[n]);
+  return fetch('https://weiwen0925.github.io/dazhidulun-'+n+'/zongbiao.json',{cache:'force-cache'})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(j){ZB[n]=j;return j;});
+}
+function showSdt(n,p,fallbackUrl){
+  fetchZb(n).then(function(j){
+    var d=j&&j.pins&&j.pins[String(p)];
+    if(!d){location.href=fallbackUrl;return;}
+    var prevList=md.innerHTML;
+    var h='<div class="vt-head"><button class="vt-back">‹ 返回品目</button>'
+        +'<div class="vt-title" style="font-size:15px;">'+esc(d.title||('第 '+p+' 品'))+'</div>'
+        +'<a class="vt-go" href="'+fallbackUrl+'">開啟該品 ›</a>'
+        +'<button class="vt-close" aria-label="關閉">✕</button></div><div class="vt-detail">';
+    if(d.subtitle)h+='<div class="vt-sub">'+esc(d.subtitle)+'</div>';
+    var tables=d.tables||[];
+    for(var i=0;i<tables.length;i++){var t=tables[i];
+      h+='<table class="vt-tbl">'+(t.caption?'<caption>'+esc(t.caption)+'</caption>':'');
+      if(t.cols){h+='<tr>';for(var c=0;c<t.cols.length;c++)h+='<th>'+esc(t.cols[c])+'</th>';h+='</tr>';}
+      for(var r=0;r<(t.rows||[]).length;r++){h+='<tr>';var row=t.rows[r];
+        for(var c2=0;c2<row.length;c2++)h+='<td>'+esc(String(row[c2]))+'</td>';h+='</tr>';}
+      h+='</table>';}
+    if(d.note)h+='<div class="vt-concl">'+esc(d.note)+'</div>';
+    h+='</div>';
+    md.innerHTML=h;
+    md.querySelector('.vt-close').addEventListener('click',close);
+    md.querySelector('.vt-back').addEventListener('click',function(){
+      md.innerHTML=prevList;
+      md.querySelector('.vt-close').addEventListener('click',close);
+    });
+  }).catch(function(){location.href=fallbackUrl;});
+}
+md.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a.vt-sdt');
+  if(!a)return;
+  e.preventDefault();e.stopPropagation();
+  showSdt(parseInt(a.dataset.v,10),parseInt(a.dataset.p,10),a.getAttribute('href'));
+});
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a.volume-link');
   if(!a)return;
