@@ -6161,6 +6161,20 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 .vt-note{padding:8px 20px 14px;color:#8a7a62;font-size:11px;font-family:'Noto Serif TC',serif;letter-spacing:1px;}
 .vt-row.vt-hit{background:rgba(217,184,124,.12);border:1px solid rgba(217,184,124,.45);border-radius:10px;margin:2px 0;}
 .vt-row.vt-hit .vt-num{background:linear-gradient(135deg,#ffe9b8,#d9b87c);color:#2c241c;border-color:#e8c886;font-weight:700;}
+/* 總表閱讀模式：亮面米色（同品頁 gen18 總表彈窗），易讀 */
+#vtModal.vt-light{background:#fbf7ee;border-color:#b8862f;}
+#vtModal.vt-light .vt-head{border-bottom-color:rgba(139,94,60,.28);}
+#vtModal.vt-light .vt-title{color:#5a3e22;}
+#vtModal.vt-light .vt-back{color:#8b5e3c;}
+#vtModal.vt-light .vt-back:hover{color:#5a3e22;}
+#vtModal.vt-light .vt-close{color:#8b5e3c;border-color:rgba(139,94,60,.45);background:none;}
+#vtModal.vt-light .vt-close:hover{color:#5a3e22;border-color:#8b5e3c;}
+#vtModal.vt-light .vt-sub{color:#7a6248;}
+#vtModal.vt-light table.vt-tbl caption{color:#8b5e3c;}
+#vtModal.vt-light table.vt-tbl th{background:#5d4331;color:#f7ecd2;border-color:rgba(93,67,49,.55);}
+#vtModal.vt-light table.vt-tbl td{color:#3a2e20;background:#fffdf7;border-color:rgba(139,94,60,.3);}
+#vtModal.vt-light table.vt-tbl td:first-child{color:#7a4a26;font-weight:700;white-space:normal;}
+#vtModal.vt-light .vt-concl{background:#f4ecdb;border-left-color:#b8862f;color:#4a3a26;}
 .vt-back{background:none;border:none;color:#c9a96e;font-family:'Noto Serif TC',serif;font-size:13px;cursor:pointer;letter-spacing:1px;padding:4px 8px;}
 .vt-back:hover{color:#ffe7b3;}
 .vt-detail{overflow-y:auto;padding:6px 18px 18px;}
@@ -6180,7 +6194,7 @@ var DATA={"1":{"a":"chapter","pins":[{"p":1,"t":"第一品 · 僧叡釋論序 �
 var ov=document.createElement('div');ov.id='vtOverlay';
 var md=document.createElement('div');md.id='vtModal';md.setAttribute('role','dialog');md.setAttribute('aria-modal','true');
 document.body.appendChild(ov);document.body.appendChild(md);
-function close(){ov.classList.remove('show');md.classList.remove('show');document.body.style.overflow='';}
+function close(){ov.classList.remove('show');md.classList.remove('show');md.classList.remove('vt-light');document.body.style.overflow='';}
 ov.addEventListener('click',close);
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
@@ -6202,6 +6216,7 @@ function open(n,title,focus,orig){
       +'<a class="vt-pill vt-sdt" href="'+url+'" data-v="'+n+'" data-p="'+pin.p+'" title="開啟本品總表">總表</a></span></div>';}
   h+='</div><div class="vt-note">點品名或「閱讀」直達該品・「總表」直接在本頁開啟（無資料的卷則連往該品）・「開啟全卷」回到傳統整卷閱讀</div>';
   md.innerHTML=h;
+  md.classList.remove('vt-light');
   md.querySelector('.vt-close').addEventListener('click',close);
   md.dataset.vol=n;md.dataset.title=ttl;md.dataset.listHtml='';
   ov.classList.add('show');md.classList.add('show');document.body.style.overflow='hidden';
@@ -6238,9 +6253,11 @@ function showSdt(n,p,fallbackUrl){
     if(d.note)h+='<div class="vt-concl">'+esc(d.note)+'</div>';
     h+='</div>';
     md.innerHTML=h;
+    md.classList.add('vt-light');          /* 總表閱讀模式：亮面米色 */
     md.querySelector('.vt-close').addEventListener('click',close);
     md.querySelector('.vt-back').addEventListener('click',function(){
       md.innerHTML=prevList;
+      md.classList.remove('vt-light');     /* 回品目：還原深色 */
       md.querySelector('.vt-close').addEventListener('click',close);
     });
   }).catch(function(){location.href=fallbackUrl;});
