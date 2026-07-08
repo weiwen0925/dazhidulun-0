@@ -6217,6 +6217,9 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 .vts-t{flex:1;color:#d8c8ab;font-family:'Noto Serif TC',serif;font-size:13px;line-height:1.6;letter-spacing:.5px;}
 .vts-t b{color:#ffe7b3;font-weight:700;}
 .vts-more{padding:8px 16px;color:#8a7a62;font-size:11.5px;font-family:'Noto Serif TC',serif;letter-spacing:1px;}
+.vts-tag2{background:linear-gradient(135deg,#cfe3d3,#8fb89a);}
+.vts-tt{color:#c9a96e;font-size:11.5px;letter-spacing:1px;}
+.vts-zrow .vts-t{font-size:12.5px;line-height:1.75;color:#c4b498;}
 @media (max-width:700px){#vtModal.vt-light table.vt-tbl td:first-child{min-width:4.5em;font-size:14px;} #vtModal.vt-light table.vt-tbl td{font-size:14.5px;} #vtModal.vt-light .vt-detail{padding:4px 14px 18px;}}
 .vt-back{background:none;border:none;color:#c9a96e;font-family:'Noto Serif TC',serif;font-size:13px;cursor:pointer;letter-spacing:1px;padding:4px 8px;}
 .vt-back:hover{color:#ffe7b3;}
@@ -6349,50 +6352,119 @@ document.addEventListener('click',function(e){
   t=t.replace(/^第\s*\d+\s*卷\s*/,'').replace(/^卷\s*\d+([\u3000\s]*[\u2013\u2014-]\s*\d+)?\s*/,'');
   open(key,(m[1]?('第 '+key+' 卷'):'龍樹《中論》二十七品')+(t?' · '+t:''));
 },true);
-/* ── 全站品名搜尋：接 VII #searchBox，資料＝DATA（100 卷＋中論全品目） ── */
+/* ── 全站搜尋：接 VII #searchBox。①品名（DATA，100 卷＋中論）②總表內容（各卷 zongbiao.json，懶載索引）
+     模糊查詢＝多關鍵詞（空格/頓號分隔）不限順序 AND 比對，全詞高亮；點總表結果直開該品總表彈窗。 ── */
 (function(){
   var sb=document.getElementById('searchBox');
   var row=sb&&sb.closest&&sb.closest('.search-row');
   if(!sb||!row)return;
+  var ZBV=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "zl"];
   var panel=document.createElement('div');panel.id='vtSearch';
   row.parentNode.insertBefore(panel,row.nextSibling);
+  var ZIDX=null,ZLOADING=false,timer=null;
   function label(k){return k==='zl'?'中論':('卷 '+k);}
-  function hl(t,q){
-    var i=t.toLowerCase().indexOf(q.toLowerCase());
-    if(i<0)return esc(t);
-    return esc(t.slice(0,i))+'<b>'+esc(t.slice(i,i+q.length))+'</b>'+esc(t.slice(i+q.length));
+  function baseOf(k){var v=DATA[k]||{};return v.base||('https://weiwen0925.github.io/dazhidulun-'+k+'/');}
+  function terms(q){return q.split(/[\s,\uFF0C\u3001\u30FB]+/).filter(function(x){return x.length>=1;}).slice(0,5);}
+  function matchAll(txt,ts){var lo=txt.toLowerCase();
+    for(var i=0;i<ts.length;i++){if(lo.indexOf(ts[i].toLowerCase())<0)return false;}return true;}
+  function hlAll(t,ts){
+    var out=esc(t);
+    for(var i=0;i<ts.length;i++){
+      var e2=esc(ts[i]).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+      out=out.replace(new RegExp('('+e2+')','gi'),'\u0001$1\u0002');
+    }
+    return out.replace(/\u0001/g,'<b>').replace(/\u0002/g,'</b>');
+  }
+  function loadIdx(then){
+    if(ZIDX){then();return;}
+    if(ZLOADING)return;
+    ZLOADING=true;
+    var items=[],left=ZBV.length;
+    if(!left){ZIDX=items;then();return;}
+    ZBV.forEach(function(k){
+      fetch(baseOf(k)+'zongbiao.json').then(function(r){if(!r.ok)throw 0;return r.json();})
+      .then(function(j){
+        var pins=(j&&j.pins)||{};
+        Object.keys(pins).forEach(function(p){
+          var d=pins[p],parts=[];
+          if(d.subtitle)parts.push(d.subtitle);
+          (d.tables||[]).forEach(function(t){
+            if(t.caption)parts.push(t.caption);
+            (t.rows||[]).forEach(function(rr){parts.push(rr.join('：'));});
+          });
+          if(d.note)parts.push(d.note);
+          var txt=parts.join(' ¶ ').replace(/<\/?b>/g,'');
+          items.push({k:k,p:parseInt(p,10),title:(d.title||'').replace(/<\/?b>/g,''),txt:txt});
+        });
+      }).catch(function(){}).then(function(){if(--left<=0){ZIDX=items;ZLOADING=false;then();}});
+    });
+  }
+  function snippet(txt,ts){
+    var lo=txt.toLowerCase(),i=-1;
+    for(var x=0;x<ts.length;x++){var j=lo.indexOf(ts[x].toLowerCase());if(j>-1&&(i<0||j<i))i=j;}
+    if(i<0)i=0;
+    var st=Math.max(0,i-24),en=Math.min(txt.length,i+64);
+    return (st>0?'…':'')+txt.slice(st,en)+(en<txt.length?'…':'');
   }
   function doSearch(){
     var q=(sb.value||'').trim();
     if(!q){panel.classList.remove('show');panel.innerHTML='';return;}
-    var hits=[],vm=q.match(/^卷?\s*(\d{1,3})$/);
-    if(vm&&DATA[String(parseInt(vm[1],10))]){       /* 純卷次：列出該卷全部品 */
+    var ts=terms(q),h='',total=0;
+    var vm=q.match(/^卷?\s*(\d{1,3})$/);
+    /* ① 品名 */
+    var hits=[];
+    if(vm&&DATA[String(parseInt(vm[1],10))]){
       var k0=String(parseInt(vm[1],10)),v0=DATA[k0];
       for(var j=0;j<v0.pins.length;j++)hits.push([k0,v0.pins[j]]);
-    }else if(q.length>=1&&!/^[\d\s]+$/.test(q)){   /* 品名子字串：全站掃描 */
+    }else if(ts.length&&!/^[\d\s]+$/.test(q)){
       var ks=Object.keys(DATA);
-      for(var i=0;i<ks.length&&hits.length<200;i++){var v=DATA[ks[i]];
-        for(var j2=0;j2<v.pins.length;j2++){
-          if(v.pins[j2].t.toLowerCase().indexOf(q.toLowerCase())>-1)hits.push([ks[i],v.pins[j2]]);
-        }}
+      for(var i=0;i<ks.length&&hits.length<120;i++){var v=DATA[ks[i]];
+        for(var j2=0;j2<v.pins.length;j2++){if(matchAll(v.pins[j2].t,ts))hits.push([ks[i],v.pins[j2]]);}}
     }
-    if(!hits.length){panel.classList.remove('show');panel.innerHTML='';return;}
-    var MAX=30,h='<div class="vts-head">全站品名搜尋 · '+hits.length+' 筆（點選開啟該卷浮層）</div>';
-    for(var r=0;r<Math.min(hits.length,MAX);r++){var k=hits[r][0],pin=hits[r][1];
-      h+='<div class="vts-row" data-k="'+k+'" data-p="'+pin.p+'"><span class="vts-tag">'+esc(label(k))+'・品'+pin.p+'</span>'
-        +'<span class="vts-t">'+hl(pin.t,vm?'':q)+'</span></div>';}
-    if(hits.length>MAX)h+='<div class="vts-more">…另有 '+(hits.length-MAX)+' 筆，請輸入更精確的關鍵詞</div>';
+    if(hits.length){
+      var M1=12;
+      h+='<div class="vts-head">品名 · '+hits.length+' 筆（點選開啟該卷浮層）</div>';
+      for(var r=0;r<Math.min(hits.length,M1);r++){var k=hits[r][0],pin=hits[r][1];
+        h+='<div class="vts-row" data-k="'+k+'" data-p="'+pin.p+'"><span class="vts-tag">'+esc(label(k))+'・品'+pin.p+'</span>'
+          +'<span class="vts-t">'+hlAll(pin.t,vm?[]:ts)+'</span></div>';}
+      if(hits.length>M1)h+='<div class="vts-more">…品名另有 '+(hits.length-M1)+' 筆</div>';
+      total+=hits.length;
+    }
+    /* ② 總表內容（懶載索引） */
+    if(!vm&&ts.length&&!/^[\d\s]+$/.test(q)&&q.length>=2){
+      if(!ZIDX){
+        h+='<div class="vts-head">總表內容 · 索引載入中…（'+ZBV.length+' 卷）</div>';
+        loadIdx(doSearch);
+      }else{
+        var zh=[];
+        for(var z=0;z<ZIDX.length&&zh.length<80;z++){var it=ZIDX[z];
+          if(matchAll(it.title+' '+it.txt,ts))zh.push(it);}
+        if(zh.length){
+          var M2=18;
+          h+='<div class="vts-head">總表內容 · '+zh.length+' 筆（點選直接開啟該品總表）</div>';
+          for(var r2=0;r2<Math.min(zh.length,M2);r2++){var it2=zh[r2];
+            h+='<div class="vts-row vts-zrow" data-k="'+it2.k+'" data-p="'+it2.p+'">'
+              +'<span class="vts-tag vts-tag2">'+esc(label(it2.k))+'・品'+it2.p+'</span>'
+              +'<span class="vts-t"><span class="vts-tt">'+esc(it2.title.slice(0,26))+'</span><br>'
+              +hlAll(snippet(it2.txt,ts),ts)+'</span></div>';}
+          if(zh.length>M2)h+='<div class="vts-more">…總表另有 '+(zh.length-M2)+' 筆，請加關鍵詞縮小（可用空格分隔多詞）</div>';
+          total+=zh.length;
+        }
+      }
+    }
+    if(!h){panel.classList.remove('show');panel.innerHTML='';return;}
     panel.innerHTML=h;panel.classList.add('show');
   }
-  sb.addEventListener('input',doSearch);
+  sb.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(doSearch,220);});
   sb.addEventListener('search',doSearch);
   panel.addEventListener('click',function(e){
     var r=e.target.closest&&e.target.closest('.vts-row');
     if(!r)return;
     var k=r.getAttribute('data-k'),p=parseInt(r.getAttribute('data-p'),10);
     var v=DATA[k];if(!v)return;
-    var base=v.base||('https://weiwen0925.github.io/dazhidulun-'+k+'/');
-    open(k,null,p,base+'#'+v.a+'-'+p);
+    var url=baseOf(k)+'#'+v.a+'-'+p;
+    open(k,null,p,url);
+    if(r.classList.contains('vts-zrow'))showSdt(k,p,url); /* 總表結果：直開該品總表（返回品目可回列表） */
   });
   document.addEventListener('click',function(e){
     if(panel.classList.contains('show')&&!panel.contains(e.target)&&e.target!==sb)panel.classList.remove('show');
