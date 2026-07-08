@@ -6480,11 +6480,18 @@ document.addEventListener('click',function(e){
     /* ②③④ 需索引 */
     if(!SIDX){h+='<div class="vts-head">節點・導讀 · 索引載入中…</div>';loadSidx();}
     else{
-      /* ② 原典節點（節標題） */
-      var nh=[];
-      var nks=Object.keys(SIDX.nodes||{});
-      for(var a=0;a<nks.length&&nh.length<60;a++){var arr=SIDX.nodes[nks[a]];
-        for(var b2=0;b2<arr.length;b2++){if(matchAll(arr[b2].t,ts))nh.push([nks[a],arr[b2]]);}}
+      /* ② 原典節點（節標題）——分卷輪流配額，避免大部頭把中論等擠出榜 */
+      var perk={},nks=Object.keys(SIDX.nodes||{}),tot=0;
+      nks.sort(function(a,b){return (a==='zl'?-1:b==='zl'?1:parseInt(a,10)-parseInt(b,10));});
+      for(var a=0;a<nks.length&&tot<160;a++){var arr=SIDX.nodes[nks[a]];
+        for(var b2=0;b2<arr.length;b2++){if(matchAll(arr[b2].t,ts)){
+          (perk[nks[a]]=perk[nks[a]]||[]).push(arr[b2]);tot++;
+          if(perk[nks[a]].length>=8)break;}}}
+      var nh=[],ord=nks.filter(function(k){return perk[k];}),rd=0,added=true;
+      while(nh.length<60&&added){added=false;
+        for(var oi=0;oi<ord.length;oi++){var pa=perk[ord[oi]];
+          if(pa.length>rd){nh.push([ord[oi],pa[rd]]);added=true;}}
+        rd++;}
       if(nh.length){
         var M2=10;
         h+='<div class="vts-head">原典節點 · '+nh.length+' 筆 <span class="vts-hint">直達該節</span></div>';
