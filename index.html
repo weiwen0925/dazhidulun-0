@@ -6843,5 +6843,91 @@ upd();
 })();
 </script>
 <!--WY-LANGFIX:END-->
+<!--WY-DZNAV:BEGIN-->
+<style id="wy-dznav-css">
+#dzTop,#dzNav{position:fixed;right:22px;z-index:150;width:46px;height:46px;border-radius:50%;border:1px solid #b8862f;background:linear-gradient(135deg,#3a3026,#221b13);color:#e3c085;font-size:19px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;box-shadow:0 4px 14px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .3s,transform .3s,visibility .3s,box-shadow .25s,border-color .25s,color .25s;font-family:"Noto Sans TC",sans-serif;}
+#dzTop{bottom:22px;}
+#dzNav{bottom:80px;font-size:17px;}
+#dzTop.dz-show,#dzNav.dz-show{opacity:1;visibility:visible;transform:none;}
+#dzTop:hover,#dzNav:hover{border-color:#e8c886;color:#ffe7b3;box-shadow:0 0 16px rgba(227,192,133,.35),0 4px 14px rgba(0,0,0,.45);}
+#dzNavPanel{position:fixed;right:22px;bottom:134px;z-index:151;min-width:216px;max-width:min(300px,86vw);max-height:min(430px,62vh);overflow:auto;background:#2c241c;border:1px solid #b8862f;border-radius:12px;box-shadow:0 14px 40px rgba(0,0,0,.5);padding:8px 0;display:none;font-family:"Noto Sans TC",sans-serif;}
+#dzNavPanel.open{display:block;}
+.dznav-row{display:flex;align-items:baseline;gap:10px;padding:8px 16px;color:#f7ecd2;font-size:13.5px;letter-spacing:.5px;line-height:1.55;cursor:pointer;transition:background .18s,color .18s,box-shadow .18s;}
+.dznav-row .rn{font-family:"Noto Serif TC",serif;color:#b8862f;font-size:12px;min-width:28px;text-align:right;flex:none;}
+.dznav-row:hover{background:rgba(227,192,133,.12);color:#ffe7b3;box-shadow:inset 3px 0 0 #e8c886,0 0 12px rgba(227,192,133,.18);}
+.dznav-row:hover .rn{color:#e8c886;}
+@media(max-width:700px){#dzTop,#dzNav{right:12px;width:40px;height:40px;font-size:16px;}#dzNav{bottom:72px;font-size:15px;}#dzNavPanel{right:12px;bottom:122px;font-size:13px;}}
+</style>
+<button id="dzTop" type="button" aria-label="回到頂端" title="回到頂端">&#8593;</button>
+<button id="dzNav" type="button" aria-label="區段快跳" aria-haspopup="true" aria-expanded="false" title="區段快跳">&#9776;</button>
+<div id="dzNavPanel" role="menu" aria-label="區段快跳面板"></div>
+<script id="wy-dznav-js">
+(function(){
+  var topBtn=document.getElementById('dzTop'),navBtn=document.getElementById('dzNav'),panel=document.getElementById('dzNavPanel');
+  if(!topBtn||!navBtn||!panel)return;
+  /* runtime 掃描區段標題：h2 > span.chapter-num（不改原 DOM id） */
+  var secs=[];
+  try{
+    var spans=document.querySelectorAll('h2 .chapter-num');
+    for(var i=0;i<spans.length;i++){
+      var h=spans[i].closest?spans[i].closest('h2'):spans[i].parentNode;
+      if(!h)continue;
+      var rn=(spans[i].textContent||'').replace(/\s+/g,'').trim();
+      var full=(h.textContent||'').replace(/\s+/g,' ').trim();
+      var name=full.indexOf(rn)===0?full.slice(rn.length):full;
+      name=name.replace(/^[\s　]+/,'').trim();
+      if(rn&&name)secs.push({rn:rn,name:name,el:h});
+    }
+  }catch(e){secs=[];}
+  function closePanel(){panel.classList.remove('open');navBtn.setAttribute('aria-expanded','false');}
+  function openPanel(){panel.classList.add('open');navBtn.setAttribute('aria-expanded','true');}
+  function goTo(el){
+    var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||0)-64;
+    if(y<0)y=0;
+    try{window.scrollTo({top:y,behavior:'smooth'});}catch(e2){window.scrollTo(0,y);}
+  }
+  if(!secs.length){
+    navBtn.style.display='none';panel.style.display='none';
+  }else{
+    for(var j=0;j<secs.length;j++){
+      (function(sec){
+        var row=document.createElement('div');
+        row.className='dznav-row';row.setAttribute('role','menuitem');row.setAttribute('tabindex','0');
+        var rn=document.createElement('span');rn.className='rn';rn.textContent=sec.rn;
+        var nm=document.createElement('span');nm.className='nm';nm.textContent=sec.name;
+        row.appendChild(rn);row.appendChild(nm);
+        function act(){closePanel();goTo(sec.el);}
+        row.addEventListener('click',act);
+        row.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+        panel.appendChild(row);
+      })(secs[j]);
+    }
+    navBtn.classList.add('dz-show');
+    navBtn.addEventListener('click',function(e){
+      e.stopPropagation();
+      if(panel.classList.contains('open'))closePanel();else openPanel();
+    });
+    document.addEventListener('click',function(e){
+      if(!panel.classList.contains('open'))return;
+      var t=e.target;
+      if(t===navBtn||(navBtn.contains&&navBtn.contains(t)))return;
+      if(t===panel||(panel.contains&&panel.contains(t)))return;
+      closePanel();
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
+  }
+  topBtn.addEventListener('click',function(){
+    try{window.scrollTo({top:0,behavior:'smooth'});}catch(e3){window.scrollTo(0,0);}
+  });
+  var tk=false;
+  function upd(){topBtn.classList.toggle('dz-show',(window.scrollY||document.documentElement.scrollTop||0)>600);}
+  window.addEventListener('scroll',function(){
+    if(tk)return;tk=true;
+    requestAnimationFrame(function(){tk=false;upd();});
+  },{passive:true});
+  upd();
+})();
+</script>
+<!--WY-DZNAV:END-->
 </body>
 </html>
