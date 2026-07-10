@@ -6312,6 +6312,7 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 .vts-tag2{background:linear-gradient(135deg,#cfe3d3,#8fb89a);}
 .vts-tag3{background:linear-gradient(135deg,#e8d5ec,#b99cc2);}
 .vts-tag4{background:linear-gradient(135deg,#f3d9c4,#d9a878);}
+.vts-tag5{background:linear-gradient(135deg,#d9def2,#8e9cc9);} /* 白話翻譯層（靛青系） */
 .vts-tt{color:#c9a96e;font-size:11.5px;letter-spacing:1px;}
 .vts-zrow .vts-t,.vts-erow .vts-t{font-size:12.5px;line-height:1.75;color:#c4b498;}
 .vts-hint{float:right;color:#8a7a62;font-size:10.5px;letter-spacing:1px;font-weight:400;}
@@ -6604,7 +6605,7 @@ document.addEventListener('click',function(e){
      介面×2：VII #searchBox 下拉面板＋左下固定「搜」浮鈕的全螢幕搜尋浮框。
      節點/導讀索引＝dz0 根目錄 search-index.json（部署時建置，首搜懶載入）。 ── */
 (function(){
-  var ZBV=["tg", "vv", "bz", "zc", "bl", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
+  var ZBV=["vv", "tg", "bz", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
   var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
   var activeRender=null;
   var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經'}; /* ★新論擴充點★ 新論在此補顯示名 */
@@ -6660,7 +6661,7 @@ document.addEventListener('click',function(e){
       .catch(function(){SIDX={essays:[],nodes:{}};})
       .then(function(){SLOADING=false;if(activeRender)activeRender();});
   }
-  var EXP={q:'',p:0,n:0,e:0,z:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
+  var EXP={q:'',p:0,n:0,e:0,z:0,b:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
   var XCAP=500;                       /* 展開後單層顯示上限，防爆量 */
   function xmore(layer,total,shown){
     if(total<=shown)return '';
@@ -6672,7 +6673,7 @@ document.addEventListener('click',function(e){
   function build(q){
     q=(q||'').trim();
     if(!q)return '';
-    if(EXP.q!==q){EXP.q=q;EXP.p=0;EXP.n=0;EXP.e=0;EXP.z=0;}
+    if(EXP.q!==q){EXP.q=q;EXP.p=0;EXP.n=0;EXP.e=0;EXP.z=0;EXP.b=0;}
     var ts=terms(q),h='';
     var vm=q.match(/^卷?\s*(\d{1,3})$/);
     var pure=/^[\d\s]+$/.test(q);
@@ -6759,6 +6760,31 @@ document.addEventListener('click',function(e){
         h+=EXP.z?xnote(ztot,S3):xmore('z',ztot,S3);
       }
     }
+    /* ⑤ 白話翻譯（各卷「譯」浮動鈕的 原文↔白話↔中觀概念 對照表；search-index.json 鍵 bhv，
+         陸續上傳的品重跑部署腳本即自動入索引）——全量收集算真實總數、round-robin 分卷公平 */
+    if(SIDX&&(SIDX.bhv||[]).length){
+      var bperk={},btot=0,bhv=SIDX.bhv;
+      for(var w=0;w<bhv.length;w++){var bit=bhv[w];
+        if(matchAll(bit.t+' '+bit.x,ts)){
+          var bk=String(bit.k);
+          (bperk[bk]=bperk[bk]||[]).push(bit);btot++;}}
+      var bh=[],bord=Object.keys(bperk),brd=0,badd=true,DB=EXP.b?XCAP:80;
+      bord.sort(function(a,b){var na=/^\d+$/.test(a)?parseInt(a,10):-1,nb=/^\d+$/.test(b)?parseInt(b,10):-1;return na-nb;});
+      while(bh.length<DB&&badd){badd=false;
+        for(var bo=0;bo<bord.length;bo++){var bpa=bperk[bord[bo]];
+          if(bpa.length>brd&&bh.length<DB){bh.push(bpa[brd]);badd=true;}}
+        brd++;}
+      if(bh.length){
+        var M5=EXP.b?XCAP:8,S5=Math.min(bh.length,M5);
+        h+='<div class="vts-head">白話翻譯 · '+btot+' 筆 <span class="vts-hint">直達該品</span></div>';
+        for(var r5=0;r5<S5;r5++){var bt2=bh[r5];
+          h+='<div class="vts-row vts-brow" data-k="'+bt2.k+'" data-p="'+bt2.p+'">'
+            +'<span class="vts-tag vts-tag5">'+esc(label(String(bt2.k)))+'・品'+bt2.p+'</span>'
+            +'<span class="vts-t"><span class="vts-tt">'+esc(bt2.t.slice(0,26))+'</span><br>'
+            +hlAll(snippet(bt2.x,ts),ts)+'</span></div>';}
+        h+=EXP.b?xnote(btot,S5):xmore('b',btot,S5);
+      }
+    }
     return h;
   }
   function onPick(e,closeFn){
@@ -6770,6 +6796,11 @@ document.addEventListener('click',function(e){
     }
     if(r.classList.contains('vts-erow')){
       openEssay('https://weiwen0925.github.io/medium-import-'+r.getAttribute('data-n')+'.html');return;
+    }
+    /* 白話翻譯列：同總表列走下方 open(k,null,p,url) 開該卷品目浮框並高亮該品；
+       無品目資料的卷後備＝新分頁直達 卷頁#chapter-品 */
+    if(r.classList.contains('vts-brow')&&!DATA[r.getAttribute('data-k')]){
+      window.open(baseOf(r.getAttribute('data-k'))+'#chapter-'+r.getAttribute('data-p'),'_blank','noopener');return;
     }
     var k=r.getAttribute('data-k'),p=parseInt(r.getAttribute('data-p'),10);
     var v=DATA[k];if(!v)return;
@@ -6816,7 +6847,7 @@ document.addEventListener('click',function(e){
   sm.innerHTML='<div class="vtsm-card" role="dialog" aria-modal="true" aria-label="全站搜尋">'
     +'<div class="vtsm-orn">❀</div>'
     +'<div class="vtsm-title">全站搜尋</div>'
-    +'<div class="vtsm-sub">品名 · 原典節點 · 全景總表 · 系列導讀</div>'
+    +'<div class="vtsm-sub">品名 · 原典節點 · 全景總表 · 系列導讀 · 白話翻譯</div>'
     +'<div class="vtsm-inrow"><input id="vtSInput" type="search" autocomplete="off" placeholder="輸入關鍵詞，多詞可用空格分隔…"/></div>'
     +'<div class="vtsm-results" id="vtSResults"></div>'
     +'<div class="vtsm-foot">Esc 關閉 · 點結果直達浮層／總表／導讀／原典節</div>'
