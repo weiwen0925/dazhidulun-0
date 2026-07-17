@@ -7215,7 +7215,7 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,300
 })();</script>
 <!--WY-FABDOCK:END-->
 <!--WY-TOUR0:BEGIN-->
-<style id="wy-tour0-css">/* tour0-v1 */
+<style id="wy-tour0-css">/* tour0-v3 */
 #t0Card{position:fixed;z-index:9600;max-width:288px;background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:14px 16px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.75;letter-spacing:.5px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
 #t0Card .t0-h{font-size:15px;font-weight:700;color:#ffd98a;letter-spacing:1px;margin-bottom:4px;}
 #t0Card .t0-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
@@ -7233,14 +7233,24 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,300
 if(window.__wyTour0)return;window.__wyTour0=1;
 function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
 if(LS("wyTour0Done")==="1")return;
-var card=null,tm=null,gl=null;
+var card=null,tm=null,gl=null,undo=null;
 function clear(){if(tm){clearTimeout(tm);tm=null;}
   if(card&&card.parentNode)card.parentNode.removeChild(card);card=null;
-  if(gl){gl.classList.remove("t0-glow");gl=null;}}
+  if(gl){gl.classList.remove("t0-glow");gl=null;}
+  if(undo){try{undo();}catch(e){}undo=null;}}
+function forceShow(el){ /* 滑動顯隱型鈕：導覽時臨時現身，步驟結束還原 */
+  try{var c=getComputedStyle(el);
+    if(c.display==="none"||c.visibility==="hidden"||parseFloat(c.opacity||"1")<.06){
+      el.style.display="flex";el.style.visibility="visible";el.style.opacity="1";
+      el.style.pointerEvents="auto";el.style.transform="none";
+      undo=function(){el.style.display="";el.style.visibility="";el.style.opacity="";
+        el.style.pointerEvents="";el.style.transform="";};
+    }}catch(e){}}
 function done(){clear();LS("wyTour0Done","1");}
-function show(opt){ /* {el,html,dir,fix,final} */
+function show(opt){ /* {el,html,dir,fix,final,force} */
   clear();
   var el=opt.el;
+  if(opt.force&&el)forceShow(el); /* 於 clear 之後、定位之前臨時現身 */
   card=document.createElement("div");card.id="t0Card";
   card.className=opt.dir==="up"?"t0-up":(opt.dir==="dn"?"t0-dn":"");
   card.innerHTML=(opt.dir?'<span class="t0-arrow"></span>':'')+opt.html+
@@ -7257,21 +7267,19 @@ function show(opt){ /* {el,html,dir,fix,final} */
     if(ar)ar.style.left=Math.min(Math.max(14,r.left+r.width/2-lx-6),w-26)+"px";}
   if(el){gl=el;el.classList.add("t0-glow");}
   var nxt=card.querySelector(".t0-next"),skp=card.querySelector(".t0-skip");
-  if(opt.final){
+  if(opt.final){ /* 終幕停駐：等讀者親點「完成」或「前往頻道」，不自動收 */
     nxt.addEventListener("click",function(){try{window.open("https://www.youtube.com/@Chengweiwen/posts","_blank","noopener");}catch(e){}done();});
     skp.addEventListener("click",done);
-    tm=setTimeout(done,20000);
-  }else{
+  }else{ /* 各步等讀者親點「下一步 ▸」，不自動前進 */
     nxt.addEventListener("click",function(){opt.next();});
     skp.addEventListener("click",done);
-    tm=setTimeout(function(){opt.next();},10000);
   }
 }
 function waitFor(sel,ms,cb){var t0=Date.now();(function poll(){var e=document.querySelector(sel);
   if(e&&e.offsetParent!==null||e&&getComputedStyle(e).position==="fixed"){cb(e);return;}
   if(Date.now()-t0>ms){cb(null);return;}setTimeout(poll,350);})();}
 function s0(){ /* 歡迎卡（置中） */
-  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解，皆免費結緣。<br>花 20 秒帶您認識版面。',
+  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解，皆免費結緣。<br>四步帶您認識版面，請點「下一步」開始。',
     fix:{top:"50%",left:"50%",transform:"translate(-50%,-50%)"},next:s1});
   LS("wyDockHint","1");LS("wySrchHint","1"); /* 通用兩段提示由本導覽代勞 */
 }
@@ -7284,7 +7292,7 @@ function s2(){waitFor("#wyDockBtn",8000,function(el){
   show({el:el,dir:"dn",html:'<div class="t0-h">② 右下工具櫃 ☰</div>各卷各品的 白話・總表・影音・回頂 都收納在這顆鈕，點開陳列、再點收合。',next:s3});});}
 function s3(){var el=document.querySelector("#vtSFab");
   if(!el){s4();return;}
-  show({el:el,dir:"dn",html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
 function s4(){var el=document.querySelector(".author-statement");
   if(!el){done();return;}
   try{el.scrollIntoView({behavior:"smooth",block:"center"});}catch(e){}
