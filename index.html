@@ -7224,97 +7224,6 @@ if(document.readyState!=="loading")setTimeout(boot,300);
 else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,300);});
 })();</script>
 <!--WY-FABDOCK:END-->
-<!--WY-TOUR0:BEGIN-->
-<style id="wy-tour0-css">/* tour0-v4 */
-#t0Card{position:fixed;z-index:9600;max-width:288px;background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:14px 16px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.75;letter-spacing:.5px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
-#t0Card .t0-h{font-size:15px;font-weight:700;color:#ffd98a;letter-spacing:1px;margin-bottom:4px;}
-#t0Card .t0-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
-#t0Card button{cursor:pointer;border-radius:12px;padding:5px 14px;font-size:12.5px;letter-spacing:1px;font-family:inherit;line-height:1.3;}
-#t0Card .t0-next{background:linear-gradient(135deg,#8b5e3c,#a9803f);color:#fff8e6;border:1px solid rgba(255,255,255,.25);}
-#t0Card .t0-skip{background:transparent;color:#9a8a6e;border:1px solid rgba(154,138,110,.45);}
-#t0Card .t0-arrow{position:absolute;width:12px;height:12px;background:rgba(30,24,16,.97);transform:rotate(45deg);}
-#t0Card.t0-up .t0-arrow{top:-7px;border-left:1px solid rgba(217,184,124,.6);border-top:1px solid rgba(217,184,124,.6);}
-#t0Card.t0-dn .t0-arrow{bottom:-7px;border-right:1px solid rgba(217,184,124,.6);border-bottom:1px solid rgba(217,184,124,.6);}
-@keyframes t0Pulse{0%{box-shadow:0 0 0 0 rgba(212,168,75,.65);}70%{box-shadow:0 0 0 14px rgba(212,168,75,0);}100%{box-shadow:0 0 0 0 rgba(212,168,75,0);}}
-.t0-glow{animation:t0Pulse 2s ease-out 5;}
-@media (max-width:600px){#t0Card{max-width:82vw;}}
-</style>
-<script id="wy-tour0-js">(function(){
-if(window.__wyTour0)return;window.__wyTour0=1;
-function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
-if(LS("wyTour0Done")==="1")return;
-var card=null,tm=null,gl=null,undo=null;
-function clear(){if(tm){clearTimeout(tm);tm=null;}
-  if(card&&card.parentNode)card.parentNode.removeChild(card);card=null;
-  if(gl){gl.classList.remove("t0-glow");gl=null;}
-  if(undo){try{undo();}catch(e){}undo=null;}}
-function forceShow(el){ /* 滑動顯隱型鈕：導覽時臨時現身，步驟結束還原 */
-  try{var c=getComputedStyle(el);
-    if(c.display==="none"||c.visibility==="hidden"||parseFloat(c.opacity||"1")<.06){
-      el.style.display="flex";el.style.visibility="visible";el.style.opacity="1";
-      el.style.pointerEvents="auto";el.style.transform="none";
-      undo=function(){el.style.display="";el.style.visibility="";el.style.opacity="";
-        el.style.pointerEvents="";el.style.transform="";};
-    }}catch(e){}}
-function done(){clear();LS("wyTour0Done","1");}
-function show(opt){ /* {el,html,dir,fix,final,force} */
-  clear();
-  var el=opt.el;
-  if(opt.force&&el)forceShow(el); /* 於 clear 之後、定位之前臨時現身 */
-  card=document.createElement("div");card.id="t0Card";
-  card.className=opt.dir==="up"?"t0-up":(opt.dir==="dn"?"t0-dn":"");
-  card.innerHTML=(opt.dir?'<span class="t0-arrow"></span>':'')+opt.html+
-    '<div class="t0-btns"><button class="t0-skip" type="button">'+(opt.final?"完成":"略過")+'</button>'+
-    (opt.final?'<button class="t0-next" type="button">前往頻道 ▸</button>':'<button class="t0-next" type="button">下一步 ▸</button>')+'</div>';
-  document.body.appendChild(card);
-  if(opt.fix){for(var k in opt.fix)card.style[k]=opt.fix[k];}
-  else if(el){var r=el.getBoundingClientRect(),w=card.offsetWidth||280;
-    if(opt.dir==="up"){card.style.top=Math.min(r.bottom+12,window.innerHeight-160)+"px";}
-    else{card.style.top=Math.max(12,r.top-(card.offsetHeight||120)-14)+"px";}
-    var lx=Math.min(Math.max(12,r.left+r.width/2-w/2),window.innerWidth-w-12);
-    card.style.left=lx+"px";
-    var ar=card.querySelector(".t0-arrow");
-    if(ar)ar.style.left=Math.min(Math.max(14,r.left+r.width/2-lx-6),w-26)+"px";}
-  if(el){gl=el;el.classList.add("t0-glow");}
-  var nxt=card.querySelector(".t0-next"),skp=card.querySelector(".t0-skip");
-  if(opt.final){ /* 終幕停駐：等讀者親點「完成」或「前往頻道」，不自動收 */
-    nxt.addEventListener("click",function(){try{window.open("https://www.youtube.com/@Chengweiwen/posts","_blank","noopener");}catch(e){}done();});
-    skp.addEventListener("click",done);
-  }else{ /* 各步等讀者親點「下一步 ▸」，不自動前進 */
-    nxt.addEventListener("click",function(){opt.next();});
-    skp.addEventListener("click",done);
-  }
-}
-function waitFor(sel,ms,cb){var t0=Date.now();(function poll(){var e=document.querySelector(sel);
-  if(e&&e.offsetParent!==null||e&&getComputedStyle(e).position==="fixed"){cb(e);return;}
-  if(Date.now()-t0>ms){cb(null);return;}setTimeout(poll,350);})();}
-function s0(){ /* 歡迎卡（置中） */
-  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解。<br>歡迎瀏覽，一起深入龍樹菩薩經典。<br>四步帶您認識版面，請點「下一步」開始。',
-    fix:{top:"50%",left:"50%",transform:"translate(-50%,-50%)"},next:s1});
-  LS("wyDockHint","1");LS("wySrchHint","1"); /* 通用兩段提示由本導覽代勞 */
-}
-function s1(){var el=document.querySelector(".toc-bar");
-  if(!el){s2();return;}
-  try{el.scrollIntoView({behavior:"smooth",block:"start"});}catch(e){}
-  show({el:el,dir:"up",html:'<div class="t0-h">① 上排導覽列</div>依卷次快速跳轉——點選任一卷即直達該卷各品。',next:s2});}
-function s2(){waitFor("#wyDockBtn",8000,function(el){
-  if(!el){s3();return;}
-  show({el:el,dir:"dn",html:'<div class="t0-h">② 右下工具櫃 ☰</div>各卷各品的 白話・總表・影音・回頂 都收納在這顆鈕，點開陳列、再點收合。',next:s3});});}
-function s3(){var el=document.querySelector("#vtSFab");
-  if(!el){s4();return;}
-  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
-function s4(){var el=document.querySelector(".author-statement");
-  if(!el){done();return;}
-  try{el.scrollIntoView({behavior:"smooth",block:"center"});}catch(e){}
-  setTimeout(function(){
-    show({el:el,dir:"dn",final:true,
-      html:'<div class="t0-h">④ 與作者同行</div>本站為個人研讀彙整，歡迎轉發結緣。<br>訂閱 YouTube 頻道 <b style="color:#ffd98a">@Chengweiwen</b>，新卷與影音上線即時獲知。'});
-  },700);}
-function boot(){setTimeout(s0,900);}
-if(document.readyState!=="loading")boot();
-else document.addEventListener("DOMContentLoaded",boot);
-})();</script>
-<!--WY-TOUR0:END-->
 <!--WY-SGNEW:BEGIN-->
 <style id="wy-sgnew-css">/* sgnew-v1 */
 #wySgNew{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9500;max-width:min(88vw,460px);background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:13px 16px 11px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.7;letter-spacing:.4px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
@@ -7406,5 +7315,100 @@ if(document.readyState!=="loading")setTimeout(boot,1600);
 else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,1600);});
 })();</script>
 <!--WY-SITEVER:END-->
+<!--WY-TOUR0:BEGIN-->
+<style id="wy-tour0-css">/* tour0-v5 */
+#t0Card{position:fixed;z-index:9600;max-width:288px;background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:14px 16px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.75;letter-spacing:.5px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
+#t0Card .t0-h{font-size:15px;font-weight:700;color:#ffd98a;letter-spacing:1px;margin-bottom:4px;}
+#t0Card .t0-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
+#t0Card button{cursor:pointer;border-radius:12px;padding:5px 14px;font-size:12.5px;letter-spacing:1px;font-family:inherit;line-height:1.3;}
+#t0Card .t0-next{background:linear-gradient(135deg,#8b5e3c,#a9803f);color:#fff8e6;border:1px solid rgba(255,255,255,.25);}
+#t0Card .t0-skip{background:transparent;color:#9a8a6e;border:1px solid rgba(154,138,110,.45);}
+#t0Card .t0-arrow{position:absolute;width:12px;height:12px;background:rgba(30,24,16,.97);transform:rotate(45deg);}
+#t0Card.t0-up .t0-arrow{top:-7px;border-left:1px solid rgba(217,184,124,.6);border-top:1px solid rgba(217,184,124,.6);}
+#t0Card.t0-dn .t0-arrow{bottom:-7px;border-right:1px solid rgba(217,184,124,.6);border-bottom:1px solid rgba(217,184,124,.6);}
+@keyframes t0Pulse{0%{box-shadow:0 0 0 0 rgba(212,168,75,.65);}70%{box-shadow:0 0 0 14px rgba(212,168,75,0);}100%{box-shadow:0 0 0 0 rgba(212,168,75,0);}}
+.t0-glow{animation:t0Pulse 2s ease-out 5;}
+@media (max-width:600px){#t0Card{max-width:82vw;}}
+</style>
+<script id="wy-tour0-js">(function(){
+if(window.__wyTour0)return;window.__wyTour0=1;
+function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+if(LS("wyTour0Done")==="1")return;
+LS("wyDockHint","1");LS("wySrchHint","1"); /* v5：解析當下同步寫入，必搶在收納櫃提示計時器之前 */
+function zap(){ /* 防禦：清除收納櫃兩段氣泡（門頁提示由本導覽統一主持） */
+  var a=document.getElementById("wyDockHint");if(a&&a.parentNode)a.parentNode.removeChild(a);
+  var b=document.getElementById("wySrchHint");if(b&&b.parentNode)b.parentNode.removeChild(b);}
+var card=null,tm=null,gl=null,undo=null;
+function clear(){if(tm){clearTimeout(tm);tm=null;}
+  if(card&&card.parentNode)card.parentNode.removeChild(card);card=null;
+  if(gl){gl.classList.remove("t0-glow");gl=null;}
+  if(undo){try{undo();}catch(e){}undo=null;}
+  zap();}
+function forceShow(el){ /* 滑動顯隱型鈕：導覽時臨時現身，步驟結束還原 */
+  try{var c=getComputedStyle(el);
+    if(c.display==="none"||c.visibility==="hidden"||parseFloat(c.opacity||"1")<.06){
+      el.style.display="flex";el.style.visibility="visible";el.style.opacity="1";
+      el.style.pointerEvents="auto";el.style.transform="none";
+      undo=function(){el.style.display="";el.style.visibility="";el.style.opacity="";
+        el.style.pointerEvents="";el.style.transform="";};
+    }}catch(e){}}
+function done(){clear();LS("wyTour0Done","1");}
+function show(opt){ /* {el,html,dir,fix,final,force} */
+  clear();
+  var el=opt.el;
+  if(opt.force&&el)forceShow(el); /* 於 clear 之後、定位之前臨時現身 */
+  card=document.createElement("div");card.id="t0Card";
+  card.className=opt.dir==="up"?"t0-up":(opt.dir==="dn"?"t0-dn":"");
+  card.innerHTML=(opt.dir?'<span class="t0-arrow"></span>':'')+opt.html+
+    '<div class="t0-btns"><button class="t0-skip" type="button">'+(opt.final?"完成":"略過")+'</button>'+
+    (opt.final?'<button class="t0-next" type="button">前往頻道 ▸</button>':'<button class="t0-next" type="button">下一步 ▸</button>')+'</div>';
+  document.body.appendChild(card);
+  if(opt.fix){for(var k in opt.fix)card.style[k]=opt.fix[k];}
+  else if(el){var r=el.getBoundingClientRect(),w=card.offsetWidth||280;
+    if(opt.dir==="up"){card.style.top=Math.min(r.bottom+12,window.innerHeight-160)+"px";}
+    else{card.style.top=Math.max(12,r.top-(card.offsetHeight||120)-14)+"px";}
+    var lx=Math.min(Math.max(12,r.left+r.width/2-w/2),window.innerWidth-w-12);
+    card.style.left=lx+"px";
+    var ar=card.querySelector(".t0-arrow");
+    if(ar)ar.style.left=Math.min(Math.max(14,r.left+r.width/2-lx-6),w-26)+"px";}
+  if(el){gl=el;el.classList.add("t0-glow");}
+  var nxt=card.querySelector(".t0-next"),skp=card.querySelector(".t0-skip");
+  if(opt.final){ /* 終幕停駐：等讀者親點「完成」或「前往頻道」，不自動收 */
+    nxt.addEventListener("click",function(){try{window.open("https://www.youtube.com/@Chengweiwen/posts","_blank","noopener");}catch(e){}done();});
+    skp.addEventListener("click",done);
+  }else{ /* 各步等讀者親點「下一步 ▸」，不自動前進 */
+    nxt.addEventListener("click",function(){opt.next();});
+    skp.addEventListener("click",done);
+  }
+}
+function waitFor(sel,ms,cb){var t0=Date.now();(function poll(){var e=document.querySelector(sel);
+  if(e&&e.offsetParent!==null||e&&getComputedStyle(e).position==="fixed"){cb(e);return;}
+  if(Date.now()-t0>ms){cb(null);return;}setTimeout(poll,350);})();}
+function s0(){ /* 歡迎卡（置中） */
+  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解。<br>歡迎瀏覽，一起深入龍樹菩薩經典。<br>四步帶您認識版面，請點「下一步」開始。',
+    fix:{top:"50%",left:"50%",transform:"translate(-50%,-50%)"},next:s1});
+}
+function s1(){var el=document.querySelector(".toc-bar");
+  if(!el){s2();return;}
+  try{el.scrollIntoView({behavior:"smooth",block:"start"});}catch(e){}
+  show({el:el,dir:"up",html:'<div class="t0-h">① 上排導覽列</div>依卷次快速跳轉——點選任一卷即直達該卷各品。',next:s2});}
+function s2(){waitFor("#wyDockBtn",8000,function(el){
+  if(!el){s3();return;}
+  show({el:el,dir:"dn",html:'<div class="t0-h">② 右下工具櫃 ☰</div>各卷各品的 白話・總表・影音・回頂 都收納在這顆鈕，點開陳列、再點收合。',next:s3});});}
+function s3(){var el=document.querySelector("#vtSFab");
+  if(!el){s4();return;}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
+function s4(){var el=document.querySelector(".author-statement");
+  if(!el){done();return;}
+  try{el.scrollIntoView({behavior:"smooth",block:"center"});}catch(e){}
+  setTimeout(function(){
+    show({el:el,dir:"dn",final:true,
+      html:'<div class="t0-h">④ 與作者同行</div>本站為個人研讀彙整，歡迎轉發結緣。<br>訂閱 YouTube 頻道 <b style="color:#ffd98a">@Chengweiwen</b>，新卷與影音上線即時獲知。'});
+  },700);}
+function boot(){zap();setTimeout(s0,900);}
+if(document.readyState!=="loading")boot();
+else document.addEventListener("DOMContentLoaded",boot);
+})();</script>
+<!--WY-TOUR0:END-->
 </body>
 </html>
