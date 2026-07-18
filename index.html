@@ -7169,7 +7169,7 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,160
 })();</script>
 <!--WY-SITEVER:END-->
 <!--WY-TOUR0:BEGIN-->
-<style id="wy-tour0-css">/* tour0-v6 */
+<style id="wy-tour0-css">/* tour0-v7 */
 #t0Card{position:fixed;z-index:9600;max-width:288px;background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:14px 16px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.75;letter-spacing:.5px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
 #t0Card .t0-h{font-size:15px;font-weight:700;color:#ffd98a;letter-spacing:1px;margin-bottom:4px;}
 #t0Card .t0-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
@@ -7187,7 +7187,7 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,160
 if(window.__wyTour0)return;window.__wyTour0=1;
 function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
 if(LS("wyTour0Done")==="1")return;
-LS("wyDockHint","1");LS("wySrchHint","1"); /* v5：解析當下同步寫入，必搶在收納櫃提示計時器之前 */
+LS("wySrchHint","1"); /* v7：門頁已無收納櫃，僅「尋」由本導覽代勞；卷頁工具櫃提示改由各卷自介 */
 function zap(){ /* 防禦：清除收納櫃兩段氣泡（門頁提示由本導覽統一主持） */
   var a=document.getElementById("wyDockHint");if(a&&a.parentNode)a.parentNode.removeChild(a);
   var b=document.getElementById("wySrchHint");if(b&&b.parentNode)b.parentNode.removeChild(b);}
@@ -7247,9 +7247,9 @@ function s1(){var el=document.querySelector(".toc-bar");
   if(!el){s2();return;}
   try{el.scrollIntoView({behavior:"smooth",block:"start"});}catch(e){}
   show({el:el,dir:"up",html:'<div class="t0-h">① 上排導覽列</div>依卷次快速跳轉——點選任一卷即直達該卷各品。',next:s2});}
-function s2(){waitFor("#wyDockBtn",8000,function(el){
+function s2(){var el=document.querySelector("#dzNav");
   if(!el){s3();return;}
-  show({el:el,dir:"dn",html:'<div class="t0-h">② 右下工具櫃 ☰</div>各卷各品的 白話・總表・影音・回頂 都收納在這顆鈕，點開陳列、再點收合。',next:s3});});}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">② 右下功能表</div>全站十大區塊一鍵快跳——導論、研讀法、彙整系列、延伸資源都在這裡。',next:s3});}
 function s3(){var el=document.querySelector("#vtSFab");
   if(!el){s4();return;}
   show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
