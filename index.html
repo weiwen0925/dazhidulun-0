@@ -7315,5 +7315,54 @@ if(document.readyState!=="loading")boot();
 else document.addEventListener("DOMContentLoaded",boot);
 })();</script>
 <!--WY-TOUR0:END-->
+<!--WY-SGNEW:BEGIN-->
+<style id="wy-sgnew-css">/* sgnew-v1 */
+#wySgNew{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9500;max-width:min(88vw,460px);background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:13px 16px 11px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.7;letter-spacing:.4px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
+#wySgNew .sgn-h{font-weight:700;color:#ffd98a;letter-spacing:.8px;margin-bottom:2px;}
+#wySgNew .sgn-t{color:#e8dcc2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+#wySgNew .sgn-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:9px;}
+#wySgNew button{cursor:pointer;border-radius:11px;padding:4px 13px;font-size:12.5px;letter-spacing:1px;font-family:inherit;line-height:1.3;}
+#wySgNew .sgn-go{background:linear-gradient(135deg,#8b5e3c,#a9803f);color:#fff8e6;border:1px solid rgba(255,255,255,.25);}
+#wySgNew .sgn-ok{background:transparent;color:#9a8a6e;border:1px solid rgba(154,138,110,.45);}
+@keyframes sgnGlow{0%{box-shadow:0 0 0 0 rgba(212,168,75,.65);}70%{box-shadow:0 0 0 16px rgba(212,168,75,0);}100%{box-shadow:0 0 0 0 rgba(212,168,75,0);}}
+.sgn-glow{animation:sgnGlow 2s ease-out 5;}
+</style>
+<script id="wy-sgnew-js">(function(){
+if(window.__wySgNew)return;window.__wySgNew=1;
+function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+function boot(){
+  try{
+    var card=document.querySelector(".sg-card");if(!card)return;
+    var numEl=card.querySelector(".sg-num"),hEl=card.querySelector(".sg-h");
+    if(!numEl)return;
+    var m=(numEl.textContent||"").match(/(\d+)/);if(!m)return;
+    var cur=parseInt(m[1],10);if(!cur)return;
+    var seen=parseInt(LS("wySgSeen")||"0",10)||0;
+    var firstVisit=(seen===0&&LS("wyTour0Done")!=="1");
+    if(firstVisit||seen>=cur){ if(seen<cur&&firstVisit)LS("wySgSeen",String(cur)); return; }
+    var title=(hEl&&hEl.textContent||"").trim();
+    if(title.length>52)title=title.slice(0,52)+"…";
+    var box=document.createElement("div");box.id="wySgNew";
+    box.innerHTML='<div class="sgn-h">📖 新導讀上線：第 '+cur+' 篇</div>'+
+      '<div class="sgn-t">'+title.replace(/</g,"&lt;")+'</div>'+
+      '<div class="sgn-btns"><button class="sgn-ok" type="button">知道了</button><button class="sgn-go" type="button">去看看 ▸</button></div>';
+    document.body.appendChild(box);
+    function done(){LS("wySgSeen",String(cur));if(box.parentNode)box.parentNode.removeChild(box);}
+    box.querySelector(".sgn-ok").addEventListener("click",done);
+    box.querySelector(".sgn-go").addEventListener("click",function(){
+      done();
+      try{
+        var sec=document.querySelector(".sg-section")||card;
+        sec.scrollIntoView({behavior:"smooth",block:"start"});
+        card.classList.add("sgn-glow");
+        setTimeout(function(){card.classList.remove("sgn-glow");},11000);
+      }catch(e){}
+    });
+  }catch(e){}
+}
+if(document.readyState!=="loading")setTimeout(boot,1200);
+else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,1200);});
+})();</script>
+<!--WY-SGNEW:END-->
 </body>
 </html>
