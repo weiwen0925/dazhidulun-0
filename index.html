@@ -7316,7 +7316,7 @@ else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,160
 })();</script>
 <!--WY-SITEVER:END-->
 <!--WY-TOUR0:BEGIN-->
-<style id="wy-tour0-css">/* tour0-v5 */
+<style id="wy-tour0-css">/* tour0-v6 */
 #t0Card{position:fixed;z-index:9600;max-width:288px;background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:14px 16px 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.75;letter-spacing:.5px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
 #t0Card .t0-h{font-size:15px;font-weight:700;color:#ffd98a;letter-spacing:1px;margin-bottom:4px;}
 #t0Card .t0-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:10px;}
@@ -7358,7 +7358,9 @@ function show(opt){ /* {el,html,dir,fix,final,force} */
   var el=opt.el;
   if(opt.force&&el)forceShow(el); /* 於 clear 之後、定位之前臨時現身 */
   card=document.createElement("div");card.id="t0Card";
-  card.className=opt.dir==="up"?"t0-up":(opt.dir==="dn"?"t0-dn":"");
+  /* v6：t0-tooltip 類名＋aria-live＝收納櫃 sweep 豁免（否則第②步卡落在右下巡邏帶會被誤收） */
+  card.className="t0-tooltip"+(opt.dir==="up"?" t0-up":(opt.dir==="dn"?" t0-dn":""));
+  card.setAttribute("aria-live","polite");
   card.innerHTML=(opt.dir?'<span class="t0-arrow"></span>':'')+opt.html+
     '<div class="t0-btns"><button class="t0-skip" type="button">'+(opt.final?"完成":"略過")+'</button>'+
     (opt.final?'<button class="t0-next" type="button">前往頻道 ▸</button>':'<button class="t0-next" type="button">下一步 ▸</button>')+'</div>';
