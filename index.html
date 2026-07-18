@@ -7364,5 +7364,47 @@ if(document.readyState!=="loading")setTimeout(boot,1200);
 else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,1200);});
 })();</script>
 <!--WY-SGNEW:END-->
+<!--WY-SITEVER:BEGIN-->
+<span id="wySiteVer" data-ver="" data-note="" data-goto="" hidden></span>
+<style id="wy-sitever-css">/* sitever-v1 */
+#wySvToast{position:fixed;left:50%;bottom:110px;transform:translateX(-50%);z-index:9499;max-width:min(88vw,460px);background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.6);border-radius:14px;padding:13px 16px 11px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.7;letter-spacing:.4px;box-shadow:0 10px 32px rgba(0,0,0,.45);}
+#wySvToast .sv-h{font-weight:700;color:#ffd98a;letter-spacing:.8px;margin-bottom:2px;}
+#wySvToast .sv-t{color:#e8dcc2;}
+#wySvToast .sv-btns{display:flex;gap:8px;justify-content:flex-end;margin-top:9px;}
+#wySvToast button{cursor:pointer;border-radius:11px;padding:4px 13px;font-size:12.5px;letter-spacing:1px;font-family:inherit;line-height:1.3;}
+#wySvToast .sv-go{background:linear-gradient(135deg,#8b5e3c,#a9803f);color:#fff8e6;border:1px solid rgba(255,255,255,.25);}
+#wySvToast .sv-ok{background:transparent;color:#9a8a6e;border:1px solid rgba(154,138,110,.45);}
+</style>
+<script id="wy-sitever-js">(function(){
+if(window.__wySiteVer)return;window.__wySiteVer=1;
+function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+function boot(){
+  try{
+    var el=document.getElementById("wySiteVer");if(!el)return;
+    var ver=el.getAttribute("data-ver")||"";if(!ver)return;
+    var seen=LS("wySiteVerSeen")||"";
+    var firstVisit=(!seen&&LS("wyTour0Done")!=="1");
+    if(firstVisit||seen===ver){ if(firstVisit&&seen!==ver)LS("wySiteVerSeen",ver); return; }
+    var note=el.getAttribute("data-note")||"本站內容有更新";
+    var goto_=el.getAttribute("data-goto")||"";
+    var box=document.createElement("div");box.id="wySvToast";
+    box.innerHTML='<div class="sv-h">🔔 本站更新</div>'+
+      '<div class="sv-t">'+note.replace(/</g,"&lt;")+'</div>'+
+      '<div class="sv-btns"><button class="sv-ok" type="button">知道了</button>'+
+      (goto_?'<button class="sv-go" type="button">去看看 ▸</button>':'')+'</div>';
+    document.body.appendChild(box);
+    function done(){LS("wySiteVerSeen",ver);if(box.parentNode)box.parentNode.removeChild(box);}
+    box.querySelector(".sv-ok").addEventListener("click",done);
+    var go=box.querySelector(".sv-go");
+    if(go)go.addEventListener("click",function(){
+      done();
+      try{var t=document.getElementById(goto_);if(t)t.scrollIntoView({behavior:"smooth",block:"start"});}catch(e){}
+    });
+  }catch(e){}
+}
+if(document.readyState!=="loading")setTimeout(boot,1600);
+else document.addEventListener("DOMContentLoaded",function(){setTimeout(boot,1600);});
+})();</script>
+<!--WY-SITEVER:END-->
 </body>
 </html>
