@@ -6219,7 +6219,7 @@ function close(){ov.classList.remove('show');md.classList.remove('show');md.clas
   es.classList.remove('show');es.innerHTML='';document.body.style.overflow='';}
 function openEssay(url){
   es.innerHTML='<div class="vte-head"><div class="vte-title">系列導讀・載入中…</div>'
-    +'<a class="vte-open" href="'+url+'" target="_blank" rel="noopener">開新頁 ↗</a>'
+    +'<a class="vte-open" href="'+url+'" target="_blank" rel="noopener">閱讀全文 ↗</a>'
     +'<button class="vte-close" aria-label="關閉">✕</button></div>'
     +'<iframe src="'+url+'" title="系列導讀文章"></iframe>';
   es.querySelector('.vte-close').addEventListener('click',close);
@@ -6414,7 +6414,7 @@ document.addEventListener('click',function(e){
   /* 卡片內的專屬「總表/影音」子控件（各有自己的彈窗或外開），讓路不搶 */
   if(e.target.closest&&e.target.closest('.ss-tbl,.ss-video,.ss-sutra,.sdbd-tbl,.sdbd-video,.sk18-tbl,.sq-tbl,[data-tbl],[data-video],[data-yt],[data-v]'))return;
   var h=a.getAttribute('href')||'';
-  if(/medium-import-\d+\.html(?:$|[#?])/.test(h)){                 /* 系列導讀：浮框 iframe 閱讀 */
+  if(/(?:medium-import|essay)-\d+\.html(?:$|[#?])/.test(h)){                 /* 系列導讀：浮框 iframe 閱讀 */
     e.preventDefault();e.stopPropagation();openEssay(h);return;
   }
   /* 卷首頁連結，或帶「品/節錨點」的深連結（中論＋五新論站亦收；youtube 等外站連結不會比中） */
@@ -6666,7 +6666,7 @@ document.addEventListener('click',function(e){
       window.open(baseOf(r.getAttribute('data-k'))+'#'+r.getAttribute('data-a'),'_blank','noopener');return;
     }
     if(r.classList.contains('vts-erow')){
-      openEssay('https://weiwen0925.github.io/medium-import-'+r.getAttribute('data-n')+'.html');return;
+      openEssay('https://weiwen0925.github.io/essay-'+r.getAttribute('data-n')+'.html');return;
     }
     /* 白話翻譯列：新分頁直達 卷頁#bh-品，由閱讀頁 WY-BH 深連結開啟器
        自動打開該品「白話翻譯表」彈窗（不再開品目浮框） */
