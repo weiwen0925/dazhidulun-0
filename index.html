@@ -2101,15 +2101,10 @@ document.addEventListener("click",function(e){var b=e.target&&e.target.closest?e
             width: 100%;
             height: auto;
             display: block;
-            background: rgba(44, 36, 28, 0.45);
-            border: 1px solid var(--line);
-            border-radius: 6px;
+            background: transparent;
+            border: none;
             padding: 14px;
             box-sizing: border-box;
-            transition: border-color 0.3s;
-        }
-        .compendium-overview-svg:hover {
-            border-color: var(--line-strong);
         }
         /* RWD-SVG-PATCH: 手機版圖可左右滑動 + 滑動提示 */
         .svg-scroll-hint { display: none; margin: 6px 0 0; font-size: 12px; color: var(--text-mute); letter-spacing: 1px; text-align: center; opacity: .85; }
