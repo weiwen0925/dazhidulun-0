@@ -6498,8 +6498,8 @@ document.addEventListener('click',function(e){
      介面×2：VII #searchBox 下拉面板＋左下固定「搜」浮鈕的全螢幕搜尋浮框。
      節點/導讀索引＝dz0 根目錄 search-index.json（部署時建置，首搜懶載入）。 ── */
 (function(){
-  var ZBV=["bz", "vv", "tg", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
-  /*idxdec-v1*/var IXK='WY-IDX-2026-SearchCorpus-v1';function ixdec(t){if(!t)return '';if(!/^[A-Za-z0-9+/=]+$/.test(t)||t.length<8)return t;try{var b=atob(t),o='';for(var i=0;i<b.length;i++)o+=String.fromCharCode(b.charCodeAt(i)^IXK.charCodeAt(i%IXK.length));var d=decodeURIComponent(escape(o));return /[\u4e00-\u9fff]/.test(d)?d:t;}catch(e){return t;}}function ixmap(a){if(!a||!a.length)return a;for(var i=0;i<a.length;i++){if(a[i]&&typeof a[i].x==='string')a[i].x=ixdec(a[i].x);}return a;}var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
+  var ZBV=["tg", "vv", "bz", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
+  var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
   var activeRender=null;
   var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經',sl:'首楞嚴三昧經'}; /* ★新論擴充點★ 新論在此補顯示名 */
   function label(k){return LNAME[k]||('卷 '+k);}
@@ -6531,7 +6531,7 @@ document.addEventListener('click',function(e){
       fetch('search-zb-'+zi+'.json').then(function(r){if(!r.ok)throw 0;return r.json();})
       .then(function(a){
         if(!zgot){zgot=true;ZIDX=[];}
-        for(var q2=0;q2<(a||[]).length;q2++){var it=a[q2];ZIDX.push({k:String(it.k),p:it.p,title:it.t||'',txt:ixdec(it.x||'')});}
+        for(var q2=0;q2<(a||[]).length;q2++){var it=a[q2];ZIDX.push({k:String(it.k),p:it.p,title:it.t||'',txt:it.x||''});}
         ZLOADING=false;if(activeRender)activeRender();
         zi++;nextZ();
       })
@@ -6567,18 +6567,18 @@ document.addEventListener('click',function(e){
     SLOADING=true;
     fetch('search-core.json').then(function(r){if(!r.ok)throw 0;return r.json();})
       .then(function(j){
-        SIDX=j||{essays:[],nodes:{}};SIDX.bhv=SIDX.bhv||[];SIDX.fnv=SIDX.fnv||[];ixmap(SIDX.essays);
+        SIDX=j||{essays:[],nodes:{}};SIDX.bhv=SIDX.bhv||[];SIDX.fnv=SIDX.fnv||[];
         SLOADING=false;if(activeRender)activeRender();
         var bi=1;
         (function nextB(){
           fetch('search-bh-'+bi+'.json').then(function(r){if(!r.ok)throw 0;return r.json();})
-          .then(function(a){SIDX.bhv=SIDX.bhv.concat(ixmap(a)||[]);if(activeRender)activeRender();bi++;nextB();})
+          .then(function(a){SIDX.bhv=SIDX.bhv.concat(a||[]);if(activeRender)activeRender();bi++;nextB();})
           .catch(function(){});
         })();
         var fi=1;
         (function nextF(){
           fetch('search-fn-'+fi+'.json').then(function(r){if(!r.ok)throw 0;return r.json();})
-          .then(function(a){SIDX.fnv=SIDX.fnv.concat(ixmap(a)||[]);if(activeRender)activeRender();fi++;nextF();})
+          .then(function(a){SIDX.fnv=SIDX.fnv.concat(a||[]);if(activeRender)activeRender();fi++;nextF();})
           .catch(function(){});
         })();
       })
@@ -6589,7 +6589,7 @@ document.addEventListener('click',function(e){
           .then(function(){SLOADING=false;if(activeRender)activeRender();});
       });
   }
-    /* ── 智慧層＋起手式（門頁 msearch-v8：與全站尋對齊） ── */
+    /* ── 智慧層＋起手式（門頁 msearch-v7：與全站尋對齊） ── */
   var MTOP=[],MSYN=[];
   try{fetch('search-smart.json').then(function(r){return r.ok?r.json():{};})
     .then(function(j){if(j&&j.topic)MTOP=j.topic;if(j&&j.syn)MSYN=j.syn;}).catch(function(){});}catch(e){}
