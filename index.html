@@ -6492,6 +6492,13 @@ document.addEventListener('click',function(e){
   if(/(?:essay|medium-import)-\d+\.html(?:$|[#?])/.test(h)){       /* 系列導讀：浮框 iframe 閱讀（新名 essay-N；medium-import 為舊檔相容） */
     e.preventDefault();e.stopPropagation();openEssay(h);return;
   }
+  /* 譬喻藏（彙編）：yuku.html 開品目浮層、#pN／#p-N 開浮層並聚焦該品；#juan／#sXX 等其他 hash 照舊直達 */
+  var my=h.match(/dazhidulun-0\/yuku\.html(?:#p-?(\d+))?$/);
+  if(my&&DATA['yk']){
+    e.preventDefault();e.stopPropagation();
+    if(my[1]!=null){open('yk',null,parseInt(my[1],10),h);return;}
+    open('yk');return;
+  }
   /* 卷首頁連結，或帶「品/節錨點」的深連結（中論＋五新論站亦收；youtube 等外站連結不會比中） */
   var m=h.match(/(?:dazhidulun-(\d+)|(nagarjuna-mulamadhyamakakarika|twelve-gates|bailun|vigrahavyavartani|pratyutpanna-samadhi-sutra|zuochan-sanmei-jing|surangama-samadhi-sutra))\/?(?:index\.html)?(?:#(?:chapter|ch|pin)-(\d+)(?:-[\d-]+)?)?$/);
   if(!m)return;
@@ -6522,11 +6529,11 @@ document.addEventListener('click',function(e){
      介面×2：VII #searchBox 下拉面板＋左下固定「搜」浮鈕的全螢幕搜尋浮框。
      節點/導讀索引＝dz0 根目錄 search-index.json（部署時建置，首搜懶載入）。 ── */
 (function(){
-  var ZBV=["tg", "bz", "bl", "vv", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
+  var ZBV=["vv", "bz", "tg", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
   /*idxdec-v1*/var IXK='WY-IDX-2026-SearchCorpus-v1';function ixdec(t){if(!t)return '';if(!/^[A-Za-z0-9+/=]+$/.test(t)||t.length<8)return t;try{var b=atob(t),o='';for(var i=0;i<b.length;i++)o+=String.fromCharCode(b.charCodeAt(i)^IXK.charCodeAt(i%IXK.length));var d=decodeURIComponent(escape(o));return /[一-鿿]/.test(d)?d:t;}catch(e){return t;}}function ixmap(a){if(!a||!a.length)return a;for(var i=0;i<a.length;i++){if(a[i]&&typeof a[i].x==='string')a[i].x=ixdec(a[i].x);}return a;}
   var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
   var activeRender=null;
-  var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經',sl:'首楞嚴三昧經'}; /* ★新論擴充點★ 新論在此補顯示名 */
+  var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經',sl:'首楞嚴三昧經',yk:'譬喻藏'}; /* ★新論擴充點★ 新論在此補顯示名 */
   function label(k){return LNAME[k]||('卷 '+k);}
   function baseOf(k){var v=DATA[k]||{};return v.base||('https://weiwen0925.github.io/dazhidulun-'+k+'/');} /* ★新論擴充點★ 新論 base 由 DATA[key].base 供給,無需改此 */
   function terms(q){return q.split(/[\s,，、・]+/).filter(function(x){return x.length>=1;}).slice(0,5);}
