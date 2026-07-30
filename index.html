@@ -6668,7 +6668,7 @@ document.addEventListener('click',function(e){
         for(var k=0;k<r.length;k++){var w=esc(r[k]).replace(/"/g,'&quot;');
           h+='<button type="button" class="vts-chip" data-wq="'+w+'">'+w+'</button>';}h+='</div>';}}catch(x){}
     try{
-    if(MNEWS.length){
+    h+='<div class="vts-head">中觀論藏 <span class="vts-hint">一以貫之 · 點珠開品目</span></div>'+MHUBJS;if(MNEWS.length){
       h+='<div class="vts-head">最新動態 <span class="vts-hint">導讀 · 注腳 · 公告</span></div>';
       for(var e1=0;e1<Math.min(MNEWS.length,6);e1++){var it=MNEWS[e1];
         var tc=it.ty==='注腳'?' vts-tag6':(it.ty==='導讀'?' vts-tag4':'');
@@ -6682,7 +6682,7 @@ document.addEventListener('click',function(e){
     h+='<div class="vts-row vts-erow" data-n="'+it2.n+'">'
      +'<span class="vts-tag vts-tag4">第 '+it2.n+' 篇</span><span class="vts-t">'+esc(it2.t.slice(0,42))+'</span></div>';}}}
     }catch(x2){}
-    h+='<div class="vts-head">中觀論藏 <span class="vts-hint">一以貫之 · 點珠開品目</span></div>'+MHUBJS;
+    
     return h;}
   var EXP={q:'',p:0,n:0,e:0,z:0,b:0,f:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
   var XCAP=500;                       /* 展開後單層顯示上限，防爆量 */
