@@ -6204,6 +6204,10 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
   letter-spacing:8px;margin:8px 0 2px;text-indent:8px;}
 .vtsm-sub{text-align:center;color:#9a8a72;font-family:'Noto Serif TC',serif;font-size:11.5px;letter-spacing:3px;margin-bottom:20px;}
 .vtsm-inrow{position:relative;margin:0 6px 14px;}
+.vts-chips{display:flex;flex-wrap:wrap;gap:8px;padding:6px 16px 10px;}
+.vts-chip{cursor:pointer;padding:4px 12px;border-radius:13px;border:1px solid rgba(154,138,110,.5);background:transparent;color:#cbb98e;font-family:inherit;font-size:12.5px;letter-spacing:.8px;transition:color .2s,border-color .2s;}
+.vts-chip:hover{color:#ffd98a;border-color:rgba(255,217,138,.6);}
+.vts-tag6{background:linear-gradient(135deg,#dae3ec,#7f96b5);}
 #vtSInput{width:100%;background:transparent;border:none;outline:none;color:#f0e2c4;
   font-family:'Noto Serif TC',serif;font-size:19px;letter-spacing:2px;padding:10px 4px 12px;caret-color:#e3c085;
   border-bottom:1px solid rgba(217,184,124,.4);transition:border-color .3s;}
@@ -6494,7 +6498,7 @@ document.addEventListener('click',function(e){
      介面×2：VII #searchBox 下拉面板＋左下固定「搜」浮鈕的全螢幕搜尋浮框。
      節點/導讀索引＝dz0 根目錄 search-index.json（部署時建置，首搜懶載入）。 ── */
 (function(){
-  var ZBV=["bz", "tg", "vv", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
+  var ZBV=["bz", "vv", "tg", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
   var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
   var activeRender=null;
   var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經',sl:'首楞嚴三昧經'}; /* ★新論擴充點★ 新論在此補顯示名 */
@@ -6563,12 +6567,18 @@ document.addEventListener('click',function(e){
     SLOADING=true;
     fetch('search-core.json').then(function(r){if(!r.ok)throw 0;return r.json();})
       .then(function(j){
-        SIDX=j||{essays:[],nodes:{}};SIDX.bhv=SIDX.bhv||[];
+        SIDX=j||{essays:[],nodes:{}};SIDX.bhv=SIDX.bhv||[];SIDX.fnv=SIDX.fnv||[];
         SLOADING=false;if(activeRender)activeRender();
         var bi=1;
         (function nextB(){
           fetch('search-bh-'+bi+'.json').then(function(r){if(!r.ok)throw 0;return r.json();})
           .then(function(a){SIDX.bhv=SIDX.bhv.concat(a||[]);if(activeRender)activeRender();bi++;nextB();})
+          .catch(function(){});
+        })();
+        var fi=1;
+        (function nextF(){
+          fetch('search-fn-'+fi+'.json').then(function(r){if(!r.ok)throw 0;return r.json();})
+          .then(function(a){SIDX.fnv=SIDX.fnv.concat(a||[]);if(activeRender)activeRender();fi++;nextF();})
           .catch(function(){});
         })();
       })
@@ -6579,7 +6589,51 @@ document.addEventListener('click',function(e){
           .then(function(){SLOADING=false;if(activeRender)activeRender();});
       });
   }
-  var EXP={q:'',p:0,n:0,e:0,z:0,b:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
+    /* ── 智慧層＋起手式（門頁 msearch-v7：與全站尋對齊） ── */
+  var MTOP=[],MSYN=[];
+  try{fetch('search-smart.json').then(function(r){return r.ok?r.json():{};})
+    .then(function(j){if(j&&j.topic)MTOP=j.topic;if(j&&j.syn)MSYN=j.syn;}).catch(function(){});}catch(e){}
+  function mtopicOf(ts){var out=[];
+    for(var i=0;i<MTOP.length&&out.length<3;i++){var tp=MTOP[i],ws=tp.w||[],hit=false;
+      for(var a2=0;a2<ws.length&&!hit;a2++){var w=String(ws[a2]).toLowerCase();
+        for(var b3=0;b3<ts.length;b3++){var t2=ts[b3].toLowerCase();
+          if(t2.length>=2&&(w.indexOf(t2)>=0||t2.indexOf(w)>=0)){hit=true;break;}}}
+      if(hit)out.push(tp);}
+    return out;}
+  function msynOf(ts){var out=[],ql=ts.join(' ').toLowerCase();
+    for(var i=0;i<MSYN.length;i++){var g=MSYN[i],hit=false;
+      for(var j=0;j<g.length&&!hit;j++){var w=String(g[j]).toLowerCase();
+        for(var k3=0;k3<ts.length;k3++){var t3=ts[k3].toLowerCase();
+          if(t3.length>=2&&(w.indexOf(t3)>=0||t3.indexOf(w)>=0))hit=true;}}
+      if(hit){for(var j2=0;j2<g.length;j2++){
+        if(ql.indexOf(String(g[j2]).toLowerCase())<0&&out.indexOf(g[j2])<0)out.push(g[j2]);}}}
+    return out.slice(0,10);}
+  function msSmart(q,ts){var h='';
+    var tps=mtopicOf(ts);
+    if(tps.length){h+='<div class="vts-head">主題直達 <span class="vts-hint">核心處一鍵到</span></div>';
+      for(var i=0;i<tps.length;i++){var tp=tps[i],kk=String(tp.k);
+        var u=baseOf(kk)+(tp.p?('#'+((DATA[kk]||{}).a||'chapter')+'-'+tp.p):'');
+        h+='<a class="vts-row vts-tprow" style="text-decoration:none" target="_blank" rel="noopener" href="'+u+'">'
+          +'<span class="vts-tag">'+esc(tp.t)+'</span><span class="vts-t">'+esc(tp.v||'')+' ▸</span></a>';}}
+    var syn=msynOf(ts);
+    if(syn.length){h+='<div class="vts-head">相關詞 <span class="vts-hint">點選改查</span></div><div class="vts-chips">';
+      for(var s2=0;s2<syn.length;s2++)h+='<button type="button" class="vts-chip" data-wq="'+esc(syn[s2])+'">'+esc(syn[s2])+'</button>';
+      h+='</div>';}
+    return h;}
+  function msStarter(){
+    var h='<div class="vts-head">主題範例 <span class="vts-hint">點一下即搜</span></div><div class="vts-chips">';
+    var A=['八不中道','十八空','布施','禪定','念佛三昧','去者','戲論','邪見'];
+    for(var i=0;i<A.length;i++)h+='<button type="button" class="vts-chip" data-wq="'+A[i]+'">'+A[i]+'</button>';
+    h+='</div><div class="vts-head">熱點精選 <span class="vts-hint">站方常查詞</span></div><div class="vts-chips">';
+    var B=['無自性','空性','緣起','涅槃','般若','中道','燃可燃','四悉檀'];
+    for(var j=0;j<B.length;j++)h+='<button type="button" class="vts-chip" data-wq="'+B[j]+'">'+B[j]+'</button>';
+    h+='</div>';
+    try{var r=JSON.parse(localStorage.getItem('wysRecent')||'[]');
+      if(r.length){h+='<div class="vts-head">你最近查過 <span class="vts-hint">只存這台裝置</span></div><div class="vts-chips">';
+        for(var k=0;k<r.length;k++){var w=esc(r[k]).replace(/"/g,'&quot;');
+          h+='<button type="button" class="vts-chip" data-wq="'+w+'">'+w+'</button>';}h+='</div>';}}catch(x){}
+    return h;}
+  var EXP={q:'',p:0,n:0,e:0,z:0,b:0,f:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
   var XCAP=500;                       /* 展開後單層顯示上限，防爆量 */
   function xmore(layer,total,shown){
     if(total<=shown)return '';
@@ -6591,8 +6645,8 @@ document.addEventListener('click',function(e){
   function build(q){
     q=(q||'').trim();
     if(!q)return '';
-    if(EXP.q!==q){EXP.q=q;EXP.p=0;EXP.n=0;EXP.e=0;EXP.z=0;EXP.b=0;}
-    var ts=terms(q),h='';
+    if(EXP.q!==q){EXP.q=q;EXP.p=0;EXP.n=0;EXP.e=0;EXP.z=0;EXP.b=0;EXP.f=0;}
+    var ts=terms(q),h='';h+=msSmart(q,ts);
     var vm=q.match(/^卷?\s*(\d{1,3})$/);
     var pure=/^[\d\s]+$/.test(q);
     /* ① 品名 */
@@ -6703,6 +6757,17 @@ document.addEventListener('click',function(e){
         h+=EXP.b?xnote(btot,S5):xmore('b',btot,S5);
       }
     }
+    /* ⑥ 疑難注腳（注腳真源 → search-fn 分片；列用 vts-nrow 共享直達委派） */
+    var fnv=(SIDX&&SIDX.fnv)||[];
+    if(fnv.length){var fh=[];
+      for(var f1=0;f1<fnv.length;f1++){var ft=fnv[f1];if(matchAll(ft.t+' '+ft.x,ts))fh.push(ft);}
+      if(fh.length){var MF=EXP.f?XCAP:6,SF=Math.min(fh.length,MF);
+        h+='<div class="vts-head">疑難注腳 · '+fh.length+' 筆 <span class="vts-hint">直達該節摺卡</span></div>';
+        for(var f2=0;f2<SF;f2++){var fe=fh[f2];
+          h+='<div class="vts-row vts-nrow" data-k="'+esc(String(fe.k))+'" data-a="'+esc(fe.a)+'">'
+            +'<span class="vts-tag vts-tag6">'+esc(label(String(fe.k)))+'・注腳</span>'
+            +'<span class="vts-t"><span class="vts-tt">'+esc(fe.t.slice(0,30))+'</span><br>'+hlAll(snippet(fe.x,ts,60),ts)+'</span></div>';}
+        h+=EXP.f?xnote(fh.length,SF):xmore('f',fh.length,SF);}}
     return h;
   }
   function onPick(e,closeFn){
@@ -6732,7 +6797,7 @@ document.addEventListener('click',function(e){
       activeRender=render;
       var q=(input.value||'').trim();
       var h=build(q);
-      if(!q){panel.classList.remove('show');panel.innerHTML='';return;}
+      if(!q){if(panel&&panel.id==='vtSResults'){panel.innerHTML=msStarter();}else{panel.classList.remove('show');panel.innerHTML='';}return;}
       if(!h)h='<div class="vts-head">查無結果 · 換個關鍵詞試試</div>'
             +'<div class="vts-more">多詞以空格分隔時，須「同一品／同一項」同時含有全部詞；可改試單詞或同義詞（如：戲論、無自性、縛賊）</div>';
       panel.innerHTML=h;panel.classList.add('show');
@@ -6740,6 +6805,13 @@ document.addEventListener('click',function(e){
     input.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(render,220);});
     input.addEventListener('search',render);
     panel.addEventListener('click',function(e){
+      var sc=e.target.closest&&e.target.closest('[data-wq]');
+      if(sc){input.value=sc.getAttribute('data-wq');render();return;}
+      var rr=e.target.closest&&e.target.closest('.vts-row');
+      if(rr){try{var rq=(input.value||'').trim();if(rq&&rq.length>=2){
+        var RC=JSON.parse(localStorage.getItem('wysRecent')||'[]');
+        RC=[rq].concat(RC.filter(function(x){return x!==rq;})).slice(0,8);
+        localStorage.setItem('wysRecent',JSON.stringify(RC));}}catch(x){}}
       var xm=e.target.closest&&e.target.closest('[data-xmore]');
       if(xm){EXP[xm.getAttribute('data-xmore')]=1;render();return;}
       onPick(e,closeFn);});
@@ -6765,7 +6837,7 @@ document.addEventListener('click',function(e){
   sm.innerHTML='<div class="vtsm-card" role="dialog" aria-modal="true" aria-label="全站搜尋">'
     +'<div class="vtsm-orn">❀</div>'
     +'<div class="vtsm-title">全站搜尋</div>'
-    +'<div class="vtsm-sub">品名 · 原典節點 · 全景總表 · 系列導讀 · 白話翻譯</div>'
+    +'<div class="vtsm-sub">品名 · 原典節點 · 全景總表 · 系列導讀 · 白話翻譯 · 疑難注腳 · 相關詞 · 主題直達</div>'
     +'<div class="vtsm-inrow"><input id="vtSInput" type="search" autocomplete="off" placeholder="輸入關鍵詞，多詞可用空格分隔…"/></div>'
     +'<div class="vtsm-results" id="vtSResults"></div>'
     +'<div class="vtsm-foot">Esc 關閉 · 點結果直達浮層／總表／導讀／原典節</div>'
@@ -6773,7 +6845,7 @@ document.addEventListener('click',function(e){
   document.body.appendChild(sm);
   var sin=sm.querySelector('#vtSInput'),sres=sm.querySelector('#vtSResults');
   function smClose(){sm.classList.remove('show');document.body.style.overflow='';}
-  function smOpen(){sm.classList.add('show');document.body.style.overflow='hidden';setTimeout(function(){try{sin.focus();}catch(e){}},60);}
+  function smOpen(){sm.classList.add('show');document.body.style.overflow='hidden';try{if(!(sin.value||'').trim())sres.innerHTML=msStarter();}catch(e){}setTimeout(function(){try{sin.focus();}catch(e){}},60);}
   fab.addEventListener('click',smOpen);
   sm.addEventListener('click',function(e){if(e.target===sm)smClose();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&sm.classList.contains('show'))smClose();});
