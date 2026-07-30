@@ -647,4 +647,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- 譬喻藏（大智度論613喻×中論46頌） -->
+  <url>
+    <loc>https://weiwen0925.github.io/dazhidulun-0/yuku.html</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
