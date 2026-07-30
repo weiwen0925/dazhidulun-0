@@ -6337,6 +6337,17 @@ function toggleVol(r){   /* 卷列表手風琴：就地展開該卷品目（單�
   var tg=r.querySelector('.vtr-tog');if(tg)tg.textContent='收合 ▴';
   r.insertAdjacentHTML('afterend','<div class="vt-subwrap">'+pinRowsHtml(n,v)+'</div>');
 }
+/* vt-hashopen：浮層深連結——#vt-<論代號> 一到站即開品目浮層（尋念珠等外部入口用）
+   #vt-zl/tg/bl/vv/bz/zc/sl → open(key)；#vt-dz → 卷 1–100 列表。hashchange 亦回應。 */
+function vtHashOpen(){
+  var m=(location.hash||'').match(/^#vt-(zl|tg|bl|vv|bz|zc|sl|dz)$/);
+  if(!m)return;
+  if(m[1]==='dz'){openRange(1,100);return;}
+  if(DATA[m[1]])open(m[1]);
+}
+window.addEventListener('hashchange',vtHashOpen);
+if(document.readyState==='complete')setTimeout(vtHashOpen,150);
+else window.addEventListener('load',function(){setTimeout(vtHashOpen,150);});
 md.addEventListener('click',function(e){   /* 卷列表 → 就地展開該卷品目（手風琴） */
   if(e.target.closest&&e.target.closest('a'))return;   /* 白話/全卷等膠囊連結：走預設導向 */
   var r=e.target.closest&&e.target.closest('.vtr-vol');
@@ -6498,7 +6509,7 @@ document.addEventListener('click',function(e){
      介面×2：VII #searchBox 下拉面板＋左下固定「搜」浮鈕的全螢幕搜尋浮框。
      節點/導讀索引＝dz0 根目錄 search-index.json（部署時建置，首搜懶載入）。 ── */
 (function(){
-  var ZBV=["tg", "vv", "bz", "bl", "zc", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
+  var ZBV=["bz", "vv", "bl", "zc", "tg", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80", "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "95", "96", "97", "98", "99", "100", "zl"];
   var ZIDX=null,ZLOADING=false,SIDX=null,SLOADING=false;
   var activeRender=null;
   var LNAME={zl:'中論',tg:'十二門論',bl:'百論',vv:'迴諍論',bz:'般舟三昧經',zc:'坐禪三昧經',sl:'首楞嚴三昧經'}; /* ★新論擴充點★ 新論在此補顯示名 */
@@ -6589,7 +6600,7 @@ document.addEventListener('click',function(e){
           .then(function(){SLOADING=false;if(activeRender)activeRender();});
       });
   }
-    /* ── 智慧層＋起手式（門頁 msearch-v9：與全站尋對齊） ── */
+    /* ── 智慧層＋起手式（門頁 msearch-v7：與全站尋對齊） ── */
   var MTOP=[],MSYN=[];
   try{fetch('search-smart.json').then(function(r){return r.ok?r.json():{};})
     .then(function(j){if(j&&j.topic)MTOP=j.topic;if(j&&j.syn)MSYN=j.syn;}).catch(function(){});}catch(e){}
@@ -6620,8 +6631,7 @@ document.addEventListener('click',function(e){
       for(var s2=0;s2<syn.length;s2++)h+='<button type="button" class="vts-chip" data-wq="'+esc(syn[s2])+'">'+esc(syn[s2])+'</button>';
       h+='</div>';}
     return h;}
-  var MHUBJS='<svg viewBox="0 0 640 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="中觀論藏迷你導覽圖" style="width:100%;height:auto;display:block"><style>.mh-r{fill:rgba(212,168,75,.05);stroke:#b8860b;stroke-width:1.2;}.mh-c{fill:rgba(212,168,75,.09);stroke:#d4a84b;stroke-width:1.6;}.mh-g{font-family:"Noto Serif TC",serif;fill:#e8caa0;font-size:19px;font-weight:700;}.mh-n{font-family:"Noto Serif TC",serif;fill:#cbb98e;font-size:10.5px;letter-spacing:.5px;}.mh-t{font-family:"Noto Serif TC",serif;fill:#f4ebd6;font-size:22px;font-weight:700;letter-spacing:4px;}.mh-s{stroke:rgba(212,168,75,.35);stroke-width:1;stroke-dasharray:4 4;}a:hover .mh-r{stroke:#ffe7b3;}a:hover .mh-g{fill:#ffe7b3;}</style><circle cx="320" cy="205" r="140" fill="none" stroke="rgba(212,168,75,.14)" stroke-width="1" stroke-dasharray="2 6"/><line class="mh-s" x1="320" y1="155" x2="320" y2="99"/><line class="mh-s" x1="359.1" y1="173.8" x2="402.9" y2="138.9"/><line class="mh-s" x1="368.7" y1="216.1" x2="423.3" y2="228.6"/><line class="mh-s" x1="341.7" y1="250" x2="366" y2="300.5"/><line class="mh-s" x1="298.3" y1="250" x2="274" y2="300.5"/><line class="mh-s" x1="271.3" y1="216.1" x2="216.7" y2="228.6"/><line class="mh-s" x1="280.9" y1="173.8" x2="237.1" y2="138.9"/><a href="https://weiwen0925.github.io/twelve-gates/" target="_blank" rel="noopener" aria-label="十二門論"><circle class="mh-r" cx="320" cy="65" r="34"/><text class="mh-g" text-anchor="middle" x="320" y="64">門</text><text class="mh-n" text-anchor="middle" x="320" y="80">十二門論</text></a><a href="https://weiwen0925.github.io/bailun/" target="_blank" rel="noopener" aria-label="百論"><circle class="mh-r" cx="429.5" cy="117.7" r="34"/><text class="mh-g" text-anchor="middle" x="429.5" y="116.7">百</text><text class="mh-n" text-anchor="middle" x="429.5" y="132.7">百論</text></a><a href="https://weiwen0925.github.io/vigrahavyavartani/" target="_blank" rel="noopener" aria-label="迴諍論"><circle class="mh-r" cx="456.5" cy="236.2" r="34"/><text class="mh-g" text-anchor="middle" x="456.5" y="235.2">諍</text><text class="mh-n" text-anchor="middle" x="456.5" y="251.2">迴諍論</text></a><a href="https://weiwen0925.github.io/zuochan-sanmei-jing/" target="_blank" rel="noopener" aria-label="坐禪三昧經"><circle class="mh-r" cx="380.7" cy="331.1" r="34"/><text class="mh-g" text-anchor="middle" x="380.7" y="330.1">禪</text><text class="mh-n" text-anchor="middle" x="380.7" y="346.1">坐禪三昧經</text></a><a href="https://weiwen0925.github.io/surangama-samadhi-sutra/" target="_blank" rel="noopener" aria-label="首楞嚴三昧經"><circle class="mh-r" cx="259.3" cy="331.1" r="34"/><text class="mh-g" text-anchor="middle" x="259.3" y="330.1">楞</text><text class="mh-n" text-anchor="middle" x="259.3" y="346.1">首楞嚴三昧經</text></a><a href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" target="_blank" rel="noopener" aria-label="般舟三昧經"><circle class="mh-r" cx="183.5" cy="236.2" r="34"/><text class="mh-g" text-anchor="middle" x="183.5" y="235.2">舟</text><text class="mh-n" text-anchor="middle" x="183.5" y="251.2">般舟三昧經</text></a><a href="https://weiwen0925.github.io/dazhidulun-0/" target="_blank" rel="noopener" aria-label="大智度論"><circle class="mh-r" cx="210.5" cy="117.7" r="34"/><text class="mh-g" text-anchor="middle" x="210.5" y="116.7">智</text><text class="mh-n" text-anchor="middle" x="210.5" y="132.7">大智度論</text></a><a href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener" aria-label="中論"><circle class="mh-c" cx="320" cy="205" r="50"/><text class="mh-t" text-anchor="middle" x="322" y="212">中論</text></a></svg>';
-function msStarter(){
+  function msStarter(){
     var h='<div class="vts-head">主題範例 <span class="vts-hint">點一下即搜</span></div><div class="vts-chips">';
     var A=['八不中道','十八空','布施','禪定','念佛三昧','去者','戲論','邪見'];
     for(var i=0;i<A.length;i++)h+='<button type="button" class="vts-chip" data-wq="'+A[i]+'">'+A[i]+'</button>';
@@ -6633,14 +6643,6 @@ function msStarter(){
       if(r.length){h+='<div class="vts-head">你最近查過 <span class="vts-hint">只存這台裝置</span></div><div class="vts-chips">';
         for(var k=0;k<r.length;k++){var w=esc(r[k]).replace(/"/g,'&quot;');
           h+='<button type="button" class="vts-chip" data-wq="'+w+'">'+w+'</button>';}h+='</div>';}}catch(x){}
-    try{var ES=(SIDX&&SIDX.essays)||[];
-    if(ES.length){var es=ES.slice().sort(function(a,b){return b.n-a.n;}).slice(0,3);
-    h+='<div class="vts-head">最新上線 <span class="vts-hint">導讀近三篇 · 點開浮框</span></div>';
-    for(var e1=0;e1<es.length;e1++){var it=es[e1];
-    h+='<div class="vts-row vts-erow" data-n="'+it.n+'">'
-     +'<span class="vts-tag vts-tag4">第 '+it.n+' 篇</span><span class="vts-t">'+esc(it.t.slice(0,42))+'</span></div>';}}
-    }catch(x2){}
-    h+='<div class="vts-head">中觀論藏 <span class="vts-hint">以《中論》為樞紐 · 點圓即達</span></div>'+MHUBJS;
     return h;}
   var EXP={q:'',p:0,n:0,e:0,z:0,b:0,f:0};   /* 各層「顯示全部」展開狀態，換詞即重設 */
   var XCAP=500;                       /* 展開後單層顯示上限，防爆量 */
