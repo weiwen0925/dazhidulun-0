@@ -6687,7 +6687,7 @@ document.addEventListener('keydown',function(e){   /* rect 補 role=button 後�
 document.addEventListener('click',function(e){
   var a=e.target.closest&&e.target.closest('a[href]');
   if(!a)return;
-  if(a.closest&&(a.closest('#vtModal')||a.closest('#vtEssay')||a.closest('.sg-vol')))return; /* 浮層內連結、導讀卡卷品章金框：直達 */
+  try{if(a.closest&&(a.closest('#vtSModal')||a.closest('#vtSearch'))){var _sm=document.getElementById('vtSModal');if(_sm){_sm.classList.remove('show');document.body.style.overflow='';}var _sp=document.getElementById('vtSearch');if(_sp)_sp.classList.remove('show');}}catch(_x){}/*WY-SFIX1*/if(a.closest&&(a.closest('#vtModal')||a.closest('#vtEssay')||a.closest('.sg-vol')))return; /* 浮層內連結、導讀卡卷品章金框：直達 */
   /* 卡片內的專屬「總表/影音」子控件（各有自己的彈窗或外開），讓路不搶 */
   if(e.target.closest&&e.target.closest('.ss-tbl,.ss-video,.ss-sutra,.sdbd-tbl,.sdbd-video,.sk18-tbl,.sq-tbl,[data-tbl],[data-video],[data-yt],[data-v]'))return;
   var h=a.getAttribute('href')||'';
@@ -6875,8 +6875,7 @@ document.addEventListener('click',function(e){
       for(var e1=0;e1<Math.min(MNEWS.length,6);e1++){var it=MNEWS[e1];
         var tc=it.ty==='注腳'?' vts-tag6':(it.ty==='導讀'?' vts-tag4':'');
         var nb=e1===0?'<span class="vts-newb">新</span>':'';
-        h+='<a class="vts-row" style="text-decoration:none" href="'+it.u+'">'+nb
-         +'<span class="vts-tag'+tc+'">'+esc(it.ty)+'</span><span class="vts-t">'+esc(it.t.slice(0,44))+'</span></a>';}
+        h+=(it.u?('<a class="vts-row" style="text-decoration:none" href="'+it.u+'">'):'<div class="vts-row" style="cursor:default">')+nb+'<span class="vts-tag'+tc+'">'+esc(it.ty)+'</span><span class="vts-t">'+esc(it.t.slice(0,44))+'</span>'+(it.u?'</a>':'</div>');/*WY-SFIX2*/}
     }else{var ES=(SIDX&&SIDX.essays)||[];
     if(ES.length){var es=ES.slice().sort(function(a,b){return b.n-a.n;}).slice(0,3);
     h+='<div class="vts-head">最新上線 <span class="vts-hint">導讀近三篇 · 點開浮框</span></div>';
