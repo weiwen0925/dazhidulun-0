@@ -10,18 +10,26 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#f7f3ec;color:#2c2416;font-family:"Noto Serif TC","Songti TC",serif;line-height:2;}
 .wrap{max-width:960px;margin:0 auto;padding:40px 20px 80px;}
-.hero{text-align:center;padding:34px 10px 6px;}
+.hero{text-align:center;padding:34px 10px 6px;position:relative;}
+.yinshou{position:absolute;right:calc(50% - 190px);top:22px;writing-mode:vertical-rl;font-size:12.5px;font-weight:700;color:#a8402b;border:1.5px solid rgba(168,64,43,.8);border-radius:4px;padding:6px 3.5px;letter-spacing:3.5px;opacity:.78;transform:rotate(2.5deg);}
+@media(max-width:520px){.yinshou{right:12px;}}
 .hero h1{font-size:2.1rem;letter-spacing:.35em;text-indent:.35em;color:#5a3e22;}
+#xzName{cursor:pointer;border-bottom:2px dashed transparent;transition:border-color .2s;}
+#xzName:hover{border-bottom-color:rgba(168,64,43,.45);}
 .hero p{color:#8a7458;font-size:.95rem;margin-top:10px;letter-spacing:.08em;}
 .hero .tot{margin-top:14px;font-size:1.02rem;color:#6b4318;}
 .hero .tot b{color:#a8402b;font-size:1.25em;}
 h2.sec{margin:44px 0 6px;text-align:center;color:#8b5e2a;font-size:1.05rem;letter-spacing:.4em;text-indent:.4em;}
 h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;background:linear-gradient(90deg,transparent,#cbb075,transparent);}
 .seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:16px;margin-top:22px;}
-.seal{background:#fffdf7;border:1px solid #d8c49a;border-radius:12px;padding:16px 12px 13px;text-align:center;}
+.seal{background:#fffdf7;border:1px solid #d8c49a;border-radius:12px;padding:16px 12px 13px;text-align:center;transition:transform .22s ease,box-shadow .22s ease;opacity:0;animation:fadeup .5s ease forwards;}
+.seal:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(90,70,40,.18);}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 .seal .sq{width:84px;height:84px;margin:0 auto 10px;border-radius:10px;display:flex;align-items:center;justify-content:center;
- font-weight:900;font-size:1.35rem;line-height:1.25;letter-spacing:2px;writing-mode:vertical-rl;}
+ font-weight:900;font-size:1.35rem;line-height:1.25;letter-spacing:2px;writing-mode:vertical-rl;transition:transform .25s ease;}
+.seal:hover .sq{transform:scale(1.1) rotate(-1deg);}
 .seal.got .sq{background:#a8402b;color:#f9ecdd;transform:rotate(-3deg);box-shadow:2px 3px 8px rgba(120,40,20,.35);}
+.seal.got:hover .sq{transform:scale(1.12) rotate(-5deg);box-shadow:3px 5px 14px rgba(120,40,20,.45);}
 .seal.not .sq{background:transparent;color:#c9b48a;border:2px dashed #d0bc90;}
 .seal .nm{font-size:.92rem;color:#5a4a30;font-weight:700;}
 .seal .pg{font-size:.78rem;color:#a08c68;margin-top:2px;font-family:"Noto Sans TC",sans-serif;}
@@ -29,14 +37,15 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 .seal.new .sq{animation:stamp .8s cubic-bezier(.2,1.6,.4,1) both;}
 @keyframes stamp{0%{transform:scale(2.2) rotate(8deg);opacity:0;}60%{transform:scale(.94) rotate(-4deg);opacity:1;}100%{transform:scale(1) rotate(-3deg);}}
 .rows{margin-top:18px;}
-.row{display:flex;align-items:center;gap:12px;padding:11px 6px;border-bottom:1px dashed #d8c49a;}
+.row{display:flex;align-items:center;gap:12px;padding:11px 6px;border-bottom:1px dashed #d8c49a;transition:background .2s;}
+.row:hover{background:#fdf8ec;}
 .row .ic{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:#efe4c8;border:1px solid #c9a353;color:#7a5c1e;
  display:flex;align-items:center;justify-content:center;font-size:.82rem;}
 .row .nm{flex:1;font-size:.98rem;color:#4a3a24;}
 .row .nm small{display:block;color:#a08c68;font-size:.75rem;font-family:"Noto Sans TC",sans-serif;letter-spacing:.4px;}
 .row .ct{flex-shrink:0;font-size:.95rem;color:#6b4318;font-family:"Noto Sans TC",sans-serif;min-width:88px;text-align:right;}
 .row .bar{flex-shrink:0;width:120px;height:7px;background:#eadfc6;border-radius:999px;overflow:hidden;}
-.row .bar i{display:block;height:100%;background:linear-gradient(90deg,#c9a353,#e8cf96);border-radius:999px;}
+.row .bar i{display:block;height:100%;background:linear-gradient(90deg,#c9a353,#e8cf96);border-radius:999px;transition:width .9s cubic-bezier(.2,.8,.3,1);}
 .row a{color:#8b5e2a;text-decoration:none;font-size:.8rem;border-bottom:1px dashed #c9a353;white-space:nowrap;}
 .util{background:#fbf7ee;border:1px solid #d8c49a;border-radius:12px;padding:18px 20px;margin-top:22px;}
 .util p{font-size:.88rem;color:#8a7458;line-height:1.9;}
@@ -47,7 +56,10 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
  border:1px solid #b08d4f;background:#fffdf7;color:#6b4318;}
 .util button.warn{color:#a8402b;border-color:#c98070;}
 .util button:hover{background:#f4ecd9;}
-.note{text-align:center;color:#a08c68;font-size:.8rem;margin-top:34px;font-family:"Noto Sans TC",sans-serif;}
+.huixiang{text-align:center;color:#8a7458;font-size:.92rem;letter-spacing:.35em;text-indent:.35em;margin-top:44px;opacity:.9;}
+.luokuan{display:flex;justify-content:flex-end;align-items:center;gap:7px;max-width:520px;margin:14px auto 0;color:#a08c68;font-size:.78rem;letter-spacing:2px;font-family:"Noto Sans TC",sans-serif;}
+.luokuan i{font-style:normal;width:17px;height:17px;border-radius:3px;background:#a8402b;color:#f9ecdd;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;transform:rotate(-4deg);opacity:.85;}
+.note{text-align:center;color:#a08c68;font-size:.75rem;margin-top:22px;font-family:"Noto Sans TC",sans-serif;opacity:.8;}
 .back{text-align:center;margin-top:16px;}
 .back a{color:#8b5e2a;text-decoration:none;border-bottom:1px dashed #c9a353;font-size:.9rem;}
 </style>
@@ -55,7 +67,8 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 <body>
 <div class="wrap">
 <div class="hero">
-<h1>行 者 手 簿</h1>
+<h1><span id="xzName" title="點此題上你的名號">行 者</span> 手 簿</h1>
+<span class="yinshou" aria-hidden="true">如是我聞</span>
 <p>讀跡與朱印，皆記於這台裝置——十方道場，一簿總覽</p>
 <div class="tot" id="xzTot"></div>
 </div>
@@ -77,6 +90,8 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 </div>
 </div>
 
+<p class="huixiang">願以此功德，普及於一切</p>
+<div class="luokuan"><i>印</i><span id="xzNameLk">行者</span>自記</div>
 <p class="note">本簿不上傳、不追蹤——一切記錄只在你的裝置上。</p>
 <p class="back"><a href="https://weiwen0925.github.io/dazhidulun-0/">← 回大智度論門頁</a></p>
 </div>
@@ -84,6 +99,22 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 <script id="xz-js">
 (function(){try{
 var G=function(k){try{return localStorage.getItem(k);}catch(e){return null;}};
+function xzGetName(){var n="";try{n=localStorage.getItem("wyXzName")||"";}catch(e){}
+ n=n.replace(/[<>"&]/g,"").trim().slice(0,6);return n||"行者";}
+function xzPaintName(){var n=xzGetName();
+ var t=document.getElementById("xzName");if(t)t.textContent=n.split("").join(" ");
+ var lk=document.getElementById("xzNameLk");if(lk)lk.textContent=n;
+ try{document.title=n+"手簿｜讀跡與朱印";}catch(e){}}
+document.addEventListener("click",function(e){
+ if(!e.target||!e.target.closest||!e.target.closest("#xzName"))return;
+ var cur=xzGetName();
+ var v=prompt("為手簿題上你的名號（1–6 字；留空恢復「行者」）",cur==="行者"?"":cur);
+ if(v===null)return;
+ v=v.replace(/[<>"&]/g,"").trim().slice(0,6);
+ try{if(v)localStorage.setItem("wyXzName",v);else localStorage.removeItem("wyXzName");}catch(e){}
+ xzPaintName();
+});
+xzPaintName();
 var J=function(k){try{return JSON.parse(G(k)||"{}")||{};}catch(e){return{};}};
 var ok3=function(o){return o&&o.t>=40&&o.h&&o.b;};
 function cnt3(key){var st=J(key),n=0;for(var k in st)if(ok3(st[k]))n++;return n;}
@@ -125,6 +156,7 @@ for(var i=0;i<SEALS.length;i++){
  var isNew=got&&!snap[sl.nm];
  var d=document.createElement("div");
  d.className="seal "+(got?"got":"not")+(isNew?" new":"");
+ d.style.animationDelay=(i*60)+"ms";
  d.innerHTML='<div class="sq">'+(got?sl.face:"待圓")+'</div>'
   +'<div class="nm">'+sl.nm+'</div>'
   +'<div class="pg">'+(got?"⚑ 已得印":("進度 "+n+" / "+sl.t))+'</div>'
@@ -158,16 +190,17 @@ for(var r=0;r<readRows.length;r++){
  d2.className="row";
  d2.innerHTML='<span class="ic">'+it.ic+'</span>'
   +'<span class="nm">'+it.nm+'<small>'+it.sub+'</small></span>'
-  +'<span class="bar"><i style="width:'+pc+'%"></i></span>'
+  +'<span class="bar"><i data-w="'+pc+'" style="width:0"></i></span>'
   +'<span class="ct">'+it.n+' / '+it.t+'</span>'
   +'<a href="'+it.u+'" target="_blank" rel="noopener">前往 ▸</a>';
  rw.appendChild(d2);
 }
+setTimeout(function(){var bs=document.querySelectorAll(".bar i");for(var b2=0;b2<bs.length;b2++)bs[b2].style.width=bs[b2].getAttribute("data-w")+"%";},120);
 document.getElementById("xzTot").innerHTML=
  "已讀 <b>"+readN+"</b> 處 ・ 已過 <b>"+questN+"</b> 關 ・ 得印 <b>"+gotN+"</b> ／ "+SEALS.length+" 方";
 
 var PRE=["zlSeen2","zlPin","zlQuest","dzSeen2","dzLaps","dzGate","dzQuest","wySeen2:","wySeen:yuku",
- "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen"];
+ "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName"];
 function allKeys(){
  var out={};
  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);
