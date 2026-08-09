@@ -7594,7 +7594,8 @@ document.addEventListener("click",function(e){
  if(t.closest("#dzhTog")){e.preventDefault();paint();document.getElementById("dzhModal").classList.add("on");return;}
  if(t.closest("#dzhX")){e.preventDefault();document.getElementById("dzhModal").classList.remove("on");return;}
  if(t.closest("#dzhOff")){e.preventDefault();try{localStorage.removeItem("dzEQOn");}catch(x){}paint();return;}
- if(t.closest("#dzhGo")){try{localStorage.setItem("dzEQOn","1");}catch(x){}return;}
+ if(t.closest("#dzhGo")){e.preventDefault();try{localStorage.setItem("dzEQOn","1");}catch(x){}
+  var fg=frontier()||100;window.location.assign(url(fg));return;}
  if(t.closest("#dzhModal")&&!t.closest(".dzh-card")){document.getElementById("dzhModal").classList.remove("on");return;}
 },true);
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){var m=document.getElementById("dzhModal");if(m)m.classList.remove("on");}});
