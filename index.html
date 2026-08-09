@@ -7451,7 +7451,7 @@ function waitFor(sel,ms,cb){var t0=Date.now();(function poll(){var e=document.qu
   if(e&&e.offsetParent!==null||e&&getComputedStyle(e).position==="fixed"){cb(e);return;}
   if(Date.now()-t0>ms){cb(null);return;}setTimeout(poll,350);})();}
 function s0(){ /* 歡迎卡（置中） */
-  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解。<br>歡迎瀏覽，一起深入龍樹菩薩經典。<br>四步帶您認識版面，請點「下一步」開始。',
+  show({html:'<div class="t0-h">歡迎來到《大智度論》研讀彙整</div>百卷經論・逐品白話・全景總表・影音講解。<br>歡迎瀏覽，一起深入龍樹菩薩經典。<br>六步帶您認識版面，請點「下一步」開始。',
     fix:{top:"50%",left:"50%",transform:"translate(-50%,-50%)"},next:s1});
 }
 function s1(){var el=document.querySelector(".toc-bar");
@@ -7463,13 +7463,19 @@ function s2(){var el=document.querySelector("#dzNav");
   show({el:el,dir:"dn",force:true,html:'<div class="t0-h">② 右下功能表</div>全站十大區塊一鍵快跳——導論、研讀法、彙整系列、延伸資源都在這裡。',next:s3});}
 function s3(){var el=document.querySelector("#vtSFab");
   if(!el){s4();return;}
-  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s4});}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">③ 左下「尋」</div>全文搜尋——直搜百卷經文與白話，輸入關鍵詞即達。',next:s3b});}
+function s3b(){/* tour0-v2 */var el=document.querySelector("#xzBtn");
+  if(!el){s3c();return;}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">④ 行者手簿</div>你的讀跡與朱印總覽——十方道場，一簿在手。<br>小提示：「尋」內中觀論藏珠圖右下的落款印，也能直達手簿。',next:s3c});}
+function s3c(){var el=document.querySelector("#dzhTog");
+  if(!el){s4();return;}
+  show({el:el,dir:"dn",force:true,html:'<div class="t0-h">⑤ 東行求法</div>百卷長征闖關——依五階段讀法串成三十二站，每站卷末十題石門，過門即東行。',next:s4});}
 function s4(){var el=document.querySelector(".author-statement");
   if(!el){done();return;}
   try{el.scrollIntoView({behavior:"smooth",block:"center"});}catch(e){}
   setTimeout(function(){
     show({el:el,dir:"dn",final:true,
-      html:'<div class="t0-h">④ 與作者同行</div>本站為個人研讀彙整，歡迎轉發結緣。<br>訂閱 YouTube 頻道 <b style="color:#ffd98a">@Chengweiwen</b>，新卷與影音上線即時獲知。'});
+      html:'<div class="t0-h">⑥ 與作者同行</div>本站為個人研讀彙整，歡迎轉發結緣。<br>訂閱 YouTube 頻道 <b style="color:#ffd98a">@Chengweiwen</b>，新卷與影音上線即時獲知。'});
   },700);}
 function boot(){zap();setTimeout(s0,900);}
 if(document.readyState!=="loading")boot();
