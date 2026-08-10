@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#f7f3ec;color:#2c2416;font-family:"Noto Serif TC","Songti TC",serif;line-height:2;position:relative;}
+body{background:#f7f3ec;color:#2c2416;font-family:"Noto Serif TC","Songti TC",serif;line-height:2;position:relative;overflow-x:hidden;}
 .wrap{max-width:960px;margin:0 auto;padding:40px 20px 80px;position:relative;z-index:1;}
-.bahuan{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.88);width:620px;height:620px;z-index:-1;pointer-events:none;}
+.bahuan{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.12);width:620px;height:620px;z-index:-1;pointer-events:none;}
 .bahuan::before{content:"";position:absolute;inset:44px;border:1.5px solid rgba(139,94,42,.12);border-radius:50%;}
 .bahuan::after{content:"";position:absolute;inset:76px;border:1px dashed rgba(139,94,42,.10);border-radius:50%;}
 .bahuan span{position:absolute;top:50%;left:50%;width:48px;margin:-12px 0 0 -24px;text-align:center;font-size:15px;letter-spacing:2px;color:rgba(139,94,42,.17);font-weight:700;}
@@ -248,12 +248,12 @@ document.getElementById("xzTot").innerHTML=
  "已讀 <b>"+readN+"</b> 處 ・ 已過 <b>"+questN+"</b> 關 ・ 得印 <b>"+gotN+"</b> ／ "+SEALS.length+" 方";
 
 var merit=readN+questN;
-var RK=[[0,"初發心","初階","發菩提心，長征第一步"],
- [30,"聞思行者","初階","多聞熏習，如理思惟"],
- [100,"精進行者","中階","六度之進，晝夜不懈"],
- [250,"不退行者","中階","阿鞞跋致，得無生忍不復退轉"],
- [500,"般若行者","進階","深入般若波羅蜜，觀諸法實相"],
- [800,"薩婆若海","圓成","一切智海——大智度論之所歸"]];
+var RK=[[0,"初發心","初階","發菩提心，長征第一步","發心"],
+ [30,"聞思行者","初階","多聞熏習，如理思惟","聞思行者"],
+ [100,"精進行者","中階","六度之進，晝夜不懈","精進行者"],
+ [250,"不退行者","中階","阿鞞跋致，得無生忍不復退轉","不退行者"],
+ [500,"般若行者","進階","深入般若波羅蜜，觀諸法實相","般若行者"],
+ [800,"薩婆若海","圓成","一切智海——大智度論之所歸","薩婆若海"]];
 var ri=0;for(var r2=0;r2<RK.length;r2++)if(merit>=RK[r2][0])ri=r2;
 var cur=RK[ri],nxt=(ri+1<RK.length)?RK[ri+1]:null;
 var hint=nxt?("續讀 "+(nxt[0]-merit)+" 處，晉「"+nxt[1]+"」"):"智度大海，唯佛窮底——願與眾生同證";
@@ -272,7 +272,7 @@ if(ri>rseen){
   cv.innerHTML='<div class="certcard"><div class="kk">晉 階 之 證</div>'
    +'<h3>'+cur[1]+'<em>'+cur[2]+'</em></h3>'
    +'<div class="who">'+(function(){var nm=xzGetName();return nm==="行者"?nm:nm+"行者";})()+' ・ 已讀 '+readN+' 處 ・ 已過 '+questN+' 關</div>'
-   +'<div class="sq2">'+face2(cur[1])+'</div>'
+   +'<div class="sq2">'+face2(cur[4]||cur[1])+'</div>'
    +'<div class="quote">'+cur[3]+'</div>'
    +'<button id="xzCertOk">領 受</button></div>';
   document.body.appendChild(cv);
