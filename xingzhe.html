@@ -19,6 +19,13 @@ body{background:#f7f3ec;color:#2c2416;font-family:"Noto Serif TC","Songti TC",se
 .hero p{color:#8a7458;font-size:.95rem;margin-top:10px;letter-spacing:.08em;}
 .hero .tot{margin-top:14px;font-size:1.02rem;color:#6b4318;}
 .hero .tot b{color:#a8402b;font-size:1.25em;}
+.hero .rank{margin-top:12px;}
+.hero .rank .rk{display:inline-block;background:#7a2f1e;color:#f9ecdd;border-radius:999px;padding:4px 18px;font-size:.95rem;letter-spacing:3px;box-shadow:1px 2px 6px rgba(90,40,20,.25);}
+.hero .rank .rk em{font-style:normal;opacity:.75;font-size:.78em;margin-left:8px;letter-spacing:1.5px;}
+.hero .rank small{display:block;color:#a08c68;font-size:.8rem;margin-top:7px;font-family:"Noto Sans TC",sans-serif;letter-spacing:.5px;}
+.hero .lad{display:flex;justify-content:center;gap:5px;margin-top:8px;}
+.hero .lad i{width:26px;height:5px;border-radius:999px;background:#eadfc6;}
+.hero .lad i.on{background:linear-gradient(90deg,#c9a353,#e8cf96);}
 h2.sec{margin:44px 0 6px;text-align:center;color:#8b5e2a;font-size:1.05rem;letter-spacing:.4em;text-indent:.4em;}
 h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;background:linear-gradient(90deg,transparent,#cbb075,transparent);}
 .seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:16px;margin-top:22px;}
@@ -70,6 +77,7 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 <h1><span id="xzName" title="點此題上你的名號">行 者</span> 手 簿<span class="yinshou" aria-hidden="true">如是我聞</span></h1>
 <p>讀跡與朱印，皆記於這台裝置——十方道場，一簿總覽</p>
 <div class="tot" id="xzTot"></div>
+<div class="rank" id="xzRank"></div>
 </div>
 
 <h2 class="sec">朱 印 牆</h2>
@@ -170,16 +178,16 @@ var volDone=0;for(var v=1;v<=100;v++)if(G("wyDone:dazhidulun-"+v)==="1")volDone+
 var essDone=0;for(var e2=1;e2<=120;e2++)if(G("wyEssayDone:essay-"+e2)==="1")essDone++;
 var yuku=cntKeys("wySeen:yuku");
 var readRows=[
- {ic:"中",nm:"中論二十七品",sub:"品讀跡（頭尾滑到＋滿一分鐘）",n:cnt3("zlSeen2"),t:27,u:U+"nagarjuna-mulamadhyamakakarika/"},
- {ic:"刀",nm:"刀藏",sub:"上卷十八刀・下卷二十七站讀跡",n:cnt3("dzSeen2"),t:45,u:U+"nagarjuna-mulamadhyamakakarika/daozang.html"}
+ {ic:"刀",nm:"刀藏",sub:"基礎路線① · 上卷十八刀・下卷二十七站讀跡",n:cnt3("dzSeen2"),t:45,u:U+"nagarjuna-mulamadhyamakakarika/daozang.html"},
+ {ic:"中",nm:"中論二十七品",sub:"基礎路線② · 品讀跡（頭尾滑到＋滿一分鐘）",n:cnt3("zlSeen2"),t:27,u:U+"nagarjuna-mulamadhyamakakarika/"},
+ {ic:"喻",nm:"譬喻藏",sub:"基礎路線③ · 喻卡已閱",n:yuku,t:613,u:U+"dazhidulun-0/yuku.html"},
+ {ic:"智",nm:"大智度論百卷",sub:"基礎路線④ · 卷讀畢",n:volDone,t:100,u:U+"dazhidulun-0/"},
+ {ic:"導",nm:"系列導讀",sub:"隨智論並行 · 篇已讀畢",n:essDone,t:66,u:U+"dazhidulun-0/"}
 ];
 for(var s6=0;s6<SL6.length;s6++){
- readRows.push({ic:SL6[s6][0].charAt(0),nm:SL6[s6][0],sub:"品讀跡",
+ readRows.push({ic:SL6[s6][0].charAt(0),nm:SL6[s6][0],sub:"深廣行 · 品讀跡",
   n:cnt3("wySeen2:"+SL6[s6][1]),t:SL6[s6][2],u:U+SL6[s6][1]+"/"});
 }
-readRows.push({ic:"智",nm:"大智度論百卷",sub:"卷讀畢",n:volDone,t:100,u:U+"dazhidulun-0/"});
-readRows.push({ic:"喻",nm:"譬喻藏",sub:"喻卡已閱",n:yuku,t:613,u:U+"dazhidulun-0/yuku.html"});
-readRows.push({ic:"導",nm:"系列導讀",sub:"篇已讀畢",n:essDone,t:66,u:U+"dazhidulun-0/"});
 
 var rw=document.getElementById("xzRows"),readN=0;
 for(var r=0;r<readRows.length;r++){
@@ -197,6 +205,22 @@ for(var r=0;r<readRows.length;r++){
 setTimeout(function(){var bs=document.querySelectorAll(".bar i");for(var b2=0;b2<bs.length;b2++)bs[b2].style.width=bs[b2].getAttribute("data-w")+"%";},120);
 document.getElementById("xzTot").innerHTML=
  "已讀 <b>"+readN+"</b> 處 ・ 已過 <b>"+questN+"</b> 關 ・ 得印 <b>"+gotN+"</b> ／ "+SEALS.length+" 方";
+
+var merit=readN+questN;
+var RK=[[0,"初發心","初階","發菩提心，長征第一步"],
+ [30,"聞思行者","初階","多聞熏習，如理思惟"],
+ [100,"精進行者","中階","六度之進，晝夜不懈"],
+ [250,"不退行者","中階","阿鞞跋致，得無生忍不復退轉"],
+ [500,"般若行者","進階","深入般若波羅蜜，觀諸法實相"],
+ [800,"薩婆若海","圓成","一切智海——大智度論之所歸"]];
+var ri=0;for(var r2=0;r2<RK.length;r2++)if(merit>=RK[r2][0])ri=r2;
+var cur=RK[ri],nxt=(ri+1<RK.length)?RK[ri+1]:null;
+var hint=nxt?("續讀 "+(nxt[0]-merit)+" 處，晉「"+nxt[1]+"」"):"智度大海，唯佛窮底——願與眾生同證";
+var lad="";for(var l2=0;l2<RK.length;l2++)lad+='<i class="'+(l2<=ri?"on":"")+'" title="'+RK[l2][1]+'（'+RK[l2][0]+'+）"></i>';
+document.getElementById("xzRank").innerHTML=
+ '<span class="rk" title="'+cur[3]+'">'+cur[1]+'<em>'+cur[2]+'</em></span>'
+ +'<div class="lad">'+lad+'</div>'
+ +'<small>'+hint+'（讀處＋過關合計 '+merit+'）</small>';
 
 var PRE=["zlSeen2","zlPin","zlQuest","dzSeen2","dzLaps","dzGate","dzQuest","wySeen2:","wySeen:yuku",
  "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName"];
