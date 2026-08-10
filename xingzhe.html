@@ -259,16 +259,15 @@ var cur=RK[ri],nxt=(ri+1<RK.length)?RK[ri+1]:null;
 var hint=nxt?("續讀 "+(nxt[0]-merit)+" 處，晉「"+nxt[1]+"」"):"智度大海，唯佛窮底——願與眾生同證";
 var lad="";for(var l2=0;l2<RK.length;l2++)lad+='<i class="'+(l2<=ri?"on":"")+'" title="'+RK[l2][1]+'（'+RK[l2][0]+'+）"></i>';
 document.getElementById("xzRank").innerHTML=
- '<span class="rk" title="'+cur[3]+'">'+cur[1]+'<em>'+cur[2]+'</em></span>'
+ '<span class="rk" id="xzRk" title="'+cur[3]+'——點此展示晉階之證">'+cur[1]+'<em>'+cur[2]+'</em></span>'
  +'<div class="lad">'+lad+'</div>'
  +'<small>'+hint+'（讀處＋過關合計 '+merit+'）</small>';
 
 document.body.className="xzr"+ri;
-var rseen=parseInt(G("wyXzRankSeen")||"",10);
-if(isNaN(rseen))rseen=-1;
-if(ri>rseen){
- if(!(rseen===-1&&ri===0)){
-  var cv=document.createElement("div");cv.id="xzCert";
+function xzCert(){
+ var cv=document.getElementById("xzCert");
+ if(!cv){
+  cv=document.createElement("div");cv.id="xzCert";
   cv.innerHTML='<div class="certcard"><div class="kk">晉 階 之 證</div>'
    +'<h3>'+cur[1]+'<em>'+cur[2]+'</em></h3>'
    +'<div class="who">'+(function(){var nm=xzGetName();return nm==="行者"?nm:nm+"行者";})()+' ・ 已讀 '+readN+' 處 ・ 已過 '+questN+' 關</div>'
@@ -276,9 +275,22 @@ if(ri>rseen){
    +'<div class="quote">'+cur[3]+'</div>'
    +'<button id="xzCertOk">領 受</button></div>';
   document.body.appendChild(cv);
-  setTimeout(function(){cv.classList.add("on");},250);
   cv.addEventListener("click",function(e){
    if(e.target.id==="xzCertOk"||e.target===cv)cv.classList.remove("on");});
+ }
+ return cv;
+}
+var rkEl=document.getElementById("xzRk");
+if(rkEl){rkEl.style.cursor="pointer";
+ rkEl.addEventListener("click",function(){xzCert().classList.toggle("on");});}
+document.addEventListener("keydown",function(e){
+ if(e.key==="Escape"){var m=document.getElementById("xzCert");if(m)m.classList.remove("on");}});
+var rseen=parseInt(G("wyXzRankSeen")||"",10);
+if(isNaN(rseen))rseen=-1;
+if(ri>rseen){
+ if(!(rseen===-1&&ri===0)){
+  var cv0=xzCert();
+  setTimeout(function(){cv0.classList.add("on");},250);
  }
  try{localStorage.setItem("wyXzRankSeen",String(ri));}catch(e){}
 }
