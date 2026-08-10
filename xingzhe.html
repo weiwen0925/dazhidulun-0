@@ -10,6 +10,25 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#f7f3ec;color:#2c2416;font-family:"Noto Serif TC","Songti TC",serif;line-height:2;}
 .wrap{max-width:960px;margin:0 auto;padding:40px 20px 80px;}
+body.xzr0{background:linear-gradient(180deg,#eee2cb,#f3ead7 42%,#f0e6d0);}
+body.xzr1{background:radial-gradient(ellipse 90% 55% at 50% -10%,#fdf3d9 0%,rgba(253,243,217,0) 60%),linear-gradient(180deg,#f3ecdc,#f6f0e2);}
+body.xzr2{background:radial-gradient(ellipse 80% 50% at 50% -8%,#fbeec9 0%,rgba(251,238,201,0) 62%),radial-gradient(ellipse 60% 40% at 88% 102%,#f5e9cf 0%,rgba(245,233,207,0) 70%),#f7f2e6;}
+body.xzr3{background:radial-gradient(circle 360px at 50% 120px,rgba(233,199,120,.30),rgba(233,199,120,0) 72%),#f9f5ec;}
+body.xzr4{background:radial-gradient(ellipse 100% 60% at 50% -15%,rgba(255,251,238,.95),rgba(255,251,238,0) 65%),radial-gradient(circle 430px at 50% 130px,rgba(214,196,150,.22),rgba(214,196,150,0) 74%),#fbf8f1;}
+body.xzr5{background:radial-gradient(ellipse 120% 45% at 50% 108%,rgba(240,220,170,.5),rgba(240,220,170,0) 70%),radial-gradient(circle 480px at 50% 110px,rgba(255,240,200,.55),rgba(255,240,200,0) 76%),#fdfbf6;}
+body[class^="xzr"]:not(.xzr0) .wrap{margin:20px auto;border:1px solid #e0d0a8;border-radius:14px;background:rgba(255,253,247,.35);}
+body.xzr2 .wrap,body.xzr3 .wrap{border-color:#d5c08b;box-shadow:inset 0 0 0 5px rgba(255,253,247,.8),inset 0 0 0 6px #e2d2a6;}
+body.xzr4 .wrap,body.xzr5 .wrap{border-color:#c9ab6b;box-shadow:inset 0 0 0 5px rgba(255,253,247,.9),inset 0 0 0 6px #cdb37b,0 6px 26px rgba(180,150,90,.16);}
+#xzCert{display:none;position:fixed;inset:0;z-index:99;background:rgba(24,18,10,.8);align-items:center;justify-content:center;padding:20px;}
+#xzCert.on{display:flex;}
+.certcard{max-width:430px;width:100%;background:#fdf9ef;border:2px solid #b08d4f;border-radius:12px;padding:34px 30px 26px;text-align:center;box-shadow:inset 0 0 0 6px #fdf9ef,inset 0 0 0 7px #cdb37b;}
+.certcard .kk{font-size:.8rem;letter-spacing:9px;text-indent:9px;color:#8b5e2a;}
+.certcard h3{font-size:1.75rem;color:#5a3e22;letter-spacing:.22em;margin:12px 0 2px;}
+.certcard h3 em{font-style:normal;font-size:.55em;color:#a08c68;margin-left:8px;letter-spacing:2px;}
+.certcard .who{color:#6b4318;font-size:.93rem;margin-top:6px;}
+.certcard .sq2{width:76px;height:76px;margin:18px auto 4px;border-radius:10px;background:#a8402b;color:#f9ecdd;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;font-weight:900;font-size:1.12rem;letter-spacing:2px;line-height:1.25;transform:rotate(-3deg);box-shadow:2px 3px 8px rgba(120,40,20,.35);animation:stamp .8s cubic-bezier(.2,1.6,.4,1) both;animation-delay:.4s;}
+.certcard .quote{color:#8a7458;font-size:.85rem;margin-top:12px;line-height:1.9;}
+.certcard button{margin-top:16px;font-family:"Noto Serif TC",serif;font-size:.92rem;padding:8px 26px;border-radius:999px;cursor:pointer;border:1px solid #b08d4f;background:#7a2f1e;color:#f9ecdd;letter-spacing:3px;}
 .hero{text-align:center;padding:34px 10px 6px;position:relative;}
 .yinshou{position:absolute;left:calc(100% - 4px);top:-20px;writing-mode:vertical-rl;font-size:11.5px;font-weight:700;color:#f9ecdd;background:#a8402b;border:1px solid #7a2015;border-radius:5px;padding:6px 4px;letter-spacing:3px;transform:rotate(4deg);white-space:nowrap;box-shadow:1.5px 2px 5px rgba(60,20,10,.3);}
 @media(max-width:520px){.yinshou{left:calc(100% - 2px);top:-22px;font-size:10px;letter-spacing:2px;padding:5px 3px;}}
@@ -222,8 +241,28 @@ document.getElementById("xzRank").innerHTML=
  +'<div class="lad">'+lad+'</div>'
  +'<small>'+hint+'（讀處＋過關合計 '+merit+'）</small>';
 
+document.body.className="xzr"+ri;
+var rseen=parseInt(G("wyXzRankSeen")||"",10);
+if(isNaN(rseen))rseen=-1;
+if(ri>rseen){
+ if(!(rseen===-1&&ri===0)){
+  var cv=document.createElement("div");cv.id="xzCert";
+  cv.innerHTML='<div class="certcard"><div class="kk">晉 階 之 證</div>'
+   +'<h3>'+cur[1]+'<em>'+cur[2]+'</em></h3>'
+   +'<div class="who">'+xzGetName()+'行者 ・ 已讀 '+readN+' 處 ・ 已過 '+questN+' 關</div>'
+   +'<div class="sq2">'+cur[1]+'</div>'
+   +'<div class="quote">'+cur[3]+'</div>'
+   +'<button id="xzCertOk">領 受</button></div>';
+  document.body.appendChild(cv);
+  setTimeout(function(){cv.classList.add("on");},250);
+  cv.addEventListener("click",function(e){
+   if(e.target.id==="xzCertOk"||e.target===cv)cv.classList.remove("on");});
+ }
+ try{localStorage.setItem("wyXzRankSeen",String(ri));}catch(e){}
+}
+
 var PRE=["zlSeen2","zlPin","zlQuest","dzSeen2","dzLaps","dzGate","dzQuest","wySeen2:","wySeen:yuku",
- "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName"];
+ "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName","wyXzRank"];
 function allKeys(){
  var out={};
  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);
