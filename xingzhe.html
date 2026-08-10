@@ -95,6 +95,13 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 .packnote b{color:#a8402b;}
 .packnote a{color:#7a2f1e;text-decoration:none;border-bottom:1px dashed #b08d4f;cursor:pointer;white-space:nowrap;}
 .packnote .later{color:#a08c68;font-size:.8rem;margin-left:auto;}
+.xzt-hole{position:fixed;z-index:150;border:2px solid #e8c886;border-radius:12px;box-shadow:0 0 0 9999px rgba(24,18,10,.72);pointer-events:none;transition:left .45s ease,top .45s ease,width .45s ease,height .45s ease;}
+.xzt-card{position:fixed;z-index:151;max-width:350px;width:calc(100vw - 32px);background:#fdf9ef;border:2px solid #b08d4f;border-radius:12px;padding:18px 20px 14px;font-size:.92rem;line-height:1.95;color:#5a4a30;box-shadow:0 8px 30px rgba(0,0,0,.35);font-family:"Noto Serif TC",serif;}
+.xzt-card .h{color:#7a2f1e;font-weight:700;letter-spacing:2px;margin-bottom:4px;}
+.xzt-card a.yt{color:#7a2f1e;border-bottom:1px dashed #b08d4f;text-decoration:none;font-weight:700;}
+.xzt-btns{display:flex;align-items:center;gap:14px;margin-top:10px;}
+.xzt-next{font-family:"Noto Serif TC",serif;background:#7a2f1e;color:#f9ecdd;border:none;border-radius:999px;padding:7px 20px;font-size:.9rem;cursor:pointer;letter-spacing:2px;}
+.xzt-skip{color:#a08c68;font-size:.8rem;border-bottom:1px dashed #a08c68;cursor:pointer;}
 .huixiang{text-align:center;color:#8a7458;font-size:.92rem;letter-spacing:.35em;text-indent:.35em;margin-top:44px;opacity:.9;}
 .luokuan{display:flex;justify-content:flex-end;align-items:center;gap:7px;max-width:520px;margin:14px auto 0;color:#a08c68;font-size:.78rem;letter-spacing:2px;font-family:"Noto Sans TC",sans-serif;}
 .luokuan i{font-style:normal;width:17px;height:17px;border-radius:3px;background:#a8402b;color:#f9ecdd;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;transform:rotate(-4deg);opacity:.85;}
@@ -303,7 +310,7 @@ if(ri>rseen){
 }
 
 var PRE=["zlSeen2","zlPin","zlQuest","dzSeen2","dzLaps","dzGate","dzQuest","wySeen2:","wySeen:yuku",
- "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName","wyXzRank","wysRecent","wyTour0Done","wyXzPack"];
+ "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName","wyXzRank","wysRecent","wyTour0Done","wyXzPack","wyXzTour"];
 function allKeys(){
  var out={};
  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);
@@ -384,6 +391,54 @@ document.getElementById("xzZero").addEventListener("click",function(){
  var o=allKeys();for(var k in o){try{localStorage.removeItem(k);}catch(e){}}
  alert("已歸零。");location.reload();
 });
+(function(){
+ if(G("wyXzTourDone")==="1")return;
+ var STEPS=[
+  {html:'<div class="h">歡迎來到行者手簿</div>這裡收存你在十方道場的讀跡與朱印。五步帶你認識手簿，請點「下一步」。'},
+  {sel:"#xzName",html:'<div class="h">① 題上名號</div>點標題的「行 者」二字，可題上你的名號（1–6 字）——卷尾落款與晉階證書都會用它。'},
+  {sel:"#xzRk",html:'<div class="h">② 行者位階</div>讀處＋過關累計晉階，六階直至「薩婆若海」。<b>點階牌可隨時展示你的「晉階之證」。</b>'},
+  {sel:"#xzSeals",html:'<div class="h">③ 朱印牆</div>十方道場各一方朱印——闖關圓成，即在此蓋下硃砂印。'},
+  {sel:"#xzRows",html:'<div class="h">④ 讀跡總覽</div>依基礎路線（刀藏→中論→譬喻藏→智論百卷）排列，點「前往」直達各道場。'},
+  {sel:"#xzUtilSec",html:'<div class="h">⑤ 行囊搬運</div>紀錄只存這台裝置——記得「打包」或「下載行囊檔」備份，換裝置安放即可隨身。'},
+  {last:1,html:'<div class="h">託 付 與 迴 向</div>本簿與全站經論，皆依諸經論因緣、隨分聞思而成——如一燈傳一燈，今奉託每一位行者。<br>稽首龍樹菩薩——能說是因緣，善滅諸戲論。<br><br>願以此功德，普及於一切，<br>我等與眾生，皆共成佛道。<br><br>與我同行——YouTube <a class="yt" href="https://www.youtube.com/@Chengweiwen" target="_blank" rel="noopener">@Chengweiwen</a>，同修中道正見，行於世間而無所著。'}
+ ];
+ var hole=null,card=null,idx=0;
+ function clear(){if(hole){hole.remove();hole=null;}if(card){card.remove();card=null;}}
+ function tdone(){clear();try{localStorage.setItem("wyXzTourDone","1");}catch(e){}}
+ function show(i){
+  idx=i;if(i>=STEPS.length){tdone();return;}
+  var st=STEPS[i],el=st.sel?document.querySelector(st.sel):null;
+  if(st.sel&&!el){show(i+1);return;}
+  clear();
+  card=document.createElement("div");card.className="xzt-card";
+  card.innerHTML=st.html+'<div class="xzt-btns"><button class="xzt-next">'
+   +(st.last?"開始行旅 ▸":"下一步 ▸")+'</button>'
+   +(st.last?'':'<a class="xzt-skip">略過導覽</a>')+'</div>';
+  document.body.appendChild(card);
+  card.querySelector(".xzt-next").onclick=function(){st.last?tdone():show(idx+1);};
+  var sk=card.querySelector(".xzt-skip");if(sk)sk.onclick=tdone;
+  if(el){
+   try{el.scrollIntoView({behavior:"smooth",block:"center"});}catch(e){}
+   hole=document.createElement("div");hole.className="xzt-hole";document.body.appendChild(hole);
+   var place=function(){
+    if(!hole||!card)return;
+    var r=el.getBoundingClientRect();
+    hole.style.left=(r.left-8)+"px";hole.style.top=(r.top-8)+"px";
+    hole.style.width=(r.width+16)+"px";hole.style.height=(r.height+16)+"px";
+    var cw=card.offsetWidth,ch=card.offsetHeight;
+    var top=r.bottom+16;
+    if(top+ch>window.innerHeight-14)top=Math.max(12,r.top-ch-16);
+    var left=Math.min(Math.max(12,r.left+r.width/2-cw/2),window.innerWidth-cw-12);
+    card.style.left=left+"px";card.style.top=top+"px";card.style.transform="";
+   };
+   setTimeout(place,500);setTimeout(place,1150);
+  }else{
+   card.style.left="50%";card.style.top="50%";card.style.transform="translate(-50%,-50%)";
+  }
+ }
+ document.addEventListener("keydown",function(e){if(e.key==="Escape"&&card)tdone();});
+ setTimeout(function(){show(0);},800);
+})();
 }catch(e){}})();
 </script>
 </body>
