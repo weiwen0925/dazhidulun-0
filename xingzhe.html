@@ -91,6 +91,10 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
  border:1px solid #b08d4f;background:#fffdf7;color:#6b4318;}
 .util button.warn{color:#a8402b;border-color:#c98070;}
 .util button:hover{background:#f4ecd9;}
+.packnote{max-width:960px;margin:26px auto 0;background:#fdf3d9;border:1px solid #d9b87c;border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:.9rem;color:#6b4318;}
+.packnote b{color:#a8402b;}
+.packnote a{color:#7a2f1e;text-decoration:none;border-bottom:1px dashed #b08d4f;cursor:pointer;white-space:nowrap;}
+.packnote .later{color:#a08c68;font-size:.8rem;margin-left:auto;}
 .huixiang{text-align:center;color:#8a7458;font-size:.92rem;letter-spacing:.35em;text-indent:.35em;margin-top:44px;opacity:.9;}
 .luokuan{display:flex;justify-content:flex-end;align-items:center;gap:7px;max-width:520px;margin:14px auto 0;color:#a08c68;font-size:.78rem;letter-spacing:2px;font-family:"Noto Sans TC",sans-serif;}
 .luokuan i{font-style:normal;width:17px;height:17px;border-radius:3px;background:#a8402b;color:#f9ecdd;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;transform:rotate(-4deg);opacity:.85;}
@@ -125,14 +129,17 @@ h2.sec:after{content:"";display:block;width:120px;height:2px;margin:10px auto 0;
 <h2 class="sec">讀 跡 總 覽</h2>
 <div class="rows" id="xzRows"></div>
 
-<h2 class="sec">行 囊 搬 運</h2>
+<h2 class="sec" id="xzUtilSec">行 囊 搬 運</h2>
 <div class="util">
-<p>讀跡與闖關記錄只存在瀏覽器裡。換裝置或換瀏覽器時：在舊裝置點「打包行囊」複製整段文字，到新裝置貼入後點「安放行囊」，記錄隨身。</p>
+<p>讀跡與闖關記錄只存在瀏覽器裡。換裝置或換瀏覽器時：在舊裝置「打包行囊」複製整段文字、或「下載行囊檔」存成檔案（可放雲端硬碟，重灌也不怕）；到新裝置貼入後「安放行囊」、或直接「選檔安放」，記錄隨身。</p>
 <textarea id="xzIO" placeholder="打包後的行囊文字會出現在這裡；或把舊裝置的行囊貼進來再點「安放行囊」"></textarea>
 <div class="btns">
 <button id="xzExp">⚑ 打包行囊</button>
+<button id="xzDl">⚑ 下載行囊檔</button>
 <button id="xzImp">⚑ 安放行囊</button>
+<button id="xzUp">⚑ 選檔安放</button>
 <button id="xzZero" class="warn">⚠ 全部歸零（不可復原）</button>
+<input type="file" id="xzFile" accept=".json,application/json" style="display:none">
 </div>
 </div>
 
@@ -296,29 +303,81 @@ if(ri>rseen){
 }
 
 var PRE=["zlSeen2","zlPin","zlQuest","dzSeen2","dzLaps","dzGate","dzQuest","wySeen2:","wySeen:yuku",
- "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName","wyXzRank","wysRecent","wyTour0Done"];
+ "wyLaps:","wyDone:","wyQuest","ykQ","dzEQ","wyEssayDone:","wyEssayTick:","wyXingzheSnap","ykSeen","dzSeen","wyXzName","wyXzRank","wysRecent","wyTour0Done","wyXzPack"];
 function allKeys(){
  var out={};
  try{for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);
   for(var p=0;p<PRE.length;p++){if(k.indexOf(PRE[p])===0){out[k]=localStorage.getItem(k);break;}}}}catch(e){}
  return out;
 }
+function markPacked(){try{localStorage.setItem("wyXzPackTs",String(Date.now()));
+ localStorage.setItem("wyXzPackMerit",String(merit));}catch(e){}
+ var pn=document.getElementById("xzPackNote");if(pn)pn.style.display="none";}
 document.getElementById("xzExp").addEventListener("click",function(){
  var o=allKeys();
  var ta=document.getElementById("xzIO");
  ta.value=JSON.stringify(o);
  ta.select();
  try{document.execCommand("copy");}catch(e){}
+ markPacked();
  alert("行囊已打包（並已嘗試複製）——把這段文字帶到新裝置貼入即可。");
 });
-document.getElementById("xzImp").addEventListener("click",function(){
- var ta=document.getElementById("xzIO");
+document.getElementById("xzDl").addEventListener("click",function(){
+ var o=allKeys();
+ var d=new Date(),pad=function(n){return (n<10?"0":"")+n;};
+ var fn="行囊_"+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+".json";
  try{
-  var o=JSON.parse(ta.value);var n=0;
-  for(var k in o){localStorage.setItem(k,o[k]);n++;}
-  alert("已安放 "+n+" 筆記錄——重新整理即見。");location.reload();
- }catch(e){alert("行囊文字不完整——請確認貼入的是整段打包文字。");}
+  var bl=new Blob([JSON.stringify(o)],{type:"application/json"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(bl);a.download=fn;
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},800);
+  markPacked();
+ }catch(e){alert("此瀏覽器不支援下載——請改用「打包行囊」複製文字。");}
 });
+function xzPlace(txt){
+ try{
+  var o=JSON.parse(txt);var n=0;
+  for(var k in o){localStorage.setItem(k,String(o[k]));n++;}
+  alert("已安放 "+n+" 筆記錄——重新整理即見。");location.reload();
+ }catch(e){alert("行囊內容不完整——請確認是整段打包文字或行囊檔。");}
+}
+document.getElementById("xzImp").addEventListener("click",function(){
+ xzPlace(document.getElementById("xzIO").value);
+});
+document.getElementById("xzUp").addEventListener("click",function(){
+ document.getElementById("xzFile").click();
+});
+document.getElementById("xzFile").addEventListener("change",function(){
+ var f=this.files&&this.files[0];if(!f)return;
+ var rd=new FileReader();
+ rd.onload=function(){xzPlace(String(rd.result));};
+ rd.readAsText(f,"utf-8");
+ this.value="";
+});
+(function(){
+ var ts=parseInt(G("wyXzPackTs")||"",10),pm=parseInt(G("wyXzPackMerit")||"0",10);
+ var sn=parseInt(G("wyXzPackSnooze")||"",10);
+ var now=Date.now(),day=86400000;
+ if(!isNaN(sn)&&now-sn<7*day)return;
+ var msg="";
+ if(isNaN(ts)){
+  if(merit>=30)msg="讀跡已累計 <b>"+merit+"</b> 處關——還沒備份過行囊，備一份，換裝置不怕丟。";
+ }else{
+  var days=Math.floor((now-ts)/day),grew=merit-pm;
+  if(days>=30&&grew>=20)msg="行囊已 <b>"+days+"</b> 天未打包，其間讀跡又增 <b>"+grew+"</b> 處——建議再備份一份。";
+ }
+ if(!msg)return;
+ var d=document.createElement("div");d.className="packnote";d.id="xzPackNote";
+ d.innerHTML='<span>⚑ '+msg+'</span><a id="xzPackGo">前往打包 ▸</a><a class="later" id="xzPackLater">七日後再提醒</a>';
+ var wrap=document.querySelector(".wrap");
+ var hero=document.querySelector(".hero");
+ wrap.insertBefore(d,hero.nextSibling);
+ d.addEventListener("click",function(e){
+  if(e.target.id==="xzPackGo"){var u=document.getElementById("xzUtilSec");if(u)u.scrollIntoView({behavior:"smooth"});}
+  if(e.target.id==="xzPackLater"){try{localStorage.setItem("wyXzPackSnooze",String(now));}catch(x){}d.style.display="none";}
+ });
+})();
 document.getElementById("xzZero").addEventListener("click",function(){
  if(!confirm("確定把這台裝置上的全部讀跡與闖關記錄歸零？此動作不可復原。"))return;
  if(!confirm("再確認一次：全部歸零？"))return;
