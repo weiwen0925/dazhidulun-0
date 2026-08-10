@@ -271,7 +271,7 @@ if(ri>rseen){
   var cv=document.createElement("div");cv.id="xzCert";
   cv.innerHTML='<div class="certcard"><div class="kk">晉 階 之 證</div>'
    +'<h3>'+cur[1]+'<em>'+cur[2]+'</em></h3>'
-   +'<div class="who">'+xzGetName()+'行者 ・ 已讀 '+readN+' 處 ・ 已過 '+questN+' 關</div>'
+   +'<div class="who">'+(function(){var nm=xzGetName();return nm==="行者"?nm:nm+"行者";})()+' ・ 已讀 '+readN+' 處 ・ 已過 '+questN+' 關</div>'
    +'<div class="sq2">'+face2(cur[1])+'</div>'
    +'<div class="quote">'+cur[3]+'</div>'
    +'<button id="xzCertOk">領 受</button></div>';
