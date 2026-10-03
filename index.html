@@ -4963,6 +4963,54 @@ document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();}
 <p>福嚴佛學院前院長厚觀法師多年講授本論之系統講義（電子書版），逐卷逐品科判分析，是當代漢傳學界研讀本論最完整的講錄之一。</p>
 </a>
 </div>
+<!-- ZLV:BEGIN v1 -->
+<section class="zlv" id="zl-videos" aria-label="中論導讀影片">
+<style>/* ZLV-CSS */
+.zlv{margin:0;}
+.zlv-sub b{color:var(--gold-bright,#e3c085);font-weight:600;}
+.zlv-track{gap:20px !important;}
+.zlv-card{position:relative;flex:0 0 400px;scroll-snap-align:start;display:flex;flex-direction:column;text-decoration:none;color:var(--text-light,#f5e4cd);border:1px solid var(--line-strong,rgba(217,184,124,.5));border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(217,184,124,.07) 0%,rgba(70,56,43,.6) 100%);box-shadow:0 0 0 1px rgba(217,184,124,.10),0 10px 26px -14px rgba(0,0,0,.6);transition:border-color .28s ease,box-shadow .28s ease,transform .28s ease;user-select:none;-webkit-user-select:none;}
+.zlv-card:hover{border-color:var(--gold-bright,#e3c085);transform:translateY(-3px);box-shadow:0 0 0 1px var(--gold-amber,#d9b87c),0 16px 34px -12px rgba(217,184,124,.32);}
+.zlv-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1d1711;border-bottom:1px solid var(--line,rgba(217,184,124,.25));}
+.zlv-thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s ease;pointer-events:none;}
+.zlv-card:hover .zlv-thumb img{transform:scale(1.045);filter:brightness(.78);}
+.zlv-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,15,10,.55) 100%);pointer-events:none;}
+.zlv-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(44,36,28,.55);border:1.5px solid rgba(227,192,133,.85);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;transform:scale(.86);transition:opacity .3s ease,transform .3s ease,background .3s ease;z-index:2;}
+.zlv-play svg{width:20px;height:22px;margin-left:4px;fill:#f0d398;}
+.zlv-card:hover .zlv-play{opacity:1;transform:scale(1);background:rgba(44,36,28,.72);}
+.zlv-dur{position:absolute;right:10px;bottom:9px;z-index:2;font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:1px;color:#f5e4cd;background:rgba(20,15,10,.78);border:1px solid rgba(217,184,124,.35);border-radius:4px;padding:1px 8px;}
+.zlv-new{position:absolute;left:10px;top:10px;z-index:2;font-size:11px;letter-spacing:2px;font-weight:700;color:#2c241c;background:linear-gradient(90deg,#e3c085,#d9b87c);border-radius:3px;padding:2px 8px;box-shadow:0 2px 6px -2px rgba(0,0,0,.5);}
+.zlv-body{padding:18px 22px 18px;display:flex;flex-direction:column;flex:1;}
+.zlv-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:2px;color:var(--gold-amber,#d9b87c);margin-bottom:4px;}
+.zlv-h{margin:0 0 6px;font-family:'Noto Serif TC',serif;font-size:20px;font-weight:600;letter-spacing:2px;color:var(--gold-bright,#e3c085);}
+.zlv-tags{font-size:13px;letter-spacing:1px;color:var(--text-mute,#c3b39a);margin-bottom:10px;}
+.zlv-hub{margin:0;font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.7;color:var(--text-light,#f5e4cd);padding-left:12px;border-left:2px solid rgba(217,184,124,.55);}
+.zlv-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:14px;border-top:1px dashed var(--line,rgba(217,184,124,.25));}
+.zlv-body .zlv-hub{margin-bottom:16px;}
+.zlv-cta{display:inline-flex;align-items:center;gap:7px;font-size:14px;letter-spacing:1px;color:var(--gold-amber,#d9b87c);transition:color .2s;}
+.zlv-cta svg{width:10px;height:12px;fill:currentColor;}
+.zlv-card:hover .zlv-cta{color:var(--gold-bright,#e3c085);}
+.zlv-read{display:inline-flex;align-items:center;gap:5px;padding:4px 13px;border-radius:16px;border:1px solid rgba(217,184,124,.45);background:rgba(217,184,124,.08);color:#e3c489;font-size:12px;letter-spacing:2px;cursor:pointer;transition:background .25s,border-color .25s,color .25s;}
+.zlv-read:hover,.zlv-read:focus-visible{background:rgba(217,184,124,.18);border-color:#e8c886;color:#f0d398;outline:none;}
+.zlv-soon{flex:0 0 280px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:10px;padding:28px 24px;border:1px dashed rgba(217,184,124,.45);border-radius:10px;background:repeating-linear-gradient(135deg,rgba(217,184,124,.035) 0 12px,transparent 12px 24px);text-decoration:none;color:var(--text-mute,#c3b39a);transition:border-color .25s,background-color .25s;}
+.zlv-soon:hover{border-color:var(--gold-bright,#e3c085);background-color:rgba(217,184,124,.06);}
+.zlv-soon .zs-k{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:2px;color:var(--gold-amber,#d9b87c);}
+.zlv-soon .zs-n{font-family:'Noto Serif TC',serif;font-size:19px;font-weight:600;letter-spacing:2px;color:var(--gold-bright,#e3c085);}
+.zlv-soon .zs-d{font-size:13px;line-height:1.75;letter-spacing:.5px;}
+.zlv-bar{width:150px;height:4px;border-radius:2px;background:rgba(217,184,124,.15);overflow:hidden;}
+.zlv-bar i{display:block;height:100%;background:linear-gradient(90deg,#c9a96e,#e3c085);}
+.zlv-soon .zs-c{font-size:12px;letter-spacing:2px;color:var(--gold-soft,#c9a96e);}
+@media(hover:none){.zlv-play{opacity:.92;transform:scale(1);}}
+@media(max-width:760px){.zlv-card{flex:0 0 84%;}.zlv-soon{flex:0 0 70%;}.zlv-h{font-size:18px;}}
+</style>
+<div class="sg-eyebrow" style="margin-top:64px;">Video Lectures</div>
+<h3 class="sg-title">中論導讀影片</h3>
+<div class="sg-sub zlv-sub">龍樹《中論》逐品導讀 · 論證版．破而不立 · <span style="white-space:nowrap">已上架 <b>1</b> ／ 27 品</span></div>
+<div class="hscroll-cards zlv-track"><a class="zlv-card" href="https://youtu.be/AyI9Kqb9r34" target="_blank" rel="noopener" aria-label="觀看《中論》觀因緣品第一 導讀影片（29:50）"><div class="zlv-thumb"><img src="zlv/zl-01.jpg" alt="《中論》觀因緣品第一 導讀影片" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="zlv-play"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg></span><span class="zlv-dur">29:50</span></div><div class="zlv-body"><div class="zlv-num">Chapter · 01</div><h4 class="zlv-h">觀因緣品第一</h4><div class="zlv-tags">八不 · 四緣破生 · 無自性</div><p class="zlv-hub">「眾緣中無自性，和合但得名字」</p><div class="zlv-foot"><span class="zlv-cta"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z"/></svg> 觀看導讀影片</span><span class="zlv-read" role="link" tabindex="0" data-href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-1">讀本 →</span></div></div></a><a class="zlv-soon" href="https://www.youtube.com/@Chengweiwen" target="_blank" rel="noopener"><span class="zs-k">Next · 02</span><span class="zs-n">觀去來品第二</span><span class="zs-d">逐品陸續上架<br>訂閱頻道，新品不錯過</span><span class="zlv-bar"><i style="width:3.7%"></i></span><span class="zs-c">已上架 1 ／ 27 品</span></a></div>
+<script>/* ZLV-JS：卡內「讀本」小膠囊另開讀本，不觸發看影片 */
+(function(){var x0=0;document.addEventListener("pointerdown",function(e){x0=e.clientX;},true);function go(e){var r=e.target.closest&&e.target.closest(".zlv-read");if(!r)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();e.stopPropagation();if(e.type==="click"&&Math.abs(e.clientX-x0)>5)return;var u=r.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");}document.addEventListener("click",go,true);document.addEventListener("keydown",go,true);})();</script>
+</section>
+<!-- ZLV:END -->
 <!-- ============ 學術引用 ============ -->
 <!-- ============ 系列導讀 ============ -->
 <style>
