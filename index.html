@@ -9223,5 +9223,72 @@ adopt();
 })();
 </script>
 <!-- ZLGZ:END -->
+<!-- DZGZ:BEGIN v1 -->
+<style>/* DZGZ-CSS：大智度論過招場入口（暖金褐區：卷軸下道場牌＋品卡朱印籤＋卷軸「招」記） */
+.dzgz-tab{position:relative;display:flex;align-items:center;gap:20px;max-width:1100px;margin:0 auto 24px;padding:16px 22px;border-radius:12px;border:1px solid rgba(217,184,124,.45);background:radial-gradient(60% 140% at 0% 50%,rgba(168,64,43,.2),transparent 60%),linear-gradient(180deg,rgba(70,56,43,.78),rgba(44,36,28,.92));color:#f5e4cd;text-decoration:none;box-shadow:0 0 0 1px rgba(217,184,124,.08),0 14px 30px -18px rgba(0,0,0,.8);transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;}
+.dzgz-tab::after{content:'';position:absolute;inset:5px;border:1px dashed rgba(217,184,124,.2);border-radius:8px;pointer-events:none;}
+.dzgz-tab:hover{border-color:#e3c085;transform:translateY(-2px);box-shadow:0 0 0 1px #d9b87c,0 18px 36px -16px rgba(217,184,124,.32);}
+.dzgz-tab:focus-visible{outline:2px solid #e3c085;outline-offset:3px;}
+.dzgz-tab .zg-seal{flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:44px;height:64px;border-radius:4px;background:#a8402b;color:#fbe9dc;font-family:'Noto Serif TC',serif;font-size:19px;font-weight:700;line-height:1.15;box-shadow:inset 0 0 0 2px rgba(227,192,133,.75),0 4px 10px -4px rgba(0,0,0,.6);transform:rotate(-4deg);transition:transform .3s ease;}
+.dzgz-tab:hover .zg-seal{transform:rotate(0) scale(1.05);}
+.dzgz-tab .zg-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
+.dzgz-tab .zg-k{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:2px;color:#d9b87c;}
+.dzgz-tab .zg-t{font-family:'Noto Serif TC',serif;font-size:22px;font-weight:700;letter-spacing:6px;color:#e3c085;}
+.dzgz-tab .zg-d{font-size:13.5px;letter-spacing:1px;line-height:1.7;color:#c3b39a;}
+.dzgz-tab .zg-open{flex:none;display:flex;align-items:center;gap:6px;}
+.dzgz-tab .zg-open b{font-size:12px;font-weight:500;letter-spacing:2px;color:#c3b39a;}
+.dzgz-tab .zg-open i{font-style:normal;font-family:'Noto Serif TC',serif;font-size:14px;letter-spacing:1px;color:#f5e4cd;border:1px solid rgba(227,192,133,.55);background:rgba(227,192,133,.1);border-radius:6px;padding:2px 9px;}
+.dzgz-tab .zg-go{flex:none;display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;border:1px solid #e3c085;background:linear-gradient(180deg,#e8c886,#c9a96e);color:#2c241c;font-size:14px;font-weight:700;letter-spacing:3px;box-shadow:0 4px 12px -5px rgba(217,184,124,.6);transition:filter .2s;}
+.dzgz-tab:hover .zg-go{filter:brightness(1.08);}
+.dzgz-has .zlv-body{position:relative;}
+.dzgz-badge{position:absolute;right:20px;top:15px;z-index:4;display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 4px;border-radius:4px;background:rgba(29,23,17,.85);border:1px solid rgba(227,192,133,.55);color:#f5e4cd;font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:1px;cursor:pointer;transition:border-color .2s,background .2s;}
+.dzgz-badge i{font-style:normal;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:3px;background:#a8402b;color:#fbe9dc;font-size:12px;font-weight:700;box-shadow:inset 0 0 0 1px rgba(227,192,133,.7);}
+.dzgz-badge:hover,.dzgz-badge:focus-visible{border-color:#e3c085;background:rgba(70,56,43,.95);outline:none;}
+.dzv-chip .dzgz-mk{position:absolute;right:-4px;top:-5px;width:15px;height:15px;border-radius:2px;background:#a8402b;color:#fbe9dc;font-family:'Noto Serif TC',serif;font-size:10px;font-weight:700;line-height:15px;text-align:center;box-shadow:0 0 0 1px #e3c085,0 1px 3px rgba(0,0,0,.5);pointer-events:none;}
+@media(max-width:900px){.dzgz-tab{flex-wrap:wrap;gap:12px 14px;padding:14px 14px 16px;margin-bottom:18px;}.dzgz-tab .zg-main{flex:1 1 calc(100% - 60px);}.dzgz-badge{right:14px;top:13px;}.dzgz-tab .zg-seal{width:38px;height:56px;font-size:16px;}.dzgz-tab .zg-t{font-size:19px;letter-spacing:3px;}.dzgz-tab .zg-open{order:3;}.dzgz-tab .zg-go{order:4;margin-left:auto;}}
+@media(prefers-reduced-motion:reduce){.dzgz-tab,.dzgz-tab .zg-seal{transition:none;}}
+</style>
+<script>/* DZGZ-JS：把「大智度論過招場」入口掛進大智度論導讀影片區（區塊重生後仍會自動補上） */
+(function(){
+ var BASE="https://weiwen0925.github.io/dazhidulun-";
+ var OPEN=[{v:1,p:1,h:"#d1",t:"過招 · 九問",lab:"卷一 · 序"}];
+ function game(v){return BASE+v+"/guozhao.html";}
+ function mount(){
+  var sec=document.getElementById("dz-videos"); if(!sec) return false;
+  var stage=sec.querySelector(".zlv-stage"); if(!stage) return false;
+  if(!sec.querySelector(".dzgz-tab")){
+   var a=document.createElement("a"); a.className="dzgz-tab"; a.href=game(OPEN[0].v); a.target="_blank"; a.rel="noopener";
+   a.setAttribute("aria-label","進入大智度論過招場：疑者出招，你替僧叡接（已開卷一第一品僧叡釋論序）");
+   a.innerHTML='<span class="zg-seal" aria-hidden="true">過<br>招</span><span class="zg-main"><span class="zg-k">Dialectic Arena</span><span class="zg-t">大智度論過招場</span><span class="zg-d">看完影片換你上場：疑者一路發問，你替僧叡接招 · 序脈排序・過招・難句白話・原文填空・關鍵提醒・配對快打</span></span><span class="zg-open" aria-hidden="true"><b>已開</b>'+OPEN.map(function(o){return '<i>'+o.lab+'</i>';}).join('')+'</span><span class="zg-go" aria-hidden="true">進場 →</span>';
+   stage.parentNode.insertBefore(a,stage);
+  }
+  OPEN.forEach(function(o){
+   var c=document.getElementById("dzv-c"+o.v+"-"+o.p);
+   if(c&&!c.querySelector(".dzgz-badge")){
+    var th=c.querySelector(".zlv-body")||c; c.classList.add("dzgz-has");
+    var b=document.createElement("span"); b.className="dzgz-badge"; b.setAttribute("role","link"); b.tabIndex=0;
+    b.setAttribute("data-href",game(o.v)+o.h); b.setAttribute("aria-label","大智度論過招場：本品複習遊戲");
+    b.innerHTML='<i aria-hidden="true">招</i>'+o.t; th.appendChild(b);
+   }
+   var ch=sec.querySelector('.dzv-chip[data-v="'+o.v+'"]');
+   if(ch&&!ch.querySelector(".dzgz-mk")){var m=document.createElement("span");m.className="dzgz-mk";m.setAttribute("aria-hidden","true");m.textContent="招";ch.appendChild(m);}
+  });
+  return true;
+ }
+ var x0=0;
+ document.addEventListener("pointerdown",function(e){x0=e.clientX;},true);
+ function go(e){
+  var b=e.target.closest&&e.target.closest(".dzgz-badge"); if(!b) return;
+  if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ") return;
+  e.preventDefault(); e.stopPropagation();
+  if(e.type==="click"&&Math.abs(e.clientX-x0)>5) return;
+  window.open(b.getAttribute("data-href"),"_blank","noopener");
+ }
+ document.addEventListener("click",go,true); document.addEventListener("keydown",go,true);
+ if(!mount()){var n=0,t=setInterval(function(){if(mount()||++n>40)clearInterval(t);},250);}
+ setTimeout(mount,1500); setTimeout(mount,4000);
+})();
+</script>
+<!-- DZGZ:END -->
 </body>
 </html>
