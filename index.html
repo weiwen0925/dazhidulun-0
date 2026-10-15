@@ -5519,6 +5519,250 @@ sec.querySelectorAll("[data-chip-pt]").forEach(function(c){var t=+c.getAttribute
 window.__wyPreRunTg=run;if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);setInterval(run,60000);})();</script>
 </section>
 <!-- TGV:END -->
+<!-- VVV:BEGIN v1 -->
+<style>/* GONGDU-CSS：vv 系列配色 */
+.gd-band.gd-vv{--ga:#bdb66e;--ga2:#605c2c;--gtx:#eeecd2;--gbg1:#2a2818;--gbg2:#201f13;background:linear-gradient(120deg,rgba(189,182,110,.9),rgba(96,92,44,.5) 40%,rgba(227,192,133,.75) 70%,rgba(96,92,44,.5));background-size:220% 100%;}
+.gd-vv .gd-in::after{content:'諍';color:rgba(189,182,110,.06);}
+.gd-vv .gd-h{color:var(--gtx);}
+.gd-vv .gd-cd b{color:#f2f0d8;}
+.gd-vv .gd-btn.pri{background:linear-gradient(135deg,#605c2c,#7f7b3e);}
+.gd-vv .gd-btn.sec{background:rgba(189,182,110,.07);color:#e6e3c0;border-color:rgba(189,182,110,.45);}
+#gdToast.gd-vv{border-color:rgba(189,182,110,.7);}
+#gdToast.gd-vv .gt-rib{background:linear-gradient(90deg,rgba(189,182,110,.24),rgba(96,92,44,.2));color:#f2f0d8;}
+#gdToast.gd-vv .gt-h{color:#eeecd2;}
+#gdToast.gd-vv .gt-go{background:linear-gradient(135deg,#605c2c,#7f7b3e);}
+</style>
+<section class="zlv vvx" id="vv-videos" aria-label="迴諍論導讀影片">
+<style>/* VVX-CSS：首楞嚴三昧經導讀影片（朱砂暖色框景） */
+.vvx{--sa:#bdb66e;--sa2:#7f7b3e;--sink:#eeecd2;--pv-a:#bdb66e;--pv-glow:rgba(189,182,110,.5);margin:0;}
+.vvx-frame{position:relative;max-width:1180px;margin:76px auto 0;padding:48px 40px 30px;border-radius:22px;border:1px solid rgba(189,182,110,.3);background:radial-gradient(70% 55% at 50% 0%,rgba(189,182,110,.11),transparent 70%),linear-gradient(180deg,rgba(36,34,22,.82),rgba(28,27,18,.62));box-shadow:0 34px 70px -34px rgba(0,0,0,.75);overflow:hidden;}
+.vvx-frame::after{content:'';position:absolute;inset:9px;border:1px solid rgba(189,182,110,.12);border-radius:16px;pointer-events:none;}
+.vvx-frame::before{content:'諍';position:absolute;right:-30px;top:-70px;font-family:'Noto Serif TC',serif;font-size:340px;font-weight:900;line-height:1;color:rgba(189,182,110,.045);pointer-events:none;}
+.vvx-head{position:relative;text-align:center;}
+.vvx .sg-eyebrow{color:var(--sa);margin-top:0 !important;}
+.vvx-ttl{display:inline-flex;align-items:center;gap:14px;}
+.vvx-ttl .sg-title{margin:0;}
+.vvx-seal{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:34px;height:52px;border-radius:4px;background:#a8402e;color:#fbe9dc;font-family:'Noto Serif TC',serif;font-size:15px;font-weight:700;line-height:1.15;box-shadow:inset 0 0 0 2px rgba(251,233,220,.35),0 4px 10px -4px rgba(0,0,0,.6);transform:rotate(-3deg);}
+.vvx .zlv-sub{color:var(--text-mute,#c3b39a);}
+.vvx .zlv-sub b{color:var(--sink);}
+.vvx .gd-band{margin:28px auto 0;}
+.vvx-toc{position:relative;max-width:1100px;margin:26px auto 22px;padding:14px 16px 10px;border-radius:12px;border:1px solid rgba(189,182,110,.18);background:rgba(15,14,9,.25);}
+.vvx-row{display:flex;align-items:stretch;gap:12px;}
+.vvx-row+.vvx-row{margin-top:8px;}
+.vvx-rk{flex:0 0 74px;display:flex;flex-direction:column;justify-content:center;align-items:center;border-right:1px solid rgba(189,182,110,.2);}
+.vvx-rk b{font-family:'Noto Serif TC',serif;font-size:18px;letter-spacing:4px;color:var(--sink);}
+.vvx-rk i{font-family:'Cormorant Garamond',serif;font-size:12px;letter-spacing:1px;color:var(--sa2);}
+.vvx-chips{flex:1;display:grid;grid-template-columns:repeat(var(--cols,12),minmax(0,1fr));gap:6px;}
+.vvx-chip{position:relative;display:flex;flex-direction:column;align-items:center;gap:1px;padding:6px 2px 5px;border-radius:7px;border:1px dashed rgba(189,182,110,.32);background:transparent;color:rgba(213,236,228,.62);font-family:inherit;cursor:pointer;transition:all .22s ease;min-width:0;}
+.vvx-chip .n{font-family:'Noto Serif TC',serif;font-size:11px;color:var(--sa2);}
+.vvx-chip .t{font-family:'Noto Serif TC',serif;font-size:12.5px;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:clip;max-width:100%;}
+.vvx-chip .d{font-family:'Cormorant Garamond',serif;font-size:12.5px;letter-spacing:1px;color:rgba(189,182,110,.75);}
+.vvx-chip:hover{border-color:var(--sa);color:#fbfae8;transform:translateY(-2px);}
+.vvx-chip.is-done{border-style:solid;border-color:rgba(189,182,110,.55);background:linear-gradient(180deg,rgba(189,182,110,.2),rgba(127,123,62,.12));color:#fbfae8;}
+.vvx-chip.is-done .d::before{content:'✓ ';color:var(--sa);}
+.vvx-chip.is-next{border:1px solid #e3c085;background:rgba(227,192,133,.12);color:#fff3d6;box-shadow:0 0 0 3px rgba(227,192,133,.14),0 6px 18px -8px rgba(227,192,133,.7);}
+.vvx-chip.is-next .d{color:#f0d398;}
+.vvx-chip.is-next::after{content:'下一場';position:absolute;top:-9px;left:50%;transform:translateX(-50%);padding:0 6px;border-radius:6px;background:#e3c085;color:#1d1711;font-size:10px;letter-spacing:1px;line-height:16px;white-space:nowrap;}
+.vvx-chip.is-on{outline:2px solid rgba(213,236,228,.7);outline-offset:2px;}
+.vvx-legend{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin:10px 2px 0;padding-top:8px;border-top:1px dashed rgba(189,182,110,.16);font-size:12px;letter-spacing:1px;color:var(--text-mute,#c3b39a);}
+.vvx-legend i{display:inline-block;width:18px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px;}
+.vvx-legend .a{background:linear-gradient(180deg,rgba(189,182,110,.45),rgba(127,123,62,.3));border:1px solid rgba(189,182,110,.6);}
+.vvx-legend .b{border:1px solid #e3c085;background:rgba(227,192,133,.2);}
+.vvx-legend .c{border:1px dashed rgba(189,182,110,.5);}
+.vvx-legend .r{margin-left:auto;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:2px;color:var(--sa2);}
+.vvx .zlv-card{border-color:rgba(189,182,110,.36);background:linear-gradient(180deg,rgba(189,182,110,.06) 0%,rgba(42,40,26,.7) 100%);box-shadow:0 0 0 1px rgba(189,182,110,.08),0 10px 26px -14px rgba(0,0,0,.6);}
+.vvx .zlv-card:hover{border-color:var(--sa);box-shadow:0 0 0 1px var(--sa2),0 16px 34px -12px rgba(189,182,110,.32);}
+.vvx .zlv-card.is-next{border-color:#e3c085;box-shadow:0 0 0 1px #e3c085,0 0 34px -10px rgba(227,192,133,.55);}
+.vvx .zlv-card.is-next .pv-badge b{background:#e3c085;border-color:#e3c085;}
+.vvx .zlv-num{color:var(--sa);}
+.vvx .zlv-h{color:var(--sink);}
+.vvx .zlv-hub{border-left-color:rgba(189,182,110,.6);}
+.vvx .zlv-cta{color:var(--sa);}
+.vvx .zlv-card:hover .zlv-cta{color:#fbfae8;}
+.vvx .zlv-read{border-color:rgba(189,182,110,.45);background:rgba(189,182,110,.07);color:#e6e3c0;}
+.vvx .zlv-read:hover{background:rgba(189,182,110,.18);color:#fbfae8;}
+.vvx .zlv-new{background:linear-gradient(90deg,#d3cf8f,#a39f55);color:#1e1d0c;}
+.vvx .zlv-play{border-color:rgba(189,182,110,.85);}
+.vvx .zlv-play svg{fill:#eeecd2;}
+.vvx .zlv-foot{border-top-color:rgba(189,182,110,.2);}
+.vvx .zlv-nav{border-color:rgba(189,182,110,.6);color:var(--sa);background:rgba(31,29,19,.9);}
+.vvx .zlv-nav.prev{left:-20px;}.vvx .zlv-nav.next{right:-20px;}
+.vvx-vol{flex:0 0 128px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:26px 10px 22px;border-radius:10px;border:1px solid rgba(189,182,110,.42);background:radial-gradient(120% 70% at 50% 0%,rgba(189,182,110,.16),transparent 70%),linear-gradient(180deg,rgba(42,40,26,.92),rgba(26,25,16,.96));text-align:center;}
+.vvx-vol .sv-k{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:2px;color:var(--sa);}
+.vvx-vol .sv-n{writing-mode:vertical-rl;font-family:'Noto Serif TC',serif;font-size:40px;font-weight:700;letter-spacing:12px;color:var(--sink);text-shadow:0 0 18px rgba(189,182,110,.25);}
+.vvx-vol .sv-c{font-size:12px;letter-spacing:1px;line-height:1.7;color:var(--text-mute,#c3b39a);}
+.vvx-end{flex:0 0 230px;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:24px 18px;border-radius:10px;border:1px solid rgba(189,182,110,.3);background:repeating-linear-gradient(90deg,rgba(189,182,110,.05) 0 1px,transparent 1px 22px);text-decoration:none;color:var(--text-mute,#c3b39a);transition:border-color .25s;}
+.vvx-end:hover{border-color:var(--sa);}
+.vvx-end .se-n{font-family:'Noto Serif TC',serif;font-size:30px;font-weight:700;letter-spacing:6px;color:var(--sink);}
+.vvx-end .se-d{font-size:13px;line-height:1.8;letter-spacing:1px;}
+.vvx-end .se-b{font-size:12px;letter-spacing:2px;color:var(--sa);border:1px solid rgba(189,182,110,.45);border-radius:14px;padding:3px 12px;}
+.vvx-chip.is-pend{border-style:solid;border-color:rgba(189,182,110,.3);background:rgba(189,182,110,.06);color:rgba(246,220,203,.8);}
+.vvx-chip.is-pend .d{font-family:inherit;font-size:10.5px;letter-spacing:1px;color:rgba(189,182,110,.8);}
+.vvx-chip.is-plan{border-color:rgba(189,182,110,.16);color:rgba(246,220,203,.38);}
+.vvx-chip.is-plan .n,.vvx-chip.is-plan .d{opacity:.5;}
+.vvx-chip.is-plan .d{font-family:inherit;font-size:10.5px;}
+.vvx-legend .p{border:1px solid rgba(189,182,110,.35);background:rgba(189,182,110,.08);}
+.vvx-legend .q{border:1px dashed rgba(189,182,110,.18);opacity:.6;}
+.vvx .zlv-card.is-pend .zlv-thumb img{filter:saturate(.7) brightness(.62);}
+.vvx .zlv-card.is-pend:hover .zlv-thumb img{filter:saturate(.9) brightness(.78);}
+.vvx .pv-pend{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;display:flex;align-items:baseline;gap:10px;padding:6px 12px;border-radius:8px;background:rgba(14,11,8,.78);border:1px solid rgba(189,182,110,.5);}
+.vvx .pv-pend b{font-size:12px;letter-spacing:2px;color:var(--sa);font-weight:600;}
+.vvx .pv-pend em{font-style:normal;font-size:12px;letter-spacing:1px;color:rgba(246,220,203,.8);}
+.vvx .zlv-card.is-pend .zlv-dur{top:9px;bottom:auto;}
+.vvx .zlv-card.is-pend{border-style:dashed;}
+.vvx-slot{flex:0 0 168px;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;padding:18px 16px;border-radius:10px;border:1px dashed rgba(189,182,110,.26);background:linear-gradient(180deg,rgba(189,182,110,.02),rgba(189,182,110,.06));position:relative;overflow:hidden;}
+.vvx-slot::before{content:attr(data-n);position:absolute;top:8px;right:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:46px;line-height:1;color:rgba(189,182,110,.13);}
+.vvx-slot .ds-p{font-size:12px;letter-spacing:2px;color:var(--sa);opacity:.8;}
+.vvx-slot .ds-n{font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.55;letter-spacing:1px;color:rgba(246,220,203,.72);}
+.vvx-slot .ds-s{font-size:11px;letter-spacing:3px;color:rgba(246,220,203,.45);border-top:1px dashed rgba(189,182,110,.2);padding-top:8px;margin-top:4px;}
+@media(max-width:900px){.vvx-frame{padding:34px 14px 22px;border-radius:16px;}.vvx-frame::before{font-size:220px;}.vvx-toc{padding:12px 10px 8px;}.vvx-chips{display:flex;overflow-x:auto;scrollbar-width:none;padding:10px 0 2px;}.vvx-chips::-webkit-scrollbar{display:none;}.vvx-chip{flex:0 0 74px;}.vvx-rk{flex:0 0 48px;}.vvx-rk b{font-size:15px;letter-spacing:2px;writing-mode:vertical-rl;}.vvx-rk i{display:none;}.vvx-legend .r{display:none;}.vvx .zlv-nav{display:none;}.vvx-vol{flex:0 0 104px;}.vvx-vol .sv-n{font-size:32px;}}
+</style><style>/* PREMIERE-CSS：首播排程卡（大智度論、首楞嚴共用） */
+.zlv-card .pv-badge,.zlv-card .cta-pre{display:none;}
+.zlv-card.is-pre .pv-badge{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;background:radial-gradient(75% 85% at 50% 50%,rgba(14,11,8,.78),rgba(14,11,8,.45));}
+.zlv-card.is-pre .pv-badge b{font-size:11px;letter-spacing:4px;font-weight:600;color:var(--pv-a,#e3c085);padding:2px 10px;border:1px solid var(--pv-a,#e3c085);border-radius:12px;background:rgba(20,15,10,.6);}
+.zlv-card.is-pre .pv-badge em{font-style:normal;font-family:'Noto Serif TC',serif;font-size:24px;font-weight:700;letter-spacing:1px;color:#fff3d6;text-shadow:0 2px 12px rgba(0,0,0,.7);}
+.zlv-card.is-pre .pv-badge i{font-style:normal;font-size:12px;letter-spacing:1px;color:rgba(255,243,214,.85);}
+.zlv-card.is-pre .zlv-thumb img{filter:saturate(.5) brightness(.5) blur(1px);}
+.zlv-card.is-pre:hover .zlv-thumb img{filter:saturate(.8) brightness(.72);}
+.zlv-card.is-pre .zlv-play,.zlv-card.is-pre .zlv-dur{display:none;}
+.zlv-card.is-pre .cta-on{display:none;}
+.zlv-card.is-pre .cta-pre{display:inline-flex;align-items:center;gap:7px;}
+.zlv-card .cta-on{display:inline-flex;align-items:center;gap:7px;}
+.zlv-card .cta-pre svg{width:11px;height:13px;fill:currentColor;}
+.zlv-card.is-next{border-color:var(--pv-a,#e3c085);box-shadow:0 0 0 1px var(--pv-a,#e3c085),0 0 34px -10px var(--pv-glow,rgba(227,192,133,.55));}
+.zlv-card.is-next .pv-badge b{background:var(--pv-a,#e3c085);color:#1d1711;}
+.zlv-card.is-next .pv-badge b::after{content:' · 下一場';}
+</style><style>/* GONGDU-CSS v2：首播共讀橫幅（縮圖A）＋頂部通知卡 */
+.gd-band{--ga:#e3c085;--ga2:#8b5e3c;--gtx:#f0d398;--gbg1:#2e251c;--gbg2:#231c15;position:relative;max-width:1100px;margin:64px auto 0;padding:2px;border-radius:16px;background:linear-gradient(120deg,var(--ga),rgba(139,94,60,.55) 40%,var(--ga) 70%,rgba(139,94,60,.55));background-size:220% 100%;animation:gdSheen 9s linear infinite;}
+.gd-band.gd-sl{--ga:#db8c68;--ga2:#96462c;--gtx:#f6dccb;--gbg1:#33241b;--gbg2:#271b14;background:linear-gradient(120deg,rgba(219,140,104,.9),rgba(150,70,44,.5) 40%,rgba(227,192,133,.75) 70%,rgba(150,70,44,.5));background-size:220% 100%;}
+@keyframes gdSheen{0%{background-position:0 0}100%{background-position:220% 0}}
+.gd-in{position:relative;display:grid;grid-template-columns:268px 1fr auto;gap:26px;align-items:center;padding:20px 26px 20px 20px;border-radius:14px;background:radial-gradient(90% 140% at 0% 0%,rgba(227,192,133,.12),transparent 55%),linear-gradient(180deg,var(--gbg1),var(--gbg2));overflow:hidden;}
+.gd-in::after{content:'讀';position:absolute;right:-18px;bottom:-62px;font-family:'Noto Serif TC',serif;font-size:220px;font-weight:900;color:rgba(227,192,133,.05);pointer-events:none;}
+.gd-sl .gd-in::after{content:'定';color:rgba(219,140,104,.06);}
+.gd-thumb{position:relative;display:block;border-radius:10px;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 24px -12px rgba(0,0,0,.8);}
+.gd-thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.gd-thumb:hover img{transform:scale(1.05);}
+.gd-when{position:absolute;left:8px;bottom:8px;display:flex;align-items:baseline;gap:6px;padding:3px 10px 4px;border-radius:8px;background:rgba(16,12,9,.82);border:1px solid var(--ga);color:var(--gtx);font-size:12px;letter-spacing:1px;backdrop-filter:blur(2px);}
+.gd-when b{font-family:'Cormorant Garamond',serif;font-size:22px;line-height:1;font-weight:600;color:#fff3d6;}
+.gd-live{position:absolute;right:8px;top:8px;display:none;padding:2px 9px;border-radius:4px;background:#d9472b;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;}
+.gd-band.is-live .gd-live{display:block;animation:gdBlink 1.4s ease-in-out infinite;}
+@keyframes gdBlink{50%{opacity:.55}}
+.gd-k{display:flex;align-items:center;gap:10px;font-size:12px;letter-spacing:3px;color:var(--ga);margin-bottom:6px;}
+.gd-k .dot{width:8px;height:8px;border-radius:50%;background:var(--ga);animation:gdPulse 2s ease-out infinite;}
+.gd-band.is-live .gd-k .dot{background:#e0603c;}
+@keyframes gdPulse{0%{box-shadow:0 0 0 0 rgba(227,192,133,.6)}70%{box-shadow:0 0 0 10px rgba(227,192,133,0)}100%{box-shadow:0 0 0 0 rgba(227,192,133,0)}}
+.gd-h{margin:0 0 8px;font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;letter-spacing:1px;line-height:1.5;color:var(--gold-bright,#e3c085);}
+.gd-sl .gd-h{color:var(--gtx);}
+.gd-h small{display:block;font-size:15px;font-weight:500;letter-spacing:1px;color:var(--text-light,#f5e4cd);opacity:.85;}
+.gd-p{margin:0;font-size:14.5px;line-height:1.85;color:var(--text-light,#f5e4cd);opacity:.9;}
+.gd-p q{quotes:'「' '」';color:var(--gtx);}
+.gd-cd{margin-top:8px;font-size:13px;letter-spacing:1px;color:var(--text-mute,#c3b39a);}
+.gd-cd b{font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;color:#ffe7b3;margin:0 3px;}
+.gd-sl .gd-cd b{color:#fbe3d3;}
+.gd-next{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:12px;letter-spacing:1px;color:var(--text-mute,#c3b39a);}
+.gd-next:empty{display:none;}
+.gd-next span{padding:1px 9px;border-radius:10px;border:1px dashed rgba(255,255,255,.2);color:rgba(245,228,205,.8);}
+.gd-next em{font-style:normal;color:var(--ga);letter-spacing:2px;}
+.gd-acts{display:flex;flex-direction:column;gap:10px;min-width:176px;position:relative;z-index:1;}
+.gd-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 18px;border-radius:22px;font-size:14px;letter-spacing:2px;text-decoration:none;cursor:pointer;font-family:inherit;transition:all .25s ease;white-space:nowrap;}
+.gd-btn.pri{background:linear-gradient(135deg,var(--ga2),#b48a45);color:#fff8e6;border:1px solid rgba(255,255,255,.25);box-shadow:0 6px 16px -8px rgba(217,184,124,.7);}
+.gd-sl .gd-btn.pri{background:linear-gradient(135deg,#96462c,#b0603f);}
+.gd-btn.pri:hover{filter:brightness(1.12);transform:translateY(-1px);}
+.gd-btn.sec{background:rgba(217,184,124,.08);color:#e3c489;border:1px solid rgba(217,184,124,.45);}
+.gd-sl .gd-btn.sec{background:rgba(219,140,104,.07);color:#f3d3bf;border-color:rgba(219,140,104,.45);}
+.gd-btn.sec:hover{filter:brightness(1.2);}
+.gd-mini{display:flex;justify-content:center;gap:12px;font-size:12px;letter-spacing:1px;}
+.gd-mini a{color:var(--text-mute,#c3b39a);text-decoration:none;border-bottom:1px dotted rgba(195,179,154,.5);}
+.gd-mini a:hover{color:#ffe7b3;}
+@media(max-width:900px){.gd-in{grid-template-columns:1fr;gap:16px;padding:18px;}.gd-acts{flex-direction:row;flex-wrap:wrap;}.gd-btn{flex:1 1 auto;}.gd-h{font-size:18px;}.gd-mini{width:100%;}}
+#gdToast{position:fixed;left:50%;top:76px;transform:translate(-50%,-14px);opacity:0;z-index:9550;width:min(92vw,460px);background:rgba(30,24,16,.97);color:#e8c886;border:1px solid rgba(217,184,124,.65);border-radius:14px;padding:0 0 12px;font-family:"Noto Sans TC",sans-serif;font-size:13.5px;line-height:1.7;letter-spacing:.4px;box-shadow:0 14px 36px rgba(0,0,0,.5);overflow:hidden;transition:opacity .45s ease,transform .45s ease;}
+#gdToast.gd-sl{border-color:rgba(219,140,104,.7);}
+#gdToast.on{opacity:1;transform:translate(-50%,0);}
+#gdToast .gt-rib{display:flex;justify-content:space-between;align-items:center;padding:7px 16px;background:linear-gradient(90deg,rgba(227,192,133,.24),rgba(139,94,60,.18));border-bottom:1px solid rgba(217,184,124,.35);font-size:12px;letter-spacing:2px;color:#ffe7b3;}
+#gdToast.gd-sl .gt-rib{background:linear-gradient(90deg,rgba(219,140,104,.24),rgba(150,70,44,.2));color:#fbe3d3;}
+#gdToast .gt-rib b{font-weight:600;font-size:12px;letter-spacing:1px;}
+#gdToast .gt-row{display:grid;grid-template-columns:132px 1fr;gap:12px;padding:12px 16px 0;align-items:start;}
+#gdToast .gt-row img{width:132px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;border:1px solid rgba(255,255,255,.15);}
+#gdToast .gt-h{font-weight:700;color:#ffd98a;letter-spacing:.6px;line-height:1.55;}
+#gdToast.gd-sl .gt-h{color:#f6dccb;}
+#gdToast .gt-t{margin-top:2px;color:#e8dcc2;font-size:12.5px;}
+#gdToast .gt-btns{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:10px;padding:0 16px;}
+#gdToast button,#gdToast a{cursor:pointer;border-radius:11px;padding:4px 13px;font-size:12.5px;letter-spacing:1px;font-family:inherit;line-height:1.3;text-decoration:none;}
+#gdToast .gt-go{background:linear-gradient(135deg,#8b5e3c,#a9803f);color:#fff8e6;border:1px solid rgba(255,255,255,.25);}
+#gdToast.gd-sl .gt-go{background:linear-gradient(135deg,#96462c,#b0603f);}
+#gdToast .gt-cal{background:rgba(217,184,124,.08);color:#e3c489;border:1px solid rgba(217,184,124,.45);}
+#gdToast .gt-ok{background:transparent;color:#9a8a6e;border:1px solid rgba(154,138,110,.45);}
+@media(max-width:480px){#gdToast .gt-row{grid-template-columns:96px 1fr;}#gdToast .gt-row img{width:96px;}}
+</style>
+<div class="vvx-frame"><div class="vvx-head"><div class="sg-eyebrow">Vigrahavyāvartanī · Video Lectures</div><div class="vvx-ttl"><h3 class="sg-title">迴諍論導讀影片</h3><span class="vvx-seal" aria-hidden="true">迴<br>諍</span></div><div class="sg-sub zlv-sub">龍樹《迴諍論》逐品導讀 · 論證版．破而不立 · <span style="white-space:nowrap">已首播 <b data-pre-done>0</b> ／ 9 品</span> · <span style="white-space:nowrap">影片已完成 <b>9</b> 品</span></div></div><div class="vvx-toc" role="navigation" aria-label="迴諍論目次（緒論與九品）"><div class="vvx-row"><div class="vvx-rk"><b>一卷</b><i>Nine Chapters</i></div><div class="vvx-chips" style="--cols:10"><button type="button" class="vvx-chip is-pend" data-to="vvx-c0" aria-label="緒論（影片已完成，待首播）"><span class="n">〇</span><span class="t">緒論</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c1" aria-label="第一品（影片已完成，待首播）"><span class="n">一</span><span class="t">論敵偈</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c2" aria-label="第二品（上）（影片已完成，待首播）"><span class="n">二</span><span class="t">龍樹偈</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c3" aria-label="第三品（影片已完成，待首播）"><span class="n">三</span><span class="t">空語難</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c4" aria-label="第四品（影片已完成，待首播）"><span class="n">四</span><span class="t">無體難</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c5" aria-label="第五品（影片已完成，待首播）"><span class="n">五</span><span class="t">空語能遮</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c6" aria-label="第六品（影片已完成，待首播）"><span class="n">六</span><span class="t">量能成法</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c7" aria-label="第七品（影片已完成，待首播）"><span class="n">七</span><span class="t">量成所量</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c8" aria-label="第八品（影片已完成，待首播）"><span class="n">八</span><span class="t">法有自體</span><span class="d">待首播</span></button><button type="button" class="vvx-chip is-pend" data-to="vvx-c9" aria-label="第九品（影片已完成，待首播）"><span class="n">九</span><span class="t">遮必有物</span><span class="d">待首播</span></button></div></div><div class="vvx-legend"><span><i class="a"></i>已首播</span><span><i class="b"></i>下一場首播</span><span><i class="c"></i>首播排程（日期）</span><span><i class="p"></i>影片已完成・待首播</span><span><i class="q"></i>籌備中</span><span class="r">tap a chapter to jump</span></div></div>
+<div class="zlv-stage"><button class="zlv-nav prev" type="button" aria-label="向左瀏覽"><svg viewBox="0 0 16 16"><path d="M10 3 L5 8 L10 13"/></svg></button><button class="zlv-nav next" type="button" aria-label="向右瀏覽"><svg viewBox="0 0 16 16"><path d="M6 3 L11 8 L6 13"/></svg></button><div class="hscroll-cards zlv-track"><div class="vvx-vol"><span class="sv-k">Nine Chapters</span><span class="sv-n">九品</span><span class="sv-c">全 <b>9</b> 品</span></div><a class="zlv-card is-pend" id="vvx-c0" data-grp="vvx-c0" data-pin="0" href="https://weiwen0925.github.io/vigrahavyavartani/" target="_blank" rel="noopener" aria-label="《迴諍論》緒論 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-00.jpg" alt="《迴諍論》緒論 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">46:10</span></div><div class="zlv-body"><div class="zlv-num">Prologue · 緒論</div><h4 class="zlv-h">緒論</h4><div class="zlv-tags">緒論 · 入迴諍　幻人 · 無宗 · 四量 · 何所遮 · 信空</div><p class="zlv-hub">「我語言若離，因緣和合法；是則空義成，諸法無自體」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c1" data-grp="vvx-c1" data-pin="1" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-1" target="_blank" rel="noopener" aria-label="《迴諍論》第一品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-01.jpg" alt="《迴諍論》第一品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">40:00</span></div><div class="zlv-body"><div class="zlv-num">Chapter 01</div><h4 class="zlv-h">第一品</h4><div class="zlv-tags">迴諍論 · 第一品　偈初分 · 論敵二十一偈 · 空語 · 四量 · 名字</div><p class="zlv-hub">「若一切無體，言語是一切；言語自無體，何能遮彼體」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c2" data-grp="vvx-c2" data-pin="2" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-2" target="_blank" rel="noopener" aria-label="《迴諍論》第二品（上） 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-02a.jpg" alt="《迴諍論》第二品（上） 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">37:55</span></div><div class="zlv-body"><div class="zlv-num">Chapter 02 · Part I</div><h4 class="zlv-h">第二品（上）</h4><div class="zlv-tags">迴諍論 · 第二品　偈上分 · 空語 · 世諦 · 無宗 · 四量 · 上集</div><p class="zlv-hub">「若我宗有者，我則是有過；我宗無物故，如是不得過」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c2b" data-grp="vvx-c2" data-pin="2" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-2" target="_blank" rel="noopener" aria-label="《迴諍論》第二品（下） 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-02b.jpg" alt="《迴諍論》第二品（下） 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">33:28</span></div><div class="zlv-body"><div class="zlv-num">Chapter 02 · Part II</div><h4 class="zlv-h">第二品（下）</h4><div class="zlv-tags">迴諍論 · 第二品　偈上分 · 善法 · 名字 · 鹿愛 · 三時 · 下集</div><p class="zlv-hub">「若人信於空，彼人信一切；若人不信空，彼不信一切」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c3" data-grp="vvx-c3" data-pin="3" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-3" target="_blank" rel="noopener" aria-label="《迴諍論》第三品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-03.jpg" alt="《迴諍論》第三品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">32:26</span></div><div class="zlv-body"><div class="zlv-num">Chapter 03</div><h4 class="zlv-h">第三品</h4><div class="zlv-tags">迴諍論 · 第三品　釋初分 · 語空 · 勿聲 · 現量 · 善法</div><p class="zlv-hub">「若一切無體，言語是一切；言語自無體，何能遮彼體」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c4" data-grp="vvx-c4" data-pin="4" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-4" target="_blank" rel="noopener" aria-label="《迴諍論》第四品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-04.jpg" alt="《迴諍論》第四品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">36:24</span></div><div class="zlv-body"><div class="zlv-num">Chapter 04</div><h4 class="zlv-h">第四品</h4><div class="zlv-tags">迴諍論 · 第四品　釋初分 · 有名 · 何所遮 · 炎水 · 三時</div><p class="zlv-hub">「法若有自體，可得遮諸法；諸法若無體，竟為何所遮」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c5" data-grp="vvx-c5" data-pin="5" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-5" target="_blank" rel="noopener" aria-label="《迴諍論》第五品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-05.jpg" alt="《迴諍論》第五品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">24:01</span></div><div class="zlv-body"><div class="zlv-num">Chapter 05</div><h4 class="zlv-h">第五品</h4><div class="zlv-tags">迴諍論 · 第五品　釋上分 · 語空 · 因緣 · 幻人 · 勿聲</div><p class="zlv-hub">「我語言若離，因緣和合法；是則空義成，諸法無自體」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c6" data-grp="vvx-c6" data-pin="6" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-6" target="_blank" rel="noopener" aria-label="《迴諍論》第六品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-06.jpg" alt="《迴諍論》第六品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">37:25</span></div><div class="zlv-body"><div class="zlv-num">Chapter 06</div><h4 class="zlv-h">第六品</h4><div class="zlv-tags">迴諍論 · 第六品　釋上分 · 無宗 · 無窮 · 自照 · 破闇</div><p class="zlv-hub">「若我宗有者，我則是有過；我宗無物故，如是不得過」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c7" data-grp="vvx-c7" data-pin="7" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-7" target="_blank" rel="noopener" aria-label="《迴諍論》第七品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-07.jpg" alt="《迴諍論》第七品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">30:45</span></div><div class="zlv-body"><div class="zlv-num">Chapter 07</div><h4 class="zlv-h">第七品</h4><div class="zlv-tags">迴諍論 · 第七品　釋上分 · 相待 · 父子 · 四不成 · 聖言</div><p class="zlv-hub">「量非自能成，非是自他成；非是異量成，非無因緣成」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c8" data-grp="vvx-c8" data-pin="8" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-8" target="_blank" rel="noopener" aria-label="《迴諍論》第八品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-08.jpg" alt="《迴諍論》第八品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">31:07</span></div><div class="zlv-body"><div class="zlv-num">Chapter 08</div><h4 class="zlv-h">第八品</h4><div class="zlv-tags">迴諍論 · 第八品　釋上分 · 梵行 · 名 · 二失 · 空亦空</div><p class="zlv-hub">「若人說有名，語言有自體；彼人汝可難，語名我不實」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="zlv-card is-pend" id="vvx-c9" data-grp="vvx-c9" data-pin="9" href="https://weiwen0925.github.io/vigrahavyavartani/#chapter-9" target="_blank" rel="noopener" aria-label="《迴諍論》第九品 導讀影片即將首播，先讀讀本"><div class="zlv-thumb"><img src="vvv/vv-09.jpg" alt="《迴諍論》第九品 導讀影片縮圖" width="800" height="450" loading="lazy" decoding="async" draggable="false"><span class="pv-pend"><b>導讀影片已完成</b><em>首播日期即將公布</em></span><span class="zlv-dur">33:07</span></div><div class="zlv-body"><div class="zlv-num">Chapter 09</div><h4 class="zlv-h">第九品</h4><div class="zlv-tags">迴諍論 · 第九品 · 全論收束　釋上分 · 天得 · 鹿愛 · 三時 · 信空</div><p class="zlv-hub">「若人信於空，彼人信一切；若人不信空，彼不信一切」</p><div class="zlv-foot"><span class="zlv-cta">📖 先讀讀本</span><span class="zlv-read" role="link" tabindex="0" data-href="https://www.youtube.com/@Chengweiwen">訂閱頻道 →</span></div></div></a><a class="vvx-end" href="https://weiwen0925.github.io/vigrahavyavartani/" target="_blank" rel="noopener"><span class="se-n">九品</span><span class="se-d">逐品陸續首播<br>訂閱頻道，一品不漏<br>讀本網頁先讀為快</span><span class="se-b">開啟讀本 →</span></a></div></div></div>
+<script>/* ZLV-JS：卡內「讀本」小膠囊另開讀本，不觸發看影片（大智度論、中論兩區共用，只掛一次） */
+(function(){if(window.__zlvRead)return;window.__zlvRead=1;var x0=0;document.addEventListener("pointerdown",function(e){x0=e.clientX;},true);function go(e){var r=e.target.closest&&e.target.closest(".zlv-read");if(!r)return;if(e.type==="keydown"&&e.key!=="Enter"&&e.key!==" ")return;e.preventDefault();e.stopPropagation();if(e.type==="click"&&Math.abs(e.clientX-x0)>5)return;var u=r.getAttribute("data-href");if(u)window.open(u,"_blank","noopener");}document.addEventListener("click",go,true);document.addEventListener("keydown",go,true);function upd(st){var t=st.querySelector(".zlv-track");if(!t)return;var l=t.scrollLeft,m=t.scrollWidth-t.clientWidth-2,p=st.querySelector(".zlv-nav.prev"),n=st.querySelector(".zlv-nav.next");if(p)p.disabled=l<=2;if(n)n.disabled=l>=m;st.classList.toggle("can-l",l>2);st.classList.toggle("can-r",l<m);}function init(){document.querySelectorAll(".zlv-stage").forEach(function(st){var t=st.querySelector(".zlv-track");if(!t)return;t.addEventListener("scroll",function(){upd(st);},{passive:true});st.querySelectorAll(".zlv-nav").forEach(function(b){b.addEventListener("click",function(){var d=b.classList.contains("prev")?-1:1;t.scrollBy({left:d*Math.max(t.clientWidth*0.8,300),behavior:"smooth"});});});upd(st);setTimeout(function(){upd(st);},600);});window.addEventListener("resize",function(){document.querySelectorAll(".zlv-stage").forEach(upd);});}window.__zlvUpd=upd;if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);})();</script>
+<script>/* PREMIERE-JS：依當下時間切換首播狀態、最新角標、已首播數、目次籤 */
+(function(){if(window.__wyPre)return;window.__wyPre=1;
+function cd(ms){var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.max(1,Math.floor(ms%36e5/6e4));return "距首播 "+(d>0?d+" 天 "+h+" 小時":(h>0?h+" 小時 "+m+" 分":m+" 分鐘"));}
+function run(){var now=Date.now();document.querySelectorAll("section.dzv,section.slv,section.bzv,section.zlx").forEach(function(sec){
+var cs=[].slice.call(sec.querySelectorAll(".zlv-card[data-pt]"));if(!cs.length)return;var best=null,bt=-1,nx=null,nt=1/0,done=0,pd={},pp={};
+sec.querySelectorAll(".zlv-card[data-pin],.zlv-card[data-pt]").forEach(function(c){var k=c.getAttribute("data-pin")||c.id,t=c.getAttribute("data-pt");if(c.classList.contains("is-pend")||(t&&+t>now))pp[k]=1;else pd[k]=1;});cs.forEach(function(c){var t=+c.getAttribute("data-pt"),pre=t>now;c.classList.toggle("is-pre",pre);if(pre){var l=c.querySelector(".pv-cd");if(l)l.textContent=cd(t-now);if(t<nt){nt=t;nx=c;}}else{if(t>bt){bt=t;best=c;}}});done=Object.keys(pd).filter(function(k){return !pp[k];}).length;
+cs.forEach(function(c){c.classList.toggle("is-next",c===nx);});
+sec.querySelectorAll(".zlv-new").forEach(function(x){x.remove();});
+if(best&&(done>1||cs.length>1)){var th=best.querySelector(".zlv-thumb"),s=document.createElement("span");s.className="zlv-new";s.textContent="最新";th.insertBefore(s,th.firstChild);}
+sec.querySelectorAll("[data-pre-done]").forEach(function(x){x.textContent=done;});
+sec.querySelectorAll("[data-chip-pt]").forEach(function(c){var t=+c.getAttribute("data-chip-pt"),id=c.getAttribute("data-to"),isn=nx&&(nx.getAttribute("data-grp")||nx.id)===id;c.classList.toggle("is-done",t<=now);c.classList.toggle("is-next",!!isn);});});}
+window.__wyPreRun=run;if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);setInterval(run,60000);})();</script><script>/* GONGDU-JS v2：每條橫幅自動挑進行中／下一場、倒數、LIVE、接下來三場、行事曆、頂部通知卡（全頁只提醒最近一場） */
+(function(){if(window.__wyGd2)return;window.__wyGd2=1;
+function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(x){return null;}}
+function $(r,s){return r.querySelector(s);}
+function cur(b){var now=Date.now();for(var i=0;i<b._ev.length;i++){if(b._ev[i].e>now)return i;}return -1;}
+function left(ms,cdl,soon){if(ms<=0)return "";var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4);
+return d>0?cdl+" <b>"+d+"</b> 天 <b>"+h+"</b> 小時":(h>0?cdl+" <b>"+h+"</b> 小時 <b>"+m+"</b> 分":"再 <b>"+Math.max(m,1)+"</b> 分鐘就開始，"+soon);}
+function gcal(v){var f=function(t){return new Date(t).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");};
+return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(v.t)+"&dates="+f(v.s)+"/"+f(v.e)+"&details="+encodeURIComponent(v.d)+"&ctz=Asia/Taipei";}
+function ics(v,badge){var f=function(t){return new Date(t).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");};
+var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//weiwen0925//premiere//ZH","CALSCALE:GREGORIAN","BEGIN:VEVENT","UID:"+v.k+"@weiwen0925.github.io","DTSTAMP:"+f(Date.now()),"DTSTART:"+f(v.s),"DTEND:"+f(v.e),
+"SUMMARY:"+v.t,"DESCRIPTION:"+v.d.replace(/\n/g,"\\n"),"URL:"+v.go,"BEGIN:VALARM","TRIGGER:-PT30M","ACTION:DISPLAY","DESCRIPTION:"+badge+"：半小時後開始","END:VALARM","END:VEVENT","END:VCALENDAR"];
+var a=document.createElement("a");a.href="data:text/calendar;charset=utf-8,"+encodeURIComponent(L.join("\r\n"));a.download="首播_"+v.k+".ics";document.body.appendChild(a);a.click();setTimeout(function(){a.remove();},500);}
+function paint(b){var i=cur(b);if(i<0){b.remove();return null;}var v=b._ev[i],now=Date.now(),live=now>=v.s;
+if(b._i!==i){b._i=i;var im=$(b,".gd-thumb img");im.src=v.img;im.alt=v.alt;$(b,".gd-thumb").href=v.go;
+$(b,".gd-when").innerHTML="<b>"+v.md+"</b>"+v.wk+" "+v.hm;$(b,".gd-head").textContent=v.head;$(b,".gd-sub").textContent=v.sub;$(b,".gd-p").innerHTML=v.body;
+$(b,".gd-go").href=v.go;var r=$(b,".gd-read");r.href=v.rd;r.textContent=v.btn;$(b,".gd-gcal").href=gcal(v);
+var nx=b._ev.slice(i+1,i+4).map(function(x){return "<span>"+x.nx+"</span>";}).join("");$(b,".gd-next").innerHTML=nx?"<em>接下來</em>"+nx:"";}
+b.classList.toggle("is-live",live);var bd=b.getAttribute("data-badge");$(b,".gd-k span").textContent=bd+(live?" · LIVE":" · Watch Together");
+$(b,".gd-cd").innerHTML=live?b.getAttribute("data-live"):left(v.s-now,b.getAttribute("data-cdl"),b.getAttribute("data-soon"));
+$(b,".gd-go").textContent=live?b.getAttribute("data-go-live-btn"):b.getAttribute("data-go-btn");return v;}
+var T=null;
+function tick(){var bs=[].slice.call(document.querySelectorAll(".gd-band[data-series]"));bs.forEach(paint);
+if(T&&T._v){var v=T._v,now=Date.now();if(now>=v.e){T.remove();T=null;return;}var c=$(T,".gt-cd");if(c)c.innerHTML=now>=v.s?T._b.getAttribute("data-live"):left(v.s-now,T._b.getAttribute("data-cdl"),T._b.getAttribute("data-soon")).replace(/<\/?b>/g,"");}}
+function toast(){if(LS("wyTour0Done")!=="1"&&!LS("wySgSeen"))return;var c=[];document.querySelectorAll(".gd-band[data-series]").forEach(function(b){var i=cur(b);if(i<0)return;for(var j=i;j<b._ev.length;j++){if(LS("wyGd:"+b._ev[j].k)!=="1"){c.push([b._ev[j],b]);break;}}});
+if(!c.length)return;c.sort(function(a,b){return a[0].s-b[0].s;});var v=c[0][0],b=c[0][1],live=Date.now()>=v.s,x=document.createElement("div");
+x.id="gdToast";x.className="gd-"+b.getAttribute("data-series");x.setAttribute("role","status");x._v=v;x._b=b;
+x.innerHTML='<div class="gt-rib"><span>📜 '+b.getAttribute("data-badge")+'</span><b class="gt-cd"></b></div><div class="gt-row"><img alt="" src="'+v.img+'"><div><div class="gt-h"></div><div class="gt-t"></div></div></div>'+
+'<div class="gt-btns"><button class="gt-ok" type="button">知道了</button><button class="gt-cal" type="button">加入行事曆</button><a class="gt-go" href="'+v.go+'" target="_blank" rel="noopener">'+(live?b.getAttribute("data-toast-go-live"):b.getAttribute("data-toast-go"))+'</a></div>';
+$(x,".gt-h").textContent=v.th;$(x,".gt-t").textContent=v.tt;document.body.appendChild(x);T=x;requestAnimationFrame(function(){x.classList.add("on");});tick();
+function done(){LS("wyGd:"+v.k,"1");x.classList.remove("on");setTimeout(function(){x.remove();},450);T=null;}
+$(x,".gt-ok").addEventListener("click",done);$(x,".gt-go").addEventListener("click",done);$(x,".gt-cal").addEventListener("click",function(){ics(v,b.getAttribute("data-badge"));});}
+document.addEventListener("click",function(ev){var c=ev.target.closest&&ev.target.closest("[data-gd-ics]");if(!c)return;ev.preventDefault();var b=c.closest(".gd-band");if(!b||b._i==null)return;ics(b._ev[b._i],b.getAttribute("data-badge"));});
+function init(){document.querySelectorAll(".gd-band[data-series]").forEach(function(b){try{b._ev=JSON.parse($(b,"script.gd-data").textContent);}catch(x){b._ev=[];}b._i=-2;});tick();setInterval(tick,30000);setTimeout(toast,2400);}
+if(document.readyState!=="loading")init();else document.addEventListener("DOMContentLoaded",init);})();</script><script>/* SLV-JS：目次籤跳卡、開場捲到最新一品 */
+(function(){if(window.__wyVvx)return;window.__wyVvx=1;
+function go(sec,id,smooth){var t=sec.querySelector(".zlv-track"),c=sec.querySelector("#"+id);if(!t||!c)return;t.scrollTo({left:c.getBoundingClientRect().left-t.getBoundingClientRect().left+t.scrollLeft-4,behavior:smooth?"smooth":"auto"});}
+document.addEventListener("click",function(e){var c=e.target.closest&&e.target.closest(".vvx-chip");if(!c)return;var sec=c.closest(".vvx");sec.querySelectorAll(".vvx-chip.is-on").forEach(function(x){x.classList.remove("is-on");});c.classList.add("is-on");go(sec,c.getAttribute("data-to"),true);});
+function init(){if(window.__wyPreRun)window.__wyPreRun();document.querySelectorAll("section.vvx").forEach(function(sec){var c=sec.querySelector(".zlv-new");c=c&&c.closest(".zlv-card");if(c)go(sec,c.id,false);sec.querySelectorAll(".vvx-chips").forEach(function(r){if(r.scrollWidth<=r.clientWidth+2)return;var k=r.querySelector(".is-next")||[].slice.call(r.querySelectorAll(".is-done")).pop();if(k)r.scrollLeft=k.offsetLeft-r.offsetLeft-r.clientWidth/2+k.offsetWidth/2;});if(window.__zlvUpd)window.__zlvUpd(sec.querySelector(".zlv-stage"));});}
+if(document.readyState!=="loading")setTimeout(init,50);else document.addEventListener("DOMContentLoaded",function(){setTimeout(init,50);});})();</script>
+<script>/* PREMIERE-JS（迴諍論）：依當下時間切換首播狀態、最新角標、已首播數、目次籤 */
+(function(){if(window.__wyPreVv)return;window.__wyPreVv=1;
+function cd(ms){var d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.max(1,Math.floor(ms%36e5/6e4));return "距首播 "+(d>0?d+" 天 "+h+" 小時":(h>0?h+" 小時 "+m+" 分":m+" 分鐘"));}
+function run(){var now=Date.now();document.querySelectorAll("section.vvx").forEach(function(sec){
+var cs=[].slice.call(sec.querySelectorAll(".zlv-card[data-pt]"));if(!cs.length)return;var best=null,bt=-1,nx=null,nt=1/0,done=0,pd={},pp={};
+sec.querySelectorAll(".zlv-card[data-pin],.zlv-card[data-pt]").forEach(function(c){var k=c.getAttribute("data-pin")||c.id,t=c.getAttribute("data-pt");if(c.classList.contains("is-pend")||(t&&+t>now))pp[k]=1;else pd[k]=1;});cs.forEach(function(c){var t=+c.getAttribute("data-pt"),pre=t>now;c.classList.toggle("is-pre",pre);if(pre){var l=c.querySelector(".pv-cd");if(l)l.textContent=cd(t-now);if(t<nt){nt=t;nx=c;}}else{if(t>bt){bt=t;best=c;}}});done=Object.keys(pd).filter(function(k){return !pp[k];}).length;
+cs.forEach(function(c){c.classList.toggle("is-next",c===nx);});
+sec.querySelectorAll(".zlv-new").forEach(function(x){x.remove();});
+if(best&&(done>1||cs.length>1)){var th=best.querySelector(".zlv-thumb"),s=document.createElement("span");s.className="zlv-new";s.textContent="最新";th.insertBefore(s,th.firstChild);}
+sec.querySelectorAll("[data-pre-done]").forEach(function(x){x.textContent=done;});
+sec.querySelectorAll("[data-chip-pt]").forEach(function(c){var t=+c.getAttribute("data-chip-pt"),id=c.getAttribute("data-to"),isn=nx&&(nx.getAttribute("data-grp")||nx.id)===id;c.classList.toggle("is-done",t<=now);c.classList.toggle("is-next",!!isn);});});}
+window.__wyPreRunVv=run;if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);setInterval(run,60000);})();</script>
+</section>
+<!-- VVV:END -->
 <!-- GONGDU:BEGIN v2 -->
 <style>/* GONGDU-CSS v2：首播共讀橫幅（縮圖A）＋頂部通知卡 */
 .gd-band{--ga:#e3c085;--ga2:#8b5e3c;--gtx:#f0d398;--gbg1:#2e251c;--gbg2:#231c15;position:relative;max-width:1100px;margin:64px auto 0;padding:2px;border-radius:16px;background:linear-gradient(120deg,var(--ga),rgba(139,94,60,.55) 40%,var(--ga) 70%,rgba(139,94,60,.55));background-size:220% 100%;animation:gdSheen 9s linear infinite;}
