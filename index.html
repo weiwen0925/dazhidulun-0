@@ -2745,6 +2745,527 @@ a.shunyata-item[href*="dazhidulun-19/#chapter-25-1"]{
 <p>我稽首禮佛　諸說中第一</p>
 </div>
 </section>
+<!-- WY-LOBBY:BEGIN v1 -->
+<style>/* WY-LOBBY-CSS：入門區（三個入口）＋經典書架＋品目速覽櫃＋章節抽屜。
+   版面語彙沿用「VIII 導讀影片」主題區：暗底暖色、細金線、朱印、各經主色（--ac／--ac-rgb）。
+   所有「收合／搬移」的樣式都掛在 html.wyl-on 之下——程式沒跑起來時，頁面就是原本的長頁。 */
+.wyl{max-width:1180px;margin:44px auto 0;scroll-margin-top:70px;}
+.wyl *{box-sizing:border-box;}
+.wyl-head{text-align:center;margin:0 0 26px;}
+.wyl-eyebrow{display:block;font-family:'Cormorant Garamond','Noto Serif TC',serif;font-style:italic;font-size:15px;letter-spacing:4px;color:var(--gold-soft,#c9a96e);text-transform:uppercase;}
+.wyl-title{margin:4px 0 6px;font-family:'Noto Serif TC',serif;font-size:29px;font-weight:600;letter-spacing:8px;color:var(--gold-bright,#e3c085);}
+.wyl-sub{margin:0;font-size:16px;letter-spacing:1px;color:var(--text-mute,#c3b39a);}
+
+/* ── 三個入口（尋經要靠頁內程式；程式沒開時只留兩個） ── */
+html:not(.wyl-js) .wyl-door--find{display:none;}
+html:not(.wyl-js) .wyl-doors{grid-template-columns:repeat(2,minmax(0,1fr));}
+.wyl-doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;}
+.wyl-door{position:relative;display:flex;flex-direction:column;min-width:0;padding:22px 22px 20px;border-radius:14px;overflow:hidden;border:1px solid rgba(var(--ac-rgb,217,184,124),.36);background:radial-gradient(80% 120% at 0% 0%,rgba(var(--ac-rgb,217,184,124),.13),transparent 62%),linear-gradient(180deg,rgba(44,36,28,.94),rgba(28,22,18,.96));box-shadow:0 14px 34px -22px rgba(0,0,0,.9);}
+.wyl-door::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--ac,#d9b87c),rgba(var(--ac-rgb,217,184,124),0));opacity:.85;}
+.wyl-door::after{content:attr(data-wm);position:absolute;right:-8px;bottom:-30px;font-family:'Noto Serif TC',serif;font-size:132px;font-weight:900;line-height:1;color:rgba(var(--ac-rgb,217,184,124),.055);pointer-events:none;}
+.wyl-door>*{position:relative;z-index:1;}
+.wyl-dk{display:flex;align-items:center;gap:9px;font-size:14px;letter-spacing:4px;color:var(--ac,#d9b87c);}
+.wyl-dk i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--ac,#d9b87c);}
+.wyl-dh{margin:6px 0 14px;font-family:'Noto Serif TC',serif;font-size:23px;font-weight:700;letter-spacing:3px;color:#f5e4cd;line-height:1.35;}
+/* 入口一：起讀步驟 */
+.wyl-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;}
+.wyl-steps li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:11px;align-items:start;}
+.wyl-sn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:1px solid rgba(var(--ac-rgb,217,184,124),.55);font-family:'Noto Serif TC',serif;font-size:15px;color:var(--ac,#d9b87c);background:rgba(var(--ac-rgb,217,184,124),.07);}
+.wyl-st{display:block;font-family:'Noto Serif TC',serif;font-size:17px;font-weight:600;letter-spacing:2px;color:#f5e4cd;line-height:1.5;}
+.wyl-sd{display:block;margin:1px 0 6px;font-size:14px;line-height:1.6;color:var(--text-mute,#c3b39a);}
+.wyl-sa{display:flex;flex-wrap:wrap;gap:7px;}
+/* 入口二：下一場首播 */
+.wyl-live{display:flex;flex-direction:column;flex:1;}
+.wyl-lth{position:relative;display:block;border-radius:8px;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(var(--ac-rgb,217,184,124),.35);background:#1d1711;}
+.wyl-lth img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.wyl-lth:hover img{transform:scale(1.04);}
+.wyl-lth b{position:absolute;left:8px;top:8px;padding:2px 8px;border-radius:3px;background:#c0392b;color:#fff;font:700 12px/1.4 sans-serif;letter-spacing:1px;}
+.wyl-lth b[hidden]{display:none;}
+.wyl-lw{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:12px 0 2px;}
+.wyl-lw b{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:700;letter-spacing:1.5px;color:#f5e4cd;font-variant-numeric:lining-nums tabular-nums;}
+.wyl-lw span{font-size:14px;letter-spacing:1px;color:var(--gold-soft,#c9a96e);}
+.wyl-lt{font-family:'Noto Serif TC',serif;font-size:16.5px;line-height:1.6;color:#efe2cc;}
+.wyl-ls{display:inline-block;margin-right:8px;padding:0 9px;border-radius:999px;border:1px solid rgba(var(--ac-rgb,217,184,124),.55);color:var(--ac,#d9b87c);font-size:13.5px;letter-spacing:2px;vertical-align:1px;}
+.wyl-ll{display:flex;flex-direction:column;gap:3px;margin:9px 0 0;font-size:13.5px;line-height:1.5;color:var(--text-mute,#c3b39a);}
+.wyl-ll span{display:flex;align-items:baseline;gap:7px;min-width:0;}
+.wyl-ll i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--c,#d9b87c);transform:translateY(-2px);}
+.wyl-ll em{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.wyl-la{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px;}
+.wyl-lnone{margin:4px 0 0;font-size:15px;line-height:1.8;color:var(--text-mute,#c3b39a);}
+/* 入口三：尋經 */
+.wyl-find{position:relative;display:block;}
+.wyl-find input{width:100%;height:46px;padding:0 44px 0 16px;border-radius:999px;border:1px solid rgba(var(--ac-rgb,217,184,124),.5);background:rgba(20,16,12,.6);color:#f5e4cd;font-family:'Noto Serif TC',serif;font-size:16px;letter-spacing:1px;outline:none;-webkit-user-select:text;user-select:text;-webkit-appearance:none;appearance:none;transition:border-color .2s,box-shadow .2s;}
+.wyl-find input::placeholder{color:rgba(195,179,154,.6);letter-spacing:1px;}
+.wyl-find input:focus{border-color:var(--ac,#d9b87c);box-shadow:0 0 0 3px rgba(var(--ac-rgb,217,184,124),.16);}
+.wyl-find input::-webkit-search-cancel-button{display:none;}
+.wyl-find::after{content:'尋';position:absolute;right:15px;top:50%;transform:translateY(-50%);font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;color:rgba(var(--ac-rgb,217,184,124),.75);pointer-events:none;}
+.wyl-hot{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:12px 0 0;font-size:13.5px;color:var(--text-mute,#c3b39a);}
+.wyl-hot em{font-style:normal;letter-spacing:2px;margin-right:2px;}
+.wyl-inv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:16px 0 0;}
+.wyl-inv[hidden]{display:none;}
+.wyl-invk{grid-column:1/-1;margin:0 0 -2px;font-size:13px;letter-spacing:3px;color:var(--gold-soft,#c9a96e);}
+.wyl-iv{display:flex;flex-direction:column;gap:1px;padding:10px 13px 11px;border-radius:9px;border:1px solid rgba(var(--ac-rgb,217,184,124),.22);background:rgba(var(--ac-rgb,217,184,124),.04);color:#efe2cc;text-decoration:none;transition:border-color .2s,background .2s;}
+.wyl-iv:hover{border-color:rgba(var(--ac-rgb,217,184,124),.6);background:rgba(var(--ac-rgb,217,184,124),.1);}
+.wyl-iv b{font-family:'Noto Serif TC',serif;font-size:25px;font-weight:700;line-height:1.2;color:#f5e4cd;font-variant-numeric:lining-nums tabular-nums;}
+.wyl-iv b i{font-style:normal;}
+.wyl-iv b small{margin-left:4px;font-size:13px;font-weight:400;color:var(--text-mute,#c3b39a);}
+.wyl-iv span{font-size:13.5px;letter-spacing:2px;color:var(--ac,#d9b87c);}
+.wyl-res{margin:10px -6px 0;padding:0 6px;max-height:292px;overflow-y:auto;scrollbar-width:thin;}
+.wyl-res[hidden]{display:none;}
+.wyl-rk{margin:8px 0 3px;font-size:12.5px;letter-spacing:3px;color:var(--gold-soft,#c9a96e);}
+.wyl-ri{display:flex;align-items:baseline;gap:9px;width:100%;margin:0;padding:6px 9px;border:0;border-radius:7px;background:transparent;color:#efe2cc;font-family:'Noto Serif TC',serif;font-size:15px;line-height:1.5;text-align:left;cursor:pointer;}
+.wyl-ri i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--c,#d9b87c);transform:translateY(-2px);}
+.wyl-ri b{font-weight:600;color:#f5e4cd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto;}
+.wyl-ri span{flex:1 1 0;min-width:0;font-size:13px;color:var(--text-mute,#c3b39a);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wyl-ri mark{background:none;color:#ffd98a;}
+.wyl-ri:hover,.wyl-ri.is-cur{background:rgba(var(--ac-rgb,217,184,124),.13);}
+.wyl-rnone{margin:10px 2px 0;font-size:14px;color:var(--text-mute,#c3b39a);}
+.wyl-full{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:14px;align-self:flex-start;border:0;background:none;color:var(--gold-soft,#c9a96e);font-family:'Noto Serif TC',serif;font-size:14px;letter-spacing:1.5px;cursor:pointer;text-decoration:none;}
+.wyl-full:hover{color:#ffe7b3;}
+.wyl-full[hidden]{display:none;}
+
+/* ── 共用：膠囊鈕、小標 ── */
+.wyl-b{display:inline-flex;align-items:center;justify-content:center;gap:5px;padding:5px 14px 6px;border-radius:999px;border:1px solid rgba(var(--ac-rgb,217,184,124),.5);background:rgba(var(--ac-rgb,217,184,124),.05);color:#f1e3cc;font-family:'Noto Serif TC',serif;font-size:14px;letter-spacing:2px;line-height:1.4;text-decoration:none;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .2s;}
+.wyl-b:hover,.wyl-b:focus-visible{border-color:var(--ac,#d9b87c);background:rgba(var(--ac-rgb,217,184,124),.16);color:#fff3da;outline:none;}
+.wyl-b.pri{background:linear-gradient(135deg,rgba(var(--ac-rgb,217,184,124),.9),rgba(var(--ac-rgb,217,184,124),.58));border-color:var(--ac,#d9b87c);color:#1d1711;font-weight:700;}
+.wyl-b.pri:hover{filter:brightness(1.1);color:#1d1711;}
+.wyl-chip{padding:3px 11px 4px;border-radius:999px;border:1px solid rgba(var(--ac-rgb,217,184,124),.32);background:transparent;color:#e2d3bb;font-family:'Noto Serif TC',serif;font-size:13.5px;letter-spacing:1px;cursor:pointer;transition:border-color .2s,background .2s;}
+.wyl-chip:hover{border-color:var(--ac,#d9b87c);background:rgba(var(--ac-rgb,217,184,124),.12);}
+.wyl-lab{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin:46px 0 16px;padding:0 0 0 14px;border-left:3px solid var(--gold-amber,#d9b87c);font-family:'Noto Serif TC',serif;font-size:21px;font-weight:600;letter-spacing:5px;color:var(--gold-bright,#e3c085);line-height:1.3;}
+.wyl-lab em{font-style:normal;font-size:14.5px;font-weight:400;letter-spacing:1.5px;color:var(--text-mute,#c3b39a);}
+.wyl-lab .wyl-tools{margin-left:auto;display:inline-flex;align-items:center;gap:8px;letter-spacing:0;}
+.wyl-glab{margin:16px 0 9px;font-size:13.5px;letter-spacing:4px;color:var(--gold-soft,#c9a96e);}
+.wyl-glab:first-of-type{margin-top:0;}
+
+/* ── 經典書架 ── */
+.wyl-bks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;}
+.wyl-bk{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;min-height:226px;padding:18px 15px 14px;border-radius:12px;overflow:hidden;color:#f5e4cd;border:1px solid rgba(var(--ac-rgb),.3);background:radial-gradient(90% 70% at 100% 0%,rgba(var(--ac-rgb),.15),transparent 65%),linear-gradient(180deg,rgba(var(--ac-rgb),.05),rgba(28,22,18,.55));box-shadow:0 10px 26px -18px rgba(0,0,0,.9);transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease;scroll-margin-top:90px;}
+.wyl-bk::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--ac),rgba(var(--ac-rgb),0));opacity:.85;}
+.wyl-bk::after{content:attr(data-wm);position:absolute;right:-8px;bottom:-26px;font-family:'Noto Serif TC',serif;font-size:118px;font-weight:900;line-height:1;color:rgba(var(--ac-rgb),.06);pointer-events:none;}
+.wyl-bk:hover{border-color:rgba(var(--ac-rgb),.7);box-shadow:0 0 0 1px rgba(var(--ac-rgb),.22),0 18px 34px -18px rgba(var(--ac-rgb),.26);}
+.wyl-bk.is-hit{border-color:var(--ac);box-shadow:0 0 0 2px rgba(var(--ac-rgb),.55),0 18px 34px -16px rgba(var(--ac-rgb),.4);}
+.wyl-bk>*{position:relative;z-index:1;}
+.wyl-bkh{display:flex;align-items:flex-start;gap:11px;}
+.wyl-seal{flex:none;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:32px;height:46px;border-radius:3px;background:#a8402e;color:#fbe9dc;font-family:'Noto Serif TC',serif;font-size:14.5px;font-weight:700;line-height:1.15;box-shadow:inset 0 0 0 2px rgba(251,233,220,.32),0 4px 10px -4px rgba(0,0,0,.6);transform:rotate(-4deg);transition:transform .3s ease;}
+.wyl-bk:hover .wyl-seal{transform:rotate(0) scale(1.05);}
+.wyl-bkt{display:flex;flex-direction:column;min-width:0;gap:1px;}
+.wyl-bkn{font-family:'Noto Serif TC',serif;font-size:19.5px;font-weight:700;letter-spacing:2px;color:var(--ac);line-height:1.3;}
+.wyl-bkby{font-size:12.5px;letter-spacing:.5px;color:var(--text-mute,#c3b39a);line-height:1.45;}
+.wyl-bkd{margin:0;font-size:13.5px;line-height:1.6;color:#e2d3bb;}
+.wyl-bks2{margin-top:auto;font-size:13px;line-height:1.5;letter-spacing:.5px;color:var(--text-mute,#c3b39a);min-height:39px;}
+.wyl-bks2 b{font-weight:600;color:#f5e4cd;}
+.wyl-bks2 u{display:block;text-decoration:none;color:rgba(var(--ac-rgb),.95);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.wyl-bka{display:flex;gap:6px;padding-top:10px;border-top:1px dashed rgba(var(--ac-rgb),.25);}
+.wyl-bka .wyl-b{flex:1 1 0;min-width:0;padding:5px 4px 6px;font-size:13.5px;letter-spacing:1.5px;}
+
+/* ── 品目速覽櫃 ── */
+.wyl-cab{scroll-margin-top:70px;}
+.wyl-tabs{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px;margin:0 0 -1px;padding:0 4px;position:relative;z-index:2;}
+.wyl-tabg{flex:none;align-self:center;font-size:12.5px;letter-spacing:2px;color:var(--gold-soft,#c9a96e);margin:0 0 0 12px;padding-left:12px;border-left:1px solid rgba(217,184,124,.3);line-height:1.2;}
+.wyl-tab{position:relative;display:inline-flex;align-items:center;gap:8px;padding:9px 13px 10px;border:1px solid rgba(var(--ac-rgb),.28);border-bottom-color:transparent;border-radius:10px 10px 0 0;background:rgba(28,22,18,.5);color:#d9c9ae;font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:1.5px;line-height:1.3;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s,border-color .2s;}
+.wyl-tab i{flex:none;width:8px;height:8px;border-radius:2px;background:var(--ac);transform:rotate(45deg);opacity:.75;}
+.wyl-tab:hover{color:#fff3da;border-color:rgba(var(--ac-rgb),.6);border-bottom-color:transparent;}
+.wyl-tab[aria-selected="true"]{color:var(--ac);font-weight:700;border-color:rgba(var(--ac-rgb),.62);border-bottom-color:#2a221a;background:linear-gradient(180deg,rgba(var(--ac-rgb),.2),#2a221a);}
+.wyl-tab[aria-selected="true"] i{opacity:1;box-shadow:0 0 8px rgba(var(--ac-rgb),.7);}
+.wyl-tab:focus-visible{outline:2px solid var(--ac);outline-offset:2px;}
+/* 櫃框往兩側各多出 25px，讓櫃內寬度與格子原本所在的版心一樣寬——格子的欄數、列高都和原來一致 */
+.wyl-pns{position:relative;margin:0 -25px;border:1px solid rgba(var(--ac-rgb,217,184,124),.5);border-radius:14px;background:linear-gradient(180deg,#2a221a,rgba(34,27,21,.6));padding:26px 24px 22px;transition:border-color .3s ease;}
+.wyl-pns::before{content:'';position:absolute;inset:6px;border:1px dashed rgba(var(--ac-rgb,217,184,124),.13);border-radius:10px;pointer-events:none;}
+.wyl-pn{position:relative;z-index:1;}
+.wyl-pn>*:first-child{margin-top:0!important;}
+.wyl-pn>*:last-child{margin-bottom:0!important;}
+.wyl-pnote{margin:0 0 14px;text-align:center;font-size:14px;letter-spacing:1.5px;color:var(--text-mute,#c3b39a);}
+html.wyl-on .wyl-pn[hidden]{display:none;}
+.wyl-hitfx{animation:wylHit 1.6s ease 1;}
+@keyframes wylHit{0%,60%{box-shadow:0 0 0 2px #ffd98a,0 0 26px rgba(255,217,138,.55);}100%{box-shadow:0 0 0 0 rgba(255,217,138,0);}}
+/* 原位置留下的指引 */
+.wyl-ph{display:none;}
+html.wyl-on .wyl-ph{display:flex;width:fit-content;max-width:100%;margin:10px auto;align-items:center;gap:10px;padding:8px 18px 9px;border-radius:999px;border:1px dashed rgba(var(--ac-rgb,217,184,124),.45);background:rgba(var(--ac-rgb,217,184,124),.05);color:#e2d3bb;font-family:'Noto Serif TC',serif;font-size:14.5px;letter-spacing:1.5px;line-height:1.5;cursor:pointer;transition:background .2s,border-color .2s;}
+html.wyl-on .wyl-ph:hover{border-color:var(--ac,#d9b87c);background:rgba(var(--ac-rgb,217,184,124),.13);}
+html.wyl-on .zhonglun-block .wyl-ph{margin:16px auto 34px;}
+.wyl-ph b{color:var(--ac,#d9b87c);font-weight:600;}
+.wyl-ph i{font-style:normal;color:var(--ac,#d9b87c);}
+
+/* 從章節裡的指引跳去速覽櫃之後，上排目次下方給一顆「回到剛才讀的地方」（畫面下方留給既有的新文章通知與浮動鈕） */
+.wyl-ret{position:fixed;left:50%;top:72px;z-index:8980;transform:translate(-50%,-18px);opacity:0;pointer-events:none;padding:9px 20px 10px;border-radius:999px;border:1px solid rgba(217,184,124,.6);background:rgba(36,29,22,.96);color:#f1e3cc;font-family:'Noto Serif TC',serif;font-size:14.5px;letter-spacing:2px;box-shadow:0 10px 28px rgba(0,0,0,.5);cursor:pointer;transition:opacity .25s ease,transform .25s ease,border-color .2s;}
+.wyl-ret.on{opacity:1;transform:translate(-50%,0);pointer-events:auto;}
+.wyl-ret:hover{border-color:#e8c886;color:#ffe7b3;}
+
+/* ── 章節抽屜 ── */
+.wyl-chh{display:none;}
+html.wyl-on .wyl-chh{display:block;}
+.wyl-tool{padding:4px 13px 5px;border-radius:999px;border:1px solid rgba(217,184,124,.4);background:transparent;color:#e2d3bb;font-family:'Noto Serif TC',serif;font-size:13.5px;letter-spacing:2px;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s,color .2s;}
+.wyl-tool:hover{border-color:#e8c886;background:rgba(217,184,124,.12);color:#ffe7b3;}
+.wyl-tool.sub{border-color:transparent;color:var(--text-mute,#c3b39a);letter-spacing:1px;}
+.wyl-tool.sub:hover{border-color:rgba(217,184,124,.4);}
+html.wyl-on:not(.wyl-ready) .container>.wyl~*:not(footer){display:none!important;}
+html.wyl-on:not(.wyl-ready) .wyl-cab,html.wyl-on:not(.wyl-ready) .wyl-chh{display:none;}
+html.wyl-on .wyl-hid{display:none!important;}
+html.wyl-on .container>.section-divider.wyl-dv{display:none;}
+html.wyl-on .section-title.wyl-dr{scroll-margin-top:64px;}
+html.wyl-on .section-title.wyl-shut{cursor:pointer;}
+section.zlv[id$="-videos"]{scroll-margin-top:64px;}
+.section-title .wyl-sum,.section-title .wyl-chev{display:none;}
+.wyl-chev{-webkit-appearance:none;appearance:none;margin:0;padding:0;border:0;background:none;font-family:'Noto Serif TC',serif;cursor:pointer;}
+/* 收合時：一章一列 */
+html.wyl-on .section-title.wyl-shut{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr) auto;align-items:center;gap:4px 18px;margin:0 0 9px;padding:15px 20px 15px 22px;text-align:left;border:1px solid rgba(217,184,124,.2);border-radius:11px;background:linear-gradient(90deg,rgba(70,56,43,.42),rgba(44,36,28,.2));transition:border-color .2s,background .2s,transform .2s;}
+html.wyl-on .section-title.wyl-shut::before{display:none;}
+html.wyl-on .section-title.wyl-shut:hover,html.wyl-on .section-title.wyl-shut:focus-visible{border-color:rgba(217,184,124,.6);background:linear-gradient(90deg,rgba(90,72,55,.55),rgba(44,36,28,.3));outline:none;}
+html.wyl-on .section-title.wyl-shut h2{display:block;padding:0;background:none;font-size:20px;letter-spacing:3px;white-space:nowrap;}
+html.wyl-on .section-title.wyl-shut h2 .chapter-num{display:inline-block;min-width:46px;margin-right:6px;font-size:21px;top:-1px;}
+html.wyl-on .section-title.wyl-shut .en{display:none;}
+html.wyl-on .section-title.wyl-shut .wyl-sum{display:block;min-width:0;font-size:14.5px;letter-spacing:1px;line-height:1.5;color:var(--text-mute,#c3b39a);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+html.wyl-on .section-title.wyl-shut .wyl-sum b{font-weight:400;color:var(--c,#d9b87c);}
+html.wyl-on .section-title.wyl-shut .wyl-chev{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;letter-spacing:2px;color:var(--gold-soft,#c9a96e);white-space:nowrap;}
+html.wyl-on .section-title.wyl-shut .wyl-chev::after{content:'';width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(-45deg);}
+/* 展開時：原本的置中大標題，右側多一顆收合鈕 */
+html.wyl-on .section-title.wyl-open{margin:54px 0 30px;}
+html.wyl-on .section-title.wyl-open .wyl-chev{display:inline-flex;align-items:center;gap:7px;position:absolute;right:0;top:50%;transform:translateY(-50%);z-index:2;padding:4px 12px 5px 14px;border-radius:999px;border:1px solid rgba(217,184,124,.4);background:var(--bg-deep,#2c241c);font-size:13px;letter-spacing:2px;color:var(--gold-soft,#c9a96e);}
+html.wyl-on .section-title.wyl-open .wyl-chev::after{content:'';width:7px;height:7px;border-left:1.5px solid currentColor;border-top:1.5px solid currentColor;transform:translateY(2px) rotate(45deg);}
+html.wyl-on .section-title.wyl-open:hover .wyl-chev{border-color:#e8c886;color:#ffe7b3;}
+.wyl-foot{display:none;}
+html.wyl-on .wyl-foot{display:flex;justify-content:center;margin:34px 0 26px;}
+/* 導讀影片：一次一部 */
+.wyl-vsw{display:none;}
+html.wyl-on .wyl-vsw{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;max-width:1180px;margin:0 auto 26px;padding:10px 16px;border-radius:10px;border:1px dashed rgba(var(--ac-rgb,217,184,124),.35);font-size:14.5px;letter-spacing:1.5px;color:var(--text-mute,#c3b39a);}
+.wyl-vsw b{font-weight:600;color:var(--ac,#d9b87c);letter-spacing:2px;}
+html.wyl-on .vh-card.wyl-cur{border-color:var(--ac);box-shadow:0 0 0 1px rgba(var(--ac-rgb),.45),0 18px 34px -16px rgba(var(--ac-rgb),.3);}
+html.wyl-on .vh-card.wyl-cur .vh-go{font-weight:700;}
+/* 原版長頁的回程列 */
+.wyl-back{display:none;}
+html.wyl-classic .wyl-back{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px auto 0;font-size:14px;letter-spacing:1.5px;color:var(--text-mute,#c3b39a);}
+html.wyl-classic .wyl-cab,html.wyl-classic .wyl-chh{display:none;}
+html:not(.wyl-on) .wyl-cab{display:none;}
+html.wyl-fail .wyl-cab{display:block;}
+html.wyl-fail .wyl-tabs{display:none;}
+
+@media(max-width:1060px){
+ .wyl-doors{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .wyl-door--new{grid-column:1/-1;}
+ .wyl-door--new .wyl-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 22px;}
+ .wyl-bks{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;}
+ .wyl-bk{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:'h a' 'd a' 's a';gap:5px 14px;padding:15px 16px 13px;align-items:center;}
+ .wyl-bk::after{font-size:92px;bottom:-22px;}
+ .wyl-bkh{grid-area:h;}.wyl-bkd{grid-area:d;}.wyl-bks2{grid-area:s;min-height:0;margin:0;}
+ .wyl-bka{grid-area:a;flex-direction:column;border-top:0;border-left:1px dashed rgba(var(--ac-rgb),.25);padding:0 0 0 13px;gap:6px;}
+ .wyl-bka .wyl-b{flex:none;padding:5px 14px 6px;}
+}
+@media(max-width:820px){
+ .wyl{margin-top:32px;}
+ .wyl-title{font-size:24px;letter-spacing:6px;}
+ .wyl-sub{font-size:14.5px;}
+ .wyl-doors{gap:13px;}
+ .wyl-door{padding:18px 16px 16px;}
+ .wyl-dh{font-size:20px;margin-bottom:11px;}
+ .wyl-lw b{font-size:21px;}
+ .wyl-lab{margin:36px 0 13px;font-size:19px;letter-spacing:4px;}
+ .wyl-lab em{flex-basis:100%;font-size:13.5px;}
+ .wyl-lab .wyl-tools{margin-left:0;}
+ .wyl-tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding:0 2px;margin-right:-16px;padding-right:16px;}
+ .wyl-tabs::-webkit-scrollbar{display:none;}
+ .wyl-tab{flex:none;padding:8px 13px 9px;font-size:14.5px;letter-spacing:2px;}
+ .wyl-tabg{margin-left:4px;}
+ .wyl-pns{margin:0 -10px;padding:18px 9px 16px;border-radius:12px;}
+ html.wyl-on .section-title.wyl-shut{grid-template-columns:minmax(0,1fr) auto;padding:13px 14px 13px 16px;gap:2px 12px;}
+ html.wyl-on .section-title.wyl-shut h2{font-size:18px;letter-spacing:2px;white-space:normal;}
+ html.wyl-on .section-title.wyl-shut h2 .chapter-num{min-width:36px;font-size:18px;}
+ html.wyl-on .section-title.wyl-shut .wyl-sum{grid-column:1/2;grid-row:2;font-size:13px;white-space:normal;}
+ html.wyl-on .section-title.wyl-shut .wyl-chev{grid-row:1/3;grid-column:2;font-size:0;gap:0;}
+ html.wyl-on .section-title.wyl-open .wyl-chev{position:static;transform:none;margin:10px auto 0;width:fit-content;display:flex;}
+ html.wyl-on .wyl-ph{font-size:13.5px;padding:7px 14px 8px;}
+}
+@media(max-width:700px){
+ .wyl-doors{grid-template-columns:1fr;}
+ .wyl-door--new .wyl-steps{grid-template-columns:1fr;}
+}
+@media(max-width:560px){
+ .wyl-ri{flex-wrap:wrap;gap:0 9px;}
+ .wyl-ri b{flex:1 1 calc(100% - 20px);white-space:normal;}
+ .wyl-ri span{flex:1 1 100%;padding-left:16px;}
+ .wyl-bks{grid-template-columns:1fr;}
+ .wyl-bk{padding:13px 13px 12px;gap:4px 10px;}
+ .wyl-bkn{font-size:18px;}
+ .wyl-bkd{font-size:13px;}
+ .wyl-bka{padding-left:10px;}
+ .wyl-bka .wyl-b{padding:4px 11px 5px;font-size:13px;}
+}
+@media(prefers-reduced-motion:reduce){.wyl *,.wyl-hitfx{transition:none!important;animation:none!important;}}</style>
+<section class="wyl" id="wy-lobby" aria-label="從這裡開始"><div class="wyl-head"><span class="wyl-eyebrow">Start Here</span><h2 class="wyl-title">從這裡開始</h2><p class="wyl-sub">十部經論、一百卷本論，先選一道門進去。</p></div><div class="wyl-doors"><article class="wyl-door wyl-door--new" data-wm="初" style="--ac:#d9b87c;--ac-rgb:217,184,124"><div class="wyl-dk"><i></i>第一次來</div><h3 class="wyl-dh">四步起讀</h3><ol class="wyl-steps"><li><span class="wyl-sn" aria-hidden="true">一</span><div><span class="wyl-st">先磨一把刀</span><span class="wyl-sd">《刀藏》十八刀：把龍樹破自性的手法，磨成帶得走的刀。</span><span class="wyl-sa"><a class="wyl-b" href="#wy-cab" data-cab="dao18">開十八刀</a></span></div></li><li><span class="wyl-sn" aria-hidden="true">二</span><div><span class="wyl-st">搬上座來</span><span class="wyl-sd">《坐禪三昧經》二十二品：先辨病、後下藥。</span><span class="wyl-sa"><a class="wyl-b" href="#wy-cab" data-cab="zc22">開二十二品</a></span></div></li><li><span class="wyl-sn" aria-hidden="true">三</span><div><span class="wyl-st">持刀入《中論》</span><span class="wyl-sd">二十七品根本頌，每品有總表與導讀影片。</span><span class="wyl-sa"><a class="wyl-b" href="#wy-cab" data-cab="zl27">開二十七品</a><a class="wyl-b" href="#zl-videos">看導讀影片</a></span></div></li><li><span class="wyl-sn" aria-hidden="true">四</span><div><span class="wyl-st">走進一百卷</span><span class="wyl-sd">《大智度論》：依身份與目的，選一條切入路徑。</span><span class="wyl-sa"><a class="wyl-b" href="#sec-path">看閱讀路徑</a></span></div></li></ol></article><article class="wyl-door wyl-door--live" data-wm="播"><div class="wyl-dk"><i></i>跟首播共讀</div><h3 class="wyl-dh">下一場首播</h3><div class="wyl-live" data-wyl="live" aria-live="polite"><p class="wyl-lnone">目前沒有排定的首播；各部導讀影片都能隨時回看。</p><div class="wyl-la"><a class="wyl-b" href="#sec-videos">看導讀影片</a></div></div></article><article class="wyl-door wyl-door--find" data-wm="尋" style="--ac:#d9b87c;--ac-rgb:217,184,124"><div class="wyl-dk"><i></i>找一部經、一品</div><h3 class="wyl-dh">輸入經名、品名或關鍵字</h3><label class="wyl-find"><input type="search" id="wylQ" placeholder="例如：觀因緣、不淨觀、十八空" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="找一部經、一品" aria-controls="wylR"></label><div class="wyl-hot"><em>常找</em><button type="button" class="wyl-chip" data-q="觀因緣">觀因緣</button><button type="button" class="wyl-chip" data-q="不淨觀">不淨觀</button><button type="button" class="wyl-chip" data-q="十八空">十八空</button><button type="button" class="wyl-chip" data-q="初禪">初禪</button><button type="button" class="wyl-chip" data-q="緒論">緒論</button></div><div class="wyl-inv" data-wyl="inv"><div class="wyl-invk">這一頁找得到</div><a class="wyl-iv" href="#wy-shelf" data-inv="texts"><b><i data-n>—</i><small>部</small></b><span>經典</span></a><a class="wyl-iv" href="#wy-cab" data-inv="items"><b><i data-n>—</i><small>格</small></b><span>品目</span></a><a class="wyl-iv" href="#sec-videos" data-inv="videos"><b><i data-n>—</i><small>支</small></b><span>導讀影片</span></a><a class="wyl-iv" href="#series-guides" data-inv="essays"><b><i data-n>—</i><small>篇</small></b><span>導讀文章</span></a></div><div class="wyl-res" id="wylR" role="listbox" aria-label="找一部經、一品" hidden></div><button type="button" class="wyl-full" data-wyl="full" hidden>到百卷經文與白話裡全文搜尋 →</button></article></div><div class="wyl-shelf" id="wy-shelf"><h3 class="wyl-lab"><span>經典書架</span><em>讀本 · 品目 · 影片，一卡直達</em></h3><div class="wyl-glab">龍樹論藏</div><div class="wyl-bks"><article class="wyl-bk" data-text="zl" data-sr="zl" data-wm="中" style="--ac:#cfd6da;--ac-rgb:207,214,218"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">八<br>不</span><div class="wyl-bkt"><b class="wyl-bkn">中論</b><span class="wyl-bkby">龍樹造 · 鳩摩羅什譯</span></div></div><p class="wyl-bkd">以八不破諸戲論 · 二十七品根本頌</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#wy-cab" data-cab="zl27">品目</a><a class="wyl-b" href="#zl-videos">影片</a></div></article><article class="wyl-bk" data-text="tg" data-sr="tg" data-wm="門" style="--ac:#9ccbc4;--ac-rgb:156,203,196"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">入<br>空</span><div class="wyl-bkt"><b class="wyl-bkn">十二門論</b><span class="wyl-bkby">龍樹造 · 鳩摩羅什譯</span></div></div><p class="wyl-bkd">以十二門明緣起空義 ·《中論》的綱目</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/twelve-gates/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#tg-videos">影片</a></div></article><article class="wyl-bk" data-text="vv" data-sr="vv" data-wm="諍" style="--ac:#bdb66e;--ac-rgb:189,182,110"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">迴<br>諍</span><div class="wyl-bkt"><b class="wyl-bkn">迴諍論</b><span class="wyl-bkby">龍樹造 · 毘目智仙、瞿曇流支譯</span></div></div><p class="wyl-bkd">回應「空義不能成立」的論難</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/vigrahavyavartani/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#vv-videos">影片</a></div></article><article class="wyl-bk" data-text="dz" data-sr="dz" data-wm="智" style="--ac:#d9b87c;--ac-rgb:217,184,124"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">智<br>度</span><div class="wyl-bkt"><b class="wyl-bkn">大智度論</b><span class="wyl-bkby">龍樹造 · 鳩摩羅什譯</span></div></div><p class="wyl-bkd">釋《大品般若》一百卷 · 以十八空展開實踐</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="#catalogRoot">目錄</a><a class="wyl-b" href="#wy-cab" data-cab="kong18">速覽</a><a class="wyl-b" href="#dz-videos">影片</a></div></article><article class="wyl-bk" data-text="bl" data-wm="百" style="--ac:#98a2de;--ac-rgb:152,162,222"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">百<br>論</span><div class="wyl-bkt"><b class="wyl-bkn">百論</b><span class="wyl-bkby">提婆造 · 鳩摩羅什譯</span></div></div><p class="wyl-bkd">龍樹弟子提婆造 · 破外道異執</p><div class="wyl-bks2" data-wyl="st">讀本與影音課程</div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/bailun/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="https://www.youtube.com/playlist?list=PLMvJNRO3hW2lDsTanVTKVU-FJua1SyzFT" target="_blank" rel="noopener">影音</a></div></article></div><div class="wyl-glab">三昧經與本站彙編</div><div class="wyl-bks"><article class="wyl-bk" data-text="sl" data-sr="sl" data-wm="嚴" style="--ac:#db8c68;--ac-rgb:219,140,104"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">健<br>行</span><div class="wyl-bkt"><b class="wyl-bkn">首楞嚴三昧經</b><span class="wyl-bkby">鳩摩羅什譯</span></div></div><p class="wyl-bkd">諸三昧中的定王 · 上下卷二十四品</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/surangama-samadhi-sutra/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#sl-videos">影片</a></div></article><article class="wyl-bk" data-text="bz" data-sr="bz" data-wm="舟" style="--ac:#c9a0c0;--ac-rgb:201,160,192"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">佛<br>立</span><div class="wyl-bkt"><b class="wyl-bkn">般舟三昧經</b><span class="wyl-bkby">支婁迦讖譯</span></div></div><p class="wyl-bkd">諸佛現前三昧 · 念佛三昧的源頭之一</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/pratyutpanna-samadhi-sutra/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#bz-videos">影片</a></div></article><article class="wyl-bk" data-text="zc" data-sr="zc" data-wm="禪" style="--ac:#9cb88c;--ac-rgb:156,184,140"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">坐<br>禪</span><div class="wyl-bkt"><b class="wyl-bkn">坐禪三昧經</b><span class="wyl-bkby">鳩摩羅什譯</span></div></div><p class="wyl-bkd">先辨病、後下藥 · 五門對治</p><div class="wyl-bks2" data-wyl="st"></div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/zuochan-sanmei-jing/" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#wy-cab" data-cab="zc22">品目</a><a class="wyl-b" href="#zc-videos">影片</a></div></article><article class="wyl-bk" data-text="yk" data-wm="喻" style="--ac:#dba9a0;--ac-rgb:219,169,160"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">譬<br>喻</span><div class="wyl-bkt"><b class="wyl-bkn">譬喻藏</b><span class="wyl-bkby">本站彙編</span></div></div><p class="wyl-bkd">百卷六百一十三則譬喻 · 繫於《中論》四十六頌</p><div class="wyl-bks2" data-wyl="st">兩論合讀的橋</div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/dazhidulun-0/yuku.html" target="_blank" rel="noopener">讀本</a></div></article><article class="wyl-bk" data-text="dao" data-wm="刀" style="--ac:#a9c4d8;--ac-rgb:169,196,216"><div class="wyl-bkh"><span class="wyl-seal" aria-hidden="true">刀<br>藏</span><div class="wyl-bkt"><b class="wyl-bkn">刀藏</b><span class="wyl-bkby">本站彙編</span></div></div><p class="wyl-bkd">四門十八刀 · 二十七品地圖環讀</p><div class="wyl-bks2" data-wyl="st">破自性的工具書</div><div class="wyl-bka"><a class="wyl-b" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/daozang.html" target="_blank" rel="noopener">讀本</a><a class="wyl-b" href="#wy-cab" data-cab="dao18">品目</a></div></article></div></div><div class="wyl-cab" id="wy-cab"><h3 class="wyl-lab"><span>品目速覽</span><em>一次看一部 · 換色籤不必捲頁</em></h3><div class="wyl-tabs" role="tablist" aria-label="品目速覽"><button type="button" class="wyl-tab" role="tab" id="wyl-tab-dao18" data-tab="dao18" aria-selected="false" aria-controls="wyl-pn-dao18" tabindex="-1" style="--ac:#a9c4d8;--ac-rgb:169,196,216"><i></i>刀藏十八刀</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-zc22" data-tab="zc22" aria-selected="false" aria-controls="wyl-pn-zc22" tabindex="-1" style="--ac:#9cb88c;--ac-rgb:156,184,140"><i></i>坐禪二十二品</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-zl27" data-tab="zl27" aria-selected="false" aria-controls="wyl-pn-zl27" tabindex="-1" style="--ac:#cfd6da;--ac-rgb:207,214,218"><i></i>中論二十七品</button><span class="wyl-tabg">大智度論</span><button type="button" class="wyl-tab" role="tab" id="wyl-tab-shiyu" data-tab="shiyu" aria-selected="false" aria-controls="wyl-pn-shiyu" tabindex="-1" style="--ac:#d9b87c;--ac-rgb:217,184,124"><i></i>十喻</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-kong18" data-tab="kong18" aria-selected="false" aria-controls="wyl-pn-kong18" tabindex="-1" style="--ac:#d9b87c;--ac-rgb:217,184,124"><i></i>十八空</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-sdbd" data-tab="sdbd" aria-selected="false" aria-controls="wyl-pn-sdbd" tabindex="-1" style="--ac:#d9b87c;--ac-rgb:217,184,124"><i></i>四禪八定</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-simen" data-tab="simen" aria-selected="false" aria-controls="wyl-pn-simen" tabindex="-1" style="--ac:#d9b87c;--ac-rgb:217,184,124"><i></i>四門映射</button><button type="button" class="wyl-tab" role="tab" id="wyl-tab-sanqi" data-tab="sanqi" aria-selected="false" aria-controls="wyl-pn-sanqi" tabindex="-1" style="--ac:#d9b87c;--ac-rgb:217,184,124"><i></i>三十七品</button></div><div class="wyl-pns"><div class="wyl-pn" role="tabpanel" id="wyl-pn-dao18" data-tab="dao18" aria-labelledby="wyl-tab-dao18" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-zc22" data-tab="zc22" aria-labelledby="wyl-tab-zc22" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-zl27" data-tab="zl27" aria-labelledby="wyl-tab-zl27" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-shiyu" data-tab="shiyu" aria-labelledby="wyl-tab-shiyu" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-kong18" data-tab="kong18" aria-labelledby="wyl-tab-kong18" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-sdbd" data-tab="sdbd" aria-labelledby="wyl-tab-sdbd" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-simen" data-tab="simen" aria-labelledby="wyl-tab-simen" hidden></div><div class="wyl-pn" role="tabpanel" id="wyl-pn-sanqi" data-tab="sanqi" aria-labelledby="wyl-tab-sanqi" hidden></div></div></div><div class="wyl-chh" id="wy-chapters"><h3 class="wyl-lab"><span>全書章節</span><em>點一章展開 · 再點收合</em><span class="wyl-tools"><button type="button" class="wyl-tool" data-wyl="all" data-state="0">全部展開</button><a class="wyl-tool sub" href="?classic=1" data-wyl="classic">原版長頁</a></span></h3></div><div class="wyl-back"><span>目前是原版長頁</span><a class="wyl-tool" href="?classic=0" data-wyl="modern">回到新版面</a></div></section>
+<script>/* WY-LOBBY-JS：入門區的頁內程式。
+   只做「呈現」：把既有的速覽格搬進速覽櫃、把各章收成抽屜、導讀影片一次顯示一部、首播與尋經。
+   原始碼一字不動；任何一步出錯就整個退回原本的長頁（html 不留 wyl-on）。 */
+(function(){
+if(window.__wyLobby)return;window.__wyLobby=1;
+var D=document,H=D.documentElement,W=window,CFG={"order":["zl","tg","vv","dz","bl","sl","bz","zc","yk","dao"],"texts":{"zl":{"name":"中論","by":"龍樹造 · 鳩摩羅什譯","d":"以八不破諸戲論 · 二十七品根本頌","ac":"#cfd6da","rgb":"207,214,218","sr":"zl"},"tg":{"name":"十二門論","by":"龍樹造 · 鳩摩羅什譯","d":"以十二門明緣起空義 ·《中論》的綱目","ac":"#9ccbc4","rgb":"156,203,196","sr":"tg"},"vv":{"name":"迴諍論","by":"龍樹造 · 毘目智仙、瞿曇流支譯","d":"回應「空義不能成立」的論難","ac":"#bdb66e","rgb":"189,182,110","sr":"vv"},"dz":{"name":"大智度論","by":"龍樹造 · 鳩摩羅什譯","d":"釋《大品般若》一百卷 · 以十八空展開實踐","ac":"#d9b87c","rgb":"217,184,124","sr":"dz"},"bl":{"name":"百論","by":"提婆造 · 鳩摩羅什譯","d":"龍樹弟子提婆造 · 破外道異執","ac":"#98a2de","rgb":"152,162,222","sr":""},"sl":{"name":"首楞嚴三昧經","by":"鳩摩羅什譯","d":"諸三昧中的定王 · 上下卷二十四品","ac":"#db8c68","rgb":"219,140,104","sr":"sl"},"bz":{"name":"般舟三昧經","by":"支婁迦讖譯","d":"諸佛現前三昧 · 念佛三昧的源頭之一","ac":"#c9a0c0","rgb":"201,160,192","sr":"bz"},"zc":{"name":"坐禪三昧經","by":"鳩摩羅什譯","d":"先辨病、後下藥 · 五門對治","ac":"#9cb88c","rgb":"156,184,140","sr":"zc"},"yk":{"name":"譬喻藏","by":"本站彙編","d":"百卷六百一十三則譬喻 · 繫於《中論》四十六頌","ac":"#dba9a0","rgb":"219,169,160","sr":""},"dao":{"name":"刀藏","by":"本站彙編","d":"四門十八刀 · 二十七品地圖環讀","ac":"#a9c4d8","rgb":"169,196,216","sr":""}},"tabs":[{"id":"dao18","label":"刀藏十八刀","ac":"#a9c4d8","rgb":"169,196,216","sel":".dao18-wrap"},{"id":"zc22","label":"坐禪二十二品","ac":"#9cb88c","rgb":"156,184,140","sel":"#zc22"},{"id":"zl27","label":"中論二十七品","ac":"#cfd6da","rgb":"207,214,218","sel":".zl27-wrap"},{"id":"shiyu","label":"十喻","ac":"#d9b87c","rgb":"217,184,124","h3":"十喻解空一覽"},{"id":"kong18","label":"十八空","ac":"#d9b87c","rgb":"217,184,124","h3":"十八空一覽"},{"id":"sdbd","label":"四禪八定","ac":"#d9b87c","rgb":"217,184,124","sel":"#sdbd-axis"},{"id":"simen","label":"四門映射","ac":"#d9b87c","rgb":"217,184,124","sel":"#simen-gates"},{"id":"sanqi","label":"三十七品","ac":"#d9b87c","rgb":"217,184,124","sel":"#sanqi-list"}],"sum":{"sec-intro":"百卷釋《大品般若》· 廣譯與略譯 · 讀前先熟《中論》","sec-path":"依身份與目的，選一條切入路徑","sec-compendium":"三條進路的必讀卷次：中論 · 十八空 · 念佛","sec-fullreading":"五階段次第，讀完一百卷","sec-topic":"依主題查卷次 · 一百卷卷品目錄","sec-lineage":"從般若經源頭到漢傳的思想譜系","sec-videos":"各部經論逐品導讀 · YouTube 首播共讀","sec-personal":"可與本論並讀的論藏、三昧經與本站彙編","sec-extended":"系列導讀文章 · 線上相關資源","sec-cite":"引用格式 · 底本依據 · 引用到「節」的深連結"},"open":[],"one":true,"w":{"open":"展開","shut":"收合","foot":"收合本章 ▴","allOpen":"全部展開","allShut":"全部收合","ph":"收在上方「品目速覽」","phGo":"開啟 ↑","ret":"↩ 回到剛才讀的地方","now":"目前顯示","hint":"點上方經卡換一部","vall":"全部攤開","vone":"一次一部"},"live":{"h":"下一場首播","hLive":"首播進行中","enter":"▶ 進入首播室","all":"首播排程與影片區","none":"目前沒有排定的首播；各部導讀影片都能隨時回看。","noneBtn":"看導讀影片"},"find":{"none":"這一頁的經名、品目、影片、章節裡沒有找到。"}};
+var root=D.getElementById('wy-lobby');if(!root)return;
+var C=root.parentNode;H.classList.add('wyl-js');
+function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){}return null;}
+function $(s,r){return (r||D).querySelector(s);}
+function $$(s,r){return [].slice.call((r||D).querySelectorAll(s));}
+function esc(t){return String(t==null?'':t).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function byId(h){try{return D.getElementById(decodeURIComponent(String(h).replace(/^#/,'')));}catch(e){return null;}}
+
+/* ── 新版／原版 ── */
+var qs='';try{qs=location.search||'';}catch(e){}
+var wantC=/[?&]classic=1\b/.test(qs),wantM=/[?&]classic=0\b/.test(qs);
+if(wantC)LS('wylClassic','1');if(wantM)LS('wylClassic',null);
+var on=!(wantC||(!wantM&&LS('wylClassic')==='1'));
+if(on)H.classList.add('wyl-on');else H.classList.add('wyl-classic');
+
+var CH={},ORDER=[],TABS={},curTab=null,AREAS={},AORDER=[],curArea=null,allVid=!CFG.one,ready=false,_siv=Element.prototype.scrollIntoView;
+
+function topOf(el){return el.getBoundingClientRect().top+(W.pageYOffset||H.scrollTop||0);}
+function scrollToEl(el,off,instant){var y=topOf(el)-(off==null?72:off);if(y<0)y=0;try{W.scrollTo({top:y,behavior:instant?'instant':'smooth'});}catch(e){W.scrollTo(0,y);}}
+function flash(el){if(!el)return;el.classList.remove('wyl-hitfx');void el.offsetWidth;el.classList.add('wyl-hitfx');setTimeout(function(){el.classList.remove('wyl-hitfx');},1800);}
+function blockOf(t){
+ if(t.sel)return $(t.sel);
+ if(t.h3){var hs=$$('h3.zhonglun-h');for(var i=0;i<hs.length;i++){if((hs[i].textContent||'').replace(/\s+/g,'').indexOf(t.h3)===0)return hs[i].closest('.zhonglun-section');}}
+ return null;}
+
+/* ── 品目速覽櫃 ── */
+function buildCab(){
+ CFG.tabs.forEach(function(t){
+  var btn=$('.wyl-tab[data-tab="'+t.id+'"]',root),pn=$('.wyl-pn[data-tab="'+t.id+'"]',root),el=blockOf(t);
+  if(!btn||!pn)return;
+  if(!el||root.contains(el)){btn.hidden=true;btn.style.display='none';return;}
+  var ph=D.createElement('button');ph.type='button';ph.className='wyl-ph';ph.setAttribute('data-cab',t.id);
+  ph.style.setProperty('--ac',t.ac);ph.style.setProperty('--ac-rgb',t.rgb);
+  ph.innerHTML='<b>'+esc(t.label)+'</b>'+esc(CFG.w.ph)+'<i>'+esc(CFG.w.phGo)+'</i>';
+  el.parentNode.insertBefore(ph,el);pn.appendChild(el);
+  TABS[t.id]={cfg:t,btn:btn,pn:pn,el:el,ph:ph};});
+ /* 籤前小字：整組都沒有就一起收掉 */
+ $$('.wyl-tabg',root).forEach(function(g){var n=g.nextElementSibling,any=false;while(n&&!n.classList.contains('wyl-tabg')){if(n.classList.contains('wyl-tab')&&!n.hidden)any=true;n=n.nextElementSibling;}if(!any)g.style.display='none';});
+ /* 速覽格用到的彈窗（總表）原本放在章節裡；章節收合時要還能開，所以移到 body */
+ $$('[id$="Modal"]',C).forEach(function(m){try{if(!root.contains(m)&&getComputedStyle(m).position==='fixed')D.body.appendChild(m);}catch(e){}});
+ var ids=Object.keys(TABS);if(!ids.length){var cab=$('.wyl-cab',root);if(cab)cab.style.display='none';return;}
+ var want=LS('wylTab');tab(TABS[want]?want:CFG.tabs.filter(function(t){return TABS[t.id];})[0].id,true);}
+function tab(id,quiet){
+ var T=TABS[id];if(!T)return false;
+ Object.keys(TABS).forEach(function(k){var x=TABS[k],a=(k===id);x.btn.setAttribute('aria-selected',a?'true':'false');x.btn.tabIndex=a?0:-1;x.pn.hidden=!a;});
+ curTab=id;var pns=$('.wyl-pns',root);if(pns){pns.style.setProperty('--ac',T.cfg.ac);pns.style.setProperty('--ac-rgb',T.cfg.rgb);}
+ if(!quiet)LS('wylTab',id);
+ try{var tb=T.btn,bar=tb.parentNode;if(bar.scrollWidth>bar.clientWidth+2)bar.scrollLeft=Math.max(0,tb.offsetLeft-bar.offsetLeft-bar.clientWidth/2+tb.offsetWidth/2);}catch(e){}
+ return true;}
+function goCab(id,item){
+ var t=null;CFG.tabs.forEach(function(x){if(x.id===id)t=x;});if(!t)return;
+ if(on&&TABS[id]){tab(id);var cab=$('.wyl-cab',root);
+  if(item){setTimeout(function(){try{_siv.call(item,{behavior:'smooth',block:'center'});}catch(e){_siv.call(item);}flash(item);},40);}
+  else if(cab)scrollToEl(cab,74);}
+ else{var el=item||blockOf(t);if(el){try{_siv.call(el,{behavior:'smooth',block:item?'center':'start'});}catch(e){_siv.call(el);}if(item)flash(item);}}}
+
+/* 從章節裡跳去速覽櫃：留一顆回程鈕 */
+var retBtn=null,retT=0;
+function hideRet(){if(retBtn)retBtn.classList.remove('on');}
+function offerRet(y){if(!CFG.w.ret)return;
+ if(!retBtn){retBtn=D.createElement('button');retBtn.type='button';retBtn.className='wyl-ret';retBtn.textContent=CFG.w.ret;D.body.appendChild(retBtn);
+  retBtn.addEventListener('click',function(){var yy=+retBtn.getAttribute('data-y')||0;hideRet();try{W.scrollTo({top:yy,behavior:'smooth'});}catch(e){W.scrollTo(0,yy);}});}
+ retBtn.setAttribute('data-y',y);void retBtn.offsetWidth;retBtn.classList.add('on');clearTimeout(retT);retT=setTimeout(hideRet,40000);}
+/* ── 章節抽屜 ── */
+function elsOf(c){var out=[],n=c.t.nextElementSibling;while(n){if(n.tagName==='FOOTER'||(n.id&&n.classList.contains('section-title')))break;if(n.tagName!=='SCRIPT'&&n.tagName!=='STYLE'&&!n.classList.contains('wyl-dv'))out.push(n);n=n.nextElementSibling;}return out;}
+function buildCh(){
+ var n=root.nextElementSibling;
+ while(n){if(n.tagName==='FOOTER')break;
+  if(n.id&&n.classList.contains('section-title')){var p=n.previousElementSibling;while(p&&(p.tagName==='SCRIPT'||p.tagName==='STYLE'))p=p.previousElementSibling;
+   if(p&&p.classList.contains('section-divider'))p.classList.add('wyl-dv');
+   CH[n.id]={id:n.id,t:n,open:false};ORDER.push(n.id);}
+  n=n.nextElementSibling;}
+ ORDER.forEach(function(id){var c=CH[id],t=c.t;
+  t.classList.add('wyl-dr','wyl-shut');
+  var sum=D.createElement('span');sum.className='wyl-sum';sum.textContent=CFG.sum[id]||'';
+  var chev=D.createElement('button');chev.type='button';chev.className='wyl-chev';chev.textContent=CFG.w.open;chev.setAttribute('aria-expanded','false');
+  chev.setAttribute('aria-label',(($('h2',t)||t).textContent||'').replace(/\s+/g,' ').trim());
+  t.appendChild(sum);t.appendChild(chev);c.sum=sum;c.chev=chev;
+  var f=D.createElement('div');f.className='wyl-foot';f.innerHTML='<button type="button" class="wyl-tool" data-shut="'+esc(id)+'">'+esc(CFG.w.foot)+'</button>';
+  var els=elsOf(c),last=els[els.length-1];if(last)last.parentNode.insertBefore(f,last.nextSibling);
+  t.addEventListener('click',function(e){if(!e.target.closest||e.target.closest('a'))return;if(c.open&&!e.target.closest('.wyl-chev'))return;toggle(id);});});}
+function paint(id){
+ var c=CH[id];if(!c)return;var els=elsOf(c);
+ els.forEach(function(e){var hide=!c.open;if(!hide&&id==='sec-videos'){var va=e.getAttribute('data-wyl-va');if(va&&!allVid&&va!==curArea)hide=true;}e.classList.toggle('wyl-hid',hide);});
+ c.t.classList.toggle('wyl-shut',!c.open);c.t.classList.toggle('wyl-open',c.open);
+ c.chev.textContent=c.open?CFG.w.shut:CFG.w.open;c.chev.setAttribute('aria-expanded',c.open?'true':'false');
+ if(c.open)tidy(els);}
+function tidy(els){ /* 速覽格搬走之後，連著的分隔花飾只留一個；章尾的也收掉 */
+ var prevDiv=true,i,e,aux=function(x){return x.classList.contains('wyl-ph')||x.classList.contains('wyl-foot');};
+ for(i=0;i<els.length;i++){e=els[i];if(aux(e))continue;if(!e.classList.contains('section-divider')){prevDiv=false;continue;}e.classList.toggle('wyl-hid',prevDiv);prevDiv=true;}
+ for(i=els.length-1;i>=0;i--){e=els[i];if(aux(e))continue;if(e.classList.contains('section-divider'))e.classList.add('wyl-hid');break;}}
+function save(){LS('wylOpen',ORDER.filter(function(id){return CH[id].open;}).join(','));syncAll();}
+function open(id,quiet){var c=CH[id];if(!c||c.open)return!!c;c.open=true;paint(id);if(id==='sec-videos')showArea();if(!quiet)save();else syncAll();return true;}
+function shut(id,scroll){var c=CH[id];if(!c||!c.open)return;var below=c.t.getBoundingClientRect().top<0;c.open=false;paint(id);save();if(scroll||below)scrollToEl(c.t,70,true);}
+function toggle(id){var c=CH[id];if(!c)return;if(c.open)shut(id);else{open(id);if(c.t.getBoundingClientRect().top>W.innerHeight*0.4)scrollToEl(c.t,70);}}
+function syncAll(){var b=$('[data-wyl=all]',root);if(!b)return;var all=ORDER.length&&ORDER.every(function(id){return CH[id].open;});b.textContent=all?CFG.w.allShut:CFG.w.allOpen;b.setAttribute('data-state',all?'1':'0');}
+function setAll(v){ORDER.forEach(function(id){CH[id].open=!!v;});if(CFG.one){allVid=!!v;}ORDER.forEach(paint);if(v)showArea();save();}
+
+/* ── 導讀影片：一次一部 ── */
+function buildVid(){
+ var v=CH['sec-videos'];if(!v)return;var vels=elsOf(v);
+ vels.forEach(function(s){if(s.tagName!=='SECTION'||!/-videos$/.test(s.id||''))return;
+  var grp=[s],p=s.previousElementSibling;while(p&&(p.tagName==='STYLE'||p.tagName==='SCRIPT'))p=p.previousElementSibling;
+  if(p&&p.classList&&p.classList.contains('gd-band')&&vels.indexOf(p)>=0)grp.unshift(p);
+  AREAS[s.id]={els:grp,sec:s};AORDER.push(s.id);grp.forEach(function(e){e.setAttribute('data-wyl-va',s.id);});});
+ if(!AORDER.length)return;
+ if(!$('.vh-card')){allVid=true;return;} /* 沒有總覽卡就沒得切換：照舊全部攤開 */
+ var first=AREAS[AORDER[0]].els[0],sw=D.createElement('div');sw.className='wyl-vsw';sw.setAttribute('data-wyl','vsw');
+ first.parentNode.insertBefore(sw,first);
+ var want=LS('wylArea');if(!AREAS[want]){want=null;var up=upcoming();for(var i=0;i<up.length&&!want;i++){var hc=$('.vh-card[data-sr="'+up[i].sr+'"]');var sid=hc&&hc.getAttribute('data-sec');if(AREAS[sid])want=sid;}}
+ curArea=want||AORDER[0];}
+function nameOfArea(id){var hc=$('.vh-card[data-sec="'+id+'"]');return hc?(($('.vh-name',hc)||{}).textContent||''):'';}
+function showArea(){
+ var v=CH['sec-videos'];if(!v)return;paint('sec-videos');
+ $$('.vh-card').forEach(function(c){c.classList.toggle('wyl-cur',!allVid&&c.getAttribute('data-sec')===curArea);});
+ var sw=$('[data-wyl=vsw]');
+ if(sw){var hc=$('.vh-card[data-sec="'+curArea+'"]');
+  if(hc){sw.style.setProperty('--ac',hc.style.getPropertyValue('--ac'));sw.style.setProperty('--ac-rgb',hc.style.getPropertyValue('--ac-rgb'));}
+  sw.innerHTML=(allVid?'':'<span>'+esc(CFG.w.now)+'</span><b>'+esc(nameOfArea(curArea))+'</b><span>· '+esc(CFG.w.hint)+'</span>')+'<button type="button" class="wyl-tool" data-wyl-vall="'+(allVid?'0':'1')+'">'+esc(allVid?CFG.w.vone:CFG.w.vall)+'</button>';
+  if(!CFG.one)sw.classList.add('wyl-hid');}
+ if(v.open)(allVid?AORDER:[curArea]).forEach(function(id){if(AREAS[id])fixArea(AREAS[id].sec);});}
+function area(id,quiet){if(!AREAS[id])return false;curArea=id;if(!quiet)LS('wylArea',id);showArea();return true;}
+function fixArea(sec){try{
+ var t=$('.zlv-track',sec);
+ if(t&&t.scrollLeft<4){var c=$('.zlv-new',sec);c=c&&c.closest('.zlv-card');if(!c)c=$('.zlv-card.is-next',sec);if(c)t.scrollLeft=Math.max(0,c.getBoundingClientRect().left-t.getBoundingClientRect().left+t.scrollLeft-4);}
+ $$('[class$="-chips"]',sec).forEach(function(r){if(r.scrollWidth<=r.clientWidth+2||r.scrollLeft>2)return;var k=$('.is-next',r)||$$('.is-done',r).pop();if(k)r.scrollLeft=k.offsetLeft-r.offsetLeft-r.clientWidth/2+k.offsetWidth/2;});
+ if(W.__zlvUpd){var st=$('.zlv-stage',sec);if(st)W.__zlvUpd(st);}}catch(e){}}
+
+/* ── 把藏起來的目標先打開（深連結、目次、站內跳轉、既有程式的捲動都走這裡） ── */
+function chOf(el){var n=el;while(n&&n.parentNode!==C)n=n.parentNode;while(n&&n!==root){if(n.id&&CH[n.id]&&n.classList.contains('section-title'))return n.id;if(n.tagName==='FOOTER')return null;n=n.previousElementSibling;}return null;}
+var pend=null;
+function reveal(el){
+ if(!on||!el||!el.closest)return;
+ if(!ready){if(C.contains(el)&&!root.contains(el))pend=el;return;}
+ var pn=el.closest('.wyl-pn');if(pn){if(pn.hidden)tab(pn.getAttribute('data-tab'));return;}
+ if(!C.contains(el))return;
+ var va=el.closest('[data-wyl-va]');
+ var ch=chOf(el);if(ch){if(va&&!allVid)curArea=va.getAttribute('data-wyl-va');if(!CH[ch].open)open(ch);else if(va)showArea();if(va&&!allVid)LS('wylArea',curArea);}}
+if(on){Element.prototype.scrollIntoView=function(){try{reveal(this);}catch(e){}return _siv.apply(this,arguments);};}
+
+/* ── 首播（讀各影片區首播通知裡的排程資料，與第 VIII 章同一份） ── */
+function evs(){var out=[];$$('.gd-band[data-series]').forEach(function(b){var sr=b.getAttribute('data-series'),d=$('script.gd-data',b);if(!d)return;try{JSON.parse(d.textContent).forEach(function(x){out.push({sr:sr,x:x});});}catch(e){}});return out;}
+function upcoming(){var now=Date.now();return evs().filter(function(o){return o.x.e>now;}).sort(function(a,b){return a.x.s-b.x.s;});}
+function when(x){return (x.md||'')+'（'+String(x.wk||'').replace('星期','')+'）'+(x.hm||'');}
+function short(x){return String(x.t||'').replace(/^YouTube 首播共讀《[^》]+》/,'');}
+function txOf(sr){var out=null;CFG.order.forEach(function(id){var t=CFG.texts[id];if(t.sr===sr)out=t;});return out||{name:'',ac:'#d9b87c',rgb:'217,184,124'};}
+var liveKey='';
+function live(){
+ var now=Date.now(),up=upcoming(),door=$('.wyl-door--live',root),box=$('[data-wyl=live]',root);
+ if(door&&box){
+  if(!up.length){if(liveKey!=='none'){liveKey='none';box.innerHTML='<p class="wyl-lnone">'+esc(CFG.live.none)+'</p><div class="wyl-la"><a class="wyl-b" href="#sec-videos">'+esc(CFG.live.noneBtn)+'</a></div>';}}
+  else{var o=up[0],x=o.x,t=txOf(o.sr),lv=x.s<=now,key=x.k+'|'+(lv?1:0);
+   if(key!==liveKey){liveKey=key;door.style.setProperty('--ac',t.ac);door.style.setProperty('--ac-rgb',t.rgb);
+    var h=$('.wyl-dh',door);if(h)h.textContent=lv?CFG.live.hLive:CFG.live.h;
+    var l=up.slice(1,3).map(function(p){var b=txOf(p.sr);return '<span style="--c:'+b.ac+'"><i></i><em>'+esc(when(p.x))+' · '+esc(b.name)+' '+esc(short(p.x))+'</em></span>';}).join('');
+    box.innerHTML='<a class="wyl-lth" href="'+esc(x.go||'#sec-videos')+'" target="_blank" rel="noopener">'+(x.img?'<img src="'+esc(x.img)+'" alt="'+esc(x.alt||'')+'" width="800" height="450" loading="lazy" decoding="async" draggable="false">':'')+'<b'+(lv?'':' hidden')+'>LIVE</b></a>'
+     +'<div class="wyl-lm"><div class="wyl-lw"><b>'+esc(when(x))+'</b><span data-wyl="cd"></span></div>'
+     +'<div class="wyl-lt"><span class="wyl-ls">'+esc(t.name)+'</span>'+esc(short(x))+'</div>'
+     +(l?'<div class="wyl-ll">'+l+'</div>':'')+'</div>'
+     +'<div class="wyl-la"><a class="wyl-b pri" href="'+esc(x.go||'#sec-videos')+'" target="_blank" rel="noopener">'+esc(CFG.live.enter)+'</a><a class="wyl-b" href="#sec-videos">'+esc(CFG.live.all)+'</a></div>';}
+   var cd=$('[data-wyl=cd]',box);if(cd){var mins=Math.max(0,Math.floor((x.s-now)/60000));cd.textContent=lv?'':(mins>=1440?('還有 '+Math.floor(mins/1440)+' 天 '+Math.floor(mins%1440/60)+' 小時'):('還有 '+Math.floor(mins/60)+' 小時 '+(mins%60)+' 分'));}}}
+ /* 書架卡：已首播幾品＋下一場（數字取自第 VIII 章的總覽卡，兩邊永遠一致） */
+ $$('.wyl-bk[data-sr]',root).forEach(function(bk){var sr=bk.getAttribute('data-sr'),st=$('[data-wyl=st]',bk),hc=$('.vh-card[data-sr="'+sr+'"]');if(!st)return;
+  var s='';if(hc){var big=$('[data-vh=big]',hc),of=$('[data-vh=of]',hc);if(big&&of)s='影片 <b>'+esc((big.textContent||'').trim())+'</b> '+esc((of.textContent||'').replace(/\s+/g,' ').trim());}
+  var mine=up.filter(function(o){return o.sr===sr;})[0];
+  st.innerHTML=s+(mine?'<u>'+(mine.x.s<=now?'首播進行中 ':'下一場 ')+esc(when(mine.x))+'</u>':'');});
+ /* 第 VIII 章收合時的那一列：帶上下一場 */
+ var v=CH['sec-videos'];if(v&&v.sum){var base=CFG.sum['sec-videos']||'';if(up.length){var t0=txOf(up[0].sr);v.sum.style.setProperty('--c',t0.ac);v.sum.innerHTML=esc(base)+' · <b>'+(up[0].x.s<=now?'首播進行中 ':'下一場 ')+esc(when(up[0].x))+' '+esc(t0.name)+'</b>';}else v.sum.textContent=base;}}
+
+/* ── 尋經：這一頁的經名、品目、影片、章節、導讀文章 ── */
+var IDX=null,RES=[],curR=-1;
+function norm(t){return String(t||'').toLowerCase().replace(/[\s　·・．.,，、。:：;；!！?？"'「」『』《》〈〉（）()\[\]【】—–\-_\/|｜→▸›]+/g,'');}
+function txt(el,s){var x=el&&$(s,el);return x?(x.textContent||'').replace(/\s+/g,' ').trim():'';}
+function build(){
+ IDX=[];
+ CFG.order.forEach(function(id){var t=CFG.texts[id];IDX.push({k:'經典',r:0,c:t.ac,t:t.name,s:t.by+'　'+t.d,n:norm(t.name+t.by+t.d),go:function(){var bk=$('.wyl-bk[data-text="'+id+'"]',root);if(!bk)return;scrollToEl(bk,110);bk.classList.add('is-hit');setTimeout(function(){bk.classList.remove('is-hit');},2200);}});});
+ CFG.tabs.forEach(function(t){var el=(TABS[t.id]&&TABS[t.id].el)||blockOf(t);if(!el)return;
+  $$('a.shunyata-item,a.sdbd-st,a.smn-card',el).forEach(function(a){
+   var nm=txt(a,'.ss-name')||txt(a,'.sdbd-name')||txt(a,'.smn-name'),ds=txt(a,'.ss-desc')||txt(a,'.sdbd-cut')||txt(a,'.smn-q'),no=txt(a,'.ss-num')||txt(a,'.sdbd-pin');if(!nm)return;
+   IDX.push({k:'品目',r:1,c:t.ac,t:nm,s:t.label+(no?' '+no:'')+(ds?'　'+ds:''),n:norm(nm+ds+t.label),go:function(){goCab(t.id,a);}});});});
+ $$('section.zlv[id$="-videos"]').forEach(function(sec){var hc=$('.vh-card[data-sec="'+sec.id+'"]'),ac=hc?hc.style.getPropertyValue('--ac'):'#d9b87c';
+  $$('a.zlv-card',sec).forEach(function(a){var al=(a.getAttribute('aria-label')||'').replace(/^觀看/,'').replace(/\s*導讀影片(（[^）]*）)?$/,'').trim();if(!al)return;var tg=txt(a,'.zlv-tags');
+   IDX.push({k:'影片',r:2,c:ac,t:al,s:tg,n:norm(al+tg),go:function(){goCard(sec,a);}});});});
+ ORDER.length?ORDER.forEach(function(id){var c=CH[id];var nm=(($('h2',c.t)||{}).textContent||'').replace(/\s+/g,' ').trim();IDX.push({k:'章節',r:3,c:'#d9b87c',t:nm,s:CFG.sum[id]||'',n:norm(nm+(CFG.sum[id]||'')),go:function(){open(id);scrollToEl(c.t,70);}});})
+  :$$('.section-title[id]',C).forEach(function(t){var nm=(($('h2',t)||{}).textContent||'').replace(/\s+/g,' ').trim();IDX.push({k:'章節',r:3,c:'#d9b87c',t:nm,s:CFG.sum[t.id]||'',n:norm(nm+(CFG.sum[t.id]||'')),go:function(){scrollToEl(t,70);}});});
+ $$('.sg-grid a.sg-card').forEach(function(a){var nm=txt(a,'.sg-h');if(!nm)return;var vol=txt(a,'.sg-vol');IDX.push({k:'導讀文章',r:4,c:'#c9a96e',t:nm,s:vol,n:norm(nm+vol),go:function(){try{a.scrollIntoView({behavior:'smooth',block:'center',inline:'center'});}catch(e){a.scrollIntoView();}flash(a);}});});}
+function goCard(sec,a){
+ if(on&&ready){curArea=sec.id;LS('wylArea',sec.id);if(!CH['sec-videos'].open)open('sec-videos');else showArea();}
+ setTimeout(function(){try{_siv.call(a,{behavior:'smooth',block:'center',inline:'center'});}catch(e){_siv.call(a);}flash(a);},60);}
+var CAP={'經典':3,'品目':6,'影片':6,'章節':3,'導讀文章':4};
+function search(raw){
+ var box=$('#wylR',root),full=$('[data-wyl=full]',root);if(!box)return;
+ var terms=String(raw||'').trim().split(/\s+/).map(norm).filter(Boolean);
+ var inv=$('[data-wyl=inv]',root);if(inv)inv.hidden=!!terms.length;
+ if(!terms.length){box.hidden=true;box.innerHTML='';RES=[];curR=-1;if(full)full.hidden=!D.getElementById('vtSFab');return;}
+ if(!IDX)build();
+ var hit=[];IDX.forEach(function(it){var sc=0,ok=true;terms.forEach(function(q){var p=it.n.indexOf(q);if(p<0)ok=false;else sc+=p;});if(ok){var tn=norm(it.t),exact=terms.every(function(q){return tn.indexOf(q)>=0;});hit.push({it:it,sc:it.r*100000+(exact?0:5000)+sc});}});
+ hit.sort(function(a,b){return a.sc-b.sc;});
+ var cnt={},html='',last='';RES=[];
+ hit.forEach(function(h){var k=h.it.k;cnt[k]=(cnt[k]||0)+1;if(cnt[k]>CAP[k])return;
+  if(k!==last){html+='<div class="wyl-rk">'+esc(k)+'</div>';last=k;}
+  var tt=esc(h.it.t),q0=esc(String(raw).trim());if(q0&&tt.indexOf(q0)>=0)tt=tt.split(q0).join('<mark>'+q0+'</mark>');
+  html+='<button type="button" class="wyl-ri" data-r="'+RES.length+'" style="--c:'+esc(h.it.c)+'"><i></i><b>'+tt+'</b><span>'+esc(h.it.s)+'</span></button>';RES.push(h.it);});
+ box.innerHTML=html||'<p class="wyl-rnone">'+esc(CFG.find.none)+'</p>';box.hidden=false;curR=-1;
+ if(full)full.hidden=!D.getElementById('vtSFab');}
+function pick(i){var bs=$$('.wyl-ri',root);bs.forEach(function(b,j){b.classList.toggle('is-cur',j===i);});curR=i;if(bs[i])try{bs[i].scrollIntoView({block:'nearest'});}catch(e){}}
+function fullText(q){var fab=D.getElementById('vtSFab');if(!fab)return;fab.click();var n=0;(function put(){var inp=D.getElementById('vtSInput');if(inp){inp.value=q;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.focus();return;}if(++n<20)setTimeout(put,60);})();}
+function inventory(){
+ var n={texts:CFG.order.length,items:0,videos:$$('section.zlv a.zlv-card').length,essays:$$('.sg-grid a.sg-card').length};
+ CFG.tabs.forEach(function(t){var el=(TABS[t.id]&&TABS[t.id].el)||blockOf(t);if(el)n.items+=$$('a.shunyata-item,a.sdbd-st,a.smn-card',el).length;});
+ $$('[data-inv]',root).forEach(function(a){var v=n[a.getAttribute('data-inv')],x=$('[data-n]',a);if(x&&v)x.textContent=v;else if(!v)a.style.display='none';});
+ var full=$('[data-wyl=full]',root);if(full)full.hidden=!D.getElementById('vtSFab');}
+function bindFind(){
+ var inp=$('#wylQ',root);if(!inp)return;var comp=false;
+ inp.addEventListener('compositionstart',function(){comp=true;});
+ inp.addEventListener('compositionend',function(){comp=false;search(inp.value);});
+ inp.addEventListener('input',function(){if(!comp)search(inp.value);});
+ inp.addEventListener('focus',function(){if(!IDX)setTimeout(function(){if(!IDX)build();},0);});
+ inp.addEventListener('keydown',function(e){var k=e.key;
+  if(k==='ArrowDown'&&RES.length){e.preventDefault();pick((curR+1)%RES.length);}
+  else if(k==='ArrowUp'&&RES.length){e.preventDefault();pick((curR-1+RES.length)%RES.length);}
+  else if(k==='Enter'&&!comp&&!e.isComposing){e.preventDefault();if(!RES.length)search(inp.value);var it=RES[curR<0?0:curR];if(it)it.go();}
+  else if(k==='Escape'){inp.value='';search('');}});}
+
+/* ── 點擊 ── */
+D.addEventListener('click',function(e){
+ var t=e.target;if(!t||!t.closest)return;
+ var a=t.closest('a[href^="#"]');
+ if(a&&on&&ready){var h=a.getAttribute('href');if(h&&h.length>1){var el=byId(h);if(el)reveal(el);}}
+ var row=t.closest('.dznav-row');
+ if(row&&on&&ready){var rn=(($('.rn',row)||{}).textContent||'').replace(/\s+/g,'');if(rn){for(var i=0;i<ORDER.length;i++){var cn=$('.chapter-num',CH[ORDER[i]].t);if(cn&&(cn.textContent||'').replace(/\s+/g,'')===rn){open(ORDER[i]);break;}}}}
+},true);
+D.addEventListener('click',function(e){
+ var t=e.target;if(!t||!t.closest)return;var b;
+ if((b=t.closest('[data-cab]'))){e.preventDefault();if(on&&b.classList.contains('wyl-ph'))offerRet(W.pageYOffset||H.scrollTop||0);goCab(b.getAttribute('data-cab'));return;}
+ if((b=t.closest('.wyl-tab'))){tab(b.getAttribute('data-tab'));return;}
+ if((b=t.closest('[data-shut]'))){shut(b.getAttribute('data-shut'),true);return;}
+ if((b=t.closest('[data-wyl-vall]'))){allVid=b.getAttribute('data-wyl-vall')==='1';showArea();return;}
+ if((b=t.closest('[data-wyl=all]'))){setAll(b.getAttribute('data-state')!=='1');return;}
+ if((b=t.closest('.wyl-ri'))){var it=RES[+b.getAttribute('data-r')];if(it)it.go();return;}
+ if((b=t.closest('[data-q]'))){var inp=$('#wylQ',root);if(inp){inp.value=b.getAttribute('data-q');search(inp.value);try{inp.focus({preventScroll:true});}catch(x){inp.focus();}}return;}
+ if((b=t.closest('[data-wyl=full]'))){e.preventDefault();var q=($('#wylQ',root)||{}).value||'';fullText(q.trim());return;}
+ if((b=t.closest('.wyl-iv'))&&b.getAttribute('href')==='#wy-shelf'){e.preventDefault();var sh=$('#wy-shelf',root);if(sh)scrollToEl(sh,74);return;}
+});
+D.addEventListener('keydown',function(e){var b=e.target&&e.target.closest&&e.target.closest('.wyl-tab');if(!b||(e.key!=='ArrowRight'&&e.key!=='ArrowLeft'))return;
+ var ts=$$('.wyl-tab',root).filter(function(x){return !x.hidden;}),i=ts.indexOf(b);if(i<0)return;e.preventDefault();var n=ts[(i+(e.key==='ArrowRight'?1:-1)+ts.length)%ts.length];tab(n.getAttribute('data-tab'));n.focus();});
+W.addEventListener('hashchange',function(){if(!on||!ready)return;var el=byId(location.hash);if(el){reveal(el);setTimeout(function(){try{_siv.call(el,{block:'start'});}catch(e){}},30);}});
+
+/* ── 啟動 ── */
+function init(){
+ try{
+  if(on){buildCab();buildCh();buildVid();
+   var want=(LS('wylOpen')===null?(CFG.open||[]):String(LS('wylOpen')||'').split(','));
+   want.forEach(function(id){if(CH[id]){CH[id].open=true;}});ORDER.forEach(paint);
+   var tb=$('.toc-bar .toc-inner');if(tb&&!$('.wyl-toc',tb)){var a=D.createElement('a');a.className='toc-item wyl-toc';a.href='#wy-lobby';a.innerHTML='<span class="toc-num">◈</span>入門';tb.insertBefore(a,tb.firstChild);}
+   ready=true;showArea();syncAll();H.classList.add('wyl-ready');
+   try{var mt=0;new MutationObserver(function(ms){for(var i=0;i<ms.length;i++){if(ms[i].addedNodes&&ms[i].addedNodes.length){clearTimeout(mt);mt=setTimeout(function(){ORDER.forEach(paint);},30);return;}}}).observe(C,{childList:true});}catch(e){}
+   var el=(location.hash&&location.hash.length>1?byId(location.hash):null)||pend;pend=null;
+   if(el){reveal(el);setTimeout(function(){try{_siv.call(el,{block:'start'});}catch(e){}},80);}}
+  bindFind();inventory();live();setTimeout(live,1300);setInterval(live,60000);
+ }catch(err){
+  try{console.error('[wy-lobby]',err);}catch(e){}
+  H.classList.remove('wyl-on');H.classList.add('wyl-fail','wyl-ready');on=false;Element.prototype.scrollIntoView=_siv;
+  $$('.wyl-pn',root).forEach(function(p){p.hidden=false;});}}
+function boot(){setTimeout(init,0);}
+if(D.readyState!=='loading')boot();else D.addEventListener('DOMContentLoaded',boot);
+W.__wyLobbyApi={open:open,shut:shut,tab:tab,area:area,reveal:reveal};
+})();</script>
+<!-- WY-LOBBY:END -->
 <!-- ============ 導論 ============ -->
 <div class="section-divider"><span class="ornament">❀</span></div>
 <div class="section-title" id="sec-intro">
