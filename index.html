@@ -3978,6 +3978,79 @@ paint();if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',paint)
 <p class="sub-section-desc"><strong>智論作為大乘論藏核心</strong>，可從三條進路切入：以《中論》為主軸的「破見之路」、以十八空為主軸的「破自性之路」、以念佛法門為主軸的「修證之路」。沿任一進路深入，皆可貫通本論。</p>
 
 <!-- 合讀總圖 -->
+<!--WY-ROUTE3--><style id="wy-route3-css">
+/* WY-ROUTE3 第 IV 章「合讀對照」開頭：用一排進路卡取代三環圖（三環圖原樣留在頁面裡，只是不顯示） */
+.compendium-overview-figure{display:none !important;}
+.r3{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch;margin:22px 0 10px;font-family:'Noto Serif TC',serif;}
+.r3-c{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:9px;padding:20px 18px 16px;border-radius:14px;border:1px solid #4d4233;background:linear-gradient(150deg,#2e2720 0%,#241f19 75%);text-align:left;}
+.r3-c::before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--ac),transparent 70%);}
+.r3-c::after{content:attr(data-wm);position:absolute;right:-4px;bottom:-34px;font-size:140px;font-weight:700;line-height:1;color:var(--ac);opacity:.06;pointer-events:none;}
+.r3-c>*{position:relative;z-index:1;}
+.r3-c--dz{border-color:#d9b87c;}
+.r3-h{display:flex;align-items:center;gap:12px;}
+.r3-s{flex:none;display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:6px;background:#a8402e;color:#fbe9d2;font-size:21px;font-weight:700;transform:rotate(-3deg);}
+.r3-n{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:2px;color:var(--ac);}
+.r3-h h3{margin:0;padding:0;border:0;font-size:21px;font-weight:700;letter-spacing:3px;line-height:1.35;color:var(--ac);}
+.r3-c--dz .r3-h h3{color:#f8ead4;}
+.r3-t{font-size:15.5px;letter-spacing:1px;color:#f5e4cd;}
+.r3-e{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14.5px;letter-spacing:1px;color:#c3b39a;}
+.r3-v{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.r3-v>div{display:flex;flex-wrap:wrap;align-items:center;gap:5px;}
+.r3-v>div:empty{display:none;}
+.r3-v em{flex:0 0 100%;font-style:normal;font-size:12.5px;letter-spacing:2px;color:var(--ac);}
+.r3-v em b{margin-right:8px;padding:1px 7px;border-radius:4px;border:1px solid var(--ac);background:var(--ac);color:#1d1914;font-weight:700;}
+.r3-v .r3-d em b{background:none;color:var(--ac);}
+.r3-v a{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:32px;padding:0 7px;box-sizing:border-box;border-radius:7px;border:1px solid #5a4c36;background:#1d1914;font-size:13.5px;color:#f5e4cd;text-decoration:none;white-space:nowrap;}
+.r3-v .r3-d a{border-style:dashed;color:#d8cab2;}
+.r3-v a:hover{border-color:var(--ac);color:#fff;}
+.r3-v span{font-size:13.5px;line-height:1.7;color:#d8cab2;}
+.r3-k{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px;}
+.r3-k a{display:inline-flex;align-items:center;gap:7px;min-height:36px;padding:0 11px;border-radius:8px;border:1px solid #5a4c36;background:#1d1914;font-size:13.5px;letter-spacing:1px;color:#e3d6bf;text-decoration:none;}
+.r3-k a i{font-style:normal;font-weight:700;color:var(--ac);}
+.r3-k a:hover{border-color:var(--ac);color:#fff;}
+.r3-g{margin-top:auto;display:flex;flex-wrap:wrap;gap:7px;padding-top:8px;}
+.r3-b{display:inline-flex;align-items:center;min-height:40px;box-sizing:border-box;padding:0 15px;border-radius:20px;border:1px solid var(--ac);font-size:14px;letter-spacing:2px;color:#efe2cc;text-decoration:none;}
+.r3-b:hover{background:rgba(255,255,255,.08);color:#fff;}
+.r3-b--p{background:var(--ac);color:#1d1914;font-weight:700;}
+.r3-b--p:hover{background:#fff3da;color:#1d1914;}
+.r3-cap{margin:0 0 26px;text-align:center;font-size:13.5px;letter-spacing:1px;color:#c3b39a;font-family:'Noto Serif TC',serif;}
+@media (max-width:1100px){.r3{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media (max-width:600px){.r3{grid-template-columns:1fr;gap:10px;}.r3-c{padding:16px 14px 14px;}}
+</style>
+<div class="r3" role="navigation" aria-label="三條合讀進路">
+<div class="r3-c r3-c--dz" style="--ac:#d9b87c" data-wm="智"><div class="r3-h"><span class="r3-s">智</span><div><span class="r3-n">100 vols · core</span><h3>大智度論</h3></div></div><span class="r3-t">三條進路的中心</span><div class="r3-v"><div><em><b>廣譯</b>卷 1–34</em><span>逐句詳釋「序品」一品，約佔全論 1/3</span></div><div class="r3-d"><em><b>略譯</b>卷 35–100</em><span>只取要義，釋其餘 89 品，約佔全論 2/3</span></div></div><div class="r3-g"><a class="r3-b r3-b--p" href="https://weiwen0925.github.io/dazhidulun-0/" data-zlhub="dzdl">開啟卷目 1–100</a></div></div>
+<div class="r3-c" style="--ac:#cfd6da" data-wm="見"><div class="r3-h"><span class="r3-s">見</span><div><span class="r3-n">i</span><h3>破見之路</h3></div></div><span class="r3-t">以《中論》為主軸</span><span class="r3-e">Madhyamaka Track</span><div class="r3-v" data-r3-v="0"></div><div class="r3-g"><a class="r3-b r3-b--p" href="#sec-compendium" data-r3-go="0">看這一段 ↓</a><a class="r3-b" href="https://weiwen0925.github.io/nagarjuna-mulamadhyamakakarika/" target="_blank" rel="noopener">中論站</a></div></div>
+<div class="r3-c" style="--ac:#d9b87c" data-wm="空"><div class="r3-h"><span class="r3-s">空</span><div><span class="r3-n">ii</span><h3>破自性之路</h3></div></div><span class="r3-t">以十八空為主軸</span><span class="r3-e">Eighteen Forms of Śūnyatā Track</span><div class="r3-v" data-r3-v="1"></div><div class="r3-k"><a href="#sdbd-subtitle" data-r3-id="sdbd-subtitle"><i>定</i>四禪八定</a><a href="#simen-subtitle" data-r3-id="simen-subtitle"><i>辨</i>四門映射</a><a href="#sanqi-subtitle" data-r3-id="sanqi-subtitle"><i>行</i>三十七品</a></div><div class="r3-g"><a class="r3-b r3-b--p" href="#sec-compendium" data-r3-go="1">看這一段 ↓</a></div></div>
+<div class="r3-c" style="--ac:#c9a0c0" data-wm="念"><div class="r3-h"><span class="r3-s">念</span><div><span class="r3-n">iii</span><h3>修證之路</h3></div></div><span class="r3-t">以念佛法門為主軸</span><span class="r3-e">Buddha-Recollection Track</span><div class="r3-v" data-r3-v="2"></div><div class="r3-g"><a class="r3-b r3-b--p" href="#sec-compendium" data-r3-go="2">看這一段 ↓</a></div></div>
+</div>
+<p class="r3-cap">點卷號直接讀該卷；點「看這一段」跳到下面該進路</p>
+<script id="wy-route3-js">
+/* WY-ROUTE3：進路卡上的卷號照下面各段的表現抄（絕對必讀＝表格各列、強烈推薦＝推薦格），並處理「看這一段」。 */
+(function(){
+if(window.__wyRoute3)return;window.__wyRoute3=1;
+var D=document;
+function subs(){return D.querySelectorAll('.compendium-wrapper>.compendium-sub');}
+function vols(sec,key,sel,vs){var hs=sec.querySelectorAll('h3'),out=[];
+ for(var i=0;i<hs.length;i++){var b=hs[i].querySelector('.zhonglun-badge');if(!b||b.textContent.replace(/\s/g,'')!==key)continue;
+  var box=hs[i].nextElementSibling;if(!box)break;var a=box.querySelectorAll(sel);
+  for(var j=0;j<a.length;j++){var v=a[j].querySelector(vs);var t=v?(v.textContent||'').replace(/\s+/g,' ').replace(/^ | $/g,''):'';if(/^卷 ?\d/.test(t)&&a[j].getAttribute('href'))out.push([t,a[j].getAttribute('href')]);}
+  return {label:(hs[i].textContent||'').replace(b.textContent,'').replace(/\s+/g,' ').replace(/^ | $/g,''),list:out};}
+ return null;}
+function fill(){var ss=subs(),bx=D.querySelectorAll('[data-r3-v]');
+ for(var i=0;i<bx.length;i++){var box=bx[i];if(box.getAttribute('data-done'))continue;var sec=ss[parseInt(box.getAttribute('data-r3-v'),10)];if(!sec)continue;
+  var rows=[['絕對必讀','a.zhonglun-row','.zh-vol',''],['強烈推薦','a.zh-recommend','.zh-r-vol','r3-d']],made=0;
+  for(var k=0;k<rows.length;k++){var r=vols(sec,rows[k][0],rows[k][1],rows[k][2]);if(!r||!r.list.length)continue;
+   var d=D.createElement('div');if(rows[k][3])d.className=rows[k][3];var em=D.createElement('em'),b=D.createElement('b');b.textContent=rows[k][0];em.appendChild(b);em.appendChild(D.createTextNode(r.label));d.appendChild(em);
+   for(var j=0;j<r.list.length;j++){var x=D.createElement('a');x.href=r.list[j][1];x.target='_blank';x.rel='noopener';x.textContent=r.list[j][0];d.appendChild(x);}
+   box.appendChild(d);made++;}
+  if(made)box.setAttribute('data-done','1');}}
+function go(el){if(!el)return;try{el.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){try{el.scrollIntoView();}catch(e2){}}}
+D.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-r3-go],[data-r3-id]');if(!t)return;
+ var el=t.hasAttribute('data-r3-go')?subs()[parseInt(t.getAttribute('data-r3-go'),10)]:D.getElementById(t.getAttribute('data-r3-id'));
+ if(!el)return;e.preventDefault();go(el);});
+fill();if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',fill);setTimeout(fill,1500);
+})();
+</script><!--/WY-ROUTE3-->
 <figure class="compendium-overview-figure">
 <svg class="compendium-overview-svg" viewBox="0 -16 720 476" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="overviewTitle overviewDesc">
 <title id="overviewTitle">合讀對照總圖</title>
