@@ -2791,6 +2791,33 @@ html:not(.wyl-js) .wyl-doors{grid-template-columns:repeat(2,minmax(0,1fr));}
 .wyl-ll i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--c,#d9b87c);transform:translateY(-2px);}
 .wyl-ll em{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .wyl-la{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px;}
+.wyl-cal{margin-top:11px;padding-top:10px;border-top:1px dashed rgba(var(--ac-rgb,217,184,124),.28);}
+.wyl-cm{display:flex;flex-wrap:wrap;gap:4px 20px;font-size:13.5px;letter-spacing:1px;}
+.wyl-cm a{color:var(--gold-soft,#c9a96e);text-decoration:none;border-bottom:1px dotted rgba(201,169,110,.65);padding-bottom:1px;}
+.wyl-cm a:hover,.wyl-cm a:focus-visible{color:#fff3da;border-bottom-color:#fff3da;outline:none;}
+.wyl-cs{margin-top:0;}
+.wyl-cm+.wyl-cs{margin-top:8px;}
+.wyl-cs summary{display:inline-flex;align-items:center;gap:7px;list-style:none;cursor:pointer;font-size:13.5px;letter-spacing:1px;color:var(--gold-soft,#c9a96e);}
+.wyl-cs summary::-webkit-details-marker{display:none;}
+.wyl-cs summary::before{content:'＋';display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;border:1px solid rgba(201,169,110,.6);font-size:11px;line-height:1;}
+.wyl-cs[open] summary::before{content:'－';}
+.wyl-cs summary:hover,.wyl-cs summary:focus-visible{color:#fff3da;outline:none;}
+.wyl-cs[open] summary{margin-bottom:8px;}
+.wyl-ccs{display:flex;flex-wrap:wrap;gap:6px;}
+.wyl-cc{display:inline-flex;align-items:center;gap:5px;padding:3px 10px 4px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);color:#e9dcc6;font-family:'Noto Serif TC',serif;font-size:13px;letter-spacing:1px;line-height:1.5;cursor:pointer;transition:border-color .2s,background .2s,color .2s;}
+.wyl-cc i{flex:none;width:6px;height:6px;border-radius:50%;background:var(--c,#d9b87c);}
+.wyl-cc u{text-decoration:none;font-size:11.5px;letter-spacing:0;color:var(--text-mute,#c3b39a);font-variant-numeric:lining-nums tabular-nums;}
+.wyl-cc:hover,.wyl-cc:focus-visible{border-color:var(--c,#d9b87c);background:rgba(255,255,255,.07);color:#fff3da;outline:none;}
+.wyl-cc.is-on{border-color:var(--c,#d9b87c);background:rgba(255,255,255,.1);color:#fff3da;}
+.wyl-ca{margin-top:10px;padding:9px 11px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.1);border-left:2px solid var(--ac,#d9b87c);background:rgba(0,0,0,.16);}
+.wyl-ca:empty{display:none;}
+.wyl-ca b{display:block;font-family:'Noto Serif TC',serif;font-size:13.5px;font-weight:600;letter-spacing:1px;color:#efe2cc;margin-bottom:7px;}
+.wyl-ca div{display:flex;flex-wrap:wrap;align-items:center;gap:7px 8px;}
+.wyl-ca .wyl-b{--ac-rgb:217,184,124;padding:4px 12px 5px;font-size:13px;letter-spacing:1px;}
+.wyl-cd{font-size:12.5px;letter-spacing:.5px;color:var(--text-mute,#c3b39a);text-decoration:none;border-bottom:1px dotted rgba(195,179,154,.6);margin-left:2px;}
+.wyl-cd:hover,.wyl-cd:focus-visible{color:#fff3da;border-bottom-color:#fff3da;outline:none;}
+.wyl-cc--all{--c:#d9b87c;border-style:dashed;}
+.wyl-cs p{margin:7px 0 0;font-size:12px;line-height:1.6;letter-spacing:.5px;color:var(--text-mute,#c3b39a);opacity:.85;}
 .wyl-lnone{margin:4px 0 0;font-size:15px;line-height:1.8;color:var(--text-mute,#c3b39a);}
 /* 入口三：尋經 */
 .wyl-find{position:relative;display:block;}
@@ -2996,7 +3023,7 @@ html.wyl-fail .wyl-tabs{display:none;}
    原始碼一字不動；任何一步出錯就整個退回原本的長頁（html 不留 wyl-on）。 */
 (function(){
 if(window.__wyLobby)return;window.__wyLobby=1;
-var D=document,H=D.documentElement,W=window,CFG={"order":["zl","tg","vv","dz","bl","sl","bz","zc","yk","dao"],"texts":{"zl":{"name":"中論","by":"龍樹造 · 鳩摩羅什譯","d":"以八不破諸戲論 · 二十七品根本頌","ac":"#cfd6da","rgb":"207,214,218","sr":"zl"},"tg":{"name":"十二門論","by":"龍樹造 · 鳩摩羅什譯","d":"以十二門明緣起空義 ·《中論》的綱目","ac":"#9ccbc4","rgb":"156,203,196","sr":"tg"},"vv":{"name":"迴諍論","by":"龍樹造 · 毘目智仙、瞿曇流支譯","d":"回應「空義不能成立」的論難","ac":"#bdb66e","rgb":"189,182,110","sr":"vv"},"dz":{"name":"大智度論","by":"龍樹造 · 鳩摩羅什譯","d":"釋《大品般若》一百卷 · 以十八空展開實踐","ac":"#d9b87c","rgb":"217,184,124","sr":"dz"},"bl":{"name":"百論","by":"提婆造 · 鳩摩羅什譯","d":"龍樹弟子提婆造 · 破外道異執","ac":"#98a2de","rgb":"152,162,222","sr":""},"sl":{"name":"首楞嚴三昧經","by":"鳩摩羅什譯","d":"諸三昧中的定王 · 上下卷二十四品","ac":"#db8c68","rgb":"219,140,104","sr":"sl"},"bz":{"name":"般舟三昧經","by":"支婁迦讖譯","d":"諸佛現前三昧 · 念佛三昧的源頭之一","ac":"#c9a0c0","rgb":"201,160,192","sr":"bz"},"zc":{"name":"坐禪三昧經","by":"鳩摩羅什譯","d":"先辨病、後下藥 · 五門對治","ac":"#9cb88c","rgb":"156,184,140","sr":"zc"},"yk":{"name":"譬喻藏","by":"本站彙編","d":"百卷六百一十三則譬喻 · 繫於《中論》四十六頌","ac":"#dba9a0","rgb":"219,169,160","sr":""},"dao":{"name":"刀藏","by":"本站彙編","d":"四門十八刀 · 二十七品地圖環讀","ac":"#a9c4d8","rgb":"169,196,216","sr":""}},"tabs":[{"id":"dao18","label":"刀藏十八刀","ac":"#a9c4d8","rgb":"169,196,216","sel":".dao18-wrap"},{"id":"zc22","label":"坐禪二十二品","ac":"#9cb88c","rgb":"156,184,140","sel":"#zc22"},{"id":"zl27","label":"中論二十七品","ac":"#cfd6da","rgb":"207,214,218","sel":".zl27-wrap"},{"id":"shiyu","label":"十喻","ac":"#d9b87c","rgb":"217,184,124","h3":"十喻解空一覽"},{"id":"kong18","label":"十八空","ac":"#d9b87c","rgb":"217,184,124","h3":"十八空一覽"},{"id":"sdbd","label":"四禪八定","ac":"#d9b87c","rgb":"217,184,124","sel":"#sdbd-axis"},{"id":"simen","label":"四門映射","ac":"#d9b87c","rgb":"217,184,124","sel":"#simen-gates"},{"id":"sanqi","label":"三十七品","ac":"#d9b87c","rgb":"217,184,124","sel":"#sanqi-list"}],"sum":{"sec-intro":"百卷釋《大品般若》· 廣譯與略譯 · 讀前先熟《中論》","sec-path":"依身份與目的，選一條切入路徑","sec-compendium":"三條進路的必讀卷次：中論 · 十八空 · 念佛","sec-fullreading":"五階段次第，讀完一百卷","sec-topic":"依主題查卷次 · 一百卷卷品目錄","sec-lineage":"從般若經源頭到漢傳的思想譜系","sec-videos":"各部經論逐品導讀 · YouTube 首播共讀","sec-personal":"可與本論並讀的論藏、三昧經與本站彙編","sec-extended":"系列導讀文章 · 線上相關資源","sec-cite":"引用格式 · 底本依據 · 引用到「節」的深連結"},"open":[],"one":true,"w":{"open":"展開","shut":"收合","foot":"收合本章 ▴","allOpen":"全部展開","allShut":"全部收合","ph":"收在上方「品目速覽」","phGo":"開啟 ↑","ret":"↩ 回到剛才讀的地方","now":"目前顯示","hint":"點上方經卡換一部","vall":"全部攤開","vone":"一次一部"},"live":{"h":"下一場首播","hLive":"首播進行中","enter":"▶ 進入首播室","all":"首播排程與影片區","none":"目前沒有排定的首播；各部導讀影片都能隨時回看。","noneBtn":"看導讀影片"},"find":{"none":"這一頁的經名、品目、影片、章節裡沒有找到。"}};
+var D=document,H=D.documentElement,W=window,CFG={"order":["zl","tg","vv","dz","bl","sl","bz","zc","yk","dao"],"texts":{"zl":{"name":"中論","by":"龍樹造 · 鳩摩羅什譯","d":"以八不破諸戲論 · 二十七品根本頌","ac":"#cfd6da","rgb":"207,214,218","sr":"zl"},"tg":{"name":"十二門論","by":"龍樹造 · 鳩摩羅什譯","d":"以十二門明緣起空義 ·《中論》的綱目","ac":"#9ccbc4","rgb":"156,203,196","sr":"tg"},"vv":{"name":"迴諍論","by":"龍樹造 · 毘目智仙、瞿曇流支譯","d":"回應「空義不能成立」的論難","ac":"#bdb66e","rgb":"189,182,110","sr":"vv"},"dz":{"name":"大智度論","by":"龍樹造 · 鳩摩羅什譯","d":"釋《大品般若》一百卷 · 以十八空展開實踐","ac":"#d9b87c","rgb":"217,184,124","sr":"dz"},"bl":{"name":"百論","by":"提婆造 · 鳩摩羅什譯","d":"龍樹弟子提婆造 · 破外道異執","ac":"#98a2de","rgb":"152,162,222","sr":""},"sl":{"name":"首楞嚴三昧經","by":"鳩摩羅什譯","d":"諸三昧中的定王 · 上下卷二十四品","ac":"#db8c68","rgb":"219,140,104","sr":"sl"},"bz":{"name":"般舟三昧經","by":"支婁迦讖譯","d":"諸佛現前三昧 · 念佛三昧的源頭之一","ac":"#c9a0c0","rgb":"201,160,192","sr":"bz"},"zc":{"name":"坐禪三昧經","by":"鳩摩羅什譯","d":"先辨病、後下藥 · 五門對治","ac":"#9cb88c","rgb":"156,184,140","sr":"zc"},"yk":{"name":"譬喻藏","by":"本站彙編","d":"百卷六百一十三則譬喻 · 繫於《中論》四十六頌","ac":"#dba9a0","rgb":"219,169,160","sr":""},"dao":{"name":"刀藏","by":"本站彙編","d":"四門十八刀 · 二十七品地圖環讀","ac":"#a9c4d8","rgb":"169,196,216","sr":""}},"tabs":[{"id":"dao18","label":"刀藏十八刀","ac":"#a9c4d8","rgb":"169,196,216","sel":".dao18-wrap"},{"id":"zc22","label":"坐禪二十二品","ac":"#9cb88c","rgb":"156,184,140","sel":"#zc22"},{"id":"zl27","label":"中論二十七品","ac":"#cfd6da","rgb":"207,214,218","sel":".zl27-wrap"},{"id":"shiyu","label":"十喻","ac":"#d9b87c","rgb":"217,184,124","h3":"十喻解空一覽"},{"id":"kong18","label":"十八空","ac":"#d9b87c","rgb":"217,184,124","h3":"十八空一覽"},{"id":"sdbd","label":"四禪八定","ac":"#d9b87c","rgb":"217,184,124","sel":"#sdbd-axis"},{"id":"simen","label":"四門映射","ac":"#d9b87c","rgb":"217,184,124","sel":"#simen-gates"},{"id":"sanqi","label":"三十七品","ac":"#d9b87c","rgb":"217,184,124","sel":"#sanqi-list"}],"sum":{"sec-intro":"百卷釋《大品般若》· 廣譯與略譯 · 讀前先熟《中論》","sec-path":"依身份與目的，選一條切入路徑","sec-compendium":"三條進路的必讀卷次：中論 · 十八空 · 念佛","sec-fullreading":"五階段次第，讀完一百卷","sec-topic":"依主題查卷次 · 一百卷卷品目錄","sec-lineage":"從般若經源頭到漢傳的思想譜系","sec-videos":"各部經論逐品導讀 · YouTube 首播共讀","sec-personal":"可與本論並讀的論藏、三昧經與本站彙編","sec-extended":"系列導讀文章 · 線上相關資源","sec-cite":"引用格式 · 底本依據 · 引用到「節」的深連結"},"open":[],"one":true,"w":{"open":"展開","shut":"收合","foot":"收合本章 ▴","allOpen":"全部展開","allShut":"全部收合","ph":"收在上方「品目速覽」","phGo":"開啟 ↑","ret":"↩ 回到剛才讀的地方","now":"目前顯示","hint":"點上方經卡換一部","vall":"全部攤開","vone":"一次一部"},"live":{"h":"下一場首播","hLive":"首播進行中","enter":"▶ 進入首播室","all":"首播排程與影片區","none":"目前沒有排定的首播；各部導讀影片都能隨時回看。","noneBtn":"看導讀影片","ics":"加入行事曆（.ics）","gcal":"Google 日曆","follow":"跟一部經共讀 · 訂閱首播排程","followAll":"全部經典","followTip":"《{name}》尚未首播的 {n} 場","feed":"weiwen0925.github.io/dazhidulun-0/cal","subApple":"訂閱（iPhone／Mac 行事曆）","subGoogle":"訂閱到 Google 日曆","once":"只下載這一次（.ics）","followNote":"訂閱一次即可，之後排程有更動會自動更新（Google 日曆約一天內同步，請在電腦上操作）。","onceNote":"下載 .ics 後點開即可加入；Google 日曆請在電腦版「設定 → 匯入」選這個檔。","alarm":"首播共讀：半小時後開始","calName":"首播共讀","file":"首播共讀","unit":"場"},"find":{"none":"這一頁的經名、品目、影片、章節裡沒有找到。"}};
 var root=D.getElementById('wy-lobby');if(!root)return;
 var C=root.parentNode;H.classList.add('wyl-js');
 function LS(k,v){try{if(v===void 0)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){}return null;}
@@ -3144,6 +3171,39 @@ function when(x){return (x.md||'')+'（'+String(x.wk||'').replace('星期','')+'
 function short(x){return String(x.t||'').replace(/^YouTube 首播共讀《[^》]+》/,'');}
 function txOf(sr){var out=null;CFG.order.forEach(function(id){var t=CFG.texts[id];if(t.sr===sr)out=t;});return out||{name:'',ac:'#d9b87c',rgb:'217,184,124'};}
 var liveKey='';
+/* ── 行事曆：單場（.ics／Google 日曆）與整部經的首播排程（.ics）；欄位與第 VIII 章首播通知同一份 ── */
+function z(t){return new Date(t).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');}
+function ie(t){return String(t==null?'':t).replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/([,;])/g,'\\$1');}
+function fold(l){var out='',n=0;for(var i=0;i<l.length;i++){var c=l.charCodeAt(i),b=c<128?1:(c<2048?2:((c>=0xD800&&c<=0xDBFF)?4:3)),ch=l.charAt(i);if(b===4){ch+=l.charAt(i+1);i++;}if(n+b>73){out+='\r\n ';n=1;}out+=ch;n+=b;}return out;}
+function gcal(x){return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(x.t||'')+'&dates='+z(x.s)+'/'+z(x.e)+'&details='+encodeURIComponent(x.d||'')+'&ctz=Asia/Taipei';}
+function icsOf(list,name){var st=z(Date.now()),L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//weiwen0925//premiere//ZH','CALSCALE:GREGORIAN','METHOD:PUBLISH','X-WR-CALNAME:'+ie(name),'X-WR-TIMEZONE:Asia/Taipei'];
+ list.forEach(function(o){var x=o.x;L.push('BEGIN:VEVENT','UID:'+x.k+'@weiwen0925.github.io','DTSTAMP:'+st,'DTSTART:'+z(x.s),'DTEND:'+z(x.e),'SUMMARY:'+ie(x.t),'DESCRIPTION:'+ie(x.d));if(x.go)L.push('URL:'+x.go);
+  L.push('BEGIN:VALARM','TRIGGER:-PT30M','ACTION:DISPLAY','DESCRIPTION:'+ie(CFG.live.alarm||''),'END:VALARM','END:VEVENT');});
+ L.push('END:VCALENDAR');return L.map(fold).join('\r\n')+'\r\n';}
+function save(txt,fn,big){var a=D.createElement('a'),u='';try{if(big&&W.Blob&&W.URL&&URL.createObjectURL)u=URL.createObjectURL(new Blob([txt],{type:'text/calendar;charset=utf-8'}));}catch(e){u='';}
+ a.href=u||('data:text/calendar;charset=utf-8,'+encodeURIComponent(txt));a.download=fn;a.style.display='none';D.body.appendChild(a);a.click();setTimeout(function(){a.remove();if(u){try{URL.revokeObjectURL(u);}catch(e){}}},1500);}
+var curCal='';
+function calList(up){var out=[];CFG.order.forEach(function(id){var t=CFG.texts[id];if(!t.sr)return;var c=up.filter(function(o){return o.sr===t.sr;}).length;if(c)out.push({k:t.sr,name:t.name,ac:t.ac,n:c});});
+ if(out.length>1)out.push({k:'all',name:CFG.live.followAll,ac:'#d9b87c',n:up.length,all:1});return out;}
+function calActs(it){var C0=CFG.live,fb=String(C0.feed||'').replace(/^[a-z]+:\/\//i,'').replace(/\/+$/,''),h='';
+ if(fb){var u=fb+'/'+it.k+'.ics';h+='<a class="wyl-b" href="webcal://'+esc(u)+'">'+esc(C0.subApple)+'</a><a class="wyl-b" href="https://calendar.google.com/calendar/render?cid='+esc('webcal://'+u)+'" target="_blank" rel="noopener">'+esc(C0.subGoogle)+'</a>';}
+ return h+'<a class="wyl-cd" href="#" data-wyl-ics="'+(it.all?'all':'sr:'+esc(it.k))+'">'+esc(C0.once)+'</a>';}
+function calPick(k){var box=$('.wyl-cs',root);if(!box)return;var ls=calList(upcoming()),it=ls.filter(function(x){return x.k===k;})[0]||ls[0];if(!it)return;curCal=it.k;
+ $$('.wyl-cc',box).forEach(function(b){var on1=b.getAttribute('data-wyl-cal')===it.k;b.classList.toggle('is-on',on1);b.setAttribute('aria-pressed',on1?'true':'false');});
+ var a=$('.wyl-ca',box);if(a){a.style.setProperty('--ac',it.ac);a.innerHTML='<b>'+esc(String(CFG.live.followTip||'').replace('{name}',it.name).replace('{n}',it.n))+'</b><div>'+calActs(it)+'</div>';}}
+function calHTML(up,lv){var x=up[0].x,C0=CFG.live,h='<div class="wyl-cal">';
+ if(!lv)h+='<div class="wyl-cm"><a href="#" data-wyl-ics="one">'+esc(C0.ics)+'</a><a href="'+esc(gcal(x))+'" target="_blank" rel="noopener">'+esc(C0.gcal)+'</a></div>';
+ var ls=calList(up),cs='';ls.forEach(function(it){cs+='<button type="button" class="wyl-cc'+(it.all?' wyl-cc--all':'')+'" data-wyl-cal="'+esc(it.k)+'" aria-pressed="false" style="--c:'+it.ac+'">'+(it.all?'':'<i></i>')+esc(it.name)+'<u>'+it.n+esc(C0.unit)+'</u></button>';});
+ if(cs)h+='<details class="wyl-cs"'+(calOpen?' open':'')+'><summary>'+esc(C0.follow)+'</summary><div class="wyl-ccs">'+cs+'</div><div class="wyl-ca"></div><p>'+esc(C0.feed?C0.followNote:C0.onceNote)+'</p></details>';
+ return h+'</div>';}
+var calOpen=false;
+root.addEventListener('toggle',function(e){if(e.target&&e.target.classList&&e.target.classList.contains('wyl-cs'))calOpen=e.target.open;},true);
+root.addEventListener('click',function(e){var p=e.target.closest&&e.target.closest('[data-wyl-cal]');if(p){e.preventDefault();calPick(p.getAttribute('data-wyl-cal'));return;}
+ var c=e.target.closest&&e.target.closest('[data-wyl-ics]');if(!c)return;e.preventDefault();
+ var k=c.getAttribute('data-wyl-ics'),up=upcoming();if(!up.length)return;
+ if(k==='one'){save(icsOf([up[0]],txOf(up[0].sr).name),CFG.live.file+'_'+up[0].x.k+'.ics',false);return;}
+ var list=k==='all'?up:up.filter(function(o){return o.sr===k.slice(3);});if(!list.length)return;
+ var nm=k==='all'?CFG.live.followAll:txOf(k.slice(3)).name;save(icsOf(list,CFG.live.calName+' · '+nm),CFG.live.file+'_'+nm+'.ics',true);});
 function live(){
  var now=Date.now(),up=upcoming(),door=$('.wyl-door--live',root),box=$('[data-wyl=live]',root);
  if(door&&box){
@@ -3156,7 +3216,7 @@ function live(){
      +'<div class="wyl-lm"><div class="wyl-lw"><b>'+esc(when(x))+'</b><span data-wyl="cd"></span></div>'
      +'<div class="wyl-lt"><span class="wyl-ls">'+esc(t.name)+'</span>'+esc(short(x))+'</div>'
      +(l?'<div class="wyl-ll">'+l+'</div>':'')+'</div>'
-     +'<div class="wyl-la"><a class="wyl-b pri" href="'+esc(x.go||'#sec-videos')+'" target="_blank" rel="noopener">'+esc(CFG.live.enter)+'</a><a class="wyl-b" href="#sec-videos">'+esc(CFG.live.all)+'</a></div>';}
+     +'<div class="wyl-la"><a class="wyl-b pri" href="'+esc(x.go||'#sec-videos')+'" target="_blank" rel="noopener">'+esc(CFG.live.enter)+'</a><a class="wyl-b" href="#sec-videos">'+esc(CFG.live.all)+'</a></div>'+calHTML(up,lv);calPick(curCal||o.sr);}
    var cd=$('[data-wyl=cd]',box);if(cd){var mins=Math.max(0,Math.floor((x.s-now)/60000));cd.textContent=lv?'':(mins>=1440?('還有 '+Math.floor(mins/1440)+' 天 '+Math.floor(mins%1440/60)+' 小時'):('還有 '+Math.floor(mins/60)+' 小時 '+(mins%60)+' 分'));}}}
  /* 書架卡：已首播幾品＋下一場（數字取自第 VIII 章的總覽卡，兩邊永遠一致） */
  $$('.wyl-bk[data-sr]',root).forEach(function(bk){var sr=bk.getAttribute('data-sr'),st=$('[data-wyl=st]',bk),hc=$('.vh-card[data-sr="'+sr+'"]');if(!st)return;
