@@ -1,0 +1,520 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//weiwen0925//premiere//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:首播共讀 · 坐禪三昧經
+X-WR-TIMEZONE:Asia/Taipei
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:zc-上-1-20261124@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261124T120000Z
+DTEND:20261124T124900Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第一品（上）
+ ・坐禪之前先看病
+DESCRIPTION:時間：11/24（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/kdJaphNRF5w\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-1
+URL:https://youtu.be/kdJaphNRF5w
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-1-20261204@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261204T120000Z
+DTEND:20261204T124400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第一品（下）
+ ・坐禪之前先看病
+DESCRIPTION:時間：12/4（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/I2JlpipW47Y\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-1
+URL:https://youtu.be/I2JlpipW47Y
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-2-20261208@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261208T120000Z
+DTEND:20261208T125300Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第二品・第一
+ 帖藥不淨觀
+DESCRIPTION:時間：12/8（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/8ZG23tFMas4\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-2
+URL:https://youtu.be/8ZG23tFMas4
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-3-20261215@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261215T120000Z
+DTEND:20261215T124600Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第三品・第二
+ 帖藥慈心觀
+DESCRIPTION:時間：12/15（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/Aj5_FAK-uQY\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-3
+URL:https://youtu.be/Aj5_FAK-uQY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-4-20261222@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261222T120000Z
+DTEND:20261222T123900Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第四品・第三
+ 帖藥因緣觀
+DESCRIPTION:時間：12/22（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/mOJd0yE-_F0\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-4
+URL:https://youtu.be/mOJd0yE-_F0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-5-20261229@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261229T120000Z
+DTEND:20261229T123500Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第五品（上）
+ ・數息與六覺
+DESCRIPTION:時間：12/29（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/s7wFMzpJOGk\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-5
+URL:https://youtu.be/s7wFMzpJOGk
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-5-20270105@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270105T120000Z
+DTEND:20270105T123500Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第五品（下）
+ ・正觀除欲瞋
+DESCRIPTION:時間：1/5（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/qwsuUbiV7RU\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-5
+URL:https://youtu.be/qwsuUbiV7RU
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-6-20270113@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270113T120000Z
+DTEND:20270113T123200Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第六品・除惱
+ 覺
+DESCRIPTION:時間：1/13（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/9FsGA48hnek\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-6
+URL:https://youtu.be/9FsGA48hnek
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-7-20270119@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270119T120000Z
+DTEND:20270119T124400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第七品・除親
+ 里覺國土覺
+DESCRIPTION:時間：1/19（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/4T66WZbcf-w\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-7
+URL:https://youtu.be/4T66WZbcf-w
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-8-20270126@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270126T120000Z
+DTEND:20270126T124200Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第八品・除不
+ 死覺
+DESCRIPTION:時間：1/26（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/9Bfn5t_mGYY\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-8
+URL:https://youtu.be/9Bfn5t_mGYY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-9-20270203@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270203T120000Z
+DTEND:20270203T124500Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第九品（上）
+ ・數息六門
+DESCRIPTION:時間：2/3（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/81ukK3e8TNQ\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-9
+URL:https://youtu.be/81ukK3e8TNQ
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-9-20270209@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270209T120000Z
+DTEND:20270209T124400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第九品（下）
+ ・十六分
+DESCRIPTION:時間：2/9（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/YBshGFsuCjo\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-9
+URL:https://youtu.be/YBshGFsuCjo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-10-20270216@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270216T120000Z
+DTEND:20270216T124000Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第十品・第五
+ 帖藥念佛三昧
+DESCRIPTION:時間：2/16（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/CEp9431VF5Y\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-10
+URL:https://youtu.be/CEp9431VF5Y
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-11-20270224@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270224T120000Z
+DTEND:20270224T124200Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第十一品（上
+ ）・念佛三昧
+DESCRIPTION:時間：2/24（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/x8fQmw8ILF4\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-11
+URL:https://youtu.be/x8fQmw8ILF4
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-上-11-20270303@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270303T120000Z
+DTEND:20270303T124800Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷上第十一品（下
+ ）・念佛三昧
+DESCRIPTION:時間：3/3（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/jx1wQZyat1g\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-11
+URL:https://youtu.be/jx1wQZyat1g
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-12-20270309@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270309T120000Z
+DTEND:20270309T125300Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第一品・離欲
+ 入禪・四禪階梯
+DESCRIPTION:時間：3/9（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/5vyvMZydnN0\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-12
+URL:https://youtu.be/5vyvMZydnN0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-13-20270318@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270318T120000Z
+DTEND:20270318T124700Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第二品・漸觀
+ 空處・定通慧
+DESCRIPTION:時間：3/18（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/g_2gzBGXFHU\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-13
+URL:https://youtu.be/g_2gzBGXFHU
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-14-20270323@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270323T120000Z
+DTEND:20270323T125400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第三品・無常
+ 、苦、不淨、無我・四念止
+DESCRIPTION:時間：3/23（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/LKmcllGYX5Y\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-14
+URL:https://youtu.be/LKmcllGYX5Y
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-15-20270330@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270330T120000Z
+DTEND:20270330T124000Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第四品（上）
+ ・作四法緣
+DESCRIPTION:時間：3/30（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/vbyYl7aFV-0\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-15
+URL:https://youtu.be/vbyYl7aFV-0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-15-20270407@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270407T120000Z
+DTEND:20270407T124200Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第四品（下）
+ ・作四法緣
+DESCRIPTION:時間：4/7（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/0GhrPkzumwY\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-15
+URL:https://youtu.be/0GhrPkzumwY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-16-20270413@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270413T120000Z
+DTEND:20270413T125100Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第五品・一來
+ 、不還、阿羅漢、辟支佛
+DESCRIPTION:時間：4/13（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/gUcpGkRUYCw\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-16
+URL:https://youtu.be/gUcpGkRUYCw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-17-20270420@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270420T120000Z
+DTEND:20270420T123800Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第六品・菩薩
+ 念佛三昧
+DESCRIPTION:時間：4/20（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/x0Cw05TgdQk\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-17
+URL:https://youtu.be/x0Cw05TgdQk
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-18-20270428@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270428T120000Z
+DTEND:20270428T124400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第七品・菩薩
+ 對治婬欲與瞋恚
+DESCRIPTION:時間：4/28（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/akXiQICDFBo\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-18
+URL:https://youtu.be/akXiQICDFBo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-19-20270504@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270504T120000Z
+DTEND:20270504T125000Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第八品・慈三
+ 昧門
+DESCRIPTION:時間：5/4（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/lrmcb09Ni3g\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-19
+URL:https://youtu.be/lrmcb09Ni3g
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-20-20270511@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270511T120000Z
+DTEND:20270511T123900Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第九品（上）
+ ・菩薩對治愚癡
+DESCRIPTION:時間：5/11（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/PTUp_XrcJso\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-20
+URL:https://youtu.be/PTUp_XrcJso
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-20-20270519@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270519T120000Z
+DTEND:20270519T124000Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第九品（下）
+ ・菩薩對治愚癡
+DESCRIPTION:時間：5/19（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/39uqgEj_Zw4\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-20
+URL:https://youtu.be/39uqgEj_Zw4
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-21-20270525@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270525T120000Z
+DTEND:20270525T123800Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第十品（上）
+ ・無常等觀名為正見
+DESCRIPTION:時間：5/25（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/QXAz7H-wYOk\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-21
+URL:https://youtu.be/QXAz7H-wYOk
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-21-20270603@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270603T120000Z
+DTEND:20270603T123800Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第十品（下）
+ ・無常等觀名為正見
+DESCRIPTION:時間：6/3（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/04uDBq59zng\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-21
+URL:https://youtu.be/04uDBq59zng
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-22-20270609@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270609T120000Z
+DTEND:20270609T124500Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第十一品（上
+ ）・菩薩禪法
+DESCRIPTION:時間：6/9（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/7eWwrI3WLps\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-22
+URL:https://youtu.be/7eWwrI3WLps
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zc-下-22-20270615@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270615T120000Z
+DTEND:20270615T123400Z
+SUMMARY:YouTube 首播共讀《坐禪三昧經》卷下第十一品（下
+ ）・菩薩禪法
+DESCRIPTION:時間：6/15（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/oysWs-yrZjQ\n讀本：https://weiwen0
+ 925.github.io/zuochan-sanmei-jing/#chapter-22
+URL:https://youtu.be/oysWs-yrZjQ
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+END:VCALENDAR

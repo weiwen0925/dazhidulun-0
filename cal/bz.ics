@@ -1,0 +1,138 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//weiwen0925//premiere//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:首播共讀 · 般舟三昧經
+X-WR-TIMEZONE:Asia/Taipei
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:bz-一-1-20261217@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261217T120000Z
+DTEND:20261217T123000Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》問事品第一
+DESCRIPTION:時間：12/17（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/oPqEAkJQmi4\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-1
+URL:https://youtu.be/oPqEAkJQmi4
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-2-20270117@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270117T120000Z
+DTEND:20270117T124300Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》行品第二
+DESCRIPTION:時間：1/17（日）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/AOZp4PBHKRw\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-2
+URL:https://youtu.be/AOZp4PBHKRw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-3-20270217@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270217T120000Z
+DTEND:20270217T122800Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》四事品第三
+DESCRIPTION:時間：2/17（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/qUqEgejXu8I\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-3
+URL:https://youtu.be/qUqEgejXu8I
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-4-20270317@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270317T120000Z
+DTEND:20270317T123600Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》譬喻品第四
+DESCRIPTION:時間：3/17（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/mvwK-mdiSRs\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-4
+URL:https://youtu.be/mvwK-mdiSRs
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-5-20270417@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270417T120000Z
+DTEND:20270417T123400Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》四輩品第五
+DESCRIPTION:時間：4/17（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/IhuLP4fJgZo\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-5
+URL:https://youtu.be/IhuLP4fJgZo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-6-20270517@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270517T120000Z
+DTEND:20270517T122900Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》擁護品第六
+DESCRIPTION:時間：5/17（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/5U8K9VvIwSQ\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-6
+URL:https://youtu.be/5U8K9VvIwSQ
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-7-20270617@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270617T120000Z
+DTEND:20270617T122900Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》勸助品第七
+DESCRIPTION:時間：6/17（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/trZxjk4DUOw\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-7
+URL:https://youtu.be/trZxjk4DUOw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:bz-一-8-20270717@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270717T120000Z
+DTEND:20270717T122800Z
+SUMMARY:YouTube 首播共讀《般舟三昧經》至誠品第八
+DESCRIPTION:時間：7/17（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/0cfBhNStr8o\n讀本：https://weiwen0
+ 925.github.io/pratyutpanna-samadhi-sutra/#ch-8
+URL:https://youtu.be/0cfBhNStr8o
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+END:VCALENDAR

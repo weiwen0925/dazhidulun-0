@@ -1,0 +1,180 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//weiwen0925//premiere//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:首播共讀 · 首楞嚴三昧經
+X-WR-TIMEZONE:Asia/Taipei
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:sl-上-11-20261114@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261114T120000Z
+DTEND:20261114T123300Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷上第十一品・
+ 神變示現
+DESCRIPTION:時間：11/14（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/FQyBDsigIqE\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-11
+URL:https://youtu.be/FQyBDsigIqE
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-上-12-20261118@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261118T120000Z
+DTEND:20261118T125200Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷上第十二品・
+ 無所得利
+DESCRIPTION:時間：11/18（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/BFVeIuzYdF8\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-12
+URL:https://youtu.be/BFVeIuzYdF8
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-13-20261121@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261121T120000Z
+DTEND:20261121T123100Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第一品・十
+ 二見縛
+DESCRIPTION:時間：11/21（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/V1B2oBXrn-E\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-13
+URL:https://youtu.be/V1B2oBXrn-E
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-14-20261125@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261125T120000Z
+DTEND:20261125T124200Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第二品・度
+ 魔因緣
+DESCRIPTION:時間：11/25（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/siYDpY9ilHo\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-14
+URL:https://youtu.be/siYDpY9ilHo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-15-20261128@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261128T120000Z
+DTEND:20261128T125300Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第三品・實
+ 相授記
+DESCRIPTION:時間：11/28（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/DY44wQLtOdA\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-15
+URL:https://youtu.be/DY44wQLtOdA
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-16-20261202@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261202T120000Z
+DTEND:20261202T122700Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第四品・施
+ 福平等
+DESCRIPTION:時間：12/2（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/ihDE3C63Wds\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-16
+URL:https://youtu.be/ihDE3C63Wds
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-17-20261205@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261205T120000Z
+DTEND:20261205T123300Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第五品・自
+ 在運化
+DESCRIPTION:時間：12/5（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/aD0bacEX6IY\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-17
+URL:https://youtu.be/aD0bacEX6IY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-18-20261209@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261209T120000Z
+DTEND:20261209T124100Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第六品・金
+ 剛實相
+DESCRIPTION:時間：12/9（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/i6Omj3l4bzU\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-18
+URL:https://youtu.be/i6Omj3l4bzU
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-19-20261212@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261212T120000Z
+DTEND:20261212T122800Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第七品・福
+ 田多聞
+DESCRIPTION:時間：12/12（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/rXJcPah-Zrw\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-19
+URL:https://youtu.be/rXJcPah-Zrw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sl-下-20-20261216@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261216T120000Z
+DTEND:20261216T123100Z
+SUMMARY:YouTube 首播共讀《首楞嚴三昧經》卷下第八品・問
+ 多聞品
+DESCRIPTION:時間：12/16（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/In437P6fcqY\n讀本：https://weiwen0
+ 925.github.io/surangama-samadhi-sutra/#chapter-20
+URL:https://youtu.be/In437P6fcqY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+END:VCALENDAR

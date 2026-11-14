@@ -1,0 +1,522 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//weiwen0925//premiere//ZH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:首播共讀 · 中論
+X-WR-TIMEZONE:Asia/Taipei
+REFRESH-INTERVAL;VALUE=DURATION:PT6H
+X-PUBLISHED-TTL:PT6H
+BEGIN:VEVENT
+UID:zl-1-3-20261201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20261201T120000Z
+DTEND:20261201T124700Z
+SUMMARY:YouTube 首播共讀《中論》觀六情品第三
+DESCRIPTION:時間：12/1（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/VNVxC0Kg1Cc\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-3
+URL:https://youtu.be/VNVxC0Kg1Cc
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-1-4-20270101@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270101T120000Z
+DTEND:20270101T124500Z
+SUMMARY:YouTube 首播共讀《中論》觀五陰品第四
+DESCRIPTION:時間：1/1（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/2j787oInyYY\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-4
+URL:https://youtu.be/2j787oInyYY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-1-5-20270201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270201T120000Z
+DTEND:20270201T124300Z
+SUMMARY:YouTube 首播共讀《中論》觀六種品第五
+DESCRIPTION:時間：2/1（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/bcUZdGzrRBA\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-5
+URL:https://youtu.be/bcUZdGzrRBA
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-6-20270302@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270302T120000Z
+DTEND:20270302T124400Z
+SUMMARY:YouTube 首播共讀《中論》觀染染者品第六
+DESCRIPTION:時間：3/2（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/C-dEFBz_QU8\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-6
+URL:https://youtu.be/C-dEFBz_QU8
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-7-20270401@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270401T120000Z
+DTEND:20270401T124200Z
+SUMMARY:YouTube 首播共讀《中論》觀三相品第七（上）
+DESCRIPTION:時間：4/1（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/NfCnYZzBxUQ\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-7
+URL:https://youtu.be/NfCnYZzBxUQ
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-7-20270501@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270501T120000Z
+DTEND:20270501T124300Z
+SUMMARY:YouTube 首播共讀《中論》觀三相品第七（下）
+DESCRIPTION:時間：5/1（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/MXkQ7z1RRHI\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-7
+URL:https://youtu.be/MXkQ7z1RRHI
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-8-20270601@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270601T120000Z
+DTEND:20270601T124200Z
+SUMMARY:YouTube 首播共讀《中論》觀作作者品第八
+DESCRIPTION:時間：6/1（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/5mqW6878EDo\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-8
+URL:https://youtu.be/5mqW6878EDo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-9-20270701@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270701T120000Z
+DTEND:20270701T124500Z
+SUMMARY:YouTube 首播共讀《中論》觀本住品第九
+DESCRIPTION:時間：7/1（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/7W0oorWdlKE\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-9
+URL:https://youtu.be/7W0oorWdlKE
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-10-20270802@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270802T120000Z
+DTEND:20270802T123900Z
+SUMMARY:YouTube 首播共讀《中論》觀燃可燃品第十（上）
+DESCRIPTION:時間：8/2（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/fxz4VZGcgU0\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-10
+URL:https://youtu.be/fxz4VZGcgU0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-10-20270901@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20270901T120000Z
+DTEND:20270901T124000Z
+SUMMARY:YouTube 首播共讀《中論》觀燃可燃品第十（下）
+DESCRIPTION:時間：9/1（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/uyB8X1_Z69U\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-10
+URL:https://youtu.be/uyB8X1_Z69U
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-11-20271001@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20271001T120000Z
+DTEND:20271001T123900Z
+SUMMARY:YouTube 首播共讀《中論》觀本際品第十一
+DESCRIPTION:時間：10/1（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/Ezy-FRwQlzM\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-11
+URL:https://youtu.be/Ezy-FRwQlzM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-12-20271101@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20271101T120000Z
+DTEND:20271101T124100Z
+SUMMARY:YouTube 首播共讀《中論》觀苦品第十二
+DESCRIPTION:時間：11/1（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/O1Yl4EZpLi4\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-12
+URL:https://youtu.be/O1Yl4EZpLi4
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-2-13-20271201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20271201T120000Z
+DTEND:20271201T124300Z
+SUMMARY:YouTube 首播共讀《中論》觀行品第十三
+DESCRIPTION:時間：12/1（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/dhl4icYOyDw\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-13
+URL:https://youtu.be/dhl4icYOyDw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-14-20280102@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280102T120000Z
+DTEND:20280102T124100Z
+SUMMARY:YouTube 首播共讀《中論》觀合品第十四
+DESCRIPTION:時間：1/2（日）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/C4j5Vu7PKCA\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-14
+URL:https://youtu.be/C4j5Vu7PKCA
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-15-20280201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280201T120000Z
+DTEND:20280201T124000Z
+SUMMARY:YouTube 首播共讀《中論》觀有無品第十五
+DESCRIPTION:時間：2/1（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/9PVh1mb6GEA\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-15
+URL:https://youtu.be/9PVh1mb6GEA
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-16-20280302@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280302T120000Z
+DTEND:20280302T124100Z
+SUMMARY:YouTube 首播共讀《中論》觀縛解品第十六
+DESCRIPTION:時間：3/2（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/vMrdRxbGJNo\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-16
+URL:https://youtu.be/vMrdRxbGJNo
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-17-20280401@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280401T120000Z
+DTEND:20280401T123800Z
+SUMMARY:YouTube 首播共讀《中論》觀業品第十七（上）
+DESCRIPTION:時間：4/1（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/2VULqBJqTcU\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-17
+URL:https://youtu.be/2VULqBJqTcU
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-17-20280501@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280501T120000Z
+DTEND:20280501T123800Z
+SUMMARY:YouTube 首播共讀《中論》觀業品第十七（下）
+DESCRIPTION:時間：5/1（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/L_Kp91pDdJM\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-17
+URL:https://youtu.be/L_Kp91pDdJM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-18-20280601@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280601T120000Z
+DTEND:20280601T125000Z
+SUMMARY:YouTube 首播共讀《中論》觀法品第十八
+DESCRIPTION:時間：6/1（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/h7PhaF5aPVw\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-18
+URL:https://youtu.be/h7PhaF5aPVw
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-19-20280701@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280701T120000Z
+DTEND:20280701T123600Z
+SUMMARY:YouTube 首播共讀《中論》觀時品第十九
+DESCRIPTION:時間：7/1（六）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/Xn0_j5if0GI\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-19
+URL:https://youtu.be/Xn0_j5if0GI
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-20-20280802@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280802T120000Z
+DTEND:20280802T123700Z
+SUMMARY:YouTube 首播共讀《中論》觀因果品第二十（上）
+DESCRIPTION:時間：8/2（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/KR8LzKkKBrs\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-20
+URL:https://youtu.be/KR8LzKkKBrs
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-20-20280901@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20280901T120000Z
+DTEND:20280901T123800Z
+SUMMARY:YouTube 首播共讀《中論》觀因果品第二十（下）
+DESCRIPTION:時間：9/1（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/CAaguiypHGI\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-20
+URL:https://youtu.be/CAaguiypHGI
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-21-20281001@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20281001T120000Z
+DTEND:20281001T123300Z
+SUMMARY:YouTube 首播共讀《中論》觀成壞品第二十一（上）
+DESCRIPTION:時間：10/1（日）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/DkLFpm5eFUY\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-21
+URL:https://youtu.be/DkLFpm5eFUY
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-3-21-20281101@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20281101T120000Z
+DTEND:20281101T123500Z
+SUMMARY:YouTube 首播共讀《中論》觀成壞品第二十一（下）
+DESCRIPTION:時間：11/1（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/bo-_9EcNXF0\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-21
+URL:https://youtu.be/bo-_9EcNXF0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-22-20281201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20281201T120000Z
+DTEND:20281201T124500Z
+SUMMARY:YouTube 首播共讀《中論》觀如來品第二十二
+DESCRIPTION:時間：12/1（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/GQedHoZpbcM\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-22
+URL:https://youtu.be/GQedHoZpbcM
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-23-20290102@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290102T120000Z
+DTEND:20290102T125100Z
+SUMMARY:YouTube 首播共讀《中論》觀顛倒品第二十三
+DESCRIPTION:時間：1/2（二）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/G5wQTbRwpxk\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-23
+URL:https://youtu.be/G5wQTbRwpxk
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-24-20290201@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290201T120000Z
+DTEND:20290201T124600Z
+SUMMARY:YouTube 首播共讀《中論》觀四諦品第二十四（上）
+DESCRIPTION:時間：2/1（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/r0c703LD3sc\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-24
+URL:https://youtu.be/r0c703LD3sc
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-24-20290301@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290301T120000Z
+DTEND:20290301T124600Z
+SUMMARY:YouTube 首播共讀《中論》觀四諦品第二十四（下）
+DESCRIPTION:時間：3/1（四）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/LDA5vThnQtI\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-24
+URL:https://youtu.be/LDA5vThnQtI
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-25-20290402@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290402T120000Z
+DTEND:20290402T125000Z
+SUMMARY:YouTube 首播共讀《中論》觀涅槃品第二十五
+DESCRIPTION:時間：4/2（一）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/xh5Uca5ER9s\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-25
+URL:https://youtu.be/xh5Uca5ER9s
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-26-20290502@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290502T120000Z
+DTEND:20290502T123600Z
+SUMMARY:YouTube 首播共讀《中論》觀十二因緣品第二十六
+DESCRIPTION:時間：5/2（三）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/LFmC2ZPGM0k\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-26
+URL:https://youtu.be/LFmC2ZPGM0k
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-27-20290601@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290601T120000Z
+DTEND:20290601T124300Z
+SUMMARY:YouTube 首播共讀《中論》觀邪見品第二十七（上）
+DESCRIPTION:時間：6/1（五）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/qcDRgcosgb0\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-27
+URL:https://youtu.be/qcDRgcosgb0
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zl-4-27-20290701@weiwen0925.github.io
+DTSTAMP:20261114T010320Z
+DTSTART:20290701T120000Z
+DTEND:20290701T124600Z
+SUMMARY:YouTube 首播共讀《中論》觀邪見品第二十七（下）
+DESCRIPTION:時間：7/1（日）晚上八點（台北時間）YouTube 
+ 首播\nYouTube：https://youtu.be/zvcZL9p0Mjg\n讀本：https://weiwen0
+ 925.github.io/nagarjuna-mulamadhyamakakarika/#chapter-27
+URL:https://youtu.be/zvcZL9p0Mjg
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:首播共讀：半小時後開始
+END:VALARM
+END:VEVENT
+END:VCALENDAR
