@@ -11846,5 +11846,60 @@ function all(){paint();idx();more();}
 all();setTimeout(all,1200);setTimeout(all,4000);setInterval(all,60000);
 })();
 </script><!--/WY-SKIN2-->
+<!-- WY-DEPTH:BEGIN v1 -->
+<style>/* WY-DEPTH v1：景深層——卡片浮起、托盤下沉、朱印有厚度、按鈕可按；只加陰影、高光與位移，不改顏色與排版 */
+:root{--wd-hi:inset 0 1px 0 rgba(255,244,220,.16),inset 0 26px 30px -28px rgba(255,244,220,.13);--wd-lo:inset 0 -18px 26px -20px rgba(0,0,0,.66);--wd-edge:0 1px 0 rgba(var(--ac-rgb,217,184,124),.22),0 4px 0 -1px rgba(10,8,6,.92),0 5px 0 -1px rgba(var(--ac-rgb,217,184,124),.14);--wd-amb:0 6px 9px -3px rgba(0,0,0,.6);--wd-key:0 28px 40px -22px rgba(0,0,0,.98);--wd-far:0 52px 70px -44px rgba(0,0,0,.85);}
+/* ── 浮起的卡：上緣一道受光、下緣內收、近影＋遠影 */
+html body .wyl-door,html body .wyl-bk,html body .vh-card,html body .vh-next,html body .sg-card,html body .zlv-card:not(.is-next),html.wyl-on body .section-title.wyl-shut,html body .wyl-iv{box-shadow:var(--wd-hi),var(--wd-lo),var(--wd-edge),var(--wd-amb),var(--wd-key);}
+html body .wyl-door,html body .vh-next{box-shadow:var(--wd-hi),var(--wd-lo),var(--wd-edge),var(--wd-amb),var(--wd-key),var(--wd-far);}
+html body .wyl-iv{box-shadow:var(--wd-hi),0 1px 3px rgba(0,0,0,.5),0 10px 16px -12px rgba(0,0,0,.9);}
+html body .wyl-bk,html body .vh-card,html body .sg-card,html body .zlv-card{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .25s ease;transform-style:preserve-3d;will-change:auto;}
+html body .wyl-bk:hover,html body .vh-card:hover,html body .sg-card:hover{transform:translateY(-7px);box-shadow:var(--wd-hi),var(--wd-lo),var(--wd-edge),0 8px 10px -2px rgba(0,0,0,.6),0 34px 46px -26px rgba(0,0,0,.98),0 0 0 1px rgba(var(--ac-rgb,217,184,124),.38),0 22px 44px -20px rgba(var(--ac-rgb,217,184,124),.30);}
+html body .zlv-card:hover{transform:translateY(-5px);}
+html.wy3d body .wy-tilt,html.wy3d body .wy-tilt:hover{transform:perspective(1000px) rotateX(var(--wd-rx,0deg)) rotateY(var(--wd-ry,0deg)) translateY(-6px);transition:transform .12s ease-out,box-shadow .28s ease,border-color .25s ease;}
+/* 卡上受光：跟著游標移動的一小片亮 */
+html.wy3d body .wy-tilt{background-image:radial-gradient(260px 200px at var(--wd-mx,50%) var(--wd-my,0%),rgba(255,244,220,.085),transparent 70%),var(--wd-bg,none);}
+/* ── 影片區外框：整塊托起；目次籤是嵌進去的一格 */
+html body section.zlv [class$="-frame"]{box-shadow:inset 0 1px 0 rgba(255,244,220,.09),inset 0 -30px 50px -40px rgba(0,0,0,.7),0 40px 80px -40px rgba(0,0,0,.95),0 6px 14px -6px rgba(0,0,0,.6);}
+html body section.zlv [class$="-toc"],html body .vh-bar,html body .wyl-find input:not(:focus){box-shadow:inset 0 2px 7px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,0,0,.25),0 1px 0 rgba(255,244,220,.06);}
+html body .vh-bar{box-shadow:inset 0 1px 3px rgba(0,0,0,.7),0 1px 0 rgba(255,244,220,.05);}
+html body section.zlv [class$="-chip"].is-done,html body section.zlv [class$="-chip"].is-pend,html body section.zlv [class$="-chip"].is-next{box-shadow:inset 0 1px 0 rgba(255,244,220,.10),0 2px 4px -1px rgba(0,0,0,.6);}
+html body section.zlv [class$="-chip"].is-next{box-shadow:inset 0 1px 0 rgba(255,244,220,.16),0 0 0 3px rgba(227,192,133,.14),0 8px 16px -8px rgba(227,192,133,.7);}
+html body section.zlv [class$="-chip"]:active{transform:translateY(1px);box-shadow:inset 0 2px 5px rgba(0,0,0,.6);}
+html body section.zlv [class$="-vol"]{box-shadow:inset 0 1px 0 rgba(255,244,220,.10),inset 0 -22px 30px -24px rgba(0,0,0,.7),0 18px 30px -20px rgba(0,0,0,.95);}
+/* 縮圖像嵌在卡裡的一塊板 */
+html body .zlv-thumb{box-shadow:inset 0 0 0 1px rgba(0,0,0,.35),0 8px 14px -10px rgba(0,0,0,.9);}
+html body .vh-next-th,html body .wyl-lth{box-shadow:0 2px 0 rgba(255,244,220,.05),0 18px 28px -16px rgba(0,0,0,.95),0 3px 6px -2px rgba(0,0,0,.6);}
+/* ── 朱印：疊出厚度 */
+html body .wyl-seal,html body .vh-seal,html body section.zlv [class$="-seal"]{box-shadow:inset 0 0 0 2px rgba(251,233,220,.32),inset 0 1px 0 rgba(255,220,200,.35),0 1px 0 #8d3525,0 2px 0 #7a2d1f,0 3px 0 #65241a,0 4px 0 #521d15,0 12px 14px -6px rgba(0,0,0,.75);}
+/* ── 按鈕：圓鈕有邊、按下去會沉 */
+html body .wyl-b,html body .vh-btn,html body .zlv-read,html body .wyl-chip,html body .wyl-tab{box-shadow:inset 0 1px 0 rgba(255,244,220,.13),inset 0 -8px 12px -10px rgba(0,0,0,.55),0 2px 4px -1px rgba(0,0,0,.6),0 8px 14px -10px rgba(0,0,0,.8);transition:transform .15s ease,box-shadow .15s ease,background .2s,border-color .2s,filter .2s;}
+html body .wyl-b:hover,html body .vh-btn:hover,html body .zlv-read:hover,html body .wyl-chip:hover{transform:translateY(-1.5px);box-shadow:inset 0 1px 0 rgba(255,244,220,.18),inset 0 -8px 12px -10px rgba(0,0,0,.5),0 4px 7px -2px rgba(0,0,0,.65),0 14px 20px -12px rgba(0,0,0,.85);}
+html body .wyl-b:active,html body .vh-btn:active,html body .zlv-read:active,html body .wyl-chip:active{transform:translateY(1px);box-shadow:inset 0 2px 6px rgba(0,0,0,.6),0 1px 0 rgba(255,244,220,.05);}
+html body .wyl-b.pri,html body .vh-btn.pri{box-shadow:inset 0 1px 0 rgba(255,244,220,.45),inset 0 -10px 14px -10px rgba(60,24,10,.55),0 3px 0 rgba(90,44,26,.9),0 12px 18px -8px rgba(0,0,0,.85);}
+html body .wyl-b.pri:active,html body .vh-btn.pri:active{transform:translateY(3px);box-shadow:inset 0 2px 6px rgba(60,24,10,.6),0 0 0 rgba(0,0,0,0);}
+/* ── 標題字：一點刻痕與微光 */
+html body .wyl-title,html body .section-title h2,html body .sg-title,html body .hero h1{text-shadow:0 1px 0 rgba(0,0,0,.75),0 2px 3px rgba(0,0,0,.5),0 0 26px rgba(217,184,124,.16);}
+html body .vh-name,html body .wyl-bkn,html body .wyl-dh,html body .vh-big,html body .vh-next-w b{text-shadow:0 1px 0 rgba(0,0,0,.7),0 2px 6px rgba(0,0,0,.45);}
+/* 卡片底紋的大字往後退一層 */
+html body .wyl-door::after,html body .vh-card::after,html body .wyl-bk::after{text-shadow:0 2px 0 rgba(0,0,0,.25),0 -1px 0 rgba(255,244,220,.03);}
+@media(max-width:640px){html body .wyl-bk:hover,html body .vh-card:hover,html body .sg-card:hover,html body .zlv-card:hover{transform:none;}}
+@media(prefers-reduced-motion:reduce){html body .wyl-bk,html body .vh-card,html body .sg-card,html body .zlv-card,html body .wyl-b,html body .vh-btn,html body .zlv-read,html body .wyl-chip{transition:none;}html body .wyl-bk:hover,html body .vh-card:hover,html body .sg-card:hover,html body .zlv-card:hover,html body .wyl-b:hover,html body .vh-btn:hover{transform:none;}}</style>
+<script>/* WY-DEPTH v1：滑鼠移到卡片上時，卡片朝游標微微傾斜（最多約 5 度）並帶一片受光；觸控裝置與「減少動態效果」時不啟用 */
+(function(){if(window.__wyDepth)return;window.__wyDepth=1;
+var mm=window.matchMedia;if(!mm||!mm('(hover:hover) and (pointer:fine)').matches||mm('(prefers-reduced-motion:reduce)').matches)return;
+document.documentElement.classList.add('wy3d');
+var SEL='.wyl-bk,.vh-card,.sg-card,.zlv-card',cur=null,raf=0,ev=null,MAX=5;
+function off(){if(!cur)return;cur.classList.remove('wy-tilt');cur.style.removeProperty('--wd-rx');cur.style.removeProperty('--wd-ry');cur.style.removeProperty('--wd-mx');cur.style.removeProperty('--wd-my');cur.style.removeProperty('--wd-bg');cur=null;}
+function paint(){raf=0;if(!cur||!ev)return;var r=cur.getBoundingClientRect();if(!r.width||!r.height)return;
+ var x=Math.min(1,Math.max(0,(ev.clientX-r.left)/r.width)),y=Math.min(1,Math.max(0,(ev.clientY-r.top)/r.height));
+ cur.style.setProperty('--wd-ry',((x-.5)*2*MAX).toFixed(2)+'deg');cur.style.setProperty('--wd-rx',((.5-y)*2*MAX*.8).toFixed(2)+'deg');
+ cur.style.setProperty('--wd-mx',(x*100).toFixed(1)+'%');cur.style.setProperty('--wd-my',(y*100).toFixed(1)+'%');}
+document.addEventListener('pointermove',function(e){if(e.pointerType&&e.pointerType!=='mouse')return;var c=e.target&&e.target.closest?e.target.closest(SEL):null;
+ if(c!==cur){off();if(c){cur=c;try{c.style.setProperty('--wd-bg',getComputedStyle(c).backgroundImage);}catch(x){}c.classList.add('wy-tilt');}}
+ ev=e;if(cur&&!raf)raf=requestAnimationFrame(paint);},{passive:true});
+document.addEventListener('pointerleave',off,true);window.addEventListener('blur',off);window.addEventListener('scroll',function(){if(cur)off();},{passive:true,capture:true});
+})();</script>
+<!-- WY-DEPTH:END -->
 </body>
 </html>
